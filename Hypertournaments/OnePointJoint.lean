@@ -73,4 +73,51 @@ theorem exists_joint_embedding
       rw [rightJointInclusion_new]
       exact congrArg Fin.val (Fin.Embedding.snoc_last (x := i) (ha := hnot))
 
+/-- Once different new points are assumed, ordinary AP can be
+refuted on the canonical finite union with a+2 vertices. -/
+theorem not_hasAP_of_no_joint
+    {n a : ℕ} {S : Set ℕ}
+    (A : Hyper n (Fin a))
+    (L R : Hyper n (Fin (a + 1)))
+    (hA : Admissible S A) (hL : Admissible S L)
+    (hR : Admissible S R)
+    (hAL : Preserves A L (onePointBaseEmbedding a))
+    (hAR : Preserves A R (onePointBaseEmbedding a))
+    (hdisagree : ∃ t : Fin n ↪ Fin (a + 1),
+      L.orient t ≠ R.orient t)
+    (hNoJoint :
+      ∀ (E : Hyper n (Fin (a + 2))),
+        Admissible S E →
+        Preserves L E (leftJointInclusion a) →
+        Preserves R E (rightJointInclusion a) → False) :
+    ¬ HasAP n S := by
+  apply not_hasAP_of_onePoint_no_distinct
+    A L R hA hL hR hAL hAR hdisagree
+  intro d D i j hD hi hj hbase hdistinct
+  obtain ⟨h, hleft, hright⟩ :=
+    exists_joint_embedding a d i j hbase hdistinct
+  let E : Hyper n (Fin (a + 2)) := D.pullback h
+  have hE : Admissible S E := admissible_pullback D h hD
+  have hEL : Preserves L E (leftJointInclusion a) := by
+    intro t
+    change D.orient ((t.trans (leftJointInclusion a)).trans h) =
+      L.orient t
+    have ht :
+        (t.trans (leftJointInclusion a)).trans h = t.trans i := by
+      ext x
+      exact congrArg Fin.val (DFunLike.congr_fun hleft (t x))
+    rw [ht]
+    exact hi t
+  have hER : Preserves R E (rightJointInclusion a) := by
+    intro t
+    change D.orient ((t.trans (rightJointInclusion a)).trans h) =
+      R.orient t
+    have ht :
+        (t.trans (rightJointInclusion a)).trans h = t.trans j := by
+      ext x
+      exact congrArg Fin.val (DFunLike.congr_fun hright (t x))
+    rw [ht]
+    exact hj t
+  exact hNoJoint E hE hEL hER
+
 end Hypertournaments
