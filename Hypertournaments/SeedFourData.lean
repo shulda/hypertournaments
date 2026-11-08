@@ -73,10 +73,18 @@ def seed4Right : Hyper 4 (Fin 8) :=
 /-- A computational check of the embedding API and old signs. -/
 theorem seed4_base_left : Preserves seed4Base seed4Left
     (onePointBaseEmbedding 7) := by
+  letI : Fintype (Fin 4 ↪ Fin 7) :=
+    Fintype.ofEquiv
+      { f : Fin 4 → Fin 7 // Function.Injective f }
+      (Equiv.subtypeInjectiveEquivEmbedding (Fin 4) (Fin 7))
   decide
 
 theorem seed4_base_right : Preserves seed4Base seed4Right
     (onePointBaseEmbedding 7) := by
+  letI : Fintype (Fin 4 ↪ Fin 7) :=
+    Fintype.ofEquiv
+      { f : Fin 4 → Fin 7 // Function.Injective f }
+      (Equiv.subtypeInjectiveEquivEmbedding (Fin 4) (Fin 7))
   decide
 
 end Hypertournaments
