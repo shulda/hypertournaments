@@ -22,6 +22,7 @@ jobs:
         uses: actions/cache@v5
         with:
           path: ~/.elan/toolchains
+          save-always: true
           key: lean-toolchain-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain') }}
       - name: Install elan
         run: |
@@ -34,6 +35,19 @@ jobs:
             echo "Unfinished proof or custom axiom found."
             exit 1
           fi
+      - name: Install pinned Lean with retries
+        shell: bash
+        run: |
+          for attempt in 1 2 3 4 5; do
+            if elan toolchain install leanprover/lean4:v4.34.1; then
+              break
+            fi
+            if [ "$attempt" = 5 ]; then
+              echo "Lean toolchain download failed after five attempts"
+              exit 1
+            fi
+            sleep $((attempt * 5))
+          done
       - name: Resolve pinned Mathlib dependencies
         run: lake update
       - name: Build and audit Lean project
