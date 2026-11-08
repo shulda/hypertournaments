@@ -56,3 +56,4 @@ import Hypertournaments.TwoPadMixedSlice
 import Hypertournaments.TwoPadProfileChoice
 import Hypertournaments.CanonicalPadJoint
 import Hypertournaments.TwoPadNaturality
+import Hypertournaments.TwoPadCommutingSquare
