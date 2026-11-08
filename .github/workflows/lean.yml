@@ -56,13 +56,14 @@ jobs:
           echo "$(dirname "$(elan which lean)")" >> "$GITHUB_PATH"
       - name: Resolve pinned Mathlib dependencies
         run: lake update
-      - name: Build and audit Lean project
-        uses: leanprover/lean-action@f061402b660e0c34644504b324e830f2991d4865 # v1.6.1
-        with:
-          auto-config: false
-          build: true
-          use-github-cache: false
-          use-mathlib-cache: true
-          axiom-audit: true
-          axiom-audit-root: Hypertournaments
-          axiom-audit-allow: propext,Classical.choice,Quot.sound
+      - name: Download precompiled Mathlib cache
+        run: lake exe cache get
+      - name: Kernel-check all Lean modules
+        run: lake build
+      - name: Audit exported declarations
+        run: |
+          lake env lean Hypertournaments/AxiomAudit.lean | tee /tmp/axioms.log
+          if grep -E 'sorryAx|unknown axiom|unexpected axiom' /tmp/axioms.log; then
+            echo "Unexpected axiom in proof output"
+            exit 1
+          fi
