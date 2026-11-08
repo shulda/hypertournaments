@@ -148,3 +148,9 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.twoPadLiftPerm_one
 #print axioms Hypertournaments.twoPadLiftPerm_old
 #print axioms Hypertournaments.twoPadLiftPerm_sign
+#print axioms Hypertournaments.boolPacketPositiveCount_eq_sum
+#print axioms Hypertournaments.boolPacketPositiveCount_cons
+#print axioms Hypertournaments.boolPacketPositiveCount_two_cons
+#print axioms Hypertournaments.boolPacketPositiveCount_opposite
+#print axioms Hypertournaments.boolPacketPositiveCount_le
+#print axioms Hypertournaments.boolPacketMinority_two_opposite
