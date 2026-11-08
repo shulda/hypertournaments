@@ -223,19 +223,19 @@ four-hypertournament source table (here the canonical shifting map
 sends original vertex i to new vertex i+1). -/
 theorem seed5Cone_base_star :
     ∀ Q : Finset (Fin 7), Q.card = 4 →
-      seed5ConeBaseSigns ((Q.image (Fin.succ : Fin 7 → Fin 8)).insert 0) =
+      seed5ConeBaseSigns (insert 0 (Q.image (Fin.succ : Fin 7 → Fin 8))) =
         seed4BaseSigns Q := by
   decide +kernel
 
 theorem seed5Cone_left_star :
     ∀ Q : Finset (Fin 8), Q.card = 4 →
-      seed5ConeLeftSigns ((Q.image (Fin.succ : Fin 8 → Fin 9)).insert 0) =
+      seed5ConeLeftSigns (insert 0 (Q.image (Fin.succ : Fin 8 → Fin 9))) =
         seed4LeftSigns Q := by
   decide +kernel
 
 theorem seed5Cone_right_star :
     ∀ Q : Finset (Fin 8), Q.card = 4 →
-      seed5ConeRightSigns ((Q.image (Fin.succ : Fin 8 → Fin 9)).insert 0) =
+      seed5ConeRightSigns (insert 0 (Q.image (Fin.succ : Fin 8 → Fin 9))) =
         seed4RightSigns Q := by
   decide +kernel
 
