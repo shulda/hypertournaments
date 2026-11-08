@@ -31,3 +31,4 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.shiftedAllowed_switching_two_choices
 #print axioms Hypertournaments.not_hasAP_of_onePoint_no_distinct
 #print axioms Hypertournaments.odd_exception_reduced_to_toggle
+#print axioms Hypertournaments.arityFour_central_seed_rules_unsatisfiable
