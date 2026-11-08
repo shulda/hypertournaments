@@ -31,7 +31,6 @@ theorem boolPacketPositiveCount_eq_sum
   unfold boolPacketPositiveCount
   simp only [Finset.card_eq_sum_ones]
   rw [← Finset.sum_filter]
-  simp
 
 /-- The positive count of a packet with a new first facet. -/
 theorem boolPacketPositiveCount_cons
@@ -59,7 +58,7 @@ theorem boolPacketPositiveCount_opposite
     boolPacketPositiveCount (Fin.cons a (Fin.cons b bits)) =
       boolPacketPositiveCount bits + 1 := by
   rw [boolPacketPositiveCount_two_cons]
-  cases a <;> cases b <;> simp_all
+  cases a <;> cases b <;> simp_all <;> omega
 
 /-- A Boolean packet's count is bounded by the number of facets. -/
 theorem boolPacketPositiveCount_le
