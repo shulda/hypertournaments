@@ -182,3 +182,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.canonicalPadToJoint_not_mem_old
 #print axioms Hypertournaments.canonicalOld_left_commutes
 #print axioms Hypertournaments.canonicalOld_right_commutes
+#print axioms Hypertournaments.twoPad_not_mem_range_after_embedding
+#print axioms Hypertournaments.twoPadSliceTuple_natural

@@ -58,3 +58,4 @@ import Hypertournaments.OnePointNonmixedAdmissible
 import Hypertournaments.TwoPadProfileChoice
 import Hypertournaments.TwoPadJointReflection
 import Hypertournaments.CanonicalPadJoint
+import Hypertournaments.TwoPadNaturality
