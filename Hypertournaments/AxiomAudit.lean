@@ -105,3 +105,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.seed5Two_mixed_boolean_unsat
 #print axioms Hypertournaments.seed5TwoMixedAllowed_iff_rule
 #print axioms Hypertournaments.seed5TwoMixedRule_of_admissible
+#print axioms Hypertournaments.seed5Two_no_joint
+#print axioms Hypertournaments.seed5Two_disagreement
+#print axioms Hypertournaments.seed5Two_not_hasAP
