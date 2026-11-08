@@ -29,3 +29,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.negative_classification_of_dependencies
 #print axioms Hypertournaments.shiftedAllowed_switching
 #print axioms Hypertournaments.shiftedAllowed_switching_two_choices
+#print axioms Hypertournaments.not_hasAP_of_onePoint_no_distinct
+#print axioms Hypertournaments.odd_exception_reduced_to_toggle

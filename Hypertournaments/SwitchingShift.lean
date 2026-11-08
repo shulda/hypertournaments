@@ -87,4 +87,20 @@ theorem shiftedAllowed_switching_two_choices
                        else d ∈ switchingAllowed (n + 2))
       simp [hd, shiftedAllowed_switching_positive n S hshift d (Nat.pos_of_ne_zero hd)]
 
+/-- The general odd-arity exceptional obligation reduces to the
+single class obtained from switching by toggling the homogeneous
+type. This makes the eventual proof input match the concrete
+arithmetic families in the mathematical note. -/
+theorem odd_exception_reduced_to_toggle
+    (n : ℕ) (S : Set ℕ)
+    (hshift : shiftedAllowed S = switchingAllowed n)
+    (hnot : S ≠ switchingAllowed (n + 2))
+    (htoggle : ¬ HasAP (n + 2)
+      (toggleZero (switchingAllowed (n + 2)))) :
+    ¬ HasAP (n + 2) S := by
+  rcases shiftedAllowed_switching_two_choices n S hshift with hsame | htoggled
+  · exact False.elim (hnot hsame)
+  · rw [htoggled]
+    exact htoggle
+
 end Hypertournaments
