@@ -41,11 +41,12 @@ theorem admissible_four_of_canonical_set
     have hx := congrFun hsorted (τ.symm x)
     exact congrArg Fin.val (by simpa [Function.comp_apply] using hx.symm)
   have hg : localIndex A g.toEmbedding ∈ S := h Q hQ
-  calc
-    localIndex A f =
-        localIndex A (τ.symm.toEmbedding.trans g.toEmbedding) := by rw [hreorder]
-    _ = localIndex A g.toEmbedding := localIndex_perm4 A g.toEmbedding τ.symm
-    _ ∈ S := hg
+  have heq : localIndex A f = localIndex A g.toEmbedding := by
+    calc
+      localIndex A f =
+          localIndex A (τ.symm.toEmbedding.trans g.toEmbedding) := by rw [hreorder]
+      _ = localIndex A g.toEmbedding := localIndex_perm4 A g.toEmbedding τ.symm
+  exact heq ▸ hg
 
 /-- Any direct finite-set verifier whose rank-based local types
 belong to S certifies ordinary admissibility for all injective
@@ -55,9 +56,9 @@ theorem fromOrderedSigns_admissible_of_direct
     (h : ∀ Q : Finset (Fin k), Q.card = 5 →
       min (directFacetPositiveCount signs Q)
           (5 - directFacetPositiveCount signs Q) ∈ S) :
-    Admissible S (Hyper.fromOrderedSigns signs) := by
+    Admissible S (Hyper.fromOrderedSigns (n := 4) signs) := by
   apply admissible_four_of_canonical_set
-    (Hyper.fromOrderedSigns signs) S
+    (Hyper.fromOrderedSigns (n := 4) signs) S
   intro Q hQ
   rw [localIndex_ordered_sign,
     ← directCount_eq_increasingPacket signs Q hQ]
