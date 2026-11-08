@@ -51,7 +51,10 @@ theorem Hyper.orient_perm {n : ℕ} {V : Type u}
     A.orient (σ.toEmbedding.trans f) =
       if σ.sign = (1 : ℤˣ) then A.orient f else !(A.orient f) := by
   refine Equiv.Perm.swap_induction_on' σ ?_ ?_
-  · simp
+  · have h : ((1 : Equiv.Perm (Fin n)).toEmbedding.trans f) = f := by
+      ext x
+      rfl
+    simp [h]
   · intro τ i j hij ih
     have hswap := A.swap_flip (τ.toEmbedding.trans f) i j hij
     have hcomp :
