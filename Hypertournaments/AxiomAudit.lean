@@ -27,3 +27,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.coboundary_coboundary_zero
 #print axioms Hypertournaments.negativeGoal_all
 #print axioms Hypertournaments.negative_classification_of_dependencies
+#print axioms Hypertournaments.shiftedAllowed_switching
+#print axioms Hypertournaments.shiftedAllowed_switching_two_choices

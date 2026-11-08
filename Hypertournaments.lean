@@ -6,3 +6,4 @@ import Hypertournaments.Identification
 import Hypertournaments.Cochain
 import Hypertournaments.DoubleCoboundary
 import Hypertournaments.NegativeReduction
+import Hypertournaments.SwitchingShift
