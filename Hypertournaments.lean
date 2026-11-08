@@ -54,3 +54,4 @@ import Hypertournaments.TwoPadDefect
 import Hypertournaments.TwoPadIndexShift
 import Hypertournaments.TwoPadMixedSlice
 import Hypertournaments.TwoPadProfileChoice
+import Hypertournaments.TwoPadJointReflection
