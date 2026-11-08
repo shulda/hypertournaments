@@ -32,3 +32,6 @@ import Hypertournaments.AdjacentPacketFive
 import Hypertournaments.AdjacentSignFive
 import Hypertournaments.LocalTypeInvariantFive
 import Hypertournaments.SeedFiveAdmissible
+
+import Hypertournaments.GeneralDirectPacket
+import Hypertournaments.SeedFiveTwoData
