@@ -47,3 +47,4 @@ import Hypertournaments.SeedFiveConeData
 import Hypertournaments.SeedFiveConePacketBridge
 import Hypertournaments.SeedFiveConeNoAmalgam
 import Hypertournaments.SeedFiveClassification
+import Hypertournaments.TwoPadProfiles
