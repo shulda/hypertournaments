@@ -171,3 +171,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.facet_twoPadSliceTuple_one
 #print axioms Hypertournaments.exists_matchingOnePadProfiles
 #print axioms Hypertournaments.exists_matchingTwoPadFacets
+#print axioms Hypertournaments.exists_admissible_twoPadSlice_of_many_pads
+#print axioms Hypertournaments.exists_lower_onePoint_joint_of_many_pads
+#print axioms Hypertournaments.no_higher_joint_of_many_pads_and_recovery
