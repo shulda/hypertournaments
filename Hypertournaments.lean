@@ -8,3 +8,4 @@ import Hypertournaments.DoubleCoboundary
 import Hypertournaments.NegativeReduction
 import Hypertournaments.SwitchingShift
 import Hypertournaments.SeedFourLogic
+import Hypertournaments.SeedFourPacket

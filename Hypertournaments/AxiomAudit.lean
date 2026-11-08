@@ -32,3 +32,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.not_hasAP_of_onePoint_no_distinct
 #print axioms Hypertournaments.odd_exception_reduced_to_toggle
 #print axioms Hypertournaments.arityFour_central_seed_rules_unsatisfiable
+#print axioms Hypertournaments.mixedPacket_negative_rule_iff
+#print axioms Hypertournaments.mixedPacket_positive_rule_iff
