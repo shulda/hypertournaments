@@ -44,3 +44,4 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.mixedPacketPositiveCount4_eq
 #print axioms Hypertournaments.localIndex_four_central_iff
 #print axioms Hypertournaments.negativePacketRule_of_localIndex
+#print axioms Hypertournaments.Hyper.orient_perm

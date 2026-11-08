@@ -44,4 +44,23 @@ theorem preserves_iff_pullback {n : ℕ} {V : Type u} {W : Type v}
   · intro h t
     exact (h t).symm
 
+/-- Alternation under an arbitrary permutation of tuple coordinates:
+a permutation preserves orientation exactly when its sign is +1. -/
+theorem Hyper.orient_perm {n : ℕ} {V : Type u}
+    (A : Hyper n V) (f : Fin n ↪ V) (σ : Equiv.Perm (Fin n)) :
+    A.orient (σ.toEmbedding.trans f) =
+      if σ.sign = (1 : ℤˣ) then A.orient f else !(A.orient f) := by
+  refine Equiv.Perm.swap_induction_on' σ ?_ ?_
+  · simp
+  · intro τ i j hij ih
+    have hswap := A.swap_flip (τ.toEmbedding.trans f) i j hij
+    have hcomp :
+        ((τ * Equiv.swap i j).toEmbedding.trans f) =
+          (Equiv.swap i j).toEmbedding.trans (τ.toEmbedding.trans f) := by
+      ext x
+      rfl
+    rw [hcomp, hswap, ih, Equiv.Perm.sign_mul,
+        Equiv.Perm.sign_swap hij]
+    rcases Int.units_eq_one_or τ.sign with h | h <;> simp [h]
+
 end Hypertournaments
