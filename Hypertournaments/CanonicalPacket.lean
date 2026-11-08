@@ -68,4 +68,52 @@ def canonicalSignCentral4At {k : ℕ}
         (5 - increasingPacketPositiveCount signs (Q.orderEmbOfFin h)) = 2
   else True
 
+/-- Deleting the i-th coordinate deletes exactly that vertex
+from the underlying finite vertex set. -/
+theorem tupleVertices_facet_eq_erase
+    {n : ℕ} {V : Type*} [DecidableEq V]
+    (f : Fin (n + 1) ↪ V) (i : Fin (n + 1)) :
+    tupleVertices (facet f i) = (tupleVertices f).erase (f i) := by
+  classical
+  ext v
+  simp only [tupleVertices, facet, Finset.mem_erase,
+    Finset.mem_image, Finset.mem_univ, true_and]
+  constructor
+  · rintro ⟨j, hj⟩
+    refine ⟨?_, ⟨i.succAbove j, hj⟩⟩
+    intro hv
+    exact (Fin.succAbove_ne i j) (f.injective (hj.trans hv))
+  · rintro ⟨hvi, j, hj⟩
+    have hji : j ≠ i := by
+      intro h
+      subst j
+      exact hvi hj.symm
+    obtain ⟨k, hk⟩ := Fin.exists_succAbove_eq hji
+    refine ⟨k, ?_⟩
+    simpa [hk] using hj
+
+/-- The index i of an increasing (n+1)-tuple is exactly the
+number of its vertices below the i-th vertex. -/
+theorem card_lt_tupleVertices_eq
+    {n : ℕ} {V : Type*} [LinearOrder V]
+    (f : Fin (n + 1) ↪o V) (i : Fin (n + 1)) :
+    ((tupleVertices f.toEmbedding).filter (· < f i)).card = i.val := by
+  classical
+  have heq :
+      (tupleVertices f.toEmbedding).filter (· < f i) =
+        (Finset.univ.filter (fun j : Fin (n + 1) => j < i)).image f := by
+    ext v
+    simp only [tupleVertices, Finset.mem_filter,
+      Finset.mem_image, Finset.mem_univ, true_and]
+    constructor
+    · rintro ⟨⟨j, rfl⟩, hj⟩
+      exact ⟨j, (f.lt_iff_lt).mp hj, rfl⟩
+    · rintro ⟨j, hj, rfl⟩
+      exact ⟨⟨j, rfl⟩, (f.lt_iff_lt).mpr hj⟩
+  rw [heq, Finset.card_image_of_injective _ f.injective]
+  change (Finset.univ.filter (fun j : Fin (n + 1) =>
+    (j : ℕ) < (i : ℕ))).card = i.val
+  rw [Fin.card_filter_val_lt]
+  exact Nat.min_eq_right (Nat.le_of_lt i.isLt)
+
 end Hypertournaments
