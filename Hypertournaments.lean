@@ -9,3 +9,4 @@ import Hypertournaments.NegativeReduction
 import Hypertournaments.SwitchingShift
 import Hypertournaments.SeedFourLogic
 import Hypertournaments.SeedFourPacket
+import Hypertournaments.FinitePresentation
