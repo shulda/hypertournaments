@@ -157,3 +157,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.twoPad_minority_shift
 #print axioms Hypertournaments.twoPad_shift_nonzero
 #print axioms Hypertournaments.twoPad_localIndex_count_shift
+#print axioms Hypertournaments.onePointTuple_factors_left
+#print axioms Hypertournaments.onePointTuple_factors_right
+#print axioms Hypertournaments.onePointTuple_nonmixed_factors
