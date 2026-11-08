@@ -36,11 +36,17 @@ theorem positiveFacetCount_ordered_sign
     (signs : Finset V → Bool) (f : Fin (n + 1) ↪o V) :
     positiveFacetCount (Hyper.fromOrderedSigns signs) f.toEmbedding =
       increasingPacketPositiveCount signs f := by
+  have hfacet (i : Fin (n + 1)) :
+      normalizedFacet (Hyper.fromOrderedSigns signs) f.toEmbedding i =
+        Bool.xor (signs (tupleVertices (facet f.toEmbedding i)))
+          (decide (i.val % 2 = 1)) := by
+    unfold normalizedFacet
+    rw [fromOrderedSigns_facet_increasing signs f i]
   unfold positiveFacetCount increasingPacketPositiveCount
   apply congrArg Finset.card
   ext i
-  simp only [Finset.mem_filter, Finset.mem_univ, true_and, normalizedFacet]
-  rw [fromOrderedSigns_facet_increasing signs f i]
+  simp only [Finset.mem_filter, Finset.mem_univ, true_and]
+  rw [hfacet i]
 
 /-- Local type index on an increasing tuple can be computed directly
 from the sign table, with no sorting-permutation evaluation. -/
