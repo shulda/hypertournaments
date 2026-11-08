@@ -81,16 +81,11 @@ theorem twoPadSliceTuple_reordered
     twoPadSliceTuple g p q hp hq hpq (σ.toEmbedding.trans f) =
       (twoPadLiftPerm σ).toEmbedding.trans
         (twoPadSliceTuple g p q hp hq hpq f) := by
-  have hc :
-      (σ.toEmbedding.trans f).trans g =
-        σ.toEmbedding.trans (f.trans g) := by
-    ext i
-    rfl
-  unfold twoPadSliceTuple
-  rw [hc]
-  exact twoPadTuple_reordered (f.trans g) p q
-    (not_mem_range_restricted g f p hp)
-    (not_mem_range_restricted g f q hq) hpq σ
+  ext k
+  refine Fin.cases ?_ (fun j => Fin.cases ?_ (fun i => ?_) j) k
+  · simp [twoPadSliceTuple]
+  · simp [twoPadSliceTuple]
+  · simp [twoPadSliceTuple]
 
 /-- The intrinsic n-hypertournament obtained from two fixed pad
 vertices of an (n+2)-hypertournament. All embeddings and orders
