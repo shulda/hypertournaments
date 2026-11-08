@@ -134,3 +134,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.positiveFacetCount_eq_three_of_central5
 #print axioms Hypertournaments.coneNegativeRule_of_localIndex
 #print axioms Hypertournaments.conePositiveRule_of_localIndex
+#print axioms Hypertournaments.seed5Cone_no_joint
+#print axioms Hypertournaments.seed5Cone_disagreement
+#print axioms Hypertournaments.seed5Cone_not_hasAP

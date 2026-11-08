@@ -45,3 +45,4 @@ import Hypertournaments.SeedFiveExtraNoAmalgam
 import Hypertournaments.SeedFiveClassificationCases
 import Hypertournaments.SeedFiveConeData
 import Hypertournaments.SeedFiveConePacketBridge
+import Hypertournaments.SeedFiveConeNoAmalgam
