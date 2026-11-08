@@ -77,6 +77,7 @@ theorem seed4_base_left : Preserves seed4Base seed4Left
     Fintype.ofEquiv
       { f : Fin 4 → Fin 7 // Function.Injective f }
       (Equiv.subtypeInjectiveEquivEmbedding (Fin 4) (Fin 7))
+  unfold Preserves
   decide
 
 theorem seed4_base_right : Preserves seed4Base seed4Right
@@ -85,6 +86,7 @@ theorem seed4_base_right : Preserves seed4Base seed4Right
     Fintype.ofEquiv
       { f : Fin 4 → Fin 7 // Function.Injective f }
       (Equiv.subtypeInjectiveEquivEmbedding (Fin 4) (Fin 7))
+  unfold Preserves
   decide
 
 end Hypertournaments
