@@ -27,7 +27,7 @@ def NecessaryAlternatives (n : ℕ) (S : Set ℕ) : Prop :=
 /-- Dropping coordinate i from a full (n+1)-tuple. -/
 def facet {n : ℕ} {V : Type*} (f : Fin (n + 1) ↪ V)
     (i : Fin (n + 1)) : Fin n ↪ V :=
-  f.comp (Fin.succAboveEmb i)
+  (Fin.succAboveEmb i).trans f
 
 /-- Normalize by the parity of the deleted coordinate. -/
 def normalizedFacet {n : ℕ} {V : Type*} (A : Hyper n V)
