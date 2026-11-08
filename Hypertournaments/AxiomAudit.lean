@@ -80,3 +80,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.packet_type_Cm
 #print axioms Hypertournaments.packet_type_Cp
 #print axioms Hypertournaments.ruleT_of_allowed_mixed
+#print axioms Hypertournaments.forbidOne_no_joint
+#print axioms Hypertournaments.forbidOneFour_not_hasAP
