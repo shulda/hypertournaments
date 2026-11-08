@@ -40,8 +40,7 @@ theorem seed5TwoMixedAllowed_iff_rule
       seed5TwoMixedRule beta alpha a b c d := by
   unfold seed5TwoMixedRule seed5TwoMixedPositiveCount
     seed5TwoRuleSame seed5TwoRuleZeroOne seed5TwoRuleOneZero
-  cases beta <;> cases alpha <;> cases a <;> cases b <;>
-    cases c <;> cases d <;> decide +kernel
+  decide +kernel
 
 /-- Any genuinely admissible mixed six-tuple satisfies its
 corresponding Boolean packet rule, with no auxiliary linear order
