@@ -55,22 +55,22 @@ theorem exists_joint_embedding
           _ = j (Fin.last a) := hx
       exact Fin.castSucc_ne_last y (j.injective hcontr)
     · exact hne hx
-  let h : Fin (a + 2) ↪ Fin d := Function.Embedding.snoc i hnot
+  let h : Fin (a + 2) ↪ Fin d := Fin.Embedding.snoc i hnot
   refine ⟨h, ?_, ?_⟩
   · ext x
     change (h x.castSucc).val = (i x).val
-    exact congrArg Fin.val (Function.Embedding.snoc_castSucc (x := i) (ha := hnot))
+    exact congrArg Fin.val (Fin.Embedding.snoc_castSucc (x := i) (ha := hnot))
   · ext x
     rcases x.eq_castSucc_or_eq_last with ⟨y, rfl⟩ | rfl
     · change (h (rightJointInclusion a y.castSucc)).val = (j y.castSucc).val
       rw [rightJointInclusion_old]
       calc
         (h y.castSucc.castSucc).val = (i y.castSucc).val :=
-          congrArg Fin.val (Function.Embedding.snoc_castSucc (x := i) (ha := hnot))
+          congrArg Fin.val (Fin.Embedding.snoc_castSucc (x := i) (ha := hnot))
         _ = (j y.castSucc).val := congrArg Fin.val (hbase y)
     · change (h (rightJointInclusion a (Fin.last a))).val =
           (j (Fin.last a)).val
       rw [rightJointInclusion_new]
-      exact congrArg Fin.val (Function.Embedding.snoc_last (x := i) (ha := hnot))
+      exact congrArg Fin.val (Fin.Embedding.snoc_last (x := i) (ha := hnot))
 
 end Hypertournaments
