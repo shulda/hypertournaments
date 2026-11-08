@@ -18,3 +18,4 @@ import Hypertournaments.SeedFourDirect
 import Hypertournaments.DirectCertificateBridge
 import Hypertournaments.AdjacentPacketFour
 import Hypertournaments.AdjacentSignFour
+import Hypertournaments.LocalTypeInvariantFour
