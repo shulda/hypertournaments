@@ -18,6 +18,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Restore pinned Mathlib source and build cache
+        id: mathlib-package-cache
+        uses: actions/cache/restore@v5
+        with:
+          path: |
+            .lake/packages
+            lake-manifest.json
+          key: mathlib-packages-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain', 'lakefile.toml') }}
       - name: Cache Lean toolchain
         uses: actions/cache@v5
         with:
@@ -78,9 +86,23 @@ jobs:
         run: |
           echo "$(dirname "$(elan which lean)")" >> "$GITHUB_PATH"
       - name: Resolve pinned Mathlib dependencies
-        run: lake update
+        shell: bash
+        run: |
+          if [ ! -f lake-manifest.json ]; then
+            lake update
+          else
+            echo "Using cached Lake manifest and pinned packages"
+          fi
       - name: Download precompiled Mathlib cache
         run: lake exe cache get
+      - name: Cache verified Mathlib packages before proof checking
+        if: steps.mathlib-package-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v5
+        with:
+          path: |
+            .lake/packages
+            lake-manifest.json
+          key: mathlib-packages-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain', 'lakefile.toml') }}
       - name: Kernel-check all Lean modules
         run: lake build
       - name: Audit exported declarations

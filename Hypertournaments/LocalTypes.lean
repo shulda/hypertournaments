@@ -38,15 +38,62 @@ def normalizedFacet {n : ℕ} {V : Type*} (A : Hyper n V)
     (f : Fin (n + 1) ↪ V) (i : Fin (n + 1)) : Bool :=
   Bool.xor (A.orient (facet f i)) (decide (i.val % 2 = 1))
 
-/-- The local orbit index, as the minority count of normalized facets. -/
+/-- The number of positive normalized facets. This is the only
+facet count needed computationally; the negative count is its complement. -/
+def positiveFacetCount {n : ℕ} {V : Type*} (A : Hyper n V)
+    (f : Fin (n + 1) ↪ V) : ℕ :=
+  (Finset.univ.filter (fun i => normalizedFacet A f i = true)).card
+
+/-- The local orbit index, as the minority count of normalized facets.
+Using subtraction instead of a second filter makes the finite
+computations and formal cardinality bounds simpler. -/
 def localIndex {n : ℕ} {V : Type*} (A : Hyper n V)
     (f : Fin (n + 1) ↪ V) : ℕ :=
-  min ((Finset.univ.filter (fun i => normalizedFacet A f i = true)).card)
-      ((Finset.univ.filter (fun i => normalizedFacet A f i = false)).card)
+  min (positiveFacetCount A f) (n + 1 - positiveFacetCount A f)
+
+/-- The positive facets form a subset of the n+1 available facets. -/
+theorem positiveFacetCount_le {n : ℕ} {V : Type*}
+    (A : Hyper n V) (f : Fin (n + 1) ↪ V) :
+    positiveFacetCount A f ≤ n + 1 := by
+  classical
+  unfold positiveFacetCount
+  simpa using
+    (Finset.card_filter_le (Finset.univ : Finset (Fin (n + 1)))
+      (fun i => normalizedFacet A f i = true))
+
+/-- A local type index never exceeds the central index q. -/
+theorem localIndex_le_central {n : ℕ} {V : Type*}
+    (A : Hyper n V) (f : Fin (n + 1) ↪ V) :
+    localIndex A f ≤ centralIndex n := by
+  have h := positiveFacetCount_le A f
+  unfold localIndex centralIndex
+  omega
 
 /-- Only local orbit indices in S may appear. -/
 def Admissible {n : ℕ} {V : Type*} (S : Set ℕ) (A : Hyper n V) : Prop :=
   ∀ f : Fin (n + 1) ↪ V, localIndex A f ∈ S
+
+/-- Enlarging the allowed local type set preserves admissibility. -/
+theorem admissible_mono {n : ℕ} {V : Type*}
+    {S T : Set ℕ} {A : Hyper n V}
+    (hST : S ⊆ T) (hS : Admissible S A) :
+    Admissible T A := by
+  intro f
+  exact hST (hS f)
+
+
+
+/-- Restricting the allowed set to actual local indices does not
+change the age of admissible hyperturnaments. -/
+theorem admissible_validize {n : ℕ} {V : Type*}
+    (S : Set ℕ) (A : Hyper n V) :
+    Admissible S A ↔
+      Admissible (S ∩ Set.Iic (centralIndex n)) A := by
+  constructor
+  · intro h f
+    exact ⟨h f, localIndex_le_central A f⟩
+  · intro h f
+    exact (h f).1
 
 /-- The switching family contains no non-existent indices. -/
 theorem switchingAllowed_valid (n : ℕ) :
