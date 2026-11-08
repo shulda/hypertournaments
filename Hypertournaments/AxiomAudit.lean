@@ -154,3 +154,9 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.twoPadSliceTuple_reordered
 #print axioms Hypertournaments.Hyper.twoPadSlice
 #print axioms Hypertournaments.Hyper.twoPadSlice_orient
+#print axioms Hypertournaments.twoPad_succAbove_pad_zero
+#print axioms Hypertournaments.twoPad_succAbove_pad_one
+#print axioms Hypertournaments.twoPad_succAbove_old
+#print axioms Hypertournaments.twoPadSliceTuple_facet
+#print axioms Hypertournaments.twoPad_facet_parity
+#print axioms Hypertournaments.normalizedFacet_twoPadSlice_old
