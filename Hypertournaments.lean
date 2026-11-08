@@ -1,3 +1,5 @@
 import Hypertournaments.Basic
 import Hypertournaments.LocalTypes
 import Hypertournaments.Amalgamation
+import Hypertournaments.Obstruction
+import Hypertournaments.Identification

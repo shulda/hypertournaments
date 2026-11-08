@@ -20,11 +20,11 @@ def nextCentralIndex (n : ℕ) : ℕ := centralIndex n - 1
 def switchingAllowed (n : ℕ) : Set ℕ :=
   {d | d ≤ centralIndex n ∧ d % 2 = centralIndex n % 2}
 
-/-- The intended final necessary condition, not yet a theorem about AP. -/
 /-- A set of real local type indices, excluding phantom indices above the central one. -/
 def ValidTypes (n : ℕ) (S : Set ℕ) : Prop :=
   ∀ d ∈ S, d ≤ centralIndex n
 
+/-- The intended final necessary condition, not yet a theorem about AP. -/
 def NecessaryAlternatives (n : ℕ) (S : Set ℕ) : Prop :=
   nextCentralIndex n ∈ S ∨ (Odd n ∧ S = switchingAllowed n)
 

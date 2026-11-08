@@ -12,3 +12,7 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.central_mem_switchingAllowed
 #print axioms Hypertournaments.localIndex_pullback
 #print axioms Hypertournaments.admissible_pullback
+#print axioms Hypertournaments.not_hasAP_of_no_amalgam
+#print axioms Hypertournaments.not_hasAP_of_no_onePoint_amalgam
+#print axioms Hypertournaments.onePoint_embeddings_equal
+#print axioms Hypertournaments.onePoint_points_distinct_of_orient_disagree
