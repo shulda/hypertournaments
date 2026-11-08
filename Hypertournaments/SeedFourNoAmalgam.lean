@@ -53,6 +53,44 @@ private def frame456 : Fin 5 ↪ Fin 9 := ⟨![7,4,5,6,8], by decide⟩
 private def left456 : Fin 4 ↪ Fin 8 := ⟨![7,4,5,6], by decide⟩
 private def right456 : Fin 4 ↪ Fin 8 := ⟨![4,5,6,7], by decide⟩
 
+/-- Moving the final coordinate of a four-tuple to the front
+is an odd permutation; using this avoids computing a sorting
+permutation on every source link. -/
+private def frontShift4 : Equiv.Perm (Fin 4) :=
+  (Equiv.swap (2 : Fin 4) 3) *
+    (Equiv.swap (1 : Fin 4) 2) *
+    (Equiv.swap (0 : Fin 4) 1)
+
+private theorem frontShift4_odd :
+    frontShift4.sign ≠ (1 : ℤˣ) := by
+  have h23 : (Equiv.swap (2 : Fin 4) 3).sign = (-1 : ℤˣ) :=
+    Equiv.Perm.sign_swap (by decide)
+  have h12 : (Equiv.swap (1 : Fin 4) 2).sign = (-1 : ℤˣ) :=
+    Equiv.Perm.sign_swap (by decide)
+  have h01 : (Equiv.swap (0 : Fin 4) 1).sign = (-1 : ℤˣ) :=
+    Equiv.Perm.sign_swap (by decide)
+  have h : frontShift4.sign = (-1 : ℤˣ) := by
+    simp [frontShift4, Equiv.Perm.sign_mul, h23, h12, h01]
+  simp [h]
+
+private theorem seed4_left_rotated
+    (l r : Fin 4 ↪ Fin 8)
+    (hmatch : frontShift4.toEmbedding.trans r = l)
+    (hrmono : StrictMono (r : Fin 4 → Fin 8)) :
+    seed4Left.orient l =
+      !(seed4LeftSigns (tupleVertices r)) := by
+  have hperm : seed4Left.orient (frontShift4.toEmbedding.trans r) =
+      !(seed4Left.orient r) := by
+    rw [Hyper.orient_perm]
+    simp [frontShift4_odd]
+  calc
+    seed4Left.orient l =
+        seed4Left.orient (frontShift4.toEmbedding.trans r) :=
+      congrArg seed4Left.orient hmatch.symm
+    _ = !(seed4Left.orient r) := hperm
+    _ = !(seed4LeftSigns (tupleVertices r)) :=
+      congrArg (!) (fromOrderedSigns_orient_strictMono seed4LeftSigns r hrmono)
+
 private theorem negative_joint_rule
     (E : Hyper 4 (Fin 9))
     (hE : Admissible ({2} : Set ℕ) E)
@@ -110,7 +148,20 @@ theorem seed4_no_joint
     have h := negative_joint_rule E hE hL hR frame012 left012 right012
       (by ext x; fin_cases x <;> decide)
       (by ext x; fin_cases x <;> decide)
-      (by decide) (by decide)
+      (by
+        calc
+          seed4Left.orient left012 =
+              !(seed4LeftSigns (tupleVertices right012)) :=
+            seed4_left_rotated left012 right012
+              (by ext x; fin_cases x <;> decide) (by decide)
+          _ = false := by decide)
+      (by
+        calc
+          seed4Right.orient right012 =
+              seed4RightSigns (tupleVertices right012) :=
+            fromOrderedSigns_orient_strictMono seed4RightSigns right012
+              (by decide)
+          _ = false := by decide)
     have e₁ : facet frame012 3 = pair01 := by ext x; fin_cases x <;> decide
     have e₂ : facet frame012 2 = pair02 := by ext x; fin_cases x <;> decide
     have e₃ : facet frame012 1 = pair12 := by ext x; fin_cases x <;> decide
@@ -119,7 +170,20 @@ theorem seed4_no_joint
     have h := positive_joint_rule E hE hL hR frame014 left014 right014
       (by ext x; fin_cases x <;> decide)
       (by ext x; fin_cases x <;> decide)
-      (by decide) (by decide)
+      (by
+        calc
+          seed4Left.orient left014 =
+              !(seed4LeftSigns (tupleVertices right014)) :=
+            seed4_left_rotated left014 right014
+              (by ext x; fin_cases x <;> decide) (by decide)
+          _ = true := by decide)
+      (by
+        calc
+          seed4Right.orient right014 =
+              seed4RightSigns (tupleVertices right014) :=
+            fromOrderedSigns_orient_strictMono seed4RightSigns right014
+              (by decide)
+          _ = true := by decide)
     have e₁ : facet frame014 3 = pair01 := by ext x; fin_cases x <;> decide
     have e₂ : facet frame014 2 = pair04 := by ext x; fin_cases x <;> decide
     have e₃ : facet frame014 1 = pair14 := by ext x; fin_cases x <;> decide
@@ -128,7 +192,20 @@ theorem seed4_no_joint
     have h := negative_joint_rule E hE hL hR frame023 left023 right023
       (by ext x; fin_cases x <;> decide)
       (by ext x; fin_cases x <;> decide)
-      (by decide) (by decide)
+      (by
+        calc
+          seed4Left.orient left023 =
+              !(seed4LeftSigns (tupleVertices right023)) :=
+            seed4_left_rotated left023 right023
+              (by ext x; fin_cases x <;> decide) (by decide)
+          _ = false := by decide)
+      (by
+        calc
+          seed4Right.orient right023 =
+              seed4RightSigns (tupleVertices right023) :=
+            fromOrderedSigns_orient_strictMono seed4RightSigns right023
+              (by decide)
+          _ = false := by decide)
     have e₁ : facet frame023 3 = pair02 := by ext x; fin_cases x <;> decide
     have e₂ : facet frame023 2 = pair03 := by ext x; fin_cases x <;> decide
     have e₃ : facet frame023 1 = pair23 := by ext x; fin_cases x <;> decide
@@ -137,7 +214,20 @@ theorem seed4_no_joint
     have h := negative_joint_rule E hE hL hR frame036 left036 right036
       (by ext x; fin_cases x <;> decide)
       (by ext x; fin_cases x <;> decide)
-      (by decide) (by decide)
+      (by
+        calc
+          seed4Left.orient left036 =
+              !(seed4LeftSigns (tupleVertices right036)) :=
+            seed4_left_rotated left036 right036
+              (by ext x; fin_cases x <;> decide) (by decide)
+          _ = false := by decide)
+      (by
+        calc
+          seed4Right.orient right036 =
+              seed4RightSigns (tupleVertices right036) :=
+            fromOrderedSigns_orient_strictMono seed4RightSigns right036
+              (by decide)
+          _ = false := by decide)
     have e₁ : facet frame036 3 = pair03 := by ext x; fin_cases x <;> decide
     have e₂ : facet frame036 2 = pair06 := by ext x; fin_cases x <;> decide
     have e₃ : facet frame036 1 = pair36 := by ext x; fin_cases x <;> decide
@@ -146,7 +236,20 @@ theorem seed4_no_joint
     have h := positive_joint_rule E hE hL hR frame046 left046 right046
       (by ext x; fin_cases x <;> decide)
       (by ext x; fin_cases x <;> decide)
-      (by decide) (by decide)
+      (by
+        calc
+          seed4Left.orient left046 =
+              !(seed4LeftSigns (tupleVertices right046)) :=
+            seed4_left_rotated left046 right046
+              (by ext x; fin_cases x <;> decide) (by decide)
+          _ = true := by decide)
+      (by
+        calc
+          seed4Right.orient right046 =
+              seed4RightSigns (tupleVertices right046) :=
+            fromOrderedSigns_orient_strictMono seed4RightSigns right046
+              (by decide)
+          _ = true := by decide)
     have e₁ : facet frame046 3 = pair04 := by ext x; fin_cases x <;> decide
     have e₂ : facet frame046 2 = pair06 := by ext x; fin_cases x <;> decide
     have e₃ : facet frame046 1 = pair46 := by ext x; fin_cases x <;> decide
@@ -155,7 +258,20 @@ theorem seed4_no_joint
     have h := negative_joint_rule E hE hL hR frame145 left145 right145
       (by ext x; fin_cases x <;> decide)
       (by ext x; fin_cases x <;> decide)
-      (by decide) (by decide)
+      (by
+        calc
+          seed4Left.orient left145 =
+              !(seed4LeftSigns (tupleVertices right145)) :=
+            seed4_left_rotated left145 right145
+              (by ext x; fin_cases x <;> decide) (by decide)
+          _ = false := by decide)
+      (by
+        calc
+          seed4Right.orient right145 =
+              seed4RightSigns (tupleVertices right145) :=
+            fromOrderedSigns_orient_strictMono seed4RightSigns right145
+              (by decide)
+          _ = false := by decide)
     have e₁ : facet frame145 3 = pair14 := by ext x; fin_cases x <;> decide
     have e₂ : facet frame145 2 = pair15 := by ext x; fin_cases x <;> decide
     have e₃ : facet frame145 1 = pair45 := by ext x; fin_cases x <;> decide
@@ -164,7 +280,20 @@ theorem seed4_no_joint
     have h := positive_joint_rule E hE hL hR frame456 left456 right456
       (by ext x; fin_cases x <;> decide)
       (by ext x; fin_cases x <;> decide)
-      (by decide) (by decide)
+      (by
+        calc
+          seed4Left.orient left456 =
+              !(seed4LeftSigns (tupleVertices right456)) :=
+            seed4_left_rotated left456 right456
+              (by ext x; fin_cases x <;> decide) (by decide)
+          _ = true := by decide)
+      (by
+        calc
+          seed4Right.orient right456 =
+              seed4RightSigns (tupleVertices right456) :=
+            fromOrderedSigns_orient_strictMono seed4RightSigns right456
+              (by decide)
+          _ = true := by decide)
     have e₁ : facet frame456 3 = pair45 := by ext x; fin_cases x <;> decide
     have e₂ : facet frame456 2 = pair46 := by ext x; fin_cases x <;> decide
     have e₃ : facet frame456 1 = pair56 := by ext x; fin_cases x <;> decide
@@ -181,7 +310,12 @@ theorem seed4_no_joint
 vertices: the source links disagree on an explicit four-tuple. -/
 theorem seed4_disagreement :
     ∃ t : Fin 4 ↪ Fin 8, seed4Left.orient t ≠ seed4Right.orient t := by
-  refine ⟨⟨![0,1,2,7], by decide⟩, ?_⟩
+  refine ⟨right012, ?_⟩
+  have hm : StrictMono (right012 : Fin 4 → Fin 8) := by decide
+  change (Hyper.fromOrderedSigns seed4LeftSigns).orient right012 ≠
+    (Hyper.fromOrderedSigns seed4RightSigns).orient right012
+  rw [fromOrderedSigns_orient_strictMono seed4LeftSigns right012 hm,
+    fromOrderedSigns_orient_strictMono seed4RightSigns right012 hm]
   decide
 
 /-- First nontrivial negative seed: central-only four-hypertournaments
