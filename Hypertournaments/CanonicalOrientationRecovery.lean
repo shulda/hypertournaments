@@ -90,4 +90,20 @@ theorem twoPad_source_recovery_of_canonical
   exact orientations_equal_of_canonical
     (D.twoPadSlice g p q hp hq hpq) L hc t
 
+
+/-- A vertex embedding preserves *all* oriented n-tuples as soon as
+orientation preservation has been checked on the increasing n-tuples
+of the finite source. No order-preservation is required of f. -/
+theorem preserves_of_canonical
+    {n k : ℕ} {V : Type*}
+    (A : Hyper n (Fin k)) (B : Hyper n V)
+    (f : Fin k ↪ V)
+    (h : ∀ (Q : Finset (Fin k)) (hQ : Q.card = n),
+      B.orient ((Q.orderEmbOfFin hQ).toEmbedding.trans f) =
+        A.orient (Q.orderEmbOfFin hQ).toEmbedding) :
+    Preserves A B f := by
+  intro t
+  exact orientations_equal_of_canonical
+    (B.pullback f) A (fun Q hQ => h Q hQ) t
+
 end Hypertournaments
