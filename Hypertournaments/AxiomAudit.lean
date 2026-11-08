@@ -129,3 +129,8 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.seed5Cone_base_star
 #print axioms Hypertournaments.seed5Cone_left_star
 #print axioms Hypertournaments.seed5Cone_right_star
+#print axioms Hypertournaments.coneNegativeRule_of_count
+#print axioms Hypertournaments.conePositiveRule_of_count
+#print axioms Hypertournaments.positiveFacetCount_eq_three_of_central5
+#print axioms Hypertournaments.coneNegativeRule_of_localIndex
+#print axioms Hypertournaments.conePositiveRule_of_localIndex
