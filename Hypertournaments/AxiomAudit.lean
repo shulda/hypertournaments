@@ -160,3 +160,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.onePointTuple_factors_left
 #print axioms Hypertournaments.onePointTuple_factors_right
 #print axioms Hypertournaments.onePointTuple_nonmixed_factors
+#print axioms Hypertournaments.localIndex_preserves
+#print axioms Hypertournaments.onePoint_nonmixed_admissible
