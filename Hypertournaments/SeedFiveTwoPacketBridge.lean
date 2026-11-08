@@ -30,6 +30,21 @@ def seed5TwoMixedPositiveCount (beta alpha a b c d : Bool) : ℕ :=
   (Finset.univ.filter (fun i : Fin 6 =>
     (![beta, !d, c, !b, a, !alpha] : Fin 6 → Bool) i = true)).card
 
+/-- Convert the six-element finite-set cardinality into an explicit
+sum of Boolean indicator values. This isolates the only finite-set
+calculation from the subsequent purely Boolean case analysis. -/
+theorem seed5TwoMixedPositiveCount_eq_sum
+    (beta alpha a b c d : Bool) :
+    seed5TwoMixedPositiveCount beta alpha a b c d =
+      (if beta then 1 else 0) +
+      (if !d then 1 else 0) +
+      (if c then 1 else 0) +
+      (if !b then 1 else 0) +
+      (if a then 1 else 0) +
+      (if !alpha then 1 else 0) := by
+  cases beta <;> cases alpha <;> cases a <;> cases b <;>
+    cases c <;> cases d <;> decide +kernel
+
 /-- Direct finite verification of the *exact* packet-rule interface. -/
 theorem seed5TwoMixedAllowed_iff_rule
     (beta alpha a b c d : Bool) :
@@ -38,12 +53,10 @@ theorem seed5TwoMixedAllowed_iff_rule
       min (seed5TwoMixedPositiveCount beta alpha a b c d)
          (6 - seed5TwoMixedPositiveCount beta alpha a b c d) = 3) ↔
       seed5TwoMixedRule beta alpha a b c d := by
-  classical
+  simp only [seed5TwoMixedPositiveCount_eq_sum]
   cases beta <;> cases alpha <;> cases a <;> cases b <;>
     cases c <;> cases d <;>
-    norm_num [seed5TwoMixedRule, seed5TwoMixedPositiveCount,
-      seed5TwoRuleSame, seed5TwoRuleZeroOne, seed5TwoRuleOneZero,
-      Finset.univ]
+    decide +kernel
 
 /-- Any genuinely admissible mixed six-tuple satisfies its
 corresponding Boolean packet rule, with no auxiliary linear order
