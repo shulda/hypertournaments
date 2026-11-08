@@ -82,3 +82,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.ruleT_of_allowed_mixed
 #print axioms Hypertournaments.forbidOne_no_joint
 #print axioms Hypertournaments.forbidOneFour_not_hasAP
+#print axioms Hypertournaments.seedFour_negativeGoal
+#print axioms Hypertournaments.negative_classification_four

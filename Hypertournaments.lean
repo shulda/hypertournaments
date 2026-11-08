@@ -27,3 +27,4 @@ import Hypertournaments.SeedFourForbidOneLogic
 import Hypertournaments.SeedFourForbidOneRawLogic
 import Hypertournaments.SeedFourForbidOnePacket
 import Hypertournaments.SeedFourForbidOneNoAmalgam
+import Hypertournaments.SeedFourClassification
