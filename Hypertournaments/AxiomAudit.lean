@@ -189,3 +189,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.canonicalPadToSide_not_mem_old
 #print axioms Hypertournaments.canonicalPad_left_commutes
 #print axioms Hypertournaments.canonicalPad_right_commutes
+#print axioms Hypertournaments.orientations_equal_of_canonical
+#print axioms Hypertournaments.twoPad_source_recovery_of_canonical
