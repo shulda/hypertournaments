@@ -19,6 +19,46 @@ namespace Hypertournaments
 set_option maxRecDepth 8192
 set_option maxHeartbeats 8000000
 
+/-!
+The left source link is presented with its new vertex at the end.
+Moving it to the front crosses four coordinates, an even permutation.
+We use this fixed rotation instead of evaluating the tuple sorter.
+-/
+private def frontShift5 : Equiv.Perm (Fin 5) :=
+  (Equiv.swap (3 : Fin 5) 4) *
+    (Equiv.swap (2 : Fin 5) 3) *
+    (Equiv.swap (1 : Fin 5) 2) *
+    (Equiv.swap (0 : Fin 5) 1)
+
+private theorem frontShift5_even :
+    frontShift5.sign = (1 : ℤˣ) := by
+  have h34 : (Equiv.swap (3 : Fin 5) 4).sign = (-1 : ℤˣ) :=
+    Equiv.Perm.sign_swap (by decide)
+  have h23 : (Equiv.swap (2 : Fin 5) 3).sign = (-1 : ℤˣ) :=
+    Equiv.Perm.sign_swap (by decide)
+  have h12 : (Equiv.swap (1 : Fin 5) 2).sign = (-1 : ℤˣ) :=
+    Equiv.Perm.sign_swap (by decide)
+  have h01 : (Equiv.swap (0 : Fin 5) 1).sign = (-1 : ℤˣ) :=
+    Equiv.Perm.sign_swap (by decide)
+  simp [frontShift5, Equiv.Perm.sign_mul, h34, h23, h12, h01]
+
+private theorem seed5Two_left_rotated
+    (l rr : Fin 5 ↪ Fin 8)
+    (hmatch : frontShift5.toEmbedding.trans rr = l)
+    (hrmono : StrictMono (rr : Fin 5 → Fin 8)) :
+    seed5TwoLeft.orient l = seed5TwoLeftSigns (tupleVertices rr) := by
+  have hp : seed5TwoLeft.orient (frontShift5.toEmbedding.trans rr) =
+      seed5TwoLeft.orient rr := by
+    rw [Hyper.orient_perm]
+    simp [frontShift5_even]
+  calc
+    seed5TwoLeft.orient l =
+        seed5TwoLeft.orient (frontShift5.toEmbedding.trans rr) :=
+      congrArg seed5TwoLeft.orient hmatch.symm
+    _ = seed5TwoLeft.orient rr := hp
+    _ = seed5TwoLeftSigns (tupleVertices rr) :=
+      fromOrderedSigns_orient_strictMono seed5TwoLeftSigns rr hrmono
+
 private def mixed012 : Fin 5 ↪ Fin 9 := ⟨![7,0,1,2,8], by decide⟩
 private def mixed013 : Fin 5 ↪ Fin 9 := ⟨![7,0,1,3,8], by decide⟩
 private def mixed014 : Fin 5 ↪ Fin 9 := ⟨![7,0,1,4,8], by decide⟩
@@ -169,7 +209,11 @@ private theorem mixedRule0125
             ext i
             fin_cases i <;> decide
       _ = seed5TwoRight.orient right0125 := hR right0125
-      _ = false := by decide
+      _ = false := by
+        have hm : StrictMono (right0125 : Fin 5 → Fin 8) := by decide
+        change (Hyper.fromOrderedSigns seed5TwoRightSigns).orient right0125 = false
+        rw [fromOrderedSigns_orient_strictMono seed5TwoRightSigns right0125 hm]
+        decide
   have h5 : E.orient (facet frame0125 5) = true := by
     calc
       E.orient (facet frame0125 5) =
@@ -178,7 +222,13 @@ private theorem mixedRule0125
             ext i
             fin_cases i <;> decide
       _ = seed5TwoLeft.orient left0125 := hL left0125
-      _ = true := by decide
+      _ = true := by
+        calc
+          seed5TwoLeft.orient left0125 =
+              seed5TwoLeftSigns (tupleVertices right0125) :=
+            seed5Two_left_rotated left0125 right0125
+              (by ext i; fin_cases i <;> decide) (by decide)
+          _ = true := by decide
   have h1 : E.orient (facet frame0125 1) = E.orient mixed125 := by
     congr 1
     ext i
@@ -218,7 +268,11 @@ private theorem mixedRule0134
             ext i
             fin_cases i <;> decide
       _ = seed5TwoRight.orient right0134 := hR right0134
-      _ = true := by decide
+      _ = true := by
+        have hm : StrictMono (right0134 : Fin 5 → Fin 8) := by decide
+        change (Hyper.fromOrderedSigns seed5TwoRightSigns).orient right0134 = true
+        rw [fromOrderedSigns_orient_strictMono seed5TwoRightSigns right0134 hm]
+        decide
   have h5 : E.orient (facet frame0134 5) = false := by
     calc
       E.orient (facet frame0134 5) =
@@ -227,7 +281,13 @@ private theorem mixedRule0134
             ext i
             fin_cases i <;> decide
       _ = seed5TwoLeft.orient left0134 := hL left0134
-      _ = false := by decide
+      _ = false := by
+        calc
+          seed5TwoLeft.orient left0134 =
+              seed5TwoLeftSigns (tupleVertices right0134) :=
+            seed5Two_left_rotated left0134 right0134
+              (by ext i; fin_cases i <;> decide) (by decide)
+          _ = false := by decide
   have h1 : E.orient (facet frame0134 1) = E.orient mixed134 := by
     congr 1
     ext i
@@ -267,7 +327,11 @@ private theorem mixedRule0136
             ext i
             fin_cases i <;> decide
       _ = seed5TwoRight.orient right0136 := hR right0136
-      _ = false := by decide
+      _ = false := by
+        have hm : StrictMono (right0136 : Fin 5 → Fin 8) := by decide
+        change (Hyper.fromOrderedSigns seed5TwoRightSigns).orient right0136 = false
+        rw [fromOrderedSigns_orient_strictMono seed5TwoRightSigns right0136 hm]
+        decide
   have h5 : E.orient (facet frame0136 5) = false := by
     calc
       E.orient (facet frame0136 5) =
@@ -276,7 +340,13 @@ private theorem mixedRule0136
             ext i
             fin_cases i <;> decide
       _ = seed5TwoLeft.orient left0136 := hL left0136
-      _ = false := by decide
+      _ = false := by
+        calc
+          seed5TwoLeft.orient left0136 =
+              seed5TwoLeftSigns (tupleVertices right0136) :=
+            seed5Two_left_rotated left0136 right0136
+              (by ext i; fin_cases i <;> decide) (by decide)
+          _ = false := by decide
   have h1 : E.orient (facet frame0136 1) = E.orient mixed136 := by
     congr 1
     ext i
@@ -316,7 +386,11 @@ private theorem mixedRule0156
             ext i
             fin_cases i <;> decide
       _ = seed5TwoRight.orient right0156 := hR right0156
-      _ = true := by decide
+      _ = true := by
+        have hm : StrictMono (right0156 : Fin 5 → Fin 8) := by decide
+        change (Hyper.fromOrderedSigns seed5TwoRightSigns).orient right0156 = true
+        rw [fromOrderedSigns_orient_strictMono seed5TwoRightSigns right0156 hm]
+        decide
   have h5 : E.orient (facet frame0156 5) = false := by
     calc
       E.orient (facet frame0156 5) =
@@ -325,7 +399,13 @@ private theorem mixedRule0156
             ext i
             fin_cases i <;> decide
       _ = seed5TwoLeft.orient left0156 := hL left0156
-      _ = false := by decide
+      _ = false := by
+        calc
+          seed5TwoLeft.orient left0156 =
+              seed5TwoLeftSigns (tupleVertices right0156) :=
+            seed5Two_left_rotated left0156 right0156
+              (by ext i; fin_cases i <;> decide) (by decide)
+          _ = false := by decide
   have h1 : E.orient (facet frame0156 1) = E.orient mixed156 := by
     congr 1
     ext i
@@ -365,7 +445,11 @@ private theorem mixedRule0235
             ext i
             fin_cases i <;> decide
       _ = seed5TwoRight.orient right0235 := hR right0235
-      _ = false := by decide
+      _ = false := by
+        have hm : StrictMono (right0235 : Fin 5 → Fin 8) := by decide
+        change (Hyper.fromOrderedSigns seed5TwoRightSigns).orient right0235 = false
+        rw [fromOrderedSigns_orient_strictMono seed5TwoRightSigns right0235 hm]
+        decide
   have h5 : E.orient (facet frame0235 5) = false := by
     calc
       E.orient (facet frame0235 5) =
@@ -374,7 +458,13 @@ private theorem mixedRule0235
             ext i
             fin_cases i <;> decide
       _ = seed5TwoLeft.orient left0235 := hL left0235
-      _ = false := by decide
+      _ = false := by
+        calc
+          seed5TwoLeft.orient left0235 =
+              seed5TwoLeftSigns (tupleVertices right0235) :=
+            seed5Two_left_rotated left0235 right0235
+              (by ext i; fin_cases i <;> decide) (by decide)
+          _ = false := by decide
   have h1 : E.orient (facet frame0235 1) = E.orient mixed235 := by
     congr 1
     ext i
@@ -414,7 +504,11 @@ private theorem mixedRule0236
             ext i
             fin_cases i <;> decide
       _ = seed5TwoRight.orient right0236 := hR right0236
-      _ = true := by decide
+      _ = true := by
+        have hm : StrictMono (right0236 : Fin 5 → Fin 8) := by decide
+        change (Hyper.fromOrderedSigns seed5TwoRightSigns).orient right0236 = true
+        rw [fromOrderedSigns_orient_strictMono seed5TwoRightSigns right0236 hm]
+        decide
   have h5 : E.orient (facet frame0236 5) = false := by
     calc
       E.orient (facet frame0236 5) =
@@ -423,7 +517,13 @@ private theorem mixedRule0236
             ext i
             fin_cases i <;> decide
       _ = seed5TwoLeft.orient left0236 := hL left0236
-      _ = false := by decide
+      _ = false := by
+        calc
+          seed5TwoLeft.orient left0236 =
+              seed5TwoLeftSigns (tupleVertices right0236) :=
+            seed5Two_left_rotated left0236 right0236
+              (by ext i; fin_cases i <;> decide) (by decide)
+          _ = false := by decide
   have h1 : E.orient (facet frame0236 1) = E.orient mixed236 := by
     congr 1
     ext i
@@ -463,7 +563,11 @@ private theorem mixedRule0246
             ext i
             fin_cases i <;> decide
       _ = seed5TwoRight.orient right0246 := hR right0246
-      _ = false := by decide
+      _ = false := by
+        have hm : StrictMono (right0246 : Fin 5 → Fin 8) := by decide
+        change (Hyper.fromOrderedSigns seed5TwoRightSigns).orient right0246 = false
+        rw [fromOrderedSigns_orient_strictMono seed5TwoRightSigns right0246 hm]
+        decide
   have h5 : E.orient (facet frame0246 5) = false := by
     calc
       E.orient (facet frame0246 5) =
@@ -472,7 +576,13 @@ private theorem mixedRule0246
             ext i
             fin_cases i <;> decide
       _ = seed5TwoLeft.orient left0246 := hL left0246
-      _ = false := by decide
+      _ = false := by
+        calc
+          seed5TwoLeft.orient left0246 =
+              seed5TwoLeftSigns (tupleVertices right0246) :=
+            seed5Two_left_rotated left0246 right0246
+              (by ext i; fin_cases i <;> decide) (by decide)
+          _ = false := by decide
   have h1 : E.orient (facet frame0246 1) = E.orient mixed246 := by
     congr 1
     ext i
@@ -512,7 +622,11 @@ private theorem mixedRule0256
             ext i
             fin_cases i <;> decide
       _ = seed5TwoRight.orient right0256 := hR right0256
-      _ = true := by decide
+      _ = true := by
+        have hm : StrictMono (right0256 : Fin 5 → Fin 8) := by decide
+        change (Hyper.fromOrderedSigns seed5TwoRightSigns).orient right0256 = true
+        rw [fromOrderedSigns_orient_strictMono seed5TwoRightSigns right0256 hm]
+        decide
   have h5 : E.orient (facet frame0256 5) = false := by
     calc
       E.orient (facet frame0256 5) =
@@ -521,7 +635,13 @@ private theorem mixedRule0256
             ext i
             fin_cases i <;> decide
       _ = seed5TwoLeft.orient left0256 := hL left0256
-      _ = false := by decide
+      _ = false := by
+        calc
+          seed5TwoLeft.orient left0256 =
+              seed5TwoLeftSigns (tupleVertices right0256) :=
+            seed5Two_left_rotated left0256 right0256
+              (by ext i; fin_cases i <;> decide) (by decide)
+          _ = false := by decide
   have h1 : E.orient (facet frame0256 1) = E.orient mixed256 := by
     congr 1
     ext i
@@ -561,7 +681,11 @@ private theorem mixedRule0345
             ext i
             fin_cases i <;> decide
       _ = seed5TwoRight.orient right0345 := hR right0345
-      _ = false := by decide
+      _ = false := by
+        have hm : StrictMono (right0345 : Fin 5 → Fin 8) := by decide
+        change (Hyper.fromOrderedSigns seed5TwoRightSigns).orient right0345 = false
+        rw [fromOrderedSigns_orient_strictMono seed5TwoRightSigns right0345 hm]
+        decide
   have h5 : E.orient (facet frame0345 5) = true := by
     calc
       E.orient (facet frame0345 5) =
@@ -570,7 +694,13 @@ private theorem mixedRule0345
             ext i
             fin_cases i <;> decide
       _ = seed5TwoLeft.orient left0345 := hL left0345
-      _ = true := by decide
+      _ = true := by
+        calc
+          seed5TwoLeft.orient left0345 =
+              seed5TwoLeftSigns (tupleVertices right0345) :=
+            seed5Two_left_rotated left0345 right0345
+              (by ext i; fin_cases i <;> decide) (by decide)
+          _ = true := by decide
   have h1 : E.orient (facet frame0345 1) = E.orient mixed345 := by
     congr 1
     ext i
@@ -610,7 +740,11 @@ private theorem mixedRule0356
             ext i
             fin_cases i <;> decide
       _ = seed5TwoRight.orient right0356 := hR right0356
-      _ = true := by decide
+      _ = true := by
+        have hm : StrictMono (right0356 : Fin 5 → Fin 8) := by decide
+        change (Hyper.fromOrderedSigns seed5TwoRightSigns).orient right0356 = true
+        rw [fromOrderedSigns_orient_strictMono seed5TwoRightSigns right0356 hm]
+        decide
   have h5 : E.orient (facet frame0356 5) = false := by
     calc
       E.orient (facet frame0356 5) =
@@ -619,7 +753,13 @@ private theorem mixedRule0356
             ext i
             fin_cases i <;> decide
       _ = seed5TwoLeft.orient left0356 := hL left0356
-      _ = false := by decide
+      _ = false := by
+        calc
+          seed5TwoLeft.orient left0356 =
+              seed5TwoLeftSigns (tupleVertices right0356) :=
+            seed5Two_left_rotated left0356 right0356
+              (by ext i; fin_cases i <;> decide) (by decide)
+          _ = false := by decide
   have h1 : E.orient (facet frame0356 1) = E.orient mixed356 := by
     congr 1
     ext i
@@ -659,7 +799,11 @@ private theorem mixedRule0456
             ext i
             fin_cases i <;> decide
       _ = seed5TwoRight.orient right0456 := hR right0456
-      _ = false := by decide
+      _ = false := by
+        have hm : StrictMono (right0456 : Fin 5 → Fin 8) := by decide
+        change (Hyper.fromOrderedSigns seed5TwoRightSigns).orient right0456 = false
+        rw [fromOrderedSigns_orient_strictMono seed5TwoRightSigns right0456 hm]
+        decide
   have h5 : E.orient (facet frame0456 5) = false := by
     calc
       E.orient (facet frame0456 5) =
@@ -668,7 +812,13 @@ private theorem mixedRule0456
             ext i
             fin_cases i <;> decide
       _ = seed5TwoLeft.orient left0456 := hL left0456
-      _ = false := by decide
+      _ = false := by
+        calc
+          seed5TwoLeft.orient left0456 =
+              seed5TwoLeftSigns (tupleVertices right0456) :=
+            seed5Two_left_rotated left0456 right0456
+              (by ext i; fin_cases i <;> decide) (by decide)
+          _ = false := by decide
   have h1 : E.orient (facet frame0456 1) = E.orient mixed456 := by
     congr 1
     ext i
@@ -708,7 +858,11 @@ private theorem mixedRule1236
             ext i
             fin_cases i <;> decide
       _ = seed5TwoRight.orient right1236 := hR right1236
-      _ = true := by decide
+      _ = true := by
+        have hm : StrictMono (right1236 : Fin 5 → Fin 8) := by decide
+        change (Hyper.fromOrderedSigns seed5TwoRightSigns).orient right1236 = true
+        rw [fromOrderedSigns_orient_strictMono seed5TwoRightSigns right1236 hm]
+        decide
   have h5 : E.orient (facet frame1236 5) = false := by
     calc
       E.orient (facet frame1236 5) =
@@ -717,7 +871,13 @@ private theorem mixedRule1236
             ext i
             fin_cases i <;> decide
       _ = seed5TwoLeft.orient left1236 := hL left1236
-      _ = false := by decide
+      _ = false := by
+        calc
+          seed5TwoLeft.orient left1236 =
+              seed5TwoLeftSigns (tupleVertices right1236) :=
+            seed5Two_left_rotated left1236 right1236
+              (by ext i; fin_cases i <;> decide) (by decide)
+          _ = false := by decide
   have h1 : E.orient (facet frame1236 1) = E.orient mixed236 := by
     congr 1
     ext i
@@ -757,7 +917,11 @@ private theorem mixedRule1246
             ext i
             fin_cases i <;> decide
       _ = seed5TwoRight.orient right1246 := hR right1246
-      _ = false := by decide
+      _ = false := by
+        have hm : StrictMono (right1246 : Fin 5 → Fin 8) := by decide
+        change (Hyper.fromOrderedSigns seed5TwoRightSigns).orient right1246 = false
+        rw [fromOrderedSigns_orient_strictMono seed5TwoRightSigns right1246 hm]
+        decide
   have h5 : E.orient (facet frame1246 5) = false := by
     calc
       E.orient (facet frame1246 5) =
@@ -766,7 +930,13 @@ private theorem mixedRule1246
             ext i
             fin_cases i <;> decide
       _ = seed5TwoLeft.orient left1246 := hL left1246
-      _ = false := by decide
+      _ = false := by
+        calc
+          seed5TwoLeft.orient left1246 =
+              seed5TwoLeftSigns (tupleVertices right1246) :=
+            seed5Two_left_rotated left1246 right1246
+              (by ext i; fin_cases i <;> decide) (by decide)
+          _ = false := by decide
   have h1 : E.orient (facet frame1246 1) = E.orient mixed246 := by
     congr 1
     ext i
@@ -806,7 +976,11 @@ private theorem mixedRule1256
             ext i
             fin_cases i <;> decide
       _ = seed5TwoRight.orient right1256 := hR right1256
-      _ = false := by decide
+      _ = false := by
+        have hm : StrictMono (right1256 : Fin 5 → Fin 8) := by decide
+        change (Hyper.fromOrderedSigns seed5TwoRightSigns).orient right1256 = false
+        rw [fromOrderedSigns_orient_strictMono seed5TwoRightSigns right1256 hm]
+        decide
   have h5 : E.orient (facet frame1256 5) = false := by
     calc
       E.orient (facet frame1256 5) =
@@ -815,7 +989,13 @@ private theorem mixedRule1256
             ext i
             fin_cases i <;> decide
       _ = seed5TwoLeft.orient left1256 := hL left1256
-      _ = false := by decide
+      _ = false := by
+        calc
+          seed5TwoLeft.orient left1256 =
+              seed5TwoLeftSigns (tupleVertices right1256) :=
+            seed5Two_left_rotated left1256 right1256
+              (by ext i; fin_cases i <;> decide) (by decide)
+          _ = false := by decide
   have h1 : E.orient (facet frame1256 1) = E.orient mixed256 := by
     congr 1
     ext i
@@ -855,7 +1035,11 @@ private theorem mixedRule1345
             ext i
             fin_cases i <;> decide
       _ = seed5TwoRight.orient right1345 := hR right1345
-      _ = true := by decide
+      _ = true := by
+        have hm : StrictMono (right1345 : Fin 5 → Fin 8) := by decide
+        change (Hyper.fromOrderedSigns seed5TwoRightSigns).orient right1345 = true
+        rw [fromOrderedSigns_orient_strictMono seed5TwoRightSigns right1345 hm]
+        decide
   have h5 : E.orient (facet frame1345 5) = true := by
     calc
       E.orient (facet frame1345 5) =
@@ -864,7 +1048,13 @@ private theorem mixedRule1345
             ext i
             fin_cases i <;> decide
       _ = seed5TwoLeft.orient left1345 := hL left1345
-      _ = true := by decide
+      _ = true := by
+        calc
+          seed5TwoLeft.orient left1345 =
+              seed5TwoLeftSigns (tupleVertices right1345) :=
+            seed5Two_left_rotated left1345 right1345
+              (by ext i; fin_cases i <;> decide) (by decide)
+          _ = true := by decide
   have h1 : E.orient (facet frame1345 1) = E.orient mixed345 := by
     congr 1
     ext i
@@ -904,7 +1094,11 @@ private theorem mixedRule1356
             ext i
             fin_cases i <;> decide
       _ = seed5TwoRight.orient right1356 := hR right1356
-      _ = true := by decide
+      _ = true := by
+        have hm : StrictMono (right1356 : Fin 5 → Fin 8) := by decide
+        change (Hyper.fromOrderedSigns seed5TwoRightSigns).orient right1356 = true
+        rw [fromOrderedSigns_orient_strictMono seed5TwoRightSigns right1356 hm]
+        decide
   have h5 : E.orient (facet frame1356 5) = false := by
     calc
       E.orient (facet frame1356 5) =
@@ -913,7 +1107,13 @@ private theorem mixedRule1356
             ext i
             fin_cases i <;> decide
       _ = seed5TwoLeft.orient left1356 := hL left1356
-      _ = false := by decide
+      _ = false := by
+        calc
+          seed5TwoLeft.orient left1356 =
+              seed5TwoLeftSigns (tupleVertices right1356) :=
+            seed5Two_left_rotated left1356 right1356
+              (by ext i; fin_cases i <;> decide) (by decide)
+          _ = false := by decide
   have h1 : E.orient (facet frame1356 1) = E.orient mixed356 := by
     congr 1
     ext i
@@ -953,7 +1153,11 @@ private theorem mixedRule1456
             ext i
             fin_cases i <;> decide
       _ = seed5TwoRight.orient right1456 := hR right1456
-      _ = true := by decide
+      _ = true := by
+        have hm : StrictMono (right1456 : Fin 5 → Fin 8) := by decide
+        change (Hyper.fromOrderedSigns seed5TwoRightSigns).orient right1456 = true
+        rw [fromOrderedSigns_orient_strictMono seed5TwoRightSigns right1456 hm]
+        decide
   have h5 : E.orient (facet frame1456 5) = false := by
     calc
       E.orient (facet frame1456 5) =
@@ -962,7 +1166,13 @@ private theorem mixedRule1456
             ext i
             fin_cases i <;> decide
       _ = seed5TwoLeft.orient left1456 := hL left1456
-      _ = false := by decide
+      _ = false := by
+        calc
+          seed5TwoLeft.orient left1456 =
+              seed5TwoLeftSigns (tupleVertices right1456) :=
+            seed5Two_left_rotated left1456 right1456
+              (by ext i; fin_cases i <;> decide) (by decide)
+          _ = false := by decide
   have h1 : E.orient (facet frame1456 1) = E.orient mixed456 := by
     congr 1
     ext i
@@ -1002,7 +1212,11 @@ private theorem mixedRule2345
             ext i
             fin_cases i <;> decide
       _ = seed5TwoRight.orient right2345 := hR right2345
-      _ = false := by decide
+      _ = false := by
+        have hm : StrictMono (right2345 : Fin 5 → Fin 8) := by decide
+        change (Hyper.fromOrderedSigns seed5TwoRightSigns).orient right2345 = false
+        rw [fromOrderedSigns_orient_strictMono seed5TwoRightSigns right2345 hm]
+        decide
   have h5 : E.orient (facet frame2345 5) = false := by
     calc
       E.orient (facet frame2345 5) =
@@ -1011,7 +1225,13 @@ private theorem mixedRule2345
             ext i
             fin_cases i <;> decide
       _ = seed5TwoLeft.orient left2345 := hL left2345
-      _ = false := by decide
+      _ = false := by
+        calc
+          seed5TwoLeft.orient left2345 =
+              seed5TwoLeftSigns (tupleVertices right2345) :=
+            seed5Two_left_rotated left2345 right2345
+              (by ext i; fin_cases i <;> decide) (by decide)
+          _ = false := by decide
   have h1 : E.orient (facet frame2345 1) = E.orient mixed345 := by
     congr 1
     ext i
@@ -1051,7 +1271,11 @@ private theorem mixedRule2346
             ext i
             fin_cases i <;> decide
       _ = seed5TwoRight.orient right2346 := hR right2346
-      _ = true := by decide
+      _ = true := by
+        have hm : StrictMono (right2346 : Fin 5 → Fin 8) := by decide
+        change (Hyper.fromOrderedSigns seed5TwoRightSigns).orient right2346 = true
+        rw [fromOrderedSigns_orient_strictMono seed5TwoRightSigns right2346 hm]
+        decide
   have h5 : E.orient (facet frame2346 5) = false := by
     calc
       E.orient (facet frame2346 5) =
@@ -1060,7 +1284,13 @@ private theorem mixedRule2346
             ext i
             fin_cases i <;> decide
       _ = seed5TwoLeft.orient left2346 := hL left2346
-      _ = false := by decide
+      _ = false := by
+        calc
+          seed5TwoLeft.orient left2346 =
+              seed5TwoLeftSigns (tupleVertices right2346) :=
+            seed5Two_left_rotated left2346 right2346
+              (by ext i; fin_cases i <;> decide) (by decide)
+          _ = false := by decide
   have h1 : E.orient (facet frame2346 1) = E.orient mixed346 := by
     congr 1
     ext i
@@ -1100,7 +1330,11 @@ private theorem mixedRule2456
             ext i
             fin_cases i <;> decide
       _ = seed5TwoRight.orient right2456 := hR right2456
-      _ = false := by decide
+      _ = false := by
+        have hm : StrictMono (right2456 : Fin 5 → Fin 8) := by decide
+        change (Hyper.fromOrderedSigns seed5TwoRightSigns).orient right2456 = false
+        rw [fromOrderedSigns_orient_strictMono seed5TwoRightSigns right2456 hm]
+        decide
   have h5 : E.orient (facet frame2456 5) = false := by
     calc
       E.orient (facet frame2456 5) =
@@ -1109,7 +1343,13 @@ private theorem mixedRule2456
             ext i
             fin_cases i <;> decide
       _ = seed5TwoLeft.orient left2456 := hL left2456
-      _ = false := by decide
+      _ = false := by
+        calc
+          seed5TwoLeft.orient left2456 =
+              seed5TwoLeftSigns (tupleVertices right2456) :=
+            seed5Two_left_rotated left2456 right2456
+              (by ext i; fin_cases i <;> decide) (by decide)
+          _ = false := by decide
   have h1 : E.orient (facet frame2456 1) = E.orient mixed456 := by
     congr 1
     ext i
@@ -1172,6 +1412,11 @@ theorem seed5Two_disagreement :
       seed5TwoLeft.orient t ≠ seed5TwoRight.orient t := by
   let t : Fin 5 ↪ Fin 8 := ⟨![0,1,2,3,7], by decide⟩
   refine ⟨t, ?_⟩
+  have ht : StrictMono (t : Fin 5 → Fin 8) := by decide
+  change (Hyper.fromOrderedSigns seed5TwoLeftSigns).orient t ≠
+    (Hyper.fromOrderedSigns seed5TwoRightSigns).orient t
+  rw [fromOrderedSigns_orient_strictMono seed5TwoLeftSigns t ht,
+    fromOrderedSigns_orient_strictMono seed5TwoRightSigns t ht]
   decide
 
 /-- Genuine ordinary, not merely strong, non-amalgamation
