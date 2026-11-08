@@ -46,3 +46,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.negativePacketRule_of_localIndex
 #print axioms Hypertournaments.Hyper.orient_perm
 #print axioms Hypertournaments.seed4_base_canonicalCentral
+#print axioms Hypertournaments.fromOrderedSigns_orient_strictMono
+#print axioms Hypertournaments.localIndex_ordered_sign
+#print axioms Hypertournaments.seed4_base_canonicalCentral

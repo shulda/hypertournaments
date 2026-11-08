@@ -151,4 +151,19 @@ theorem fromOrderedSigns_preserves {n : ℕ} {V W : Type*}
   rw [sort_map_orderEmbedding f g, tupleVertices_map_orderEmbedding f g,
       h (tupleVertices f)]
 
+/-- On an increasing tuple, the sorting permutation is the
+identity. Thus its orientation is read directly from the unordered
+sign table, without computing any sorting permutation. -/
+theorem fromOrderedSigns_orient_strictMono
+    {n : ℕ} {V : Type*} [LinearOrder V]
+    (signs : Finset V → Bool) (f : Fin n ↪ V)
+    (hf : StrictMono (f : Fin n → V)) :
+    (Hyper.fromOrderedSigns signs).orient f =
+      signs (tupleVertices f) := by
+  change orderedSignOrientation signs f = _
+  unfold orderedSignOrientation
+  have hsort : Tuple.sort (f : Fin n → V) = Equiv.refl _ :=
+    (Tuple.sort_eq_refl_iff_monotone).2 hf.monotone
+  simp [hsort]
+
 end Hypertournaments
