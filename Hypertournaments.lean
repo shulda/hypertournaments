@@ -25,3 +25,4 @@ import Hypertournaments.SeedFourNoAmalgam
 import Hypertournaments.SeedFourForbidOneData
 import Hypertournaments.SeedFourForbidOneLogic
 import Hypertournaments.SeedFourForbidOneRawLogic
+import Hypertournaments.SeedFourForbidOnePacket

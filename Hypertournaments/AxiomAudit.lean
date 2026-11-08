@@ -76,3 +76,7 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.no_bottom_for_pattern
 #print axioms Hypertournaments.forbidOne_fifteen_bit_unsat
 #print axioms Hypertournaments.no_raw_forbidOne_assignment
+#print axioms Hypertournaments.packet_type_T
+#print axioms Hypertournaments.packet_type_Cm
+#print axioms Hypertournaments.packet_type_Cp
+#print axioms Hypertournaments.ruleT_of_allowed_mixed
