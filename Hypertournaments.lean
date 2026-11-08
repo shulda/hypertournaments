@@ -10,3 +10,4 @@ import Hypertournaments.SwitchingShift
 import Hypertournaments.SeedFourLogic
 import Hypertournaments.SeedFourPacket
 import Hypertournaments.FinitePresentation
+import Hypertournaments.SeedFourData

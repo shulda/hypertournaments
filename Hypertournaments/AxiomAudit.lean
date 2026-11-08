@@ -37,3 +37,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.sort_swap_embedding
 #print axioms Hypertournaments.sort_swap_sign
 #print axioms Hypertournaments.Hyper.fromOrderedSigns
+#print axioms Hypertournaments.seed4_base_left
+#print axioms Hypertournaments.seed4_base_right
