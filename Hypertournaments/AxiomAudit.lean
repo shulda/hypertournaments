@@ -167,3 +167,7 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.Hyper.twoPadSlice_admissible_of_raw_equal
 #print axioms Hypertournaments.Hyper.twoPadSlice_admissible_of_mixed_profile
 #print axioms Hypertournaments.Hyper.twoPadSlice_preserves_of_recovery
+#print axioms Hypertournaments.facet_twoPadSliceTuple_zero
+#print axioms Hypertournaments.facet_twoPadSliceTuple_one
+#print axioms Hypertournaments.exists_matchingOnePadProfiles
+#print axioms Hypertournaments.exists_matchingTwoPadFacets
