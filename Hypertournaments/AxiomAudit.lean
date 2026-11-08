@@ -56,3 +56,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.seed4_base_canonicalCentral
 #print axioms Hypertournaments.seed4_left_canonicalCentral
 #print axioms Hypertournaments.seed4_right_canonicalCentral
+#print axioms Hypertournaments.facetSwap4_correct
+#print axioms Hypertournaments.minority5_adjacent_complement
