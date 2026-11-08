@@ -42,7 +42,7 @@ theorem admissible_four_of_canonical
   have hreorder : τ.symm.toEmbedding.trans g.toEmbedding = f := by
     ext x
     have hx := congrFun hsorted (τ.symm x)
-    simpa [Function.comp_apply] using hx.symm
+    exact congrArg Fin.val (by simpa [Function.comp_apply] using hx.symm)
   have hg : localIndex A g.toEmbedding = 2 := by
     have hh := h Q
     simpa [canonicalCentral4At, hQ, g] using hh
