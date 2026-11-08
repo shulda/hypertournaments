@@ -31,23 +31,23 @@ def CanonicalTwoPadSideRecovery
     (n a m : ℕ)
     (L R : Hyper n (Fin (a + 1)))
     (BL BR : Hyper (n + 2) (Fin (m + a + 1))) : Prop :=
-  (∀ (x y : Fin m) (hxy : x ≠ y)
+  (∀ (x y : Fin m) (hxy : x < y)
       (t : Fin n ↪ Fin (a + 1)),
       BL.orient (twoPadSliceTuple
           (canonicalOldToSide m a)
           (canonicalPadToSide m a x) (canonicalPadToSide m a y)
           (canonicalPadToSide_not_mem_old m a x)
           (canonicalPadToSide_not_mem_old m a y)
-          (fun he => hxy ((canonicalPadToSide m a).injective he))
+          (fun he => (ne_of_lt hxy) ((canonicalPadToSide m a).injective he))
           t) = L.orient t) ∧
-  (∀ (x y : Fin m) (hxy : x ≠ y)
+  (∀ (x y : Fin m) (hxy : x < y)
       (t : Fin n ↪ Fin (a + 1)),
       BR.orient (twoPadSliceTuple
           (canonicalOldToSide m a)
           (canonicalPadToSide m a x) (canonicalPadToSide m a y)
           (canonicalPadToSide_not_mem_old m a x)
           (canonicalPadToSide_not_mem_old m a y)
-          (fun he => hxy ((canonicalPadToSide m a).injective he))
+          (fun he => (ne_of_lt hxy) ((canonicalPadToSide m a).injective he))
           t) = R.orient t)
 
 /-- Actual higher source preservation gives the exact two-pad
@@ -94,7 +94,7 @@ theorem canonical_source_recovery_in_joint
         (canonicalPadToSide m a x) (canonicalPadToSide m a y)
         (canonicalPadToSide_not_mem_old m a x)
         (canonicalPadToSide_not_mem_old m a y)
-        hside hp' hq' hBL (hrec.1 x y hxy) t
+        hside hp' hq' hBL (hrec.1 x y hlt) t
     simpa only [hpad x, hpad y] using hs
   · intro x y hlt hpq t
     have hxy : x ≠ y := ne_of_lt hlt
@@ -125,7 +125,7 @@ theorem canonical_source_recovery_in_joint
         (canonicalPadToSide m a x) (canonicalPadToSide m a y)
         (canonicalPadToSide_not_mem_old m a x)
         (canonicalPadToSide_not_mem_old m a y)
-        hside hp' hq' hBR (hrec.2 x y hxy) t
+        hside hp' hq' hBR (hrec.2 x y hlt) t
     simpa only [hpad x, hpad y] using hs
 
 /-- If the lower-arity sides have no canonical ordinary joint, then
