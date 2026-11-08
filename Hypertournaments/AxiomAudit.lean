@@ -120,3 +120,4 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.seed5Extra_no_joint
 #print axioms Hypertournaments.seed5Extra_disagreement
 #print axioms Hypertournaments.seed5Extra_not_hasAP
+#print axioms Hypertournaments.seedFive_negativeGoal_of_three_obstructions
