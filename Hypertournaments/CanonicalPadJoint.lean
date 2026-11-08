@@ -44,8 +44,9 @@ theorem canonicalPadToJoint_not_mem_old
     canonicalPadToJoint m a z ∉
       Set.range (canonicalOldToJoint m a) := by
   rintro ⟨x, hx⟩
-  have hv := congrArg Fin.val hx
-  dsimp [canonicalPadToJoint, canonicalOldToJoint] at hv
+  have hv := congrArg (fun w : Fin (m + a + 2) => w.val) hx
+  change m + x.val = z.val at hv
+  have hz : z.val < m := z.isLt
   omega
 
 /-- Include a lower-arity one-point extension among the final a+1
