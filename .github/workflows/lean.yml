@@ -34,6 +34,8 @@ jobs:
             echo "Unfinished proof or custom axiom found."
             exit 1
           fi
+      - name: Resolve pinned Mathlib dependencies
+        run: lake update
       - name: Build and audit Lean project
         uses: leanprover/lean-action@f061402b660e0c34644504b324e830f2991d4865 # v1.6.1
         with:
