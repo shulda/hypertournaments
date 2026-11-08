@@ -137,3 +137,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.seed5Cone_no_joint
 #print axioms Hypertournaments.seed5Cone_disagreement
 #print axioms Hypertournaments.seed5Cone_not_hasAP
+#print axioms Hypertournaments.seedFive_negativeGoal
+#print axioms Hypertournaments.negative_classification_five
