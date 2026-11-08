@@ -51,4 +51,6 @@ import Hypertournaments.TwoPadProfiles
 import Hypertournaments.TwoPadIntrinsic
 import Hypertournaments.TwoPadSlice
 import Hypertournaments.TwoPadDefect
+import Hypertournaments.TwoPadIndexShift
+import Hypertournaments.TwoPadMixedSlice
 import Hypertournaments.OnePointMixedFactor
