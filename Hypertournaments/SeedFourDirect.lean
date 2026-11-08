@@ -36,4 +36,17 @@ theorem seed4_base_directCentral :
   unfold directCentral4At directFacetPositiveCount
   decide +kernel
 
+/-- All 56 five-subsets of the left extension are central.
+The left table uses the sign reversal for the new point 7. -/
+theorem seed4_left_directCentral :
+    ∀ Q : Finset (Fin 8), directCentral4At seed4LeftSigns Q := by
+  unfold directCentral4At directFacetPositiveCount
+  decide +kernel
+
+/-- All 56 five-subsets of the right extension are central. -/
+theorem seed4_right_directCentral :
+    ∀ Q : Finset (Fin 8), directCentral4At seed4RightSigns Q := by
+  unfold directCentral4At directFacetPositiveCount
+  decide +kernel
+
 end Hypertournaments
