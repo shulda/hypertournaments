@@ -38,3 +38,5 @@ import Hypertournaments.SeedFiveTwoData
 import Hypertournaments.SeedFiveTwoBoolean
 import Hypertournaments.SeedFiveTwoPacketBridge
 import Hypertournaments.SeedFiveTwoNoAmalgam
+import Hypertournaments.SeedFiveExtraData
+import Hypertournaments.SeedFiveExtraBoolean

@@ -108,3 +108,9 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.seed5Two_no_joint
 #print axioms Hypertournaments.seed5Two_disagreement
 #print axioms Hypertournaments.seed5Two_not_hasAP
+#print axioms Hypertournaments.seed5Extra_base_left
+#print axioms Hypertournaments.seed5Extra_base_right
+#print axioms Hypertournaments.seed5Extra_base_admissible
+#print axioms Hypertournaments.seed5Extra_left_admissible
+#print axioms Hypertournaments.seed5Extra_right_admissible
+#print axioms Hypertournaments.seed5Extra_mixed_boolean_unsat
