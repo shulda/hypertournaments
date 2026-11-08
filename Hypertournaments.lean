@@ -5,3 +5,4 @@ import Hypertournaments.Obstruction
 import Hypertournaments.Identification
 import Hypertournaments.Cochain
 import Hypertournaments.DoubleCoboundary
+import Hypertournaments.NegativeReduction

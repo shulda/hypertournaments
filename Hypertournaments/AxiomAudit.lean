@@ -25,3 +25,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.cocycle_exact_at_card
 #print axioms Hypertournaments.sum_over_distinct_pairs_eq_zero
 #print axioms Hypertournaments.coboundary_coboundary_zero
+#print axioms Hypertournaments.negativeGoal_all
+#print axioms Hypertournaments.negative_classification_of_dependencies
