@@ -57,3 +57,4 @@ import Hypertournaments.OnePointMixedFactor
 import Hypertournaments.OnePointNonmixedAdmissible
 import Hypertournaments.TwoPadProfileChoice
 import Hypertournaments.TwoPadJointReflection
+import Hypertournaments.CanonicalPadJoint

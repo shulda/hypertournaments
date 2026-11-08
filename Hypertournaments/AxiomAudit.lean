@@ -179,3 +179,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.exists_admissible_twoPadSlice_of_many_pads
 #print axioms Hypertournaments.exists_lower_onePoint_joint_of_many_pads
 #print axioms Hypertournaments.no_higher_joint_of_many_pads_and_recovery
+#print axioms Hypertournaments.canonicalPadToJoint_not_mem_old
+#print axioms Hypertournaments.canonicalOld_left_commutes
+#print axioms Hypertournaments.canonicalOld_right_commutes
