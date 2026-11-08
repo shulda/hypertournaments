@@ -21,6 +21,10 @@ def switchingAllowed (n : ℕ) : Set ℕ :=
   {d | d ≤ centralIndex n ∧ d % 2 = centralIndex n % 2}
 
 /-- The intended final necessary condition, not yet a theorem about AP. -/
+/-- A set of real local type indices, excluding phantom indices above the central one. -/
+def ValidTypes (n : ℕ) (S : Set ℕ) : Prop :=
+  ∀ d ∈ S, d ≤ centralIndex n
+
 def NecessaryAlternatives (n : ℕ) (S : Set ℕ) : Prop :=
   nextCentralIndex n ∈ S ∨ (Odd n ∧ S = switchingAllowed n)
 
@@ -46,6 +50,8 @@ def Admissible {n : ℕ} {V : Type*} (S : Set ℕ) (A : Hyper n V) : Prop :=
 
 example : centralIndex 4 = 2 := by decide
 example : centralIndex 5 = 3 := by decide
-example : 3 ∈ switchingAllowed 5 := by decide
+example : 3 ∈ switchingAllowed 5 := by
+  change 3 ≤ centralIndex 5 ∧ 3 % 2 = centralIndex 5 % 2
+  decide
 
 end Hypertournaments

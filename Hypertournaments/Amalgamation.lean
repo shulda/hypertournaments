@@ -28,7 +28,7 @@ def HasAP (n : ℕ) (S : Set ℕ) : Prop :=
 Intended theorem to prove after source audit:
 
 theorem negative_classification (n : ℕ) (hn : 4 ≤ n)
-    (S : Set ℕ) (hcentral : centralIndex n ∈ S)
+    (S : Set ℕ) (hvalid : ValidTypes n S)\n    (hcentral : centralIndex n ∈ S)
     (hap : HasAP n S) : NecessaryAlternatives n S := ...
 
 The positive construction can later prove the converse directly against

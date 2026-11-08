@@ -10,11 +10,11 @@ Target statement (not yet proved):
 
 ```lean
 theorem negative_classification (n : ℕ) (hn : 4 ≤ n)
-    (S : Set ℕ) (hcentral : centralIndex n ∈ S)
+    (S : Set ℕ) (hvalid : ValidTypes n S)\n    (hcentral : centralIndex n ∈ S)
     (hap : HasAP n S) : NecessaryAlternatives n S
 ```
 
-The disjunction says that the next-to-central index is allowed, or n is odd and S is exactly the coboundary/switching parity family. The positive proof will establish AP for both alternatives; the final iff will share the same definitions.
+The well-formedness hypothesis `ValidTypes n S` excludes phantom indices beyond the maximal possible type index; without it, equality with the switching set would be mathematically false. The disjunction says that the next-to-central index is allowed, or n is odd and S is exactly the coboundary/switching parity family. The positive proof will establish AP for both alternatives; the final iff will share the same definitions.
 
 ## Scope
 
