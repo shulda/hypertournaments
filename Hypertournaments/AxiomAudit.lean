@@ -120,3 +120,11 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.seed5Extra_no_joint
 #print axioms Hypertournaments.seed5Extra_disagreement
 #print axioms Hypertournaments.seed5Extra_not_hasAP
+#print axioms Hypertournaments.seed5Cone_base_left
+#print axioms Hypertournaments.seed5Cone_base_right
+#print axioms Hypertournaments.seed5Cone_base_admissible
+#print axioms Hypertournaments.seed5Cone_left_admissible
+#print axioms Hypertournaments.seed5Cone_right_admissible
+#print axioms Hypertournaments.seed5Cone_base_star
+#print axioms Hypertournaments.seed5Cone_left_star
+#print axioms Hypertournaments.seed5Cone_right_star
