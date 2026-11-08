@@ -121,3 +121,16 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.seed5Extra_disagreement
 #print axioms Hypertournaments.seed5Extra_not_hasAP
 #print axioms Hypertournaments.seedFive_negativeGoal_of_three_obstructions
+#print axioms Hypertournaments.seed5Cone_base_left
+#print axioms Hypertournaments.seed5Cone_base_right
+#print axioms Hypertournaments.seed5Cone_base_admissible
+#print axioms Hypertournaments.seed5Cone_left_admissible
+#print axioms Hypertournaments.seed5Cone_right_admissible
+#print axioms Hypertournaments.seed5Cone_base_star
+#print axioms Hypertournaments.seed5Cone_left_star
+#print axioms Hypertournaments.seed5Cone_right_star
+#print axioms Hypertournaments.coneNegativeRule_of_count
+#print axioms Hypertournaments.conePositiveRule_of_count
+#print axioms Hypertournaments.positiveFacetCount_eq_three_of_central5
+#print axioms Hypertournaments.coneNegativeRule_of_localIndex
+#print axioms Hypertournaments.conePositiveRule_of_localIndex
