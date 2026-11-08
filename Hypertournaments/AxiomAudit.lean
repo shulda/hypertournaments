@@ -20,3 +20,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.localIndex_le_central
 #print axioms Hypertournaments.admissible_validize
 #print axioms Hypertournaments.admissible_mono
+#print axioms Hypertournaments.coboundary_contractAt_of_mem
+#print axioms Hypertournaments.coboundary_insert_eq_add_contractAt
+#print axioms Hypertournaments.cocycle_exact_at_card
