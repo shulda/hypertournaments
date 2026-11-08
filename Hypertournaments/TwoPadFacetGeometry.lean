@@ -24,7 +24,7 @@ theorem twoPad_succAbove_pad_zero {n : ℕ} (i : Fin (n + 1)) :
 theorem twoPad_succAbove_pad_one {n : ℕ} (i : Fin (n + 1)) :
     (i.succ.succ).succAbove (1 : Fin (n + 2)) = 1 := by
   change (i.succ.succ).succAbove ((0 : Fin (n + 1)).succ) =
-    ((0 : Fin (n + 1)).succ)
+    ((0 : Fin (n + 2)).succ)
   rw [Fin.succ_succAbove_succ]
   rw [Fin.succ_succAbove_zero]
 
@@ -59,6 +59,7 @@ theorem twoPad_facet_parity
     decide ((i.succ.succ).val % 2 = 1) =
       decide (i.val % 2 = 1) := by
   have h : (i.succ.succ).val % 2 = i.val % 2 := by
+    simp only [Fin.val_succ]
     omega
   rw [h]
 
@@ -75,7 +76,7 @@ theorem normalizedFacet_twoPadSlice_old
         i.succ.succ =
       normalizedFacet (D.twoPadSlice g p q hp hq hpq) t i := by
   unfold normalizedFacet
-  rw [twoPadSliceTuple_facet]
+  rw [← twoPadSliceTuple_facet]
   change Bool.xor
       (D.orient (twoPadSliceTuple g p q hp hq hpq (facet t i)))
       (decide ((i.succ.succ).val % 2 = 1)) =
