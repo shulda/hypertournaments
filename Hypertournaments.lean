@@ -49,3 +49,4 @@ import Hypertournaments.SeedFiveConeNoAmalgam
 import Hypertournaments.SeedFiveClassification
 import Hypertournaments.TwoPadProfiles
 import Hypertournaments.TwoPadIntrinsic
+import Hypertournaments.TwoPadSlice
