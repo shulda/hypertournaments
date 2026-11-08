@@ -28,3 +28,7 @@ import Hypertournaments.SeedFourForbidOneRawLogic
 import Hypertournaments.SeedFourForbidOnePacket
 import Hypertournaments.SeedFourForbidOneNoAmalgam
 import Hypertournaments.SeedFourClassification
+import Hypertournaments.AdjacentPacketFive
+import Hypertournaments.AdjacentSignFive
+import Hypertournaments.LocalTypeInvariantFive
+import Hypertournaments.SeedFiveAdmissible
