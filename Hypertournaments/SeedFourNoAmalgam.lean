@@ -89,7 +89,7 @@ private theorem seed4_left_rotated
       congrArg seed4Left.orient hmatch.symm
     _ = !(seed4Left.orient r) := hperm
     _ = !(seed4LeftSigns (tupleVertices r)) :=
-      congrArg (!) (fromOrderedSigns_orient_strictMono seed4LeftSigns r hrmono)
+      congrArg (fun b : Bool => !b) (fromOrderedSigns_orient_strictMono seed4LeftSigns r hrmono)
 
 private theorem negative_joint_rule
     (E : Hyper 4 (Fin 9))
