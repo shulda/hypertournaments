@@ -154,3 +154,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.twoPadSliceTuple_reordered
 #print axioms Hypertournaments.Hyper.twoPadSlice
 #print axioms Hypertournaments.Hyper.twoPadSlice_orient
+#print axioms Hypertournaments.normalized_first_two_opposite_iff_raw_equal
+#print axioms Hypertournaments.normalized_first_two_opposite_of_raw_equal
