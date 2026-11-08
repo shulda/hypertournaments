@@ -154,3 +154,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.twoPadSliceTuple_reordered
 #print axioms Hypertournaments.Hyper.twoPadSlice
 #print axioms Hypertournaments.Hyper.twoPadSlice_orient
+#print axioms Hypertournaments.twoPad_minority_shift
+#print axioms Hypertournaments.twoPad_shift_nonzero
+#print axioms Hypertournaments.twoPad_localIndex_count_shift
