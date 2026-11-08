@@ -48,7 +48,7 @@ theorem onePointTuple_factors_left
         _ = t j := Fin.castSucc_castPred (t j) (hn j)⟩
   refine ⟨f, ?_⟩
   ext i
-  exact Fin.castSucc_castPred (t i) (hn i)
+  exact congrArg Fin.val (Fin.castSucc_castPred (t i) (hn i))
 
 /-- If an old tuple omits the left new vertex, it factors through
 the right source inclusion. The inverse is Fin.predAbove. -/
@@ -74,7 +74,7 @@ theorem onePointTuple_factors_right
         _ = t j := Fin.succAbove_predAbove (hn j)⟩
   refine ⟨f, ?_⟩
   ext i
-  exact Fin.succAbove_predAbove (hn i)
+  exact congrArg Fin.val (Fin.succAbove_predAbove (hn i))
 
 /-- An arbitrary nonmixed tuple of the canonical (a+2)-vertex
 joint factors through at least one of its one-point source sides. -/

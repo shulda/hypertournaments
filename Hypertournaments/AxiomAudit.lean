@@ -157,6 +157,16 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.twoPad_minority_shift
 #print axioms Hypertournaments.twoPad_shift_nonzero
 #print axioms Hypertournaments.twoPad_localIndex_count_shift
+#print axioms Hypertournaments.boolPacketMinority_two_opposite
+#print axioms Hypertournaments.normalizedFacet_twoPadSlice_old
+#print axioms Hypertournaments.normalized_first_two_opposite_iff_raw_equal
+#print axioms Hypertournaments.normalizedPacket_twoPadSlice_cons
+#print axioms Hypertournaments.localIndex_twoPadSlice_shift_of_opposite
+#print axioms Hypertournaments.localIndex_twoPadSlice_shift_of_raw_equal
+#print axioms Hypertournaments.twoPadSlice_localIndex_mem_shifted
+#print axioms Hypertournaments.Hyper.twoPadSlice_admissible_of_raw_equal
+#print axioms Hypertournaments.Hyper.twoPadSlice_admissible_of_mixed_profile
+#print axioms Hypertournaments.Hyper.twoPadSlice_preserves_of_recovery
 #print axioms Hypertournaments.onePointTuple_factors_left
 #print axioms Hypertournaments.onePointTuple_factors_right
 #print axioms Hypertournaments.onePointTuple_nonmixed_factors
