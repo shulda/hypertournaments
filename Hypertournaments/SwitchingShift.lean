@@ -41,7 +41,13 @@ theorem shiftedAllowed_switching_positive
   change d ∈ S ↔ (d ≤ centralIndex (n + 2) ∧
     d % 2 = centralIndex (n + 2) % 2)
   rw [centralIndex_add_two]
-  omega
+  constructor
+  · intro hdS
+    have hp := h.mp hdS
+    constructor <;> omega
+  · intro hp
+    apply h.mpr
+    constructor <;> omega
 
 /-- Agreement at zero is the last requirement for agreement
 with the entire higher switching family. -/
