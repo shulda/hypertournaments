@@ -60,3 +60,4 @@ import Hypertournaments.TwoPadJointReflection
 import Hypertournaments.CanonicalPadJoint
 import Hypertournaments.TwoPadNaturality
 import Hypertournaments.TwoPadCommutingSquare
+import Hypertournaments.CanonicalPadSide
