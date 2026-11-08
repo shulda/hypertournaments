@@ -36,3 +36,4 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.mixedPacket_positive_rule_iff
 #print axioms Hypertournaments.sort_swap_embedding
 #print axioms Hypertournaments.sort_swap_sign
+#print axioms Hypertournaments.Hyper.fromOrderedSigns
