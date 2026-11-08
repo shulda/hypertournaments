@@ -142,8 +142,8 @@ theorem fromOrderedSigns_preserves {n : ℕ} {V W : Type*}
     (g : V ↪o W)
     (s : Finset V → Bool) (t : Finset W → Bool)
     (h : ∀ Q : Finset V, t (Q.image g) = s Q) :
-    Preserves (Hyper.fromOrderedSigns s)
-              (Hyper.fromOrderedSigns t) g.toEmbedding := by
+    Preserves (Hyper.fromOrderedSigns (n := n) s)
+              (Hyper.fromOrderedSigns (n := n) t) g.toEmbedding := by
   intro f
   change orderedSignOrientation t (f.trans g.toEmbedding) =
     orderedSignOrientation s f
