@@ -32,7 +32,7 @@ theorem mixedPacket_negative_rule_iff
     mixedPacketCentral4 false false xij xik xjk ↔
       negativePacketRule xij xik xjk := by
   cases xij <;> cases xik <;> cases xjk <;>
-    (unfold mixedPacketCentral4 mixedPacketPositiveCount4 negativePacketRule positivePacketRule
+    (unfold mixedPacketCentral4 mixedPacketPositiveCount4 negativePacketRule
      decide)
 
 /-- Both endpoint signs positive gives the positive packet rule. -/
@@ -41,7 +41,7 @@ theorem mixedPacket_positive_rule_iff
     mixedPacketCentral4 true true xij xik xjk ↔
       positivePacketRule xij xik xjk := by
   cases xij <;> cases xik <;> cases xjk <;>
-    (unfold mixedPacketCentral4 mixedPacketPositiveCount4 negativePacketRule positivePacketRule
+    (unfold mixedPacketCentral4 mixedPacketPositiveCount4 positivePacketRule
      decide)
 
 end Hypertournaments
