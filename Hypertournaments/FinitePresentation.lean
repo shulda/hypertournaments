@@ -28,11 +28,15 @@ theorem sort_swap_embedding (f : Fin n ↪ V) (i j : Fin n) :
   have hperm :
       σ * Tuple.sort ((f : Fin n → V) ∘ σ) =
         Tuple.sort (f : Fin n → V) := by
-    ext x
+    apply Equiv.ext
+    intro x
     apply f.injective
     simpa only [Function.comp_apply, Equiv.Perm.mul_apply]
       using congrFun hsorted x
   have hcancel := congrArg (fun p : Equiv.Perm (Fin n) => σ⁻¹ * p) hperm
+  have hfun : (fun x => f (Equiv.swap i j x)) =
+      ((f : Fin n → V) ∘ (Equiv.swap i j : Fin n → Fin n)) := rfl
+  rw [hfun]
   simpa [σ, mul_assoc] using hcancel
 
 /-- Swapping distinct coordinates negates the sign of the
