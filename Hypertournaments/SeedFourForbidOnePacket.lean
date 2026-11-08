@@ -30,25 +30,27 @@ theorem packet_type_T
     (hends : alpha ≠ beta)
     (ht : packetTypeAllowed alpha beta xij xik xjk) :
     ruleT xij xik xjk = true := by
-  cases alpha <;> cases beta <;> cases xij <;>
-    cases xik <;> cases xjk <;>
-    simp_all [packetTypeAllowed, mixedPacketPositiveCount4, ruleT, tripleCode]
+  revert alpha beta xij xik xjk
+  unfold packetTypeAllowed
+  decide +kernel
 
 /-- Two negative endpoint signs give C-minus. -/
 theorem packet_type_Cm
     (xij xik xjk : Bool)
     (ht : packetTypeAllowed false false xij xik xjk) :
     ruleCm xij xik xjk = true := by
-  cases xij <;> cases xik <;> cases xjk <;>
-    simp_all [packetTypeAllowed, mixedPacketPositiveCount4, ruleCm, tripleCode]
+  revert xij xik xjk
+  unfold packetTypeAllowed
+  decide +kernel
 
 /-- Two positive endpoint signs give C-plus. -/
 theorem packet_type_Cp
     (xij xik xjk : Bool)
     (ht : packetTypeAllowed true true xij xik xjk) :
     ruleCp xij xik xjk = true := by
-  cases xij <;> cases xik <;> cases xjk <;>
-    simp_all [packetTypeAllowed, mixedPacketPositiveCount4, ruleCp, tripleCode]
+  revert xij xik xjk
+  unfold packetTypeAllowed
+  decide +kernel
 
 /-- A permitted intrinsic mixed five-tuple satisfies the exact
 Boolean packet predicate used in the finite SAT-style certificate. -/
