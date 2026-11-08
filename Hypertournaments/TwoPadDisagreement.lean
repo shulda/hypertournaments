@@ -35,10 +35,10 @@ theorem canonical_twoPad_disagreement_of_low_disagreement
   have hm2 : 1 < m := by omega
   let x : Fin m := ⟨0, by omega⟩
   let y : Fin m := ⟨1, by omega⟩
-  have hxy : x ≠ y := by
-    intro h
-    have hv := congrArg Fin.val h
-    norm_num [x, y] at hv
+  have hlt : x < y := by
+    change (0 : ℕ) < 1
+    decide
+  have hxy : x ≠ y := ne_of_lt hlt
   obtain ⟨t, hdiff⟩ := hlow
   let u : Fin (n + 2) ↪ Fin (m + a + 1) :=
     twoPadSliceTuple
@@ -49,8 +49,8 @@ theorem canonical_twoPad_disagreement_of_low_disagreement
       (canonicalPadToSide_not_mem_old m a y)
       (fun he => hxy ((canonicalPadToSide m a).injective he)) t
   refine ⟨u, ?_⟩
-  have hL : BL.orient u = L.orient t := hrec.1 x y hxy t
-  have hR : BR.orient u = R.orient t := hrec.2 x y hxy t
+  have hL : BL.orient u = L.orient t := hrec.1 x y hlt t
+  have hR : BR.orient u = R.orient t := hrec.2 x y hlt t
   intro he
   exact hdiff (hL.symm.trans (he.trans hR))
 
