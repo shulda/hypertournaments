@@ -55,3 +55,4 @@ import Hypertournaments.TwoPadIndexShift
 import Hypertournaments.TwoPadMixedSlice
 import Hypertournaments.TwoPadProfileChoice
 import Hypertournaments.CanonicalPadJoint
+import Hypertournaments.TwoPadNaturality
