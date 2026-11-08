@@ -1,0 +1,3 @@
+import Hypertournaments.Basic
+import Hypertournaments.LocalTypes
+import Hypertournaments.Amalgamation
