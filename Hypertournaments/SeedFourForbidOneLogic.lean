@@ -83,6 +83,7 @@ def topPatterns : Finset (Fin 1024) :=
 /-- All 1024 possible internal assignments are checked. -/
 theorem topOk_iff_pattern (u : Fin 1024) :
     topOk u = true ↔ u ∈ topPatterns := by
+  revert u
   decide +kernel
 
 /-- Each of the 17 surviving patterns has no compatible assignment
