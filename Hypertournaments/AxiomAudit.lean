@@ -61,3 +61,7 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.normalizedFacet_adjacentSwap4
 #print axioms Hypertournaments.localIndex_adjacentSwap4
 #print axioms Hypertournaments.localIndex_perm4
+#print axioms Hypertournaments.admissible_four_of_canonical
+#print axioms Hypertournaments.seed4_base_admissible
+#print axioms Hypertournaments.seed4_left_admissible
+#print axioms Hypertournaments.seed4_right_admissible
