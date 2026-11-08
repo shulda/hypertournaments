@@ -37,21 +37,39 @@ theorem directCount_eq_increasingPacket
         (decide (i.val % 2 = 1)) = true := by
     have hrank := card_lt_tupleVertices_eq f i
     rw [hvertices] at hrank
-    have hfacet := tupleVertices_facet_eq_erase f.toEmbedding i
-    rw [hvertices] at hfacet
+    have hfacet : Q.erase (f i) =
+        tupleVertices (facet f.toEmbedding i) := by
+      simpa [hvertices] using
+        (tupleVertices_facet_eq_erase f.toEmbedding i).symm
     dsimp [P]
-    rw [← hfacet, hrank]
+    rw [hfacet, hrank]
+  have hfilter :
+      Q.filter P =
+        ((Finset.univ : Finset (Fin 5)).filter
+          (fun i => P (f i))).image f := by
+    calc
+      Q.filter P =
+          (((Finset.univ : Finset (Fin 5)).image f).filter P) :=
+        congrArg (fun T : Finset (Fin k) => T.filter P) himage.symm
+      _ = _ := Finset.filter_image
   unfold directFacetPositiveCount increasingPacketPositiveCount
   change (Q.filter P).card =
     ((Finset.univ : Finset (Fin 5)).filter (fun i =>
       Bool.xor (signs (tupleVertices (facet f.toEmbedding i)))
         (decide (i.val % 2 = 1)) = true)).card
-  conv_lhs => rw [← himage, Finset.filter_image]
-  rw [Finset.card_image_of_injective _ f.injective]
-  congr 1
-  ext i
-  simpa only [Finset.mem_filter, Finset.mem_univ, true_and]
-    using hpoint i
+  calc
+    (Q.filter P).card =
+        (((Finset.univ : Finset (Fin 5)).filter
+          (fun i => P (f i))).image f).card :=
+      congrArg Finset.card hfilter
+    _ = ((Finset.univ : Finset (Fin 5)).filter
+          (fun i => P (f i))).card :=
+      Finset.card_image_of_injective _ f.injective
+    _ = _ := by
+      congr 1
+      ext i
+      simpa only [Finset.mem_filter, Finset.mem_univ, true_and]
+        using hpoint i
 
 /-- A direct centrality check is exactly the canonical intrinsic
 centrality check on the unique increasing five-tuple. -/
@@ -64,10 +82,12 @@ theorem directCentral4_iff_canonical
   · constructor
     · intro hc
       have hcnt := hc h
-      change localIndex (Hyper.fromOrderedSigns signs)
-        (Q.orderEmbOfFin h).toEmbedding = 2
-      rw [localIndex_ordered_sign, ← directCount_eq_increasingPacket signs Q h]
-      exact hcnt
+      have hgoal : localIndex (Hyper.fromOrderedSigns signs)
+          (Q.orderEmbOfFin h).toEmbedding = 2 := by
+        rw [localIndex_ordered_sign,
+          ← directCount_eq_increasingPacket signs Q h]
+        exact hcnt
+      simpa [canonicalCentral4At, h] using hgoal
     · intro hc
       intro _
       have hcnt : localIndex (Hyper.fromOrderedSigns signs)
