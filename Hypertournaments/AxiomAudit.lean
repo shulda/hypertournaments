@@ -72,3 +72,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.forbidOne_base_admissible
 #print axioms Hypertournaments.forbidOne_left_admissible
 #print axioms Hypertournaments.forbidOne_right_admissible
+#print axioms Hypertournaments.topOk_iff_pattern
+#print axioms Hypertournaments.no_bottom_for_pattern
+#print axioms Hypertournaments.forbidOne_fifteen_bit_unsat
