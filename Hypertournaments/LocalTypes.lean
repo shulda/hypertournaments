@@ -48,6 +48,31 @@ def localIndex {n : ℕ} {V : Type*} (A : Hyper n V)
 def Admissible {n : ℕ} {V : Type*} (S : Set ℕ) (A : Hyper n V) : Prop :=
   ∀ f : Fin (n + 1) ↪ V, localIndex A f ∈ S
 
+/-- The switching family contains no non-existent indices. -/
+theorem switchingAllowed_valid (n : ℕ) :
+    ValidTypes n (switchingAllowed n) := by
+  intro d hd
+  exact hd.1
+
+/-- The central index is always in the switching family. -/
+theorem central_mem_switchingAllowed (n : ℕ) :
+    centralIndex n ∈ switchingAllowed n := by
+  exact ⟨le_refl _, rfl⟩
+
+/-- Local index is natural with respect to vertex embeddings. -/
+theorem localIndex_pullback {n : ℕ} {V : Type*} {W : Type*}
+    (B : Hyper n W) (f : V ↪ W) (t : Fin (n + 1) ↪ V) :
+    localIndex (B.pullback f) t = localIndex B (t.trans f) := by
+  rfl
+
+/-- Every induced sub-hypertournament of an admissible structure is admissible. -/
+theorem admissible_pullback {n : ℕ} {V : Type*} {W : Type*}
+    {S : Set ℕ} (B : Hyper n W) (f : V ↪ W)
+    (h : Admissible S B) : Admissible S (B.pullback f) := by
+  intro t
+  rw [localIndex_pullback]
+  exact h (t.trans f)
+
 example : centralIndex 4 = 2 := by decide
 example : centralIndex 5 = 3 := by decide
 example : 3 ∈ switchingAllowed 5 := by
