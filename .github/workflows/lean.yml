@@ -28,7 +28,7 @@ jobs:
         shell: bash
         run: |
           sudo apt-get update
-          sudo apt-get install --yes elan
+          sudo apt-get install --yes elan zstd
           elan --version
       - name: Reject placeholders and custom axioms
         shell: bash
@@ -37,19 +37,36 @@ jobs:
             echo "Unfinished proof or custom axiom found."
             exit 1
           fi
-      - name: Install pinned Lean with retries
+      - name: Install pinned Lean with checked fallback mirror
         shell: bash
         run: |
-          for attempt in 1 2 3 4 5; do
+          set -euo pipefail
+          ok=0
+          for attempt in 1 2 3; do
             if elan toolchain install leanprover/lean4:v4.34.1; then
+              ok=1
               break
             fi
-            if [ "$attempt" = 5 ]; then
-              echo "Lean toolchain download failed after five attempts"
-              exit 1
-            fi
-            sleep $((attempt * 5))
+            sleep $((attempt * 4))
           done
+          if [ "$ok" != 1 ]; then
+            echo "Official CDN unavailable; verifying exact official release SHA-256 from fallback mirror"
+            curl -fL --retry 3 --retry-all-errors --retry-delay 5 \
+              --connect-timeout 30 --max-time 900 \
+              'https://downloads.sourceforge.net/project/lean-4.mirror/v4.34.1/lean-4.34.1-linux.tar.zst' \
+              -o /tmp/lean-4.34.1-linux.tar.zst
+            echo '47bf4bbd78f70c2e9670598ab7124d92b6efb7330ff33e5fbb4030f6fd72e4e4  /tmp/lean-4.34.1-linux.tar.zst' | sha256sum -c -
+            mkdir -p "$HOME/.elan/toolchains/leanprover--lean4---v4.34.1"
+            tar --zstd -xf /tmp/lean-4.34.1-linux.tar.zst \
+              -C "$HOME/.elan/toolchains/leanprover--lean4---v4.34.1" --strip-components=1
+          fi
+          elan which lean
+          elan which lake
+      - name: Persist verified Lean toolchain
+        uses: actions/cache/save@v5
+        with:
+          path: ~/.elan/toolchains
+          key: lean-toolchain-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain') }}
       - name: Expose pinned Lean binaries
         shell: bash
         run: |
