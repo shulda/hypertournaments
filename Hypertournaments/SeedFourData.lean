@@ -70,23 +70,27 @@ def seed4Left : Hyper 4 (Fin 8) :=
 def seed4Right : Hyper 4 (Fin 8) :=
   Hyper.fromOrderedSigns seed4RightSigns
 
-/-- A computational check of the embedding API and old signs. -/
+/-- The two sign tables restrict to the same seven-vertex base.
+Only 128 possible subsets of Fin 7 are checked, not every
+injection of a four-tuple. -/
 theorem seed4_base_left : Preserves seed4Base seed4Left
     (onePointBaseEmbedding 7) := by
-  letI : Fintype (Fin 4 ↪ Fin 7) :=
-    Fintype.ofEquiv
-      { f : Fin 4 → Fin 7 // Function.Injective f }
-      (Equiv.subtypeInjectiveEquivEmbedding (Fin 4) (Fin 7))
-  unfold Preserves
-  decide
+  have htable : ∀ Q : Finset (Fin 7),
+      seed4LeftSigns (Q.image (Fin.castSuccOrderEmb : Fin 7 ↪o Fin 8)) =
+        seed4BaseSigns Q := by
+    decide
+  exact fromOrderedSigns_preserves
+    (g := (Fin.castSuccOrderEmb : Fin 7 ↪o Fin 8))
+    seed4BaseSigns seed4LeftSigns htable
 
 theorem seed4_base_right : Preserves seed4Base seed4Right
     (onePointBaseEmbedding 7) := by
-  letI : Fintype (Fin 4 ↪ Fin 7) :=
-    Fintype.ofEquiv
-      { f : Fin 4 → Fin 7 // Function.Injective f }
-      (Equiv.subtypeInjectiveEquivEmbedding (Fin 4) (Fin 7))
-  unfold Preserves
-  decide
+  have htable : ∀ Q : Finset (Fin 7),
+      seed4RightSigns (Q.image (Fin.castSuccOrderEmb : Fin 7 ↪o Fin 8)) =
+        seed4BaseSigns Q := by
+    decide
+  exact fromOrderedSigns_preserves
+    (g := (Fin.castSuccOrderEmb : Fin 7 ↪o Fin 8))
+    seed4BaseSigns seed4RightSigns htable
 
 end Hypertournaments

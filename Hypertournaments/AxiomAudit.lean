@@ -39,3 +39,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.Hyper.fromOrderedSigns
 #print axioms Hypertournaments.seed4_base_left
 #print axioms Hypertournaments.seed4_base_right
+#print axioms Hypertournaments.sort_map_orderEmbedding
+#print axioms Hypertournaments.fromOrderedSigns_preserves
