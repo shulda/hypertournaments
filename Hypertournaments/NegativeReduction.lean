@@ -114,13 +114,16 @@ theorem negativeGoal_add_two (D : NegativeDependencies)
   · have hb := hind (shiftedAllowed S) hvlow hclow hmlow (Or.inl he)
     exact D.evenTransfer n hn he S hv hc hm hb
   · have ho : Odd n := Nat.not_even_iff_odd.mp he
-    have hn5 : 5 ≤ n := by omega
+    have hn5 : 5 ≤ n := by
+      rcases ho with ⟨k, hk⟩
+      omega
     by_cases hs : shiftedAllowed S = switchingAllowed n
     · have hnot : S ≠ switchingAllowed (n + 2) := by
         rcases hnon with heup | hdifferent
         · exfalso
           apply he
-          omega
+          rcases heup with ⟨k, hk⟩
+          exact ⟨k - 1, by omega⟩
         · exact hdifferent
       exact D.oddExceptional n hn5 ho S hv hc hm hs hnot
     · have hb := hind (shiftedAllowed S) hvlow hclow hmlow (Or.inr hs)

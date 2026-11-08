@@ -13,7 +13,7 @@ namespace Hypertournaments
 /-- An ordinary amalgam of the displayed span, with possible
 identifications between the two larger vertex sets. -/
 def HasAmalgam {n a b c : ℕ} (S : Set ℕ)
-    (A : Hyper n (Fin a)) (B : Hyper n (Fin b))
+    (_A : Hyper n (Fin a)) (B : Hyper n (Fin b))
     (C : Hyper n (Fin c))
     (f : Fin a ↪ Fin b) (g : Fin a ↪ Fin c) : Prop :=
   ∃ (d : ℕ) (D : Hyper n (Fin d))
