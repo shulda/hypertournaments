@@ -38,10 +38,12 @@ theorem seed5TwoMixedAllowed_iff_rule
       min (seed5TwoMixedPositiveCount beta alpha a b c d)
          (6 - seed5TwoMixedPositiveCount beta alpha a b c d) = 3) ↔
       seed5TwoMixedRule beta alpha a b c d := by
-  unfold seed5TwoMixedRule seed5TwoMixedPositiveCount
-    seed5TwoRuleSame seed5TwoRuleZeroOne seed5TwoRuleOneZero
+  classical
   cases beta <;> cases alpha <;> cases a <;> cases b <;>
-    cases c <;> cases d <;> decide +kernel
+    cases c <;> cases d <;>
+    norm_num [seed5TwoMixedRule, seed5TwoMixedPositiveCount,
+      seed5TwoRuleSame, seed5TwoRuleZeroOne, seed5TwoRuleOneZero,
+      Finset.univ]
 
 /-- Any genuinely admissible mixed six-tuple satisfies its
 corresponding Boolean packet rule, with no auxiliary linear order
