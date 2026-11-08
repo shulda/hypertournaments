@@ -91,3 +91,14 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.localIndex_perm5
 #print axioms Hypertournaments.admissible_five_of_canonical
 #print axioms Hypertournaments.fromOrderedSigns_admissible_five_of_direct
+
+#print axioms Hypertournaments.directCount_eq_increasingPacket_general
+#print axioms Hypertournaments.fromOrderedSigns_admissible_five_of_direct_count
+#print axioms Hypertournaments.seed5Two_base_left
+#print axioms Hypertournaments.seed5Two_base_right
+#print axioms Hypertournaments.seed5Two_base_direct
+#print axioms Hypertournaments.seed5Two_left_direct
+#print axioms Hypertournaments.seed5Two_right_direct
+#print axioms Hypertournaments.seed5Two_base_admissible
+#print axioms Hypertournaments.seed5Two_left_admissible
+#print axioms Hypertournaments.seed5Two_right_admissible
