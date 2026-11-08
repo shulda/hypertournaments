@@ -15,8 +15,8 @@ theorem onePoint_embeddings_equal {a d : ℕ}
     (hlast : i (Fin.last a) = j (Fin.last a)) : i = j := by
   ext x
   rcases x.eq_castSucc_or_eq_last with ⟨y, rfl⟩ | rfl
-  · exact hbase y
-  · exact hlast
+  · exact congrArg Fin.val (hbase y)
+  · exact congrArg Fin.val hlast
 
 /-- If the new points are identified, the two sides agree on
 every oriented n-tuple. -/

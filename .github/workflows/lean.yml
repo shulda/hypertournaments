@@ -42,6 +42,11 @@ jobs:
         run: |
           set -euo pipefail
           ok=0
+          if [ -x "$HOME/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean" ]; then
+            echo "Pinned toolchain already restored from cache"
+            ok=1
+          fi
+          if [ "$ok" != 1 ]; then
           for attempt in 1 2 3; do
             if elan toolchain install leanprover/lean4:v4.34.1; then
               ok=1
@@ -49,6 +54,7 @@ jobs:
             fi
             sleep $((attempt * 4))
           done
+          fi
           if [ "$ok" != 1 ]; then
             echo "Official CDN unavailable; verifying exact official release SHA-256 from fallback mirror"
             curl -fL --retry 3 --retry-all-errors --retry-delay 5 \
