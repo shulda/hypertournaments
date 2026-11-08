@@ -22,25 +22,7 @@ def canonicalCentral4At {k : ℕ}
     localIndex A (Q.orderEmbOfFin h).toEmbedding = 2
   else True
 
-/-- The finite table computation without sorting-permutation overhead. -/
-theorem seed4_base_signTable_canonical :
-    ∀ Q : Finset (Fin 7), canonicalSignCentral4At seed4BaseSigns Q := by
-  unfold canonicalSignCentral4At increasingPacketPositiveCount
-  decide
-
-/-- The sign-table calculation transfers to the actual intrinsic
-hypertournament on every increasing five-tuple. -/
-theorem seed4_base_canonicalCentral :
-    ∀ Q : Finset (Fin 7), canonicalCentral4At seed4Base Q := by
-  intro Q
-  by_cases h : Q.card = 5
-  · have ht := seed4_base_signTable_canonical Q
-    simp only [canonicalSignCentral4At, dif_pos h] at ht
-    simp only [canonicalCentral4At, dif_pos h]
-    change localIndex (Hyper.fromOrderedSigns seed4BaseSigns)
-      (Q.orderEmbOfFin h).toEmbedding = 2
-    rw [localIndex_ordered_sign]
-    exact ht
-  · simp [canonicalCentral4At, h]
+/-! The canonical finite verification will be recovered from the
+direct finite-set rank test through a general equivalence lemma. -/
 
 end Hypertournaments

@@ -14,3 +14,4 @@ import Hypertournaments.SeedFourData
 import Hypertournaments.SeedFourPacketBridge
 import Hypertournaments.SeedFourCanonical
 import Hypertournaments.CanonicalPacket
+import Hypertournaments.SeedFourDirect
