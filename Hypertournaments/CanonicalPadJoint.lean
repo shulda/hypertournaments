@@ -22,8 +22,9 @@ def canonicalPadToJoint (m a : ℕ) : Fin m ↪ Fin (m + a + 2) where
   toFun z := ⟨z.val, by omega⟩
   inj' := by
     intro x y h
+    have hv := congrArg (fun z : Fin (m + a + 2) => z.val) h
     apply Fin.ext
-    exact congrArg Fin.val h
+    exact hv
 
 /-- Include the a+2 vertices of the lower-arity ordinary joint as
 the final a+2 vertices of the padded joint. -/
@@ -43,8 +44,9 @@ theorem canonicalPadToJoint_not_mem_old
     canonicalPadToJoint m a z ∉
       Set.range (canonicalOldToJoint m a) := by
   rintro ⟨x, hx⟩
-  have hv := congrArg Fin.val hx
-  dsimp [canonicalPadToJoint, canonicalOldToJoint] at hv
+  have hv := congrArg (fun w : Fin (m + a + 2) => w.val) hx
+  change m + x.val = z.val at hv
+  have hz : z.val < m := z.isLt
   omega
 
 /-- Include a lower-arity one-point extension among the final a+1
@@ -65,7 +67,6 @@ theorem canonicalOld_left_commutes (m a : ℕ) :
     (canonicalOldToSide m a).trans (leftJointInclusion (m + a)) =
       (leftJointInclusion a).trans (canonicalOldToJoint m a) := by
   ext x
-  apply Fin.ext
   rfl
 
 /-- The old right side injection also commutes with the canonical
@@ -74,6 +75,9 @@ theorem canonicalOld_right_commutes (m a : ℕ) :
     (canonicalOldToSide m a).trans (rightJointInclusion (m + a)) =
       (rightJointInclusion a).trans (canonicalOldToJoint m a) := by
   ext x
+  change
+    (rightJointInclusion (m + a) (canonicalOldToSide m a x)).val =
+      (canonicalOldToJoint m a (rightJointInclusion a x)).val
   rcases x.eq_castSucc_or_eq_last with ⟨y, rfl⟩ | rfl
   · let z : Fin (m + a) := ⟨m + y.val, by omega⟩
     have hz :
@@ -82,7 +86,6 @@ theorem canonicalOld_right_commutes (m a : ℕ) :
       rfl
     rw [hz, rightJointInclusion_old (m + a) z,
       rightJointInclusion_old a y]
-    apply Fin.ext
     rfl
   · have hz :
         canonicalOldToSide m a (Fin.last a) =
@@ -90,7 +93,6 @@ theorem canonicalOld_right_commutes (m a : ℕ) :
       apply Fin.ext
       rfl
     rw [hz, rightJointInclusion_new (m + a), rightJointInclusion_new a]
-    apply Fin.ext
     rfl
 
 end Hypertournaments
