@@ -62,3 +62,4 @@ import Hypertournaments.TwoPadNaturality
 import Hypertournaments.TwoPadCommutingSquare
 import Hypertournaments.CanonicalPadSide
 import Hypertournaments.CanonicalOrientationRecovery
+import Hypertournaments.CanonicalSignPresentation
