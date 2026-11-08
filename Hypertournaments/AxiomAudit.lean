@@ -109,3 +109,9 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.seed5Extra_left_admissible
 #print axioms Hypertournaments.seed5Extra_right_admissible
 #print axioms Hypertournaments.seed5Extra_mixed_boolean_unsat
+#print axioms Hypertournaments.seed5ExtraMixedPositiveCount_eq_sum
+#print axioms Hypertournaments.seed5ExtraMixedAllowed_iff_rule
+#print axioms Hypertournaments.seed5ExtraMixedRule_of_admissible
+#print axioms Hypertournaments.seed5Extra_no_joint
+#print axioms Hypertournaments.seed5Extra_disagreement
+#print axioms Hypertournaments.seed5Extra_not_hasAP
