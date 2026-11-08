@@ -172,3 +172,7 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.onePointTuple_nonmixed_factors
 #print axioms Hypertournaments.localIndex_preserves
 #print axioms Hypertournaments.onePoint_nonmixed_admissible
+#print axioms Hypertournaments.facet_twoPadSliceTuple_zero
+#print axioms Hypertournaments.facet_twoPadSliceTuple_one
+#print axioms Hypertournaments.exists_matchingOnePadProfiles
+#print axioms Hypertournaments.exists_matchingTwoPadFacets
