@@ -8,7 +8,7 @@ import Hypertournaments.SeedFourForbidOnePacket
 The common six-vertex base and its two seven-vertex one-point
 extensions are the exact finite sign tables in the mathematical
 technical note. Every mixed five-tuple (left,i,j,k,right), with
-0 <= i < j < k <= 5, contributes one T/C-/C+ constraint. These
+0 <= i < j < k <= 5, contributes one T, C-minus, or C-plus constraint. These
 twenty constraints contradict the kernel-checked 15-Boolean theorem.
 
 This file connects the finite certificate with actual intrinsic
