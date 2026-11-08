@@ -65,3 +65,4 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.seed4_base_admissible
 #print axioms Hypertournaments.seed4_left_admissible
 #print axioms Hypertournaments.seed4_right_admissible
+#print axioms Hypertournaments.exists_joint_embedding
