@@ -18,6 +18,9 @@ agreement on the base, and then the mixed-packet contradiction.
 
 namespace Hypertournaments
 
+set_option maxRecDepth 8192
+set_option maxHeartbeats 3000000
+
 /-- Seven positive base four-sets, on old vertices 0..6. -/
 def seed4OldPlus7 : Finset (Finset (Fin 7)) :=
   { {0,1,2,3}, {0,1,2,5}, {0,2,3,4}, {0,2,3,6},
@@ -73,8 +76,6 @@ def seed4Right : Hyper 4 (Fin 8) :=
 /-- The two sign tables restrict to the same seven-vertex base.
 Only 128 possible subsets of Fin 7 are checked, not every
 injection of a four-tuple. -/
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 3000000 in
 theorem seed4_base_left : Preserves seed4Base seed4Left
     (onePointBaseEmbedding 7) := by
   have htable : ∀ Q : Finset (Fin 7),
@@ -85,8 +86,6 @@ theorem seed4_base_left : Preserves seed4Base seed4Left
     (g := (Fin.castSuccOrderEmb : Fin 7 ↪o Fin 8))
     seed4BaseSigns seed4LeftSigns htable
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 3000000 in
 theorem seed4_base_right : Preserves seed4Base seed4Right
     (onePointBaseEmbedding 7) := by
   have htable : ∀ Q : Finset (Fin 7),
