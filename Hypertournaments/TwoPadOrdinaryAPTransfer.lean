@@ -65,10 +65,8 @@ theorem canonical_source_recovery_in_joint
       (canonicalOldToJoint m a) (canonicalPadToJoint m a)
       (canonicalPadToJoint_not_mem_old m a) L R := by
   constructor
-  · intro x y hpq t
-    have hxy : x ≠ y := by
-      intro he
-      exact hpq (congrArg (canonicalPadToJoint m a) he)
+  · intro x y hlt hpq t
+    have hxy : x ≠ y := ne_of_lt hlt
     have hside : canonicalPadToSide m a x ≠
         canonicalPadToSide m a y := by
       intro he
@@ -98,10 +96,8 @@ theorem canonical_source_recovery_in_joint
         (canonicalPadToSide_not_mem_old m a y)
         hside hp' hq' hBL (hrec.1 x y hxy) t
     simpa only [hpad x, hpad y] using hs
-  · intro x y hpq t
-    have hxy : x ≠ y := by
-      intro he
-      exact hpq (congrArg (canonicalPadToJoint m a) he)
+  · intro x y hlt hpq t
+    have hxy : x ≠ y := ne_of_lt hlt
     have hside : canonicalPadToSide m a x ≠
         canonicalPadToSide m a y := by
       intro he
