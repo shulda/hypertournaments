@@ -29,6 +29,6 @@ those of size other than five). -/
 theorem seed4_base_canonicalCentral :
     ∀ Q : Finset (Fin 7), canonicalCentral4At seed4Base Q := by
   unfold canonicalCentral4At
-  decide
+  decide +kernel
 
 end Hypertournaments
