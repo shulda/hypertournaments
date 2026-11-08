@@ -52,3 +52,4 @@ import Hypertournaments.TwoPadIntrinsic
 import Hypertournaments.TwoPadSlice
 import Hypertournaments.TwoPadDefect
 import Hypertournaments.OnePointMixedFactor
+import Hypertournaments.OnePointNonmixedAdmissible
