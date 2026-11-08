@@ -84,3 +84,21 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.forbidOneFour_not_hasAP
 #print axioms Hypertournaments.seedFour_negativeGoal
 #print axioms Hypertournaments.negative_classification_four
+
+#print axioms Hypertournaments.facetSwap5_correct
+#print axioms Hypertournaments.minority6_adjacent_complement
+#print axioms Hypertournaments.normalizedFacet_adjacentSwap5
+#print axioms Hypertournaments.localIndex_perm5
+#print axioms Hypertournaments.admissible_five_of_canonical
+#print axioms Hypertournaments.fromOrderedSigns_admissible_five_of_direct
+
+#print axioms Hypertournaments.directCount_eq_increasingPacket_general
+#print axioms Hypertournaments.fromOrderedSigns_admissible_five_of_direct_count
+#print axioms Hypertournaments.seed5Two_base_left
+#print axioms Hypertournaments.seed5Two_base_right
+#print axioms Hypertournaments.seed5Two_base_direct
+#print axioms Hypertournaments.seed5Two_left_direct
+#print axioms Hypertournaments.seed5Two_right_direct
+#print axioms Hypertournaments.seed5Two_base_admissible
+#print axioms Hypertournaments.seed5Two_left_admissible
+#print axioms Hypertournaments.seed5Two_right_admissible
