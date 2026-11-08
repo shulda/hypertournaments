@@ -43,11 +43,12 @@ theorem admissible_five_of_canonical
     have hx := congrFun hsorted (τ.symm x)
     exact congrArg Fin.val (by simpa [Function.comp_apply] using hx.symm)
   have hg : localIndex A g.toEmbedding ∈ S := h Q hQ
-  calc
-    localIndex A f =
-        localIndex A (τ.symm.toEmbedding.trans g.toEmbedding) := by rw [hreorder]
-    _ = localIndex A g.toEmbedding := localIndex_perm5 A g.toEmbedding τ.symm
-    _ ∈ S := hg
+  have hindex : localIndex A f = localIndex A g.toEmbedding := by
+    calc
+      localIndex A f =
+          localIndex A (τ.symm.toEmbedding.trans g.toEmbedding) := by rw [hreorder]
+      _ = localIndex A g.toEmbedding := localIndex_perm5 A g.toEmbedding τ.symm
+  exact hindex ▸ hg
 
 /-- A six-subset certificate on the underlying ordered sign table
 establishes full admissibility of an intrinsic 5-hypertournament. -/
