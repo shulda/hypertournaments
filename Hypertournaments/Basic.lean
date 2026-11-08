@@ -19,11 +19,11 @@ The swap law expresses alternating orientations. -/
 structure Hyper (n : ℕ) (V : Type u) where
   orient : (Fin n ↪ V) → Bool
   swap_flip : ∀ (f : Fin n ↪ V) (i j : Fin n), i ≠ j →
-    orient (f.comp (Equiv.swap i j).toEmbedding) = !(orient f)
+    orient ((Equiv.swap i j).toEmbedding.trans f) = !(orient f)
 
 /-- A vertex embedding preserving every oriented injective n-tuple. -/
 def Preserves {n : ℕ} {V : Type u} {W : Type v}
     (A : Hyper n V) (B : Hyper n W) (f : V ↪ W) : Prop :=
-  ∀ t : Fin n ↪ V, B.orient (f.comp t) = A.orient t
+  ∀ t : Fin n ↪ V, B.orient (t.trans f) = A.orient t
 
 end Hypertournaments
