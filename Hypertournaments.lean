@@ -21,3 +21,4 @@ import Hypertournaments.AdjacentSignFour
 import Hypertournaments.LocalTypeInvariantFour
 import Hypertournaments.SeedFourAdmissible
 import Hypertournaments.OnePointJoint
+import Hypertournaments.SeedFourNoAmalgam
