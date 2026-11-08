@@ -52,3 +52,7 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.seed4_base_directCentral
 #print axioms Hypertournaments.seed4_left_directCentral
 #print axioms Hypertournaments.seed4_right_directCentral
+#print axioms Hypertournaments.directCount_eq_increasingPacket
+#print axioms Hypertournaments.seed4_base_canonicalCentral
+#print axioms Hypertournaments.seed4_left_canonicalCentral
+#print axioms Hypertournaments.seed4_right_canonicalCentral
