@@ -171,3 +171,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.facet_twoPadSliceTuple_one
 #print axioms Hypertournaments.exists_matchingOnePadProfiles
 #print axioms Hypertournaments.exists_matchingTwoPadFacets
+#print axioms Hypertournaments.canonicalPadToJoint_not_mem_old
+#print axioms Hypertournaments.canonicalOld_left_commutes
+#print axioms Hypertournaments.canonicalOld_right_commutes
