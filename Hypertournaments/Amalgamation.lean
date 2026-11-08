@@ -24,11 +24,35 @@ def HasAP (n : ℕ) (S : Set ℕ) : Prop :=
         Admissible S D ∧ Preserves B D i ∧ Preserves C D j ∧
           (∀ x : Fin a, i (f x) = j (g x))
 
+/-- Removing impossible local-type indices does not affect ordinary AP.
+This makes the classification's well-formed allowed-type interface exact:
+phantom indices above q have no mathematical effect on the age. -/
+theorem hasAP_validize (n : ℕ) (S : Set ℕ) :
+    HasAP n S ↔ HasAP n (S ∩ Set.Iic (centralIndex n)) := by
+  constructor
+  · intro hAP a b c A B C hA hB hC f g hAB hAC
+    obtain ⟨d, D, i, j, hD, hi, hj, hcomm⟩ :=
+      hAP a b c A B C
+        ((admissible_validize S A).2 hA)
+        ((admissible_validize S B).2 hB)
+        ((admissible_validize S C).2 hC)
+        f g hAB hAC
+    exact ⟨d, D, i, j, (admissible_validize S D).1 hD, hi, hj, hcomm⟩
+  · intro hAP a b c A B C hA hB hC f g hAB hAC
+    obtain ⟨d, D, i, j, hD, hi, hj, hcomm⟩ :=
+      hAP a b c A B C
+        ((admissible_validize S A).1 hA)
+        ((admissible_validize S B).1 hB)
+        ((admissible_validize S C).1 hC)
+        f g hAB hAC
+    exact ⟨d, D, i, j, (admissible_validize S D).2 hD, hi, hj, hcomm⟩
+
 /-!
 Intended theorem to prove after source audit:
 
 theorem negative_classification (n : ℕ) (hn : 4 ≤ n)
-    (S : Set ℕ) (hvalid : ValidTypes n S)\n    (hcentral : centralIndex n ∈ S)
+    (S : Set ℕ) (hvalid : ValidTypes n S)
+    (hcentral : centralIndex n ∈ S)
     (hap : HasAP n S) : NecessaryAlternatives n S := ...
 
 The positive construction can later prove the converse directly against
