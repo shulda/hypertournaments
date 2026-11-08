@@ -34,7 +34,7 @@ theorem exists_admissible_twoPadSlice_of_many_pads
     (T S : Set ℕ) (hD : Admissible T D)
     (hshift : shiftedAllowed T ⊆ S)
     (hm : 2 ^ Fintype.card (Fin (n + 1) ↪ W) < m) :
-    ∃ (x y : Fin m) (hpq : pads x ≠ pads y),
+    ∃ (x y : Fin m) (hxy : x < y) (hpq : pads x ≠ pads y),
       Admissible S
         (D.twoPadSlice g (pads x) (pads y)
           (hpad x) (hpad y) hpq) := by
@@ -43,7 +43,7 @@ theorem exists_admissible_twoPadSlice_of_many_pads
   have hpq : pads x ≠ pads y := by
     intro heq
     exact (ne_of_lt hxy) (pads.injective heq)
-  refine ⟨x, y, hpq, ?_⟩
+  refine ⟨x, y, hxy, hpq, ?_⟩
   apply D.twoPadSlice_admissible_of_raw_equal g (pads x) (pads y)
     (hpad x) (hpad y) hpq T S hD hshift
   intro t
@@ -59,13 +59,13 @@ def RecoversOnePointSidesFromPads
     (pads : Fin m ↪ V)
     (hpad : ∀ z : Fin m, pads z ∉ Set.range g)
     (L R : Hyper n (Fin (a + 1))) : Prop :=
-  (∀ (x y : Fin m) (hpq : pads x ≠ pads y)
-      (t : Fin n ↪ Fin (a + 1)),
+  (∀ (x y : Fin m) (hxy : x < y)
+      (hpq : pads x ≠ pads y) (t : Fin n ↪ Fin (a + 1)),
       D.orient (twoPadSliceTuple g (pads x) (pads y)
         (hpad x) (hpad y) hpq
         (t.trans (leftJointInclusion a))) = L.orient t) ∧
-  (∀ (x y : Fin m) (hpq : pads x ≠ pads y)
-      (t : Fin n ↪ Fin (a + 1)),
+  (∀ (x y : Fin m) (hxy : x < y)
+      (hpq : pads x ≠ pads y) (t : Fin n ↪ Fin (a + 1)),
       D.orient (twoPadSliceTuple g (pads x) (pads y)
         (hpad x) (hpad y) hpq
         (t.trans (rightJointInclusion a))) = R.orient t)
@@ -88,7 +88,7 @@ theorem exists_lower_onePoint_joint_of_many_pads
       Admissible S E ∧
       Preserves L E (leftJointInclusion a) ∧
       Preserves R E (rightJointInclusion a) := by
-  obtain ⟨x, y, hpq, hslice⟩ :=
+  obtain ⟨x, y, hxy, hpq, hslice⟩ :=
     exists_admissible_twoPadSlice_of_many_pads
       D g pads hpad T S hD hshift hm
   let E : Hyper n (Fin (a + 2)) :=
@@ -96,10 +96,10 @@ theorem exists_lower_onePoint_joint_of_many_pads
   refine ⟨E, hslice, ?_, ?_⟩
   · exact Hyper.twoPadSlice_preserves_of_recovery
       L D g (pads x) (pads y) (hpad x) (hpad y) hpq
-      (leftJointInclusion a) (hrecover.1 x y hpq)
+      (leftJointInclusion a) (hrecover.1 x y hxy hpq)
   · exact Hyper.twoPadSlice_preserves_of_recovery
       R D g (pads x) (pads y) (hpad x) (hpad y) hpq
-      (rightJointInclusion a) (hrecover.2 x y hpq)
+      (rightJointInclusion a) (hrecover.2 x y hxy hpq)
 
 /-- A previously established lower-arity one-point obstruction
 excludes any higher-arity joint satisfying the explicit two-pad
