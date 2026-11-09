@@ -313,3 +313,14 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.rootedOddPotential_erase_root
 #print axioms Hypertournaments.rootedOddPotential_erase_nonroot
 #print axioms Hypertournaments.rootedOddPotential_erase_of_root_absent
+#print axioms Hypertournaments.not_hasAP_of_bad_onePoint
+#print axioms Hypertournaments.no_onePoint_amalgam_of_disagreement_and_no_joint
+#print axioms Hypertournaments.HasBadOnePoint.evenSuspension
+#print axioms Hypertournaments.centralOnlyFour_badOnePoint
+#print axioms Hypertournaments.forbidOneFour_badOnePoint
+#print axioms Hypertournaments.seedFour_negativeOnePointGoal
+#print axioms Hypertournaments.seed5Cone_badOnePoint
+#print axioms Hypertournaments.seed5Two_badOnePoint
+#print axioms Hypertournaments.seed5Extra_badOnePoint
+#print axioms Hypertournaments.seedFive_negativeOnePointGoal_of_three_witnesses
+#print axioms Hypertournaments.seedFive_negativeOnePointGoal
