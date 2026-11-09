@@ -194,6 +194,11 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.not_hasAP_of_canonical_twoPad_lift
 #print axioms Hypertournaments.canonical_twoPad_disagreement_of_low_disagreement
 #print axioms Hypertournaments.not_hasAP_of_twoPad_lift_with_lower_disagreement
+#print axioms Hypertournaments.orientations_equal_of_canonical
+#print axioms Hypertournaments.twoPad_source_recovery_of_canonical
+#print axioms Hypertournaments.preserves_of_canonical
+#print axioms Hypertournaments.Hyper.canonicalSignTable_at
+#print axioms Hypertournaments.Hyper.from_canonicalSignTable_orient
 #print axioms Hypertournaments.boolPacketPositiveCount_three_pad
 #print axioms Hypertournaments.boolPacketMinority_three_pad_central
 #print axioms Hypertournaments.boolPacketPositiveCount_three_pad_of_balanced
