@@ -30,6 +30,10 @@ def p1CoreLeftZero (i j : Fin 6) : Prop :=
   (i = 3 ∧ j = 4) ∨
   (i = 3 ∧ j = 5)
 
+instance (i j : Fin 6) : Decidable (p1CoreLeftZero i j) := by
+  unfold p1CoreLeftZero
+  infer_instance
+
 /-- Core-pair locations at which the right link sign is zero. -/
 def p1CoreRightZero (i j : Fin 6) : Prop :=
   (i = 0 ∧ j = 1) ∨
@@ -38,6 +42,10 @@ def p1CoreRightZero (i j : Fin 6) : Prop :=
   (i = 1 ∧ j = 4) ∨
   (i = 2 ∧ j = 5) ∨
   (i = 3 ∧ j = 4)
+
+instance (i j : Fin 6) : Decidable (p1CoreRightZero i j) := by
+  unfold p1CoreRightZero
+  infer_instance
 
 def p1CoreLeftBit (i j : Fin 6) : Bool :=
   decide (¬ p1CoreLeftZero i j)
@@ -55,9 +63,17 @@ def p1CoreEligibleOrdered (i j : Fin 6) : Prop :=
   (i = 2 ∧ j = 5) ∨
   (i = 3 ∧ j = 5)
 
+instance (i j : Fin 6) : Decidable (p1CoreEligibleOrdered i j) := by
+  unfold p1CoreEligibleOrdered
+  infer_instance
+
 /-- Symmetric version, independent of the order of the two endpoints. -/
 def p1CoreEligible (i j : Fin 6) : Prop :=
   p1CoreEligibleOrdered (min i j) (max i j)
+
+instance (i j : Fin 6) : Decidable (p1CoreEligible i j) := by
+  unfold p1CoreEligible
+  infer_instance
 
 /-- Certified XOR support of the two explicitly prescribed core links. -/
 theorem p1Core_eligible_iff_link_disagreement :
