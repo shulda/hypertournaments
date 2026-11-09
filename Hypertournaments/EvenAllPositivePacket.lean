@@ -45,7 +45,7 @@ theorem boolPacketPositiveCount_alternating_odd (k : ℕ) :
     simpa only [Nat.mul_succ] using
       (boolPacketPositiveCount_alternating_even (k + 1))
   rw [hfun, boolPacketPositiveCount_cons, hev]
-  omega
+  simp <;> omega
 
 /-- The local index of an odd-length alternating normalized packet
 with all raw signs positive is the central type k+1. -/
