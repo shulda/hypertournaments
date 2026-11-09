@@ -49,9 +49,6 @@ theorem evenSuspensionSignTable_image_base
           ((evenOldProjection m a Q).image
             (Fin.castSuccOrderEmb : Fin a ↪o Fin (a + 1))) := by
           congr 1
-          apply Finset.image_congr
-          intro u _
-          rfl
       _ = A.canonicalSignTable (evenOldProjection m a Q) :=
         Hyper.canonicalSignTable_image_orderEmbedding
           A B (Fin.castSuccOrderEmb : Fin a ↪o Fin (a + 1))
@@ -83,9 +80,6 @@ theorem Hyper.evenSuspension_preserves_base
         evenSuspensionSignTable m (a + 1) B
           (Q.image (onePointBaseEmbedding (m + a))) := by
           congr 1
-          apply Finset.image_congr
-          intro u _
-          rfl
       _ = evenSuspensionSignTable m a A Q :=
         evenSuspensionSignTable_image_base A B hAB Q
   have hp :=
