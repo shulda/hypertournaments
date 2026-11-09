@@ -379,3 +379,11 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1OrderedFacet_vertices
 #print axioms Hypertournaments.p1Coboundary_image
 #print axioms Hypertournaments.Hyper.p1Actual_zero_or_two_of_indicator
+#print axioms Hypertournaments.p1ToggleTypes_zero_or_odd
+#print axioms Hypertournaments.p1OddHalfParity_iff_minority_zero
+#print axioms Hypertournaments.Hyper.p1Toggle_normalizedCount_parity_iff_localIndex_zero
+#print axioms Hypertournaments.Hyper.p1RawFacetCount_toZMod
+#print axioms Hypertournaments.Hyper.p1Toggle_typeZero_iff_rawFacetParityOne
+#print axioms Hypertournaments.Hyper.p1CanonicalRawFacetSum
+#print axioms Hypertournaments.Hyper.p1Toggle_typeZero_indicator_eq_coboundary
+#print axioms Hypertournaments.Hyper.p1Toggle_actual_zero_or_two
