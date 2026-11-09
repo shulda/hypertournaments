@@ -83,7 +83,7 @@ theorem Hyper.evenSuspension_preserves_base
       _ = evenSuspensionSignTable m a A Q :=
         evenSuspensionSignTable_image_base A B hAB Q
   have hp :=
-    fromOrderedSigns_preserves
+    fromOrderedSigns_preserves (n := n + 2)
       (Fin.castSuccOrderEmb : Fin (m + a) ↪o Fin (m + a + 1))
       (evenSuspensionSignTable m a A)
       (evenSuspensionSignTable m (a + 1) B)
