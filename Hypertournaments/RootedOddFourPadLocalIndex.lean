@@ -197,7 +197,7 @@ theorem Hyper.rootedOddSuspension_localIndex_increasing_fourPads
           simpa [Q] using congrArg (rootedOddSuspensionSignTable m a A root)
             (tupleVertices_facet_eq_erase f.toEmbedding i)
       _ = rootedOddPotentialSignTable A root (evenOldProjection m a Q) := by
-        rw [hpEq]
+        rw [← hpEq]
         exact rootedOddSignTable_erase_pad_four m a A root Q hfour p hpProj
   have hold :
       ∀ i : Fin (2*k+4), 4 ≤ i.val →
