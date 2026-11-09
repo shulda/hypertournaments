@@ -288,3 +288,8 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.boolPacketPositiveCount_four_pad
 #print axioms Hypertournaments.boolPacketMinority_four_pad_central
 #print axioms Hypertournaments.boolPacketMinority_rooted_odd_four_pads
+#print axioms Hypertournaments.rootedOddSignTable_erase_pad_four
+#print axioms Hypertournaments.rootedOddSignTable_erase_nonpad_four
+#print axioms Hypertournaments.boolPacketPositiveCount_alternating_even_complement
+#print axioms Hypertournaments.localIndex_ordered_fourPad_central
+#print axioms Hypertournaments.Hyper.rootedOddSuspension_localIndex_increasing_fourPads
