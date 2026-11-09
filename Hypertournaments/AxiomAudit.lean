@@ -283,3 +283,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.onePointNoAmalgam_has_disagreement
 #print axioms Hypertournaments.onePointNoAmalgam_no_canonical_joint
 #print axioms Hypertournaments.not_hasAP_evenSuspension_of_bad_onePoint
+#print axioms Hypertournaments.not_hasAP_of_bad_onePoint
+#print axioms Hypertournaments.no_onePoint_amalgam_of_disagreement_and_no_joint
+#print axioms Hypertournaments.HasBadOnePoint.evenSuspension
