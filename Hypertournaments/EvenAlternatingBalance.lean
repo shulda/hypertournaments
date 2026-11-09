@@ -47,7 +47,7 @@ theorem boolPacketPositiveCount_alternating_even (k : ℕ) :
             (fun i : Fin (2 * k + 2) => decide (i.val % 2 = 1)) =
               k + 1 := by
         rw [hbits, boolPacketPositiveCount_cons, boolPacketPositiveCount_cons]
-        simp [bits, ih]
+        simp [bits, ih] <;> omega
       simpa [Nat.mul_succ] using hstep
 
 /-- All three auxiliary pad facets of the even suspension have
