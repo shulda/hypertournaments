@@ -92,3 +92,4 @@ import Hypertournaments.EvenSuspensionPreparedTwoPadShift
 import Hypertournaments.EvenSuspensionAllTwoPadPackets
 import Hypertournaments.EvenSuspensionAdmissibility
 import Hypertournaments.EvenSuspensionConcreteObstruction
+import Hypertournaments.EvenSuspensionExplicitBadSpan
