@@ -74,8 +74,8 @@ theorem evenOldProjection_image_base (m k : ℕ)
       have he : w = evenOldShift m k v :=
         (onePointBaseEmbedding (m + k)).injective heq
       have hmem : v ∈ evenOldProjection m k Q := by
-        change evenOldShift m k v ∈ Q
-        simpa [he] using hw
+        simp only [evenOldProjection, Finset.mem_filter, Finset.mem_univ, true_and]
+        simpa only [he] using hw
       exact Finset.mem_image.mpr ⟨v, hmem, rfl⟩
     · intro h
       obtain ⟨w, hw, heq⟩ := Finset.mem_image.mp h
@@ -83,7 +83,7 @@ theorem evenOldProjection_image_base (m k : ℕ)
       have hmem : evenOldShift m k v ∈ Q := by
         have hv : v ∈ evenOldProjection m k Q := by
           simpa [he] using hw
-        exact hv
+        simpa only [evenOldProjection, Finset.mem_filter, Finset.mem_univ, true_and] using hv
       exact Finset.mem_image.mpr ⟨evenOldShift m k v, hmem, rfl⟩
   · have hL :
         evenOldShift m (k + 1) (Fin.last k) ∉
@@ -108,6 +108,6 @@ theorem evenOldProjection_image_base (m k : ℕ)
         Q.image (onePointBaseEmbedding (m + k)) ↔
       Fin.last k ∈
         (evenOldProjection m k Q).image (onePointBaseEmbedding k)
-    exact iff_false_intro hL hR
+    exact ⟨fun h => (hL h).elim, fun h => (hR h).elim⟩
 
 end Hypertournaments
