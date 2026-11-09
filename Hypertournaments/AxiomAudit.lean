@@ -344,3 +344,4 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.Hyper.rootedOddSuspension_admissible
 #print axioms Hypertournaments.Hyper.rootedOddSuspension_admissible_of_shift
 #print axioms Hypertournaments.HasBadOnePoint.oddRootedSuspension_of_span
+#print axioms Hypertournaments.HasBadOnePoint.oddRootedSuspension
