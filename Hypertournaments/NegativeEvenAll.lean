@@ -78,7 +78,7 @@ theorem negativeOnePointGoal_even_all
             2 * (Nat.succ j + 2) = 2 * (j+2) + 2 := by omega
         rw [heq]
         exact hstep
-  exact hall j
+  simpa only [two_mul] using hall j
 
 /-- UNCONDITIONAL complete negative classification for every even
 arity at least four, using ordinary AP and actual local types. -/
