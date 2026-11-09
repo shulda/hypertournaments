@@ -82,3 +82,4 @@ import Hypertournaments.EvenPadOrderCount
 import Hypertournaments.EvenSuspensionIncreasingCentralFar
 import Hypertournaments.EvenThreePadOrderedPacket
 import Hypertournaments.EvenSuspensionIncreasingCentralThree
+import Hypertournaments.UniformPacketPermutationCount
