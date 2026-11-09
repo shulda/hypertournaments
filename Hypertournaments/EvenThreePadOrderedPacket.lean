@@ -37,39 +37,35 @@ theorem localIndex_ordered_threePad_central
   have h0 :
       normalizedFacet D f.toEmbedding (0 : Fin (2 * k + 3)) = b := by
     unfold normalizedFacet
-    rw [hraw 0, hpad 0 (by decide)]
+    rw [hraw 0, hpad 0 (by omega)]
     simp
   have h1 :
-      normalizedFacet D f.toEmbedding (1 : Fin (2 * k + 3)) = !b := by
+      normalizedFacet D f.toEmbedding
+        ((0 : Fin (2 * k + 2)).succ) = !b := by
     unfold normalizedFacet
-    rw [hraw 1, hpad 1 (by decide)]
-    cases b <;> decide
+    rw [hraw _, hpad _ (by simp only [Fin.val_succ]; all_goals omega)]
+    cases b <;> simp [Fin.val_succ]
   have h2 :
-      normalizedFacet D f.toEmbedding (2 : Fin (2 * k + 3)) = b := by
+      normalizedFacet D f.toEmbedding
+        ((0 : Fin (2 * k + 1)).succ.succ) = b := by
     unfold normalizedFacet
-    rw [hraw 2, hpad 2 (by decide)]
-    simp
+    rw [hraw _, hpad _ (by simp only [Fin.val_succ]; all_goals omega)]
+    simp [Fin.val_succ]
   have htail (j : Fin (2 * k)) :
       normalizedFacet D f.toEmbedding j.succ.succ.succ =
         decide (j.val % 2 = 1) := by
     have hpos : D.orient (facet f.toEmbedding j.succ.succ.succ) =
         true := (hraw _).trans (hold _ (by
           simp only [Fin.val_succ]
-          omega))
+          all_goals omega))
     unfold normalizedFacet
     rw [hpos]
-    have hval : (j.succ.succ.succ).val = j.val + 3 := by
-      simp only [Fin.val_succ]
-      omega
+    simp only [Fin.val_succ]
     by_cases hj : j.val % 2 = 1
-    · have hnew : (j.succ.succ.succ).val % 2 ≠ 1 := by
-        rw [hval]
-        omega
-      simp [hj, hnew]
-    · have hnew : (j.succ.succ.succ).val % 2 = 1 := by
-        rw [hval]
-        omega
-      simp [hj, hnew]
+    · have hne : (j.val + 1 + 1 + 1) % 2 ≠ 1 := by omega
+      simp [hj, hne]
+    · have heq : (j.val + 1 + 1 + 1) % 2 = 1 := by omega
+      simp [hj, heq]
   have hbits :
       (fun i : Fin (2 * k + 3) => normalizedFacet D f.toEmbedding i) =
       Fin.cons b (Fin.cons (!b) (Fin.cons b
@@ -77,10 +73,10 @@ theorem localIndex_ordered_threePad_central
     funext i
     refine Fin.cases ?_ (fun i => Fin.cases ?_
       (fun j => Fin.cases ?_ (fun t => ?_) j) i) i
-    · simpa [Fin.cons] using h0
-    · simpa [Fin.cons] using h1
-    · simpa [Fin.cons] using h2
-    · simpa [Fin.cons] using htail t
+    · simpa only [Fin.cons_zero] using h0
+    · simpa only [Fin.cons_succ, Fin.cons_zero] using h1
+    · simpa only [Fin.cons_succ, Fin.cons_zero] using h2
+    · simpa only [Fin.cons_succ] using htail t
   change
     min (boolPacketPositiveCount
         (fun i : Fin (2 * k + 3) => normalizedFacet D f.toEmbedding i))
