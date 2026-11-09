@@ -56,10 +56,10 @@ theorem orientations_equal_of_canonical
   calc
     A.orient f =
         A.orient (τ.symm.toEmbedding.trans g.toEmbedding) := by rw [hreorder]
-    _ = (if τ.symm.sign = (1 : ℤˣ) then
+    _ = (if Equiv.Perm.sign τ.symm = (1 : ℤˣ) then
           A.orient g.toEmbedding else !(A.orient g.toEmbedding)) :=
       A.orient_perm g.toEmbedding τ.symm
-    _ = (if τ.symm.sign = (1 : ℤˣ) then
+    _ = (if Equiv.Perm.sign τ.symm = (1 : ℤˣ) then
           B.orient g.toEmbedding else !(B.orient g.toEmbedding)) := by
       rw [heq]
     _ = B.orient (τ.symm.toEmbedding.trans g.toEmbedding) :=
