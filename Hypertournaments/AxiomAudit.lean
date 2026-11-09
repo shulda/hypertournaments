@@ -189,6 +189,11 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.canonicalPadToSide_not_mem_old
 #print axioms Hypertournaments.canonicalPad_left_commutes
 #print axioms Hypertournaments.canonicalPad_right_commutes
+#print axioms Hypertournaments.canonical_source_recovery_in_joint
+#print axioms Hypertournaments.no_canonical_high_joint_of_twoPad_recovery
+#print axioms Hypertournaments.not_hasAP_of_canonical_twoPad_lift
+#print axioms Hypertournaments.canonical_twoPad_disagreement_of_low_disagreement
+#print axioms Hypertournaments.not_hasAP_of_twoPad_lift_with_lower_disagreement
 #print axioms Hypertournaments.orientations_equal_of_canonical
 #print axioms Hypertournaments.twoPad_source_recovery_of_canonical
 #print axioms Hypertournaments.preserves_of_canonical
