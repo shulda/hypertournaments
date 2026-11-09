@@ -209,3 +209,9 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.evenPadProjection_paddedPacket
 #print axioms Hypertournaments.evenPadProjection_paddedPacket_card
 #print axioms Hypertournaments.evenSuspensionSignTable_twoPads
+#print axioms Hypertournaments.evenPadShift_mem_range_iff_lt
+#print axioms Hypertournaments.evenOldShift_mem_range_iff_ge
+#print axioms Hypertournaments.evenPadProjection_image_eq_filter
+#print axioms Hypertournaments.evenPadProjection_card_eq_filter
+#print axioms Hypertournaments.evenPadProjection_tupleVertices_card
+#print axioms Hypertournaments.evenPadProjection_ordered_prefix
