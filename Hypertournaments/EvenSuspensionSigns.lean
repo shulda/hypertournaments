@@ -25,8 +25,9 @@ def evenPadShift (m k : ℕ) : Fin m ↪ Fin (m + k) where
   toFun z := ⟨z.val, by omega⟩
   inj' := by
     intro x y h
+    have hv := congrArg (fun z : Fin (m + k) => z.val) h
     apply Fin.ext
-    exact congrArg Fin.val h
+    exact hv
 
 /-- Map an old vertex into the last k positions of the lifted set. -/
 def evenOldShift (m k : ℕ) : Fin k ↪ Fin (m + k) where
