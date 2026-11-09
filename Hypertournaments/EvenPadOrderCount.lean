@@ -99,4 +99,19 @@ theorem evenPadProjection_tupleVertices_card
       exact hlt
   rw [heq, Finset.card_image_of_injective _ f.injective]
 
+/-- In a strictly increasing tuple, the pad coordinates form an
+initial segment. Its exact length is the actual pad projection count,
+so in particular h=2 or h=3 corresponds to the first h positions. -/
+theorem evenPadProjection_ordered_prefix
+    {r m k : ℕ} (f : Fin r ↪o Fin (m + k))
+    (i : Fin r) :
+    i.val < (evenPadProjection m k (tupleVertices f.toEmbedding)).card ↔
+      (f i).val < m := by
+  rw [evenPadProjection_tupleVertices_card]
+  apply Fin.lt_card_filter_univ_iff_apply_of_imp
+    (fun j : Fin r => (f j).val < m)
+  intro x y hyx hx
+  have hle : (f y).val ≤ (f x).val := f.monotone hyx
+  omega
+
 end Hypertournaments
