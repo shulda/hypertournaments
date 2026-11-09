@@ -54,7 +54,7 @@ forces the two parity-adjusted phases to disagree. -/
 theorem p1BoolIncompatiblePhases
     (a b p q : Bool) (h : (a ^^ (!q)) = (b ^^ p)) :
     (a ^^ p) ≠ (b ^^ q) := by
-  cases a <;> cases b <;> cases p <;> cases q <;> decide
+  cases a <;> cases b <;> cases p <;> cases q <;> simp_all
 
 /-- Homogeneous (n+1)-packets on erased vertices can never occupy
 three distinct deletions. In fact the alternating phases define
