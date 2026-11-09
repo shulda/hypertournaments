@@ -62,11 +62,11 @@ theorem evenPaddedTuple_of_increasing_twoPads
   have hp0 : (f (0 : Fin (n + 3))).val < m := by
     apply (evenPadProjection_ordered_prefix f 0).1
     rw [htwo]
-    decide
+    omega
   have hp1 : (f (1 : Fin (n + 3))).val < m := by
     apply (evenPadProjection_ordered_prefix f 1).1
     rw [htwo]
-    decide
+    omega
   let x : Fin m := ⟨(f (0 : Fin (n + 3))).val, hp0⟩
   let y : Fin m := ⟨(f (1 : Fin (n + 3))).val, hp1⟩
   have hxy : x < y := by
@@ -85,9 +85,9 @@ theorem evenPaddedTuple_of_increasing_twoPads
   ext i
   refine Fin.cases ?_ (fun j => Fin.cases ?_
     (fun z => ?_) j) i
-  · simpa [evenPaddedTuple, twoPadSliceTuple] using hx
-  · simpa [evenPaddedTuple, twoPadSliceTuple] using hy
-  · simpa [evenPaddedTuple, twoPadSliceTuple] using (hTail z).symm
+  · simpa only [evenPaddedTuple, twoPadSliceTuple] using congrArg Fin.val hx
+  · simpa only [evenPaddedTuple, twoPadSliceTuple] using congrArg Fin.val hy
+  · simpa only [evenPaddedTuple, twoPadSliceTuple] using congrArg Fin.val (hTail z).symm
 
 /-- The actual local type of every increasing even-suspension
 packet with exactly two pads is the old type plus one. -/
