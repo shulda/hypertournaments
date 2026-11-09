@@ -356,3 +356,7 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1Core_only_neighbors_two
 #print axioms Hypertournaments.p1Core_forced_edges
 #print axioms Hypertournaments.p1Core_forced_facet_contradiction
+#print axioms Hypertournaments.p1Core_left_row_parity
+#print axioms Hypertournaments.p1Core_right_row_parity
+#print axioms Hypertournaments.p1Core_forced_pair_24_signs
+#print axioms Hypertournaments.p1Core_forced_pair_25_signs
