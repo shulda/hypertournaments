@@ -46,7 +46,7 @@ theorem p1ImageErase {r a : ℕ}
     refine ⟨?_, ⟨x, hxQ, hxv⟩⟩
     intro hvi
     apply hxi
-    exact f.injective (hxv.trans hvi.symm)
+    exact f.injective (hxv.trans hvi)
   · rintro ⟨hvi, ⟨x, hxQ, hxv⟩⟩
     refine ⟨x, ⟨?_, hxQ⟩, hxv⟩
     intro hxi
@@ -59,18 +59,26 @@ in either order. -/
 theorem p1DoubleErase_image
     {n a : ℕ} (f : Fin (n+2) ↪o Fin a)
     (i j : Fin (n+2)) :
-    ((((Finset.univ : Finset (Fin (n+2))).erase i).erase j).image
-      f.toEmbedding) =
+    Finset.image f.toEmbedding
+      (((Finset.univ : Finset (Fin (n+2))).erase i).erase j) =
       ((tupleVertices f.toEmbedding).erase (f i)).erase (f j) := by
+  have hfirst :
+      ((Finset.univ : Finset (Fin (n+2))).erase i).image
+        f.toEmbedding =
+        (tupleVertices f.toEmbedding).erase (f i) := by
+    simpa only [tupleVertices] using
+      (p1ImageErase f.toEmbedding
+        (Finset.univ : Finset (Fin (n+2))) i)
+  have hsecond :=
+    p1ImageErase f.toEmbedding
+      ((Finset.univ : Finset (Fin (n+2))).erase i) j
   calc
-    (((((Finset.univ : Finset (Fin (n+2))).erase i).erase j).image
-        f.toEmbedding) =
+    Finset.image f.toEmbedding
+        (((Finset.univ : Finset (Fin (n+2))).erase i).erase j) =
       (((Finset.univ : Finset (Fin (n+2))).erase i).image
-        f.toEmbedding).erase (f j) :=
-      p1ImageErase f.toEmbedding _ j
+        f.toEmbedding).erase (f j) := hsecond
     _ = ((tupleVertices f.toEmbedding).erase (f i)).erase (f j) := by
-      rw [p1ImageErase f.toEmbedding (Finset.univ : Finset (Fin (n+2))) i]
-      rfl
+      rw [hfirst]
 
 /-- For each actually homogeneous deleted packet, an alternating
 raw phase exists for every original second deletion j. -/
@@ -82,8 +90,8 @@ theorem Hyper.p1ActualPhase_family
         localIndex A (facet f.toEmbedding i) = 0 →
         ∀ j : Fin (n+2), j ≠ i →
           A.canonicalSignTable
-            (((((Finset.univ : Finset (Fin (n+2))).erase i).erase j)
-              .image f.toEmbedding)) =
+            (Finset.image f.toEmbedding
+              (((Finset.univ : Finset (Fin (n+2))).erase i).erase j)) =
             (phase i ^^ decide ((p1ErasePosition i j)%2=1)) := by
   classical
   let H : Fin (n+2) → Prop :=
@@ -111,12 +119,13 @@ theorem Hyper.p1ActualPhase_family
   obtain ⟨t, ht, hindex, hverts⟩ :=
     p1ActualDoubleFacet_vertices f i j hji.symm
   have hphaseEq : phase i = Classical.choose (hphase i hi) := by
-    dsimp [phase]
-    simp [hi]
+    change (if hh : H i then Classical.choose (hphase i hh) else false) =
+      Classical.choose (hphase i hi)
+    simp only [dif_pos hi]
   calc
     A.canonicalSignTable
-        (((((Finset.univ : Finset (Fin (n+2))).erase i).erase j)
-          .image f.toEmbedding)) =
+        (Finset.image f.toEmbedding
+          (((Finset.univ : Finset (Fin (n+2))).erase i).erase j)) =
       A.canonicalSignTable
         (tupleVertices (facet (facet f.toEmbedding i) t)) := by
           rw [p1DoubleErase_image f i j, ← hverts]
