@@ -289,3 +289,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.centralOnlyFour_badOnePoint
 #print axioms Hypertournaments.forbidOneFour_badOnePoint
 #print axioms Hypertournaments.seedFour_negativeOnePointGoal
+#print axioms Hypertournaments.negativeOnePointGoal_even_step
+#print axioms Hypertournaments.negativeOnePointGoal_even_all
+#print axioms Hypertournaments.negative_classification_even_all
