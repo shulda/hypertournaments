@@ -359,3 +359,8 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1SumIndicator_mod2
 #print axioms Hypertournaments.p1Cochain_homogeneous_count_even
 #print axioms Hypertournaments.p1Even_card_le_two_eq_zero_or_two
+#print axioms Hypertournaments.p1EraseTwice_comm
+#print axioms Hypertournaments.p1IndexPredParity
+#print axioms Hypertournaments.p1BoolIncompatiblePhases
+#print axioms Hypertournaments.p1RawHomogeneous_card_le_two
+#print axioms Hypertournaments.p1Abstract_zero_or_two
