@@ -51,8 +51,8 @@ theorem Hyper.from_canonicalSignTable_orient
   let g : Fin n ↪o Fin k := Q.orderEmbOfFin hQ
   have hmono : StrictMono (g : Fin n → Fin k) := g.strictMono
   have hvertices : tupleVertices g.toEmbedding = Q := by
-    simpa only [tupleVertices] using
-      (Finset.image_orderEmbOfFin_univ Q hQ)
+    change (Finset.univ.image (Q.orderEmbOfFin hQ)) = Q
+    exact Finset.image_orderEmbOfFin_univ Q hQ
   calc
     (Hyper.fromOrderedSigns A.canonicalSignTable).orient g.toEmbedding =
         A.canonicalSignTable (tupleVertices g.toEmbedding) :=
