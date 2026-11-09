@@ -371,3 +371,8 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.Hyper.localIndex_zero_canonical_sign_alternating
 #print axioms Hypertournaments.p1SuccAbove_position
 #print axioms Hypertournaments.p1ActualDoubleFacet_vertices
+#print axioms Hypertournaments.p1OrderedFacet_toEmbedding
+#print axioms Hypertournaments.p1ImageErase
+#print axioms Hypertournaments.p1DoubleErase_image
+#print axioms Hypertournaments.Hyper.p1ActualPhase_family
+#print axioms Hypertournaments.Hyper.p1ActualHomogeneous_card_le_two
