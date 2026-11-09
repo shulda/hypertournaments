@@ -60,8 +60,7 @@ theorem p1RightPadCore_column_even
         funext s
         simp [p1RightPadCoreBit, h0, h4]
       rw [heq]
-      simp [boolPacketPositiveCount]
-      omega
+      simp [boolPacketPositiveCount] <;> omega
 
 /-- Every core column of the *left* pad-link matrix has an even
 number of positive entries, by Boolean complementation. -/
