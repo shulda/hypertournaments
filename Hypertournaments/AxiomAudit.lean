@@ -194,3 +194,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.not_hasAP_of_canonical_twoPad_lift
 #print axioms Hypertournaments.canonical_twoPad_disagreement_of_low_disagreement
 #print axioms Hypertournaments.not_hasAP_of_twoPad_lift_with_lower_disagreement
+#print axioms Hypertournaments.boolPacketPositiveCount_three_pad
+#print axioms Hypertournaments.boolPacketMinority_three_pad_central
+#print axioms Hypertournaments.boolPacketPositiveCount_three_pad_of_balanced
