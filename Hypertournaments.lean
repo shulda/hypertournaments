@@ -116,3 +116,4 @@ import Hypertournaments.RootedOddThreePadAbsentLocalIndex
 import Hypertournaments.RootedOddThreePadRootPresent
 import Hypertournaments.RootedOddThreePadRootZero
 import Hypertournaments.RootedOddSuspensionAdmissibility
+import Hypertournaments.RootedOddOnePointWitness
