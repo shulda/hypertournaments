@@ -50,7 +50,10 @@ theorem localIndex_ordered_threePad_central
         ((0 : Fin (2 * k + 1)).succ.succ) = b := by
     unfold normalizedFacet
     rw [hraw _, hpad _ (by simp only [Fin.val_succ, Fin.val_zero]; omega)]
-    simp [Fin.val_succ, Fin.val_zero]
+    change (b ^^ decide ((2 % (2 * k + 2 + 1)) % 2 = 1)) = b
+    have hlt : 2 < 2 * k + 2 + 1 := by omega
+    rw [Nat.mod_eq_of_lt hlt]
+    simp
   have htail (j : Fin (2 * k)) :
       normalizedFacet D f.toEmbedding j.succ.succ.succ =
         decide (j.val % 2 = 1) := by
