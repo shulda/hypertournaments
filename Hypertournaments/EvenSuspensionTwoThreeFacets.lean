@@ -51,7 +51,7 @@ theorem evenOldProjection_erase_old (m k : ℕ)
 theorem evenOldShift_not_mem_pad (m k : ℕ) (u : Fin k) :
     evenOldShift m k u ∉ Set.range (evenPadShift m k) := by
   rintro ⟨p, hp⟩
-  exact evenPadShift_ne_oldShift m k p u hp.symm
+  exact evenPadShift_ne_oldShift m k p u hp
 
 /-- With exactly three pads in Q, deleting one present pad leaves two
 pads and retains the entire old vertex set, hence reads the old sign. -/
