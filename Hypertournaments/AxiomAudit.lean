@@ -286,3 +286,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.not_hasAP_of_bad_onePoint
 #print axioms Hypertournaments.no_onePoint_amalgam_of_disagreement_and_no_joint
 #print axioms Hypertournaments.HasBadOnePoint.evenSuspension
+#print axioms Hypertournaments.centralOnlyFour_badOnePoint
+#print axioms Hypertournaments.forbidOneFour_badOnePoint
+#print axioms Hypertournaments.seedFour_negativeOnePointGoal
