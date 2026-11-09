@@ -50,7 +50,10 @@ theorem p1BoolMinority_zero_iff_constant
             Finset.univ := by
         apply Finset.eq_of_subset_of_card_le
           (Finset.filter_subset _ _)
-        simpa [boolPacketPositiveCount, hfull]
+        have heq :
+            (Finset.univ.filter (fun i : Fin (m+1) => bits i = true)).card =
+              m + 1 := hfull
+        simp [heq]
       refine ⟨true, ?_⟩
       intro i
       have hmem : i ∈
