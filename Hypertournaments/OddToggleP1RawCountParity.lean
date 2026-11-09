@@ -107,7 +107,14 @@ theorem Hyper.p1Toggle_typeZero_iff_rawFacetParityOne
     p1BitToZMod (decide (localIndex A f = 0)) =
         p1BitToZMod
           (decide ((positiveFacetCount A f + (2*k+3)) % 2 = 1)) := by
-      rw [hpar]
+      by_cases hz : localIndex A f = 0
+      · have ho : (positiveFacetCount A f + (2*k+3)) % 2 = 1 :=
+          hpar.mpr hz
+        simp [hz, ho]
+      · have ho : ¬ ((positiveFacetCount A f + (2*k+3)) % 2 = 1) := by
+          intro hodd
+          exact hz (hpar.mp hodd)
+        simp [hz, ho]
     _ = ((positiveFacetCount A f + (2*k+3) : ℕ) : ZMod 2) :=
       (p1NatCast_eq_oddBit _).symm
     _ = ((boolPacketPositiveCount
