@@ -69,5 +69,6 @@ import Hypertournaments.EvenSuspensionSigns
 import Hypertournaments.EvenSuspensionFacetCases
 import Hypertournaments.EvenSuspensionTwoThreeFacets
 import Hypertournaments.EvenSuspensionOrderedFacets
+import Hypertournaments.EvenAllPositivePacket
 import Hypertournaments.EvenOrderedAllPositive
 import Hypertournaments.EvenSuspensionIncreasingCentralFar
