@@ -277,3 +277,14 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.Hyper.evenSuspension_localIndex_increasing_twoPads
 #print axioms Hypertournaments.Hyper.evenSuspension_admissible
 #print axioms Hypertournaments.Hyper.evenSuspension_admissible_of_shift
+#print axioms Hypertournaments.rootedOddSuspensionSignTable_twoPads
+#print axioms Hypertournaments.rootedOddSuspensionSignTable_threePads
+#print axioms Hypertournaments.rootedOddSuspension_orient_increasing_twoPads
+#print axioms Hypertournaments.rootedOddSuspension_orient_twoPads
+#print axioms Hypertournaments.canonical_twoPad_recovery_rootedOddSuspension
+#print axioms Hypertournaments.rootedOddPotentialSignTable_image_base
+#print axioms Hypertournaments.rootedOddSuspensionSignTable_image_base
+#print axioms Hypertournaments.Hyper.rootedOddSuspension_preserves_base
+#print axioms Hypertournaments.boolPacketPositiveCount_four_pad
+#print axioms Hypertournaments.boolPacketMinority_four_pad_central
+#print axioms Hypertournaments.boolPacketMinority_rooted_odd_four_pads
