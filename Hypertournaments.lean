@@ -80,3 +80,5 @@ import Hypertournaments.EvenOrderedAllPositive
 import Hypertournaments.EvenSuspensionOrderedFacets
 import Hypertournaments.EvenPadOrderCount
 import Hypertournaments.EvenSuspensionIncreasingCentralFar
+import Hypertournaments.EvenThreePadOrderedPacket
+import Hypertournaments.EvenSuspensionIncreasingCentralThree
