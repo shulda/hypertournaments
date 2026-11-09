@@ -122,3 +122,4 @@ import Hypertournaments.NegativeModuloOddToggle
 import Hypertournaments.OddToggleP1Core
 import Hypertournaments.OddToggleP1Parity
 import Hypertournaments.OddToggleP1ZeroTwoAbstract
+import Hypertournaments.OddToggleP1ZeroTwoAssembly
