@@ -360,3 +360,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1Core_right_row_parity
 #print axioms Hypertournaments.p1Core_forced_pair_24_signs
 #print axioms Hypertournaments.p1Core_forced_pair_25_signs
+#print axioms Hypertournaments.p1RightPadCore_column_even
+#print axioms Hypertournaments.p1LeftPadCore_column_even
