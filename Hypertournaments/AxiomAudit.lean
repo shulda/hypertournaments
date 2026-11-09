@@ -324,3 +324,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.seed5Extra_badOnePoint
 #print axioms Hypertournaments.seedFive_negativeOnePointGoal_of_three_witnesses
 #print axioms Hypertournaments.seedFive_negativeOnePointGoal
+#print axioms Hypertournaments.negativeOnePointGoal_even_step
+#print axioms Hypertournaments.negativeOnePointGoal_even_all
+#print axioms Hypertournaments.negative_classification_even_all

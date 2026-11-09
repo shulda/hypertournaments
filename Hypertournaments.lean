@@ -104,3 +104,4 @@ import Hypertournaments.RootedOddThreePadGeometry
 import Hypertournaments.EvenOnePointWitness
 import Hypertournaments.SeedFourBadOnePoint
 import Hypertournaments.SeedFiveBadOnePoint
+import Hypertournaments.NegativeEvenAll
