@@ -112,9 +112,12 @@ theorem Hyper.rootedOddSuspension_threePads_rootAbsent_packetEq
     rw [hsrc0norm]
     unfold normalizedFacet
     rw [hraw.1 _ hpad2]
-    have hlt : 2 < n + 2 + 1 := by omega
-    rw [Nat.mod_eq_of_lt hlt]
-    simp [F]
+    have hbit :
+        decide ((((0 : Fin (n+1)).succ.succ : Fin (n+3)).val % 2 = 1)) =
+          false := by
+      rw [h2val]
+      decide
+    simp [F, hbit]
   have htail (j : Fin n) :
       normalizedFacet (A.rootedOddSuspension m a root) f.toEmbedding
         j.succ.succ.succ = normalizedFacet A g.toEmbedding j.succ := by
