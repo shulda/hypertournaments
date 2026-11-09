@@ -209,3 +209,8 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.evenPadProjection_paddedPacket
 #print axioms Hypertournaments.evenPadProjection_paddedPacket_card
 #print axioms Hypertournaments.evenSuspensionSignTable_twoPads
+#print axioms Hypertournaments.evenPadShift_not_mem_old
+#print axioms Hypertournaments.evenPaddedTuple_vertices
+#print axioms Hypertournaments.evenPaddedTuple_strictMono
+#print axioms Hypertournaments.evenSuspension_orient_increasing_twoPads
+#print axioms Hypertournaments.evenSuspension_orient_twoPads
