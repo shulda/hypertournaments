@@ -209,3 +209,10 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.evenPadProjection_erase_card
 #print axioms Hypertournaments.evenPadProjection_erase_ne_two
 #print axioms Hypertournaments.evenSuspensionSignTable_facet_positive
+#print axioms Hypertournaments.evenOldProjection_erase_pad
+#print axioms Hypertournaments.evenOldProjection_erase_old
+#print axioms Hypertournaments.evenOldShift_not_mem_pad
+#print axioms Hypertournaments.evenSuspensionSignTable_erase_pad_three
+#print axioms Hypertournaments.evenSuspensionSignTable_erase_nonpad_three
+#print axioms Hypertournaments.evenSuspensionSignTable_erase_pad_two
+#print axioms Hypertournaments.evenSuspensionSignTable_erase_old_two
