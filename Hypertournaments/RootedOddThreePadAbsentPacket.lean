@@ -49,15 +49,18 @@ theorem Hyper.rootedOddSuspension_threePads_rootAbsent_packetEq
         (A.from_canonicalSignTable_orient (facet g.toEmbedding i)).symm
       _ = A.canonicalSignTable (tupleVertices (facet g.toEmbedding i)) :=
         fromOrderedSigns_facet_increasing A.canonicalSignTable g i
+  have hgRootE : g.toEmbedding (0 : Fin (n+1)) = root := hgRoot
   have hsrc0 :
       A.orient (facet g.toEmbedding 0) = A.canonicalSignTable F := by
-    rw [hsrc 0, tupleVertices_facet_eq_erase, hgVertices, hgRoot]
-    simp [hnot]
+    rw [hsrc 0, tupleVertices_facet_eq_erase, hgVertices, hgRootE]
+    simp [F, hnot]
   have hrNe (j : Fin n) : root ≠ g j.succ := by
     intro he
     have hzero : (0 : Fin (n+1)) = j.succ :=
       g.injective (hgRoot.trans he)
-    exact (by simp : (0 : Fin (n+1)) ≠ j.succ) hzero
+    have hv := congrArg Fin.val hzero
+    simp only [Fin.val_zero, Fin.val_succ] at hv
+    omega
   have hsrcTail (j : Fin n) :
       A.orient (facet g.toEmbedding j.succ) =
         A.canonicalSignTable (insert root (F.erase (g j.succ))) := by
@@ -78,35 +81,47 @@ theorem Hyper.rootedOddSuspension_threePads_rootAbsent_packetEq
     unfold normalizedFacet
     rw [hsrc0]
     simp
+  have hpad0 : ((0 : Fin (n+3)).val < 3) := by omega
+  have hpad1 : (((0 : Fin (n+2)).succ : Fin (n+3)).val < 3) := by
+    simp only [Fin.val_succ, Fin.val_zero]
+    omega
+  have hpad2 : (((0 : Fin (n+1)).succ.succ : Fin (n+3)).val < 3) := by
+    simp only [Fin.val_succ, Fin.val_zero]
+    omega
+  have h1val : (((0 : Fin (n+2)).succ : Fin (n+3)).val = 1) := by
+    simp only [Fin.val_succ, Fin.val_zero]
+    omega
+  have h2val : (((0 : Fin (n+1)).succ.succ : Fin (n+3)).val = 2) := by
+    simp only [Fin.val_succ, Fin.val_zero]
+    omega
   have h0 :
       normalizedFacet (A.rootedOddSuspension m a root) f.toEmbedding
         (0 : Fin (n+3)) = normalizedFacet A g.toEmbedding 0 := by
     rw [hsrc0norm]
     unfold normalizedFacet
-    rw [hraw.1 0 (by decide)]
-    simp
+    rw [hraw.1 0 hpad0]
+    simp [F]
   have h1 :
       normalizedFacet (A.rootedOddSuspension m a root) f.toEmbedding
         ((0 : Fin (n+2)).succ) = !(normalizedFacet A g.toEmbedding 0) := by
     rw [hsrc0norm]
     unfold normalizedFacet
-    rw [hraw.1 _ (by simp [Fin.val_succ])]
-    simp [Fin.val_succ]
+    rw [hraw.1 _ hpad1]
+    simp [F, h1val]
   have h2 :
       normalizedFacet (A.rootedOddSuspension m a root) f.toEmbedding
         ((0 : Fin (n+1)).succ.succ) = normalizedFacet A g.toEmbedding 0 := by
     rw [hsrc0norm]
     unfold normalizedFacet
-    rw [hraw.1 _ (by simp [Fin.val_succ])]
-    simp [Fin.val_succ]
+    rw [hraw.1 _ hpad2]
+    simp [F, h2val]
   have htail (j : Fin n) :
       normalizedFacet (A.rootedOddSuspension m a root) f.toEmbedding
         j.succ.succ.succ = normalizedFacet A g.toEmbedding j.succ := by
     unfold normalizedFacet
     rw [hraw.2 j (g j.succ) (hgTail j), hsrcTail j]
-    simp only [Fin.val_succ]
     have hmod : (j.val + 1 + 1 + 1) % 2 = (j.val + 1) % 2 := by omega
-    rw [hmod]
+    simpa [F, Fin.val_succ, hmod]
   funext i
   refine Fin.cases ?_ (fun i => Fin.cases ?_
     (fun j => Fin.cases ?_ (fun t => ?_) j) i) i
