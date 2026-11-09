@@ -277,3 +277,9 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.Hyper.evenSuspension_localIndex_increasing_twoPads
 #print axioms Hypertournaments.Hyper.evenSuspension_admissible
 #print axioms Hypertournaments.Hyper.evenSuspension_admissible_of_shift
+#print axioms Hypertournaments.not_hasAP_of_concrete_even_suspension
+#print axioms Hypertournaments.shiftedAllowed_evenRaisedTypes
+#print axioms Hypertournaments.shiftedAllowed_evenRaisedTypes_insert_zero
+#print axioms Hypertournaments.onePointNoAmalgam_has_disagreement
+#print axioms Hypertournaments.onePointNoAmalgam_no_canonical_joint
+#print axioms Hypertournaments.not_hasAP_evenSuspension_of_bad_onePoint
