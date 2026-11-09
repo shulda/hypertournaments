@@ -50,7 +50,7 @@ theorem admissible_iff_canonical_all
         (hmono.strictMono_of_injective hinj)
     have hemb : τ.toEmbedding.trans f = g.toEmbedding := by
       ext i
-      exact congrFun hsorted i
+      exact congrArg Fin.val (congrFun hsorted i)
     have hlocal := localIndex_perm_all A f τ
     rw [hemb] at hlocal
     rw [← hlocal]
