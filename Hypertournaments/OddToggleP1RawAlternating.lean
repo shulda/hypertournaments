@@ -1,5 +1,6 @@
 import Hypertournaments.OddToggleP1Homogeneous
 import Hypertournaments.CanonicalPacket
+import Hypertournaments.CanonicalSignPresentation
 
 /-!
 # Alternating raw orientations of genuine homogeneous packets
