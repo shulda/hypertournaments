@@ -65,3 +65,4 @@ import Hypertournaments.TwoPadOrdinaryAPTransfer
 import Hypertournaments.TwoPadDisagreement
 import Hypertournaments.CanonicalOrientationRecovery
 import Hypertournaments.CanonicalSignPresentation
+import Hypertournaments.EvenSuspensionSigns
