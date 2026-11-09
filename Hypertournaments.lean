@@ -121,3 +121,4 @@ import Hypertournaments.OddNonExceptionalNegativeStep
 import Hypertournaments.NegativeModuloOddToggle
 import Hypertournaments.OddToggleP1Core
 import Hypertournaments.OddToggleP1CoreRows
+import Hypertournaments.OddToggleP1PadParity
