@@ -35,8 +35,11 @@ theorem Hyper.canonicalSignTable_image_orderEmbedding
     have hmem (i : Fin n) :
         g (Q.orderEmbOfFin hQ i) ∈ Q.image g := by
       apply Finset.mem_image_of_mem
-      rw [← hvertices]
-      exact Finset.mem_image_of_mem _ (Finset.mem_univ _)
+      have hi : (Q.orderEmbOfFin hQ) i ∈
+          Finset.univ.image (Q.orderEmbOfFin hQ) :=
+        Finset.mem_image_of_mem _ (Finset.mem_univ _)
+      rw [hvertices] at hi
+      exact hi
     have hmono :
         StrictMono (fun i : Fin n => g (Q.orderEmbOfFin hQ i)) :=
       g.strictMono.comp (Q.orderEmbOfFin hQ).strictMono
@@ -50,7 +53,7 @@ theorem Hyper.canonicalSignTable_image_orderEmbedding
         ((Q.image g).orderEmbOfFin hcard).toEmbedding =
           (Q.orderEmbOfFin hQ).toEmbedding.trans g.toEmbedding := by
       ext i
-      exact (congrFun horder i).symm
+      exact congrArg Fin.val ((congrFun horder i).symm)
     rw [hemb]
     exact hAB (Q.orderEmbOfFin hQ).toEmbedding
   · have hnot : (Q.image g).card ≠ n := by
