@@ -49,7 +49,7 @@ theorem rootedOddSuspensionSignTable_twoPads
       A.canonicalSignTable Q := by
   unfold rootedOddSuspensionSignTable
   rw [evenPadProjection_paddedPacket_card m k x y Q hxy]
-  simp only [if_pos rfl, evenOldProjection_paddedPacket]
+  simp [evenOldProjection_paddedPacket]
 
 /-- A three-pad packet reads the actual root-potential sign. -/
 theorem rootedOddSuspensionSignTable_threePads
