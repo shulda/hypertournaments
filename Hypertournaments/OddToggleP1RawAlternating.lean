@@ -53,6 +53,6 @@ theorem Hyper.localIndex_zero_canonical_sign_alternating
       (fromOrderedSigns_facet_increasing A.canonicalSignTable f i).symm
     _ = A.orient (facet f.toEmbedding i) :=
       A.from_canonicalSignTable_orient (facet f.toEmbedding i)
-    _ = b ^^ decide (i.val%2=1) := hb i
+    _ = (b ^^ decide (i.val%2=1)) := hb i
 
 end Hypertournaments
