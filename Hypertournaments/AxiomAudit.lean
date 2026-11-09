@@ -338,3 +338,8 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.exists_increasing_tuple_prefix_zero_root
 #print axioms Hypertournaments.localIndex_threePad_prefix_shift_of_packet
 #print axioms Hypertournaments.Hyper.rootedOddSuspension_localIndex_threePads_rootZero_absent
+#print axioms Hypertournaments.Hyper.rootedOddSuspension_localIndex_threePads_root_at_first_old
+#print axioms Hypertournaments.rootedOdd_zero_root_first_old_of_threePads
+#print axioms Hypertournaments.Hyper.rootedOddSuspension_localIndex_threePads_rootZero_present
+#print axioms Hypertournaments.Hyper.rootedOddSuspension_admissible
+#print axioms Hypertournaments.Hyper.rootedOddSuspension_admissible_of_shift
