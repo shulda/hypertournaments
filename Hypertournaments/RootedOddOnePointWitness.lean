@@ -101,4 +101,38 @@ theorem HasBadOnePoint.oddRootedSuspension_of_span
   exact ⟨m+a, Ahi, Lhi, Rhi,
     hAhi, hLhi, hRhi, hALhi, hARhi, hNoHigh⟩
 
+/-- In arity at least three, every bad canonical ordinary one-point
+span has a nonempty common base: otherwise its two one-point sides
+would have no n-tuples on which their orientations can differ. Thus
+the root-zero hypothesis needed above follows automatically from
+the bad-span witness itself. -/
+theorem HasBadOnePoint.oddRootedSuspension
+    (k : ℕ) (hk : 1 ≤ k) (S T : Set ℕ)
+    (hcentral : k+1 ∈ S)
+    (hraise : ∀ d : ℕ, d ∈ S → d+1 ∈ T)
+    (hshift : shiftedAllowed T ⊆ S)
+    (hbad : HasBadOnePoint (2*k+1) S) :
+    HasBadOnePoint (2*k+3) T := by
+  obtain ⟨a, A, L, R, hA, hL, hR, hAL, hAR, hno⟩ := hbad
+  have hdis :=
+    onePointNoAmalgam_has_disagreement S A L R hL hno
+  have ha : 0 < a := by
+    by_contra hn
+    have ha0 : a = 0 := by omega
+    subst a
+    obtain ⟨t, _⟩ := hdis
+    let i : Fin (2*k+1) := ⟨0, by omega⟩
+    let j : Fin (2*k+1) := ⟨1, by omega⟩
+    have hne : i ≠ j := by
+      intro he
+      have hv := congrArg Fin.val he
+      change (0 : ℕ) = 1 at hv
+      omega
+    have heq : t i = t j := Subsingleton.elim (t i) (t j)
+    exact hne (t.injective heq)
+  exact HasBadOnePoint.oddRootedSuspension_of_span
+    k a ha S T A L R hA hL hR hAL hAR
+    hcentral hraise hshift hno
+
+
 end Hypertournaments
