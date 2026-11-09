@@ -120,6 +120,8 @@ theorem evenPaddedTuple_strictMono
     · simp [evenPaddedTuple, twoPadSliceTuple]
     · simp [evenPaddedTuple, twoPadSliceTuple]
     · simp [evenPaddedTuple, twoPadSliceTuple, tail]
+  change StrictMono (fun i : Fin (n + 2) =>
+    evenPaddedTuple m k x y hxy t.toEmbedding i)
   rw [heq]
   exact hmono
 
