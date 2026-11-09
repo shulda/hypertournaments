@@ -248,3 +248,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.evenPadProjection_card_eq_filter
 #print axioms Hypertournaments.evenPadProjection_tupleVertices_card
 #print axioms Hypertournaments.evenPadProjection_ordered_prefix
+#print axioms Hypertournaments.exists_restricted_swap
+#print axioms Hypertournaments.orient_facet_swap_away
+#print axioms Hypertournaments.normalizedFacet_swap_away
