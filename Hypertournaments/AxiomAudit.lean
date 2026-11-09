@@ -365,3 +365,7 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1RawHomogeneous_card_le_two
 #print axioms Hypertournaments.p1Abstract_zero_or_two
 #print axioms Hypertournaments.p1Cochain_zero_or_two_of_phase
+#print axioms Hypertournaments.p1BoolMinority_zero_iff_constant
+#print axioms Hypertournaments.localIndex_zero_iff_normalized_constant
+#print axioms Hypertournaments.Hyper.localIndex_zero_raw_alternating
+#print axioms Hypertournaments.Hyper.localIndex_zero_canonical_sign_alternating

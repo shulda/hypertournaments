@@ -123,3 +123,5 @@ import Hypertournaments.OddToggleP1Core
 import Hypertournaments.OddToggleP1Parity
 import Hypertournaments.OddToggleP1ZeroTwoAbstract
 import Hypertournaments.OddToggleP1ZeroTwoAssembly
+import Hypertournaments.OddToggleP1Homogeneous
+import Hypertournaments.OddToggleP1RawAlternating
