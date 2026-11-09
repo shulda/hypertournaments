@@ -202,6 +202,8 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.boolPacketPositiveCount_three_pad
 #print axioms Hypertournaments.boolPacketMinority_three_pad_central
 #print axioms Hypertournaments.boolPacketPositiveCount_three_pad_of_balanced
+#print axioms Hypertournaments.boolPacketPositiveCount_alternating_even
+#print axioms Hypertournaments.boolPacketMinority_even_suspension_three_pads
 #print axioms Hypertournaments.evenPadShift_ne_oldShift
 #print axioms Hypertournaments.evenOldProjection_paddedPacket
 #print axioms Hypertournaments.evenPadProjection_paddedPacket
