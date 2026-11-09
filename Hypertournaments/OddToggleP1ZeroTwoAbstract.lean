@@ -62,11 +62,11 @@ an injection from the homogeneous deletions to Bool. -/
 theorem p1RawHomogeneous_card_le_two
     (n : ℕ)
     (raw : Finset (Fin (n+2)) → Bool)
-    (H : Fin (n+2) → Prop)
+    (H : Fin (n+2) → Prop) [DecidablePred H]
     (phase : Fin (n+2) → Bool)
     (hraw : ∀ i, H i → ∀ j, j ≠ i →
       raw (((Finset.univ : Finset (Fin (n+2))).erase i).erase j) =
-        phase i ^^ decide ((p1ErasePosition i j)%2=1)) :
+        (phase i ^^ decide ((p1ErasePosition i j)%2=1))) :
     (Finset.univ.filter H).card ≤ 2 := by
   classical
   let colour : Fin (n+2) → Bool :=
@@ -122,11 +122,11 @@ phase obstruction gives exactly zero or two homogeneous deletions. -/
 theorem p1Abstract_zero_or_two
     (n : ℕ)
     (raw : Finset (Fin (n+2)) → Bool)
-    (H : Fin (n+2) → Prop)
+    (H : Fin (n+2) → Prop) [DecidablePred H]
     (phase : Fin (n+2) → Bool)
     (hraw : ∀ i, H i → ∀ j, j ≠ i →
       raw (((Finset.univ : Finset (Fin (n+2))).erase i).erase j) =
-        phase i ^^ decide ((p1ErasePosition i j)%2=1))
+        (phase i ^^ decide ((p1ErasePosition i j)%2=1)))
     (heven : (Finset.univ.filter H).card%2 = 0) :
     (Finset.univ.filter H).card = 0 ∨
       (Finset.univ.filter H).card = 2 := by
