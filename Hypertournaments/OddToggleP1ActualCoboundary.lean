@@ -36,7 +36,11 @@ theorem Hyper.p1CanonicalRawFacetSum
       A.canonicalSignTable
           ((tupleVertices f.toEmbedding).erase (f i)) =
         A.orient (facet f.toEmbedding i) := by
-    rw [← tupleVertices_facet_eq_erase f.toEmbedding i]
+    have hv :
+        (tupleVertices f.toEmbedding).erase (f i) =
+          tupleVertices (facet f.toEmbedding i) := by
+      simpa using (tupleVertices_facet_eq_erase f.toEmbedding i).symm
+    rw [hv]
     calc
       A.canonicalSignTable (tupleVertices (facet f.toEmbedding i)) =
           (Hyper.fromOrderedSigns A.canonicalSignTable).orient
@@ -52,8 +56,30 @@ theorem Hyper.p1CanonicalRawFacetSum
     ((boolPacketPositiveCount
       (fun i : Fin (n+1) => A.orient (facet f.toEmbedding i)) : ℕ) :
       ZMod 2)
-  rw [Finset.sum_image (fun i _ j _ hij => f.injective hij)]
-  rw [p1BoolPacketPositiveCount_toZMod]
+  have hinj : Set.InjOn
+      (f.toEmbedding : Fin (n+1) → Fin a)
+      (↑(Finset.univ : Finset (Fin (n+1)))) := by
+    intro i _ j _ heq
+    exact f.injective heq
+  have hsum :
+      (∑ v ∈ (Finset.univ.image f.toEmbedding),
+        p1BitToZMod
+          (A.canonicalSignTable
+            ((tupleVertices f.toEmbedding).erase v))) =
+      ∑ i : Fin (n+1),
+        p1BitToZMod
+          (A.canonicalSignTable
+            ((tupleVertices f.toEmbedding).erase (f i))) := by
+    simpa using
+      (Finset.sum_image
+        (s := (Finset.univ : Finset (Fin (n+1))))
+        (g := (f.toEmbedding : Fin (n+1) → Fin a))
+        (f := fun v : Fin a =>
+          p1BitToZMod
+            (A.canonicalSignTable
+              ((tupleVertices f.toEmbedding).erase v)))
+        hinj)
+  rw [hsum, p1BoolPacketPositiveCount_toZMod]
   apply Finset.sum_congr rfl
   intro i _
   rw [hsign i]
