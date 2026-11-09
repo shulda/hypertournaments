@@ -255,3 +255,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.boolPacketPositiveCount_not
 #print axioms Hypertournaments.boolPacketMinority_perm
 #print axioms Hypertournaments.boolPacketMinority_perm_complement
+#print axioms Hypertournaments.rootedOddSuspensionSignTable_twoPads
+#print axioms Hypertournaments.rootedOddSuspensionSignTable_threePads
