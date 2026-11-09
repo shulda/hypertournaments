@@ -37,8 +37,8 @@ theorem Hyper.localIndex_zero_raw_alternating
 unordered sign table on its facets has exactly the same alternating
 raw phase. -/
 theorem Hyper.localIndex_zero_canonical_sign_alternating
-    {n : ℕ} {V : Type*} [LinearOrder V]
-    (A : Hyper n V) (f : Fin (n+1) ↪o V)
+    {n a : ℕ}
+    (A : Hyper n (Fin a)) (f : Fin (n+1) ↪o Fin a)
     (hzero : localIndex A f.toEmbedding = 0) :
     ∃ b : Bool, ∀ i : Fin (n+1),
       A.canonicalSignTable (tupleVertices (facet f.toEmbedding i)) =
