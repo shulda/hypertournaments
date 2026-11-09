@@ -199,3 +199,8 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.preserves_of_canonical
 #print axioms Hypertournaments.Hyper.canonicalSignTable_at
 #print axioms Hypertournaments.Hyper.from_canonicalSignTable_orient
+#print axioms Hypertournaments.evenPadShift_ne_oldShift
+#print axioms Hypertournaments.evenOldProjection_paddedPacket
+#print axioms Hypertournaments.evenPadProjection_paddedPacket
+#print axioms Hypertournaments.evenPadProjection_paddedPacket_card
+#print axioms Hypertournaments.evenSuspensionSignTable_twoPads
