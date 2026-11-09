@@ -204,3 +204,8 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.evenPadProjection_paddedPacket
 #print axioms Hypertournaments.evenPadProjection_paddedPacket_card
 #print axioms Hypertournaments.evenSuspensionSignTable_twoPads
+#print axioms Hypertournaments.evenPadProjection_erase_pad
+#print axioms Hypertournaments.evenPadProjection_erase_nonpad
+#print axioms Hypertournaments.evenPadProjection_erase_card
+#print axioms Hypertournaments.evenPadProjection_erase_ne_two
+#print axioms Hypertournaments.evenSuspensionSignTable_facet_positive
