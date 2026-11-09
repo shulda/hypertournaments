@@ -69,3 +69,5 @@ import Hypertournaments.EvenSuspensionPacket
 import Hypertournaments.EvenAlternatingBalance
 import Hypertournaments.EvenSuspensionSigns
 import Hypertournaments.EvenSuspensionBaseCompatibility
+import Hypertournaments.CanonicalSignTableNaturality
+import Hypertournaments.EvenSuspensionBasePreservation
