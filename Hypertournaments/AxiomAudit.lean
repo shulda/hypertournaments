@@ -346,3 +346,8 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.HasBadOnePoint.oddRootedSuspension_of_span
 #print axioms Hypertournaments.HasBadOnePoint.oddRootedSuspension
 #print axioms Hypertournaments.negativeOnePointGoal_odd_nonexceptional_step
+#print axioms Hypertournaments.negativeOnePointGoal_odd_step_of_toggle
+#print axioms Hypertournaments.negativeOnePointGoal_odd_all_of_toggle
+#print axioms Hypertournaments.negativeOnePointGoal_all_of_odd_toggle
+#print axioms Hypertournaments.negativeGoal_all_of_odd_toggle
+#print axioms Hypertournaments.negative_classification_all_of_odd_toggle
