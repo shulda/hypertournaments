@@ -216,3 +216,9 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.evenSuspensionSignTable_erase_nonpad_three
 #print axioms Hypertournaments.evenSuspensionSignTable_erase_pad_two
 #print axioms Hypertournaments.evenSuspensionSignTable_erase_old_two
+#print axioms Hypertournaments.Hyper.evenSuspension_orient_increasingFacet
+#print axioms Hypertournaments.Hyper.evenSuspension_orient_increasingFacet_far
+#print axioms Hypertournaments.Hyper.evenSuspension_orient_increasingFacet_pad_three
+#print axioms Hypertournaments.Hyper.evenSuspension_orient_increasingFacet_nonpad_three
+#print axioms Hypertournaments.Hyper.evenSuspension_orient_increasingFacet_pad_two
+#print axioms Hypertournaments.Hyper.evenSuspension_orient_increasingFacet_old_two
