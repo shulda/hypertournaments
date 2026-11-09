@@ -213,3 +213,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.evenOldShift_base_compat
 #print axioms Hypertournaments.evenPadProjection_image_base
 #print axioms Hypertournaments.evenOldProjection_image_base
+#print axioms Hypertournaments.Hyper.canonicalSignTable_image_orderEmbedding
+#print axioms Hypertournaments.evenSuspensionSignTable_image_base
+#print axioms Hypertournaments.Hyper.evenSuspension_preserves_base
