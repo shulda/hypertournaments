@@ -369,3 +369,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.localIndex_zero_iff_normalized_constant
 #print axioms Hypertournaments.Hyper.localIndex_zero_raw_alternating
 #print axioms Hypertournaments.Hyper.localIndex_zero_canonical_sign_alternating
+#print axioms Hypertournaments.p1SuccAbove_position
+#print axioms Hypertournaments.p1ActualDoubleFacet_vertices
