@@ -95,3 +95,4 @@ import Hypertournaments.RootedOddSuspensionSigns
 import Hypertournaments.RootedOddSuspensionRecovery
 import Hypertournaments.RootedOddSuspensionBase
 import Hypertournaments.RootedOddFourPadCount
+import Hypertournaments.RootedOddTwoPadShift
