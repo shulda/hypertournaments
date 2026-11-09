@@ -313,3 +313,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.rootedOddPotential_erase_root
 #print axioms Hypertournaments.rootedOddPotential_erase_nonroot
 #print axioms Hypertournaments.rootedOddPotential_erase_of_root_absent
+#print axioms Hypertournaments.boolPacketPositiveCount_threePad_prefix
+#print axioms Hypertournaments.boolPacketMinority_threePad_prefix_shift
