@@ -251,3 +251,4 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.positiveFacetCount_eq_of_orient_eq
 #print axioms Hypertournaments.localIndex_eq_of_orient_eq
 #print axioms Hypertournaments.Hyper.evenSuspension_twoPadSlice_localIndex
+#print axioms Hypertournaments.Hyper.evenSuspension_localIndex_prepared_twoPads
