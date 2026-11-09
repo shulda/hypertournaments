@@ -22,13 +22,13 @@ theorem Hyper.localIndex_zero_raw_alternating
     (hzero : localIndex A f.toEmbedding = 0) :
     ∃ b : Bool, ∀ i : Fin (n+1),
       A.orient (facet f.toEmbedding i) =
-        b ^^ decide (i.val%2=1) := by
+        (b ^^ decide (i.val%2=1)) := by
   obtain ⟨b, hb⟩ :=
     (localIndex_zero_iff_normalized_constant A f.toEmbedding).mp hzero
   refine ⟨b, ?_⟩
   intro i
-  have hn : A.orient (facet f.toEmbedding i) ^^
-      decide (i.val%2=1) = b := hb i
+  have hn : (A.orient (facet f.toEmbedding i) ^^
+      decide (i.val%2=1)) = b := hb i
   cases hraw : A.orient (facet f.toEmbedding i) <;>
     cases hpar : decide (i.val%2=1) <;>
     cases b <;> simp_all [normalizedFacet]
@@ -42,7 +42,7 @@ theorem Hyper.localIndex_zero_canonical_sign_alternating
     (hzero : localIndex A f.toEmbedding = 0) :
     ∃ b : Bool, ∀ i : Fin (n+1),
       A.canonicalSignTable (tupleVertices (facet f.toEmbedding i)) =
-        b ^^ decide (i.val%2=1) := by
+        (b ^^ decide (i.val%2=1)) := by
   obtain ⟨b, hb⟩ := A.localIndex_zero_raw_alternating f hzero
   refine ⟨b, ?_⟩
   intro i
