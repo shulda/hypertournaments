@@ -9,7 +9,7 @@ induction on genuine bad one-point diagrams. The arity-four
 central-containing negative seed already has such witnesses, and
 the concrete even two-coordinate suspension preserves them.
 
-This avoids any assertion that arbitrary failure of AP must admit
+This avoids assuming that arbitrary failure of AP has
 a one-point witness. Induction propagates a witness, rather than
 trying to reconstruct a witness from a mere negation of AP.
 
