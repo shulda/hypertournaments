@@ -197,3 +197,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.orientations_equal_of_canonical
 #print axioms Hypertournaments.twoPad_source_recovery_of_canonical
 #print axioms Hypertournaments.preserves_of_canonical
+#print axioms Hypertournaments.Hyper.canonicalSignTable_at
+#print axioms Hypertournaments.Hyper.from_canonicalSignTable_orient
