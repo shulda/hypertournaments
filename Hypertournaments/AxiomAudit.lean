@@ -377,3 +377,7 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1ToggleTypes_zero_or_odd
 #print axioms Hypertournaments.p1OddHalfParity_iff_minority_zero
 #print axioms Hypertournaments.Hyper.p1Toggle_normalizedCount_parity_iff_localIndex_zero
+#print axioms Hypertournaments.p1NatCast_mod_two
+#print axioms Hypertournaments.p1NatCast_eq_oddBit
+#print axioms Hypertournaments.Hyper.p1RawFacetCount_toZMod
+#print axioms Hypertournaments.Hyper.p1Toggle_typeZero_iff_rawFacetParityOne
