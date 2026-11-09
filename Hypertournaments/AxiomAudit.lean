@@ -356,3 +356,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1Core_only_neighbors_two
 #print axioms Hypertournaments.p1Core_forced_edges
 #print axioms Hypertournaments.p1Core_forced_facet_contradiction
+#print axioms Hypertournaments.p1BoolMinority_zero_iff_constant
+#print axioms Hypertournaments.localIndex_zero_iff_normalized_constant
