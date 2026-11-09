@@ -56,12 +56,15 @@ theorem exists_increasing_tuple_prefix_zero_root
       Finset.mem_image, Finset.mem_univ, true_and]
     constructor
     · rintro ⟨i, hi⟩
+      revert hi
       refine Fin.cases ?_ (fun j => ?_) i
-      · left
+      · intro hi
+        left
         have hh : root = v := by
           simpa [g, gFun, Fin.cons] using hi
         exact hh.symm
-      · right
+      · intro hi
+        right
         refine ⟨j, ?_⟩
         simpa [g, gFun, Fin.cons] using hi
     · rintro (he | ⟨j, hj⟩)
