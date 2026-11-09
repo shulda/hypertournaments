@@ -369,3 +369,12 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.localIndex_zero_iff_normalized_constant
 #print axioms Hypertournaments.Hyper.localIndex_zero_raw_alternating
 #print axioms Hypertournaments.Hyper.localIndex_zero_canonical_sign_alternating
+#print axioms Hypertournaments.p1Core_left_row_parity
+#print axioms Hypertournaments.p1Core_right_row_parity
+#print axioms Hypertournaments.p1Core_forced_pair_24_signs
+#print axioms Hypertournaments.p1Core_forced_pair_25_signs
+#print axioms Hypertournaments.p1RightPadCore_column_even
+#print axioms Hypertournaments.p1LeftPadCore_column_even
+#print axioms Hypertournaments.p1BitToZMod_xor
+#print axioms Hypertournaments.p1BoolPacketPositiveCount_toZMod
+#print axioms Hypertournaments.p1BoolPacketXor_toZMod
