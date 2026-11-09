@@ -335,3 +335,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.evenOldTail_of_increasing_threePads
 #print axioms Hypertournaments.Hyper.rootedOddSuspension_threePads_rootAbsent_rawFacets
 #print axioms Hypertournaments.Hyper.rootedOddSuspension_threePads_rootAbsent_packetEq
+#print axioms Hypertournaments.exists_increasing_tuple_prefix_zero_root
+#print axioms Hypertournaments.localIndex_threePad_prefix_shift_of_packet
+#print axioms Hypertournaments.Hyper.rootedOddSuspension_localIndex_threePads_rootZero_absent
