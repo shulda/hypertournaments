@@ -69,3 +69,6 @@ import Hypertournaments.EvenSuspensionSigns
 import Hypertournaments.EvenSuspensionFacetCases
 import Hypertournaments.EvenSuspensionTwoThreeFacets
 import Hypertournaments.EvenSuspensionOrderedFacets
+import Hypertournaments.EvenPadOrderCount
+import Hypertournaments.EvenThreePadOrderedPacket
+import Hypertournaments.EvenSuspensionIncreasingCentralThree
