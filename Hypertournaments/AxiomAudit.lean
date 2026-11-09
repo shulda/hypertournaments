@@ -252,3 +252,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.localIndex_eq_of_orient_eq
 #print axioms Hypertournaments.Hyper.evenSuspension_twoPadSlice_localIndex
 #print axioms Hypertournaments.Hyper.evenSuspension_localIndex_prepared_twoPads
+#print axioms Hypertournaments.evenPaddedTuple_of_increasing_twoPads
+#print axioms Hypertournaments.Hyper.evenSuspension_localIndex_increasing_twoPads
