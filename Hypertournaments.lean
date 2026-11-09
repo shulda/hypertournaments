@@ -68,3 +68,4 @@ import Hypertournaments.CanonicalSignPresentation
 import Hypertournaments.EvenSuspensionPacket
 import Hypertournaments.EvenAlternatingBalance
 import Hypertournaments.EvenAllPositivePacket
+import Hypertournaments.EvenOrderedAllPositive
