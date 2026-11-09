@@ -83,3 +83,4 @@ import Hypertournaments.GeneralFacetSwap
 import Hypertournaments.GeneralAdjacentFacet
 import Hypertournaments.UniformPacketPermutationCount
 import Hypertournaments.GeneralLocalIndexInvariant
+import Hypertournaments.AllArityCanonicalAdmissibility

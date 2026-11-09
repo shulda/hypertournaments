@@ -265,3 +265,4 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.boolPacketMinority_perm_complement
 #print axioms Hypertournaments.localIndex_adjacent_swap_all
 #print axioms Hypertournaments.localIndex_perm_all
+#print axioms Hypertournaments.admissible_iff_canonical_all
