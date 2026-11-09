@@ -381,3 +381,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1NatCast_eq_oddBit
 #print axioms Hypertournaments.Hyper.p1RawFacetCount_toZMod
 #print axioms Hypertournaments.Hyper.p1Toggle_typeZero_iff_rawFacetParityOne
+#print axioms Hypertournaments.Hyper.p1CanonicalRawFacetSum
+#print axioms Hypertournaments.Hyper.p1Toggle_typeZero_indicator_eq_coboundary
