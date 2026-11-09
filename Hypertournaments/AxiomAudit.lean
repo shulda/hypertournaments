@@ -313,3 +313,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.rootedOddPotential_erase_root
 #print axioms Hypertournaments.rootedOddPotential_erase_nonroot
 #print axioms Hypertournaments.rootedOddPotential_erase_of_root_absent
+#print axioms Hypertournaments.evenOldProjection_image_eq_filter
+#print axioms Hypertournaments.evenOldProjection_card_eq_filter
+#print axioms Hypertournaments.evenOldProjection_tupleVertices_card
