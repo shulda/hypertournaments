@@ -199,3 +199,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.boolPacketPositiveCount_three_pad_of_balanced
 #print axioms Hypertournaments.boolPacketPositiveCount_alternating_even
 #print axioms Hypertournaments.boolPacketMinority_even_suspension_three_pads
+#print axioms Hypertournaments.boolPacketPositiveCount_alternating_odd
+#print axioms Hypertournaments.boolPacketMinority_all_positive_odd
