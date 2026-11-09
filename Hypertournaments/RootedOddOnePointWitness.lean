@@ -128,7 +128,11 @@ theorem HasBadOnePoint.oddRootedSuspension
       have hv := congrArg Fin.val he
       change (0 : ℕ) = 1 at hv
       omega
-    have heq : t i = t j := Subsingleton.elim (t i) (t j)
+    have heq : t i = t j := by
+      apply Fin.ext
+      have hi := (t i).isLt
+      have hj := (t j).isLt
+      omega
     exact hne (t.injective heq)
   exact HasBadOnePoint.oddRootedSuspension_of_span
     k a ha S T A L R hA hL hR hAL hAR
