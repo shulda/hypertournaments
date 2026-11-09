@@ -356,3 +356,8 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1Core_only_neighbors_two
 #print axioms Hypertournaments.p1Core_forced_edges
 #print axioms Hypertournaments.p1Core_forced_facet_contradiction
+#print axioms Hypertournaments.p1EraseTwice_comm
+#print axioms Hypertournaments.p1IndexPredParity
+#print axioms Hypertournaments.p1BoolIncompatiblePhases
+#print axioms Hypertournaments.p1RawHomogeneous_card_le_two
+#print axioms Hypertournaments.p1Abstract_zero_or_two
