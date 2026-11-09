@@ -108,3 +108,4 @@ import Hypertournaments.NegativeEvenAll
 import Hypertournaments.RootedOddThreePadAbsentCount
 import Hypertournaments.EvenOldProjectionCutoff
 import Hypertournaments.RootedOddThreePadOldTail
+import Hypertournaments.RootedOddThreePadAbsentOrderedSigns
