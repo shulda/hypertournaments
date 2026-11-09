@@ -127,3 +127,4 @@ import Hypertournaments.OddToggleP1Homogeneous
 import Hypertournaments.OddToggleP1RawAlternating
 import Hypertournaments.OddToggleP1DoubleFacet
 import Hypertournaments.OddToggleP1ActualPhase
+import Hypertournaments.OddToggleP1Naturality
