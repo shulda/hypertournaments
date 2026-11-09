@@ -248,3 +248,4 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.evenPadProjection_card_eq_filter
 #print axioms Hypertournaments.evenPadProjection_tupleVertices_card
 #print axioms Hypertournaments.evenPadProjection_ordered_prefix
+#print axioms Hypertournaments.Hyper.evenSuspension_localIndex_increasing_far
