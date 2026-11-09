@@ -117,7 +117,8 @@ theorem Hyper.rootedOddSuspension_threePads_rootAbsent_packetEq
           false := by
       rw [h2val]
       decide
-    simp [F, hbit]
+    rw [hbit]
+    simp [F]
   have htail (j : Fin n) :
       normalizedFacet (A.rootedOddSuspension m a root) f.toEmbedding
         j.succ.succ.succ = normalizedFacet A g.toEmbedding j.succ := by
