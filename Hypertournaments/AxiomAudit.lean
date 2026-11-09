@@ -251,3 +251,11 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.exists_restricted_swap
 #print axioms Hypertournaments.orient_facet_swap_away
 #print axioms Hypertournaments.normalizedFacet_swap_away
+#print axioms Hypertournaments.adjacent_swap_succAbove_left
+#print axioms Hypertournaments.adjacent_swap_succAbove_right
+#print axioms Hypertournaments.facet_adjacent_swap_left
+#print axioms Hypertournaments.facet_adjacent_swap_right
+#print axioms Hypertournaments.bool_xor_parity_adjacent
+#print axioms Hypertournaments.normalizedFacet_adjacent_swap_left
+#print axioms Hypertournaments.normalizedFacet_adjacent_swap_right
+#print axioms Hypertournaments.normalizedFacet_adjacent_swap
