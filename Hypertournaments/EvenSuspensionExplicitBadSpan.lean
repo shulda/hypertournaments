@@ -48,7 +48,7 @@ theorem shiftedAllowed_evenRaisedTypes_insert_zero (S : Set ℕ) :
       simpa [heq] using he
   · intro hd
     change d + 1 ∈ Set.insert 0 (evenRaisedTypes S)
-    exact Set.mem_insert_of_mem ⟨d, hd, rfl⟩
+    exact (Set.mem_insert_iff).2 (Or.inr ⟨d, hd, rfl⟩)
 
 /-- A canonical one-point span with no ordinary amalgam
 must have different orientations on the two one-point sides,
@@ -130,7 +130,7 @@ theorem not_hasAP_evenSuspension_of_bad_onePoint
   · exact not_hasAP_of_concrete_even_suspension
       k a m S (Set.insert 0 (evenRaisedTypes S)) A L R
       hA hL hR hAL hAR hcentral
-      (by intro d hd; exact Set.mem_insert_of_mem (hraise d hd))
+      (by intro d hd; exact (Set.mem_insert_iff).2 (Or.inr (hraise d hd)))
       (by rw [shiftedAllowed_evenRaisedTypes_insert_zero])
       hm hlow hNoLow
 
