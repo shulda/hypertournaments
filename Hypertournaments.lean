@@ -126,3 +126,4 @@ import Hypertournaments.OddToggleP1ZeroTwoAssembly
 import Hypertournaments.OddToggleP1CoreRows
 import Hypertournaments.OddToggleP1PadParity
 import Hypertournaments.OddToggleP1BooleanParity
+import Hypertournaments.OddToggleP1IndexParity
