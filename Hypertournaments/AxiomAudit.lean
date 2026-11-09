@@ -351,3 +351,8 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.negativeOnePointGoal_all_of_odd_toggle
 #print axioms Hypertournaments.negativeGoal_all_of_odd_toggle
 #print axioms Hypertournaments.negative_classification_all_of_odd_toggle
+#print axioms Hypertournaments.p1Core_eligible_iff_link_disagreement
+#print axioms Hypertournaments.p1Core_only_neighbor_four
+#print axioms Hypertournaments.p1Core_only_neighbors_two
+#print axioms Hypertournaments.p1Core_forced_edges
+#print axioms Hypertournaments.p1Core_forced_facet_contradiction
