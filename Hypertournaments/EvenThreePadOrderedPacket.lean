@@ -37,20 +37,20 @@ theorem localIndex_ordered_threePad_central
   have h0 :
       normalizedFacet D f.toEmbedding (0 : Fin (2 * k + 3)) = b := by
     unfold normalizedFacet
-    rw [hraw 0, hpad 0 (by omega)]
+    rw [hraw 0, hpad 0 (by simp only [Fin.val_zero]; omega)]
     simp
   have h1 :
       normalizedFacet D f.toEmbedding
         ((0 : Fin (2 * k + 2)).succ) = !b := by
     unfold normalizedFacet
-    rw [hraw _, hpad _ (by simp only [Fin.val_succ]; all_goals omega)]
-    cases b <;> simp [Fin.val_succ]
+    rw [hraw _, hpad _ (by simp only [Fin.val_succ, Fin.val_zero]; omega)]
+    cases b <;> simp [Fin.val_succ, Fin.val_zero]
   have h2 :
       normalizedFacet D f.toEmbedding
         ((0 : Fin (2 * k + 1)).succ.succ) = b := by
     unfold normalizedFacet
-    rw [hraw _, hpad _ (by simp only [Fin.val_succ]; all_goals omega)]
-    simp [Fin.val_succ]
+    rw [hraw _, hpad _ (by simp only [Fin.val_succ, Fin.val_zero]; omega)]
+    simp [Fin.val_succ, Fin.val_zero]
   have htail (j : Fin (2 * k)) :
       normalizedFacet D f.toEmbedding j.succ.succ.succ =
         decide (j.val % 2 = 1) := by
