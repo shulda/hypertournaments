@@ -119,3 +119,4 @@ import Hypertournaments.RootedOddSuspensionAdmissibility
 import Hypertournaments.RootedOddOnePointWitness
 import Hypertournaments.OddNonExceptionalNegativeStep
 import Hypertournaments.NegativeModuloOddToggle
+import Hypertournaments.OddToggleP1Core
