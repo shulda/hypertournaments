@@ -327,3 +327,9 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.negativeOnePointGoal_even_step
 #print axioms Hypertournaments.negativeOnePointGoal_even_all
 #print axioms Hypertournaments.negative_classification_even_all
+#print axioms Hypertournaments.boolPacketPositiveCount_threePad_prefix
+#print axioms Hypertournaments.boolPacketMinority_threePad_prefix_shift
+#print axioms Hypertournaments.evenOldProjection_image_eq_filter
+#print axioms Hypertournaments.evenOldProjection_card_eq_filter
+#print axioms Hypertournaments.evenOldProjection_tupleVertices_card
+#print axioms Hypertournaments.evenOldTail_of_increasing_threePads

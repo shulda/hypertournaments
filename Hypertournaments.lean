@@ -105,3 +105,6 @@ import Hypertournaments.EvenOnePointWitness
 import Hypertournaments.SeedFourBadOnePoint
 import Hypertournaments.SeedFiveBadOnePoint
 import Hypertournaments.NegativeEvenAll
+import Hypertournaments.RootedOddThreePadAbsentCount
+import Hypertournaments.EvenOldProjectionCutoff
+import Hypertournaments.RootedOddThreePadOldTail
