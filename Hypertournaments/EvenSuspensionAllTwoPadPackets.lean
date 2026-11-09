@@ -89,9 +89,9 @@ theorem evenPaddedTuple_of_increasing_twoPads
     (fun z => ?_) j) i
   · simpa only [evenPaddedTuple, twoPadSliceTuple, twoPadTuple_zero]
       using congrArg Fin.val hx
-  · simpa only [evenPaddedTuple, twoPadSliceTuple, twoPadTuple_one]
+  · simpa [evenPaddedTuple, twoPadSliceTuple, twoPadTuple, Fin.Embedding.cons]
       using congrArg Fin.val hy
-  · simpa only [evenPaddedTuple, twoPadSliceTuple, twoPadTuple_old]
+  · simpa [evenPaddedTuple, twoPadSliceTuple, twoPadTuple, Fin.Embedding.cons]
       using congrArg Fin.val (hTail z).symm
 
 /-- The actual local type of every increasing even-suspension
