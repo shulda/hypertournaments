@@ -54,7 +54,7 @@ theorem evenPaddedTuple_of_increasing_twoPads
   let t : Fin (n + 1) ↪o Fin k :=
     OrderEmbedding.ofStrictMono tFun htMono
   have hTail (i : Fin (n + 1)) :
-      evenOldShift m k (t i) = f i.succ.succ := by
+      evenOldShift m k (t i) = f.toEmbedding i.succ.succ := by
     apply Fin.ext
     change m + ((f i.succ.succ).val - m) = (f i.succ.succ).val
     have hl := hOld i
@@ -77,10 +77,10 @@ theorem evenPaddedTuple_of_increasing_twoPads
     apply f.strictMono
     change (0 : ℕ) < 1
     omega
-  have hx : f (0 : Fin (n + 3)) = evenPadShift m k x := by
+  have hx : f.toEmbedding (0 : Fin (n + 3)) = evenPadShift m k x := by
     apply Fin.ext
     rfl
-  have hy : f ((0 : Fin (n + 2)).succ) = evenPadShift m k y := by
+  have hy : f.toEmbedding ((0 : Fin (n + 2)).succ) = evenPadShift m k y := by
     apply Fin.ext
     rfl
   refine ⟨x, y, hxy, t, ?_⟩
