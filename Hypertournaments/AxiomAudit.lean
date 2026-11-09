@@ -334,3 +334,4 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.evenOldProjection_tupleVertices_card
 #print axioms Hypertournaments.evenOldTail_of_increasing_threePads
 #print axioms Hypertournaments.Hyper.rootedOddSuspension_threePads_rootAbsent_rawFacets
+#print axioms Hypertournaments.Hyper.rootedOddSuspension_threePads_rootAbsent_packetEq
