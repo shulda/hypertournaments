@@ -101,3 +101,4 @@ import Hypertournaments.RootedOddFarCentral
 import Hypertournaments.RootedOddFourPadLocalIndex
 import Hypertournaments.RootedOddTwoPadShift
 import Hypertournaments.RootedOddThreePadGeometry
+import Hypertournaments.RootedOddThreePadRootPresent
