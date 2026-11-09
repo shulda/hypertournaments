@@ -81,7 +81,7 @@ theorem Hyper.rootedOddSuspension_threePads_rootAbsent_packetEq
     unfold normalizedFacet
     rw [hsrc0]
     simp
-  have hpad0 : ((0 : Fin (n+3)).val < 3) := by omega
+  have hpad0 : ((0 : Fin (n+3)).val < 3) := by simp
   have hpad1 : (((0 : Fin (n+2)).succ : Fin (n+3)).val < 3) := by
     simp only [Fin.val_succ, Fin.val_zero]
     omega
@@ -90,10 +90,8 @@ theorem Hyper.rootedOddSuspension_threePads_rootAbsent_packetEq
     omega
   have h1val : (((0 : Fin (n+2)).succ : Fin (n+3)).val = 1) := by
     simp only [Fin.val_succ, Fin.val_zero]
-    omega
   have h2val : (((0 : Fin (n+1)).succ.succ : Fin (n+3)).val = 2) := by
     simp only [Fin.val_succ, Fin.val_zero]
-    omega
   have h0 :
       normalizedFacet (A.rootedOddSuspension m a root) f.toEmbedding
         (0 : Fin (n+3)) = normalizedFacet A g.toEmbedding 0 := by
@@ -114,7 +112,9 @@ theorem Hyper.rootedOddSuspension_threePads_rootAbsent_packetEq
     rw [hsrc0norm]
     unfold normalizedFacet
     rw [hraw.1 _ hpad2]
-    simp [F, h2val]
+    have hlt : 2 < n + 2 + 1 := by omega
+    rw [Nat.mod_eq_of_lt hlt]
+    simp [F]
   have htail (j : Fin n) :
       normalizedFacet (A.rootedOddSuspension m a root) f.toEmbedding
         j.succ.succ.succ = normalizedFacet A g.toEmbedding j.succ := by
