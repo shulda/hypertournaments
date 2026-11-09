@@ -79,3 +79,4 @@ import Hypertournaments.EvenSuspensionBasePreservation
 import Hypertournaments.EvenOrderedAllPositive
 import Hypertournaments.EvenSuspensionOrderedFacets
 import Hypertournaments.EvenPadOrderCount
+import Hypertournaments.GeneralFacetSwap
