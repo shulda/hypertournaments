@@ -209,3 +209,4 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.evenPaddedTuple_strictMono
 #print axioms Hypertournaments.evenSuspension_orient_increasing_twoPads
 #print axioms Hypertournaments.evenSuspension_orient_twoPads
+#print axioms Hypertournaments.canonical_twoPad_recovery_evenSuspension
