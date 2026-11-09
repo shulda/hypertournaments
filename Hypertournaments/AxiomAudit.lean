@@ -288,3 +288,7 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.boolPacketPositiveCount_four_pad
 #print axioms Hypertournaments.boolPacketMinority_four_pad_central
 #print axioms Hypertournaments.boolPacketMinority_rooted_odd_four_pads
+#print axioms Hypertournaments.localIndex_eq_of_facet_orient_eq
+#print axioms Hypertournaments.rootedOdd_two_pad_facet_ne_three
+#print axioms Hypertournaments.Hyper.rootedOddSuspension_facets_eq_even_of_twoPads
+#print axioms Hypertournaments.Hyper.rootedOddSuspension_localIndex_increasing_twoPads
