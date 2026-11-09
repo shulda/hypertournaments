@@ -1,5 +1,6 @@
 import Hypertournaments.OddToggleP1ActualPhase
 import Hypertournaments.OddToggleP1Parity
+import Hypertournaments.OddToggleP1BooleanParity
 
 /-!
 # Pullback naturality for simplex coboundary and actual zero-or-two
