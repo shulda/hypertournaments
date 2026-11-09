@@ -222,3 +222,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.Hyper.evenSuspension_orient_increasingFacet_nonpad_three
 #print axioms Hypertournaments.Hyper.evenSuspension_orient_increasingFacet_pad_two
 #print axioms Hypertournaments.Hyper.evenSuspension_orient_increasingFacet_old_two
+#print axioms Hypertournaments.localIndex_ordered_allPositive_odd
+#print axioms Hypertournaments.Hyper.evenSuspension_localIndex_increasing_far
