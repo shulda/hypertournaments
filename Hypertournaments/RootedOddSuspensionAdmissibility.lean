@@ -21,6 +21,10 @@ The complete local packet case distinction is:
 * h = 3 pads without root: actual old local index +1;
 * h = 4 pads: central index k+2.
 
+The least-root condition is used only for the root-present h=3 case:
+it forces the root into the first old position of an increasing packet.
+The other sign-table and index-shift lemmas do not assume admissibility.
+
 The proof is about ordinary intrinsic hypertournaments; the increasing
 tuple is only used for the canonical packet verification. All arbitrary
 tuple orders are covered by the pre-existing permutation invariance.
