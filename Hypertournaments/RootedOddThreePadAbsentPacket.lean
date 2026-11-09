@@ -51,7 +51,7 @@ theorem Hyper.rootedOddSuspension_threePads_rootAbsent_packetEq
         fromOrderedSigns_facet_increasing A.canonicalSignTable g i
   have hsrc0 :
       A.orient (facet g.toEmbedding 0) = A.canonicalSignTable F := by
-    rw [hsrc 0, tupleVertices_facet_eq_erase, hgVertices]
+    rw [hsrc 0, tupleVertices_facet_eq_erase, hgVertices, hgRoot]
     simp [hnot]
   have hrNe (j : Fin n) : root ≠ g j.succ := by
     intro he
