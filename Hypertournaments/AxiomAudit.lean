@@ -364,3 +364,4 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1BoolIncompatiblePhases
 #print axioms Hypertournaments.p1RawHomogeneous_card_le_two
 #print axioms Hypertournaments.p1Abstract_zero_or_two
+#print axioms Hypertournaments.p1Cochain_zero_or_two_of_phase
