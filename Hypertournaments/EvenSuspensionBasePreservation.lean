@@ -28,18 +28,34 @@ theorem evenSuspensionSignTable_image_base
     evenSuspensionSignTable m (a + 1) B
       (Q.image (onePointBaseEmbedding (m + a))) =
     evenSuspensionSignTable m a A Q := by
+  have hOldEmbedding :
+      (Fin.castSuccOrderEmb : Fin a ↪o Fin (a + 1)).toEmbedding =
+        onePointBaseEmbedding a := by
+    ext u
+    rfl
   have hsrc :
       Preserves A B
         (Fin.castSuccOrderEmb : Fin a ↪o Fin (a + 1)).toEmbedding := by
-    simpa [onePointBaseEmbedding] using hAB
+    rw [hOldEmbedding]
+    exact hAB
   have hcan :
       B.canonicalSignTable
         ((evenOldProjection m a Q).image (onePointBaseEmbedding a)) =
         A.canonicalSignTable (evenOldProjection m a Q) := by
-    simpa [onePointBaseEmbedding] using
-      (Hyper.canonicalSignTable_image_orderEmbedding
-        A B (Fin.castSuccOrderEmb : Fin a ↪o Fin (a + 1))
-        hsrc (evenOldProjection m a Q))
+    calc
+      B.canonicalSignTable
+          ((evenOldProjection m a Q).image (onePointBaseEmbedding a)) =
+        B.canonicalSignTable
+          ((evenOldProjection m a Q).image
+            (Fin.castSuccOrderEmb : Fin a ↪o Fin (a + 1))) := by
+          congr 1
+          apply Finset.image_congr
+          intro u _
+          rfl
+      _ = A.canonicalSignTable (evenOldProjection m a Q) :=
+        Hyper.canonicalSignTable_image_orderEmbedding
+          A B (Fin.castSuccOrderEmb : Fin a ↪o Fin (a + 1))
+          hsrc (evenOldProjection m a Q)
   unfold evenSuspensionSignTable
   rw [evenPadProjection_image_base m a Q,
       evenOldProjection_image_base m a Q, hcan]
@@ -60,14 +76,34 @@ theorem Hyper.evenSuspension_preserves_base
             (Fin.castSuccOrderEmb : Fin (m + a) ↪o Fin (m + a + 1))) =
         evenSuspensionSignTable m a A Q := by
     intro Q
-    simpa [onePointBaseEmbedding] using
-      (evenSuspensionSignTable_image_base A B hAB Q)
+    calc
+      evenSuspensionSignTable m (a + 1) B
+          (Q.image
+            (Fin.castSuccOrderEmb : Fin (m + a) ↪o Fin (m + a + 1))) =
+        evenSuspensionSignTable m (a + 1) B
+          (Q.image (onePointBaseEmbedding (m + a))) := by
+          congr 1
+          apply Finset.image_congr
+          intro u _
+          rfl
+      _ = evenSuspensionSignTable m a A Q :=
+        evenSuspensionSignTable_image_base A B hAB Q
   have hp :=
     fromOrderedSigns_preserves
       (Fin.castSuccOrderEmb : Fin (m + a) ↪o Fin (m + a + 1))
       (evenSuspensionSignTable m a A)
       (evenSuspensionSignTable m (a + 1) B)
       htable
-  simpa [Hyper.evenSuspension, onePointBaseEmbedding] using hp
+  have hHighEmbedding :
+      (Fin.castSuccOrderEmb : Fin (m + a) ↪o Fin (m + a + 1)).toEmbedding =
+        onePointBaseEmbedding (m + a) := by
+    ext u
+    rfl
+  change Preserves
+    (Hyper.fromOrderedSigns (evenSuspensionSignTable m a A))
+    (Hyper.fromOrderedSigns (evenSuspensionSignTable m (a + 1) B))
+    (onePointBaseEmbedding (m + a))
+  rw [← hHighEmbedding]
+  exact hp
 
 end Hypertournaments
