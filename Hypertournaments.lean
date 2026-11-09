@@ -94,3 +94,4 @@ import Hypertournaments.EvenSuspensionAdmissibility
 import Hypertournaments.EvenSuspensionConcreteObstruction
 import Hypertournaments.EvenSuspensionExplicitBadSpan
 import Hypertournaments.EvenOnePointWitness
+import Hypertournaments.SeedFourBadOnePoint
