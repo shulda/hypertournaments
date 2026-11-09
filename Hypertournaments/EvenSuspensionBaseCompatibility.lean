@@ -59,6 +59,7 @@ theorem evenOldProjection_image_base (m k : ℕ)
     (evenOldProjection m k Q).image (onePointBaseEmbedding k) := by
   classical
   ext u
+  simp only [evenOldProjection, Finset.mem_filter, Finset.mem_univ, true_and]
   rcases u.eq_castSucc_or_eq_last with ⟨v, rfl⟩ | rfl
   · have hshift := evenOldShift_base_compat m k v
     change
