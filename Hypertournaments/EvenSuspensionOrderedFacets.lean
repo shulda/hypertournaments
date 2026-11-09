@@ -32,7 +32,8 @@ theorem Hyper.evenSuspension_orient_increasingFacet
         (evenSuspensionSignTable m k A) f i
     _ = evenSuspensionSignTable m k A
         ((tupleVertices f.toEmbedding).erase (f i)) := by
-      rw [tupleVertices_facet_eq_erase]
+      simpa using congrArg (evenSuspensionSignTable m k A)
+        (tupleVertices_facet_eq_erase f.toEmbedding i)
 
 /-- For pad count <= 1 or >= 4 every raw facet orientation of an
 increasing packet is positive. -/
