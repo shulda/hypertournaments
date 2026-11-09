@@ -259,3 +259,9 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.normalizedFacet_adjacent_swap_left
 #print axioms Hypertournaments.normalizedFacet_adjacent_swap_right
 #print axioms Hypertournaments.normalizedFacet_adjacent_swap
+#print axioms Hypertournaments.boolPacketPositiveCount_perm
+#print axioms Hypertournaments.boolPacketPositiveCount_not
+#print axioms Hypertournaments.boolPacketMinority_perm
+#print axioms Hypertournaments.boolPacketMinority_perm_complement
+#print axioms Hypertournaments.localIndex_adjacent_swap_all
+#print axioms Hypertournaments.localIndex_perm_all
