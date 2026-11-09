@@ -257,3 +257,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.boolPacketMinority_perm_complement
 #print axioms Hypertournaments.rootedOddSuspensionSignTable_twoPads
 #print axioms Hypertournaments.rootedOddSuspensionSignTable_threePads
+#print axioms Hypertournaments.rootedOddSuspension_orient_increasing_twoPads
+#print axioms Hypertournaments.rootedOddSuspension_orient_twoPads
+#print axioms Hypertournaments.canonical_twoPad_recovery_rootedOddSuspension
