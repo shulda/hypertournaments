@@ -62,32 +62,37 @@ theorem evenPaddedTuple_of_increasing_twoPads
   have hp0 : (f (0 : Fin (n + 3))).val < m := by
     apply (evenPadProjection_ordered_prefix f 0).1
     rw [htwo]
+    simp only [Fin.val_zero]
     omega
-  have hp1 : (f (1 : Fin (n + 3))).val < m := by
-    apply (evenPadProjection_ordered_prefix f 1).1
+  have hp1 : (f ((0 : Fin (n + 2)).succ)).val < m := by
+    apply (evenPadProjection_ordered_prefix f (0 : Fin (n + 2)).succ).1
     rw [htwo]
+    simp only [Fin.val_succ, Fin.val_zero]
     omega
   let x : Fin m := ⟨(f (0 : Fin (n + 3))).val, hp0⟩
-  let y : Fin m := ⟨(f (1 : Fin (n + 3))).val, hp1⟩
+  let y : Fin m := ⟨(f ((0 : Fin (n + 2)).succ)).val, hp1⟩
   have hxy : x < y := by
     change (f (0 : Fin (n + 3))).val <
-      (f (1 : Fin (n + 3))).val
+      (f ((0 : Fin (n + 2)).succ)).val
     apply f.strictMono
     change (0 : ℕ) < 1
-    decide
+    omega
   have hx : f (0 : Fin (n + 3)) = evenPadShift m k x := by
     apply Fin.ext
     rfl
-  have hy : f (1 : Fin (n + 3)) = evenPadShift m k y := by
+  have hy : f ((0 : Fin (n + 2)).succ) = evenPadShift m k y := by
     apply Fin.ext
     rfl
   refine ⟨x, y, hxy, t, ?_⟩
   ext i
   refine Fin.cases ?_ (fun j => Fin.cases ?_
     (fun z => ?_) j) i
-  · simpa only [evenPaddedTuple, twoPadSliceTuple] using congrArg Fin.val hx
-  · simpa only [evenPaddedTuple, twoPadSliceTuple] using congrArg Fin.val hy
-  · simpa only [evenPaddedTuple, twoPadSliceTuple] using congrArg Fin.val (hTail z).symm
+  · simpa only [evenPaddedTuple, twoPadSliceTuple, twoPadTuple_zero]
+      using congrArg Fin.val hx
+  · simpa only [evenPaddedTuple, twoPadSliceTuple, twoPadTuple_one]
+      using congrArg Fin.val hy
+  · simpa only [evenPaddedTuple, twoPadSliceTuple, twoPadTuple_old]
+      using congrArg Fin.val (hTail z).symm
 
 /-- The actual local type of every increasing even-suspension
 packet with exactly two pads is the old type plus one. -/
