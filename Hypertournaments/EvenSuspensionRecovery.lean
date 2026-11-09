@@ -49,13 +49,17 @@ theorem evenPaddedTuple_vertices
     true_and, evenPaddedPacket, Finset.mem_insert]
   constructor
   · rintro ⟨i, hi⟩
+    revert hi
     refine Fin.cases ?_ (fun j => Fin.cases ?_ (fun z => ?_) j) i
-    · left
-      simpa [evenPaddedTuple, twoPadSliceTuple] using hi.symm
-    · right
+    · intro hi
       left
       simpa [evenPaddedTuple, twoPadSliceTuple] using hi.symm
-    · right
+    · intro hi
+      right
+      left
+      simpa [evenPaddedTuple, twoPadSliceTuple] using hi.symm
+    · intro hi
+      right
       right
       refine ⟨t z, ⟨z, rfl⟩, ?_⟩
       simpa [evenPaddedTuple, twoPadSliceTuple] using hi
@@ -95,7 +99,8 @@ theorem evenPaddedTuple_strictMono
     exact hxy
   have hxAll : ∀ i : Fin (n + 1),
       evenPadShift m k x <
-        Fin.cons (evenPadShift m k y) tail i := by
+        ((Fin.cons (evenPadShift m k y) tail) :
+          Fin (n + 1) → Fin (m + k)) i := by
     intro i
     refine Fin.cases ?_ (fun j => ?_) i
     · exact hxy'
