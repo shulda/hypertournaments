@@ -67,3 +67,4 @@ import Hypertournaments.CanonicalOrientationRecovery
 import Hypertournaments.CanonicalSignPresentation
 import Hypertournaments.EvenSuspensionSigns
 import Hypertournaments.EvenSuspensionFacetCases
+import Hypertournaments.EvenSuspensionTwoThreeFacets
