@@ -140,3 +140,5 @@ import Hypertournaments.OddToggleP1CanonicalLinks
 import Hypertournaments.OddToggleP1ExplicitSides
 import Hypertournaments.OddToggleP1MissingSets
 import Hypertournaments.OddToggleP1BaseParity
+import Hypertournaments.OddToggleP1SideDisagreement
+import Hypertournaments.OddToggleP1ConcreteDisagreement
