@@ -64,20 +64,21 @@ theorem p1SidePacket_missing_two_old (k : ℕ)
   have hv :
       (x.castSucc : Fin (4*k+6+1)) = v.castSucc ↔ x = v := by
     constructor
-    · exact (Fin.castSuccEmb : Fin (4*k+6) ↪
-        Fin (4*k+6+1)).injective
+    · intro he
+      apply Fin.ext
+      simpa only [Fin.val_castSucc] using congrArg Fin.val he
     · intro h
       rw [h]
   have hw :
       (x.castSucc : Fin (4*k+6+1)) = w.castSucc ↔ x = w := by
     constructor
-    · exact (Fin.castSuccEmb : Fin (4*k+6) ↪
-        Fin (4*k+6+1)).injective
+    · intro he
+      apply Fin.ext
+      simpa only [Fin.val_castSucc] using congrArg Fin.val he
     · intro h
       rw [h]
-  change ((x.castSucc : Fin (4*k+6+1)) ∉
-    ((Finset.univ : Finset (Fin (4*k+6+1))).erase v.castSucc).erase
-      w.castSucc) ↔ x ∈ ({v,w} : Finset (Fin (4*k+6)))
+  simp only [p1MissingBase, p1SidePacketOmitOld,
+    Finset.mem_filter, Finset.mem_univ, true_and]
   simp only [Finset.mem_erase, Finset.mem_univ, and_true,
     Finset.mem_insert, Finset.mem_singleton]
   simp only [not_and_or, not_not]
@@ -95,8 +96,9 @@ theorem p1SidePacket_missing_old_new (k : ℕ)
   have hv :
       (x.castSucc : Fin (4*k+6+1)) = v.castSucc ↔ x = v := by
     constructor
-    · exact (Fin.castSuccEmb : Fin (4*k+6) ↪
-        Fin (4*k+6+1)).injective
+    · intro he
+      apply Fin.ext
+      simpa only [Fin.val_castSucc] using congrArg Fin.val he
     · intro h
       rw [h]
   have hlast :
@@ -106,10 +108,8 @@ theorem p1SidePacket_missing_old_new (k : ℕ)
     have hval := congrArg Fin.val he
     simp only [Fin.val_castSucc, Fin.val_last] at hval
     omega
-  change ((x.castSucc : Fin (4*k+6+1)) ∉
-    ((Finset.univ : Finset (Fin (4*k+6+1))).erase v.castSucc).erase
-      (Fin.last (4*k+6))) ↔
-    x ∈ ({v} : Finset (Fin (4*k+6)))
+  simp only [p1MissingBase, p1SidePacketOmitOld,
+    Finset.mem_filter, Finset.mem_univ, true_and]
   simp only [Finset.mem_erase, Finset.mem_univ, and_true,
     Finset.mem_singleton]
   simp only [not_and_or, not_not]
