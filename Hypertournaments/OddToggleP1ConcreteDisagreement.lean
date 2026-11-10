@@ -78,8 +78,9 @@ theorem p1Core24Facet_missing (k : ℕ) :
   have hcast (x y : Fin (4*k+6)) :
       (x.castSucc : Fin (4*k+6+1)) = y.castSucc ↔ x=y := by
     constructor
-    · exact (Fin.castSuccEmb : Fin (4*k+6) ↪
-        Fin (4*k+6+1)).injective
+    · intro h
+      apply Fin.ext
+      exact congrArg Fin.val h
     · intro h
       rw [h]
   ext x
@@ -87,6 +88,8 @@ theorem p1Core24Facet_missing (k : ℕ) :
       (x.castSucc : Fin (4*k+6+1)) ∈ p1Core24FacetSet k ↔
         x ≠ v ∧ x ≠ w := by
     simp [p1Core24FacetSet, v, w, hcast, and_comm]
+  simp only [p1MissingBase, Finset.mem_filter, Finset.mem_univ,
+    true_and]
   change (x.castSucc : Fin (4*k+6+1)) ∉
       p1Core24FacetSet k ↔ x ∈ ({v,w} : Finset (Fin (4*k+6)))
   rw [hmem]
