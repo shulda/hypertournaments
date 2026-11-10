@@ -456,3 +456,4 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1SidePacket_sign_erase_new
 #print axioms Hypertournaments.p1SidePacket_sign_erase_old
 #print axioms Hypertournaments.p1SidePacket_sign_erase_old_ne
+#print axioms Hypertournaments.p1SidePacket_erase_last_eq_old_image
