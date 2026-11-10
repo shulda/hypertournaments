@@ -403,3 +403,7 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1CanonicalLink_core_24_disagree
 #print axioms Hypertournaments.p1SideSignTable_core_24_disagree
 #print axioms Hypertournaments.p1SideHyper_core_24_orient_disagree
+#print axioms Hypertournaments.p1Core24Facet_card
+#print axioms Hypertournaments.p1Core24Facet_last_mem
+#print axioms Hypertournaments.p1Core24Facet_missing
+#print axioms Hypertournaments.p1ConcreteSides_orient_disagreement
