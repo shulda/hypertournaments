@@ -65,7 +65,8 @@ theorem p1BaseHyper_full_rawSigns (k : ℕ)
       fromOrderedSigns_facet_increasing (p1BaseSignTable k) f i
     _ = p1BaseSignTable k
           ((Finset.univ : Finset (Fin (4*k+6))).erase i) := by
-      rw [tupleVertices_facet_eq_erase f.toEmbedding i, hfull, hi]
+      have he : f.toEmbedding i = i := hi
+      rw [tupleVertices_facet_eq_erase f.toEmbedding i, hfull, he]
     _ = p1BaseVertexBit k i := p1BaseSignTable_erase k i
 
 /-- The sole increasing local packet in the actual common base is
