@@ -55,7 +55,6 @@ theorem p1SidePacket_old_position
         omega
       simp only [if_neg hnot]
       dsimp [w]
-      omega
 
 /-- The final increasing facet deletion is exactly the new last
 side vertex, independently of the omitted old vertex. -/
