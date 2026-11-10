@@ -31,8 +31,9 @@ theorem p1JointHomogeneousNeighbors_symmetric (k : ℕ)
   have hxParent : x ∈ p1JointParentPacket k y := by
     exact Finset.mem_erase.mpr ⟨hne.symm, Finset.mem_univ _⟩
   have hxImage : x ∈ (Finset.univ : Finset (Fin (4*k+7))).image fy := by
-    rw [Finset.image_orderEmbOfFin_univ
-      (p1JointParentPacket k y) (p1JointParentPacket_card k y)]
+    change x ∈ (Finset.univ : Finset (Fin (4*k+7))).image
+      ((p1JointParentPacket k y).orderEmbOfFin (p1JointParentPacket_card k y))
+    rw [Finset.image_orderEmbOfFin_univ]
     exact hxParent
   obtain ⟨j, _, hjx⟩ := Finset.mem_image.mp hxImage
   have hsets :
