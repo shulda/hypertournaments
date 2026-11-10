@@ -161,3 +161,4 @@ import Hypertournaments.OddToggleP1SidePacketDichotomy
 import Hypertournaments.OddToggleP1SidePacketOrder
 import Hypertournaments.OddToggleP1RowMatchesBase
 import Hypertournaments.OddToggleP1RightProtectedPositions
+import Hypertournaments.OddToggleP1SidePacketIndex
