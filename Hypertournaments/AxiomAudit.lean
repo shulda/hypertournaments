@@ -535,3 +535,10 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1NotHasAP_of_no_canonical_joint
 #print axioms Hypertournaments.p1_second_of_two_supported
 #print axioms Hypertournaments.p1JointCore_forced_neighbors_of_support
+#print axioms Hypertournaments.p1JointDoubleDeletion_card
+#print axioms Hypertournaments.p1JointNeighbor_mem_iff_canonical_zero
+#print axioms Hypertournaments.p1JointVertex_old_or_new
+#print axioms Hypertournaments.p1JointOldNeighbor_core_support
+#print axioms Hypertournaments.p1JointCoreFour_old_neighbor_only_two
+#print axioms Hypertournaments.p1JointCoreTwo_old_neighbor_only_four_five
+#print axioms Hypertournaments.p1JointCore_forced_of_nonmixed_exclusions
