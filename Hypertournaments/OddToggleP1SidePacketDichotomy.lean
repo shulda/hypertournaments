@@ -72,7 +72,8 @@ theorem p1OldBaseImage_univ (k : ℕ) :
       (Fin.last (4*k+6)) := by
   ext x
   constructor
-  · rintro ⟨v, _, hv⟩
+  · intro hx
+    obtain ⟨v, _, hv⟩ := Finset.mem_image.mp hx
     apply Finset.mem_erase.mpr
     constructor
     · intro he
