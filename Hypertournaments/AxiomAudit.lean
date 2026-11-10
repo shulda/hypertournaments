@@ -414,3 +414,8 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1BasePositiveSet
 #print axioms Hypertournaments.p1BaseVertexBit_positiveCount
 #print axioms Hypertournaments.p1BaseVertexBit_even
+#print axioms Hypertournaments.p1Base_fullVertices
+#print axioms Hypertournaments.p1Base_fullOrderedTuple_id
+#print axioms Hypertournaments.p1BaseHyper_full_rawSigns
+#print axioms Hypertournaments.p1BaseHyper_increasing_allowed
+#print axioms Hypertournaments.p1BaseHyper_admissible
