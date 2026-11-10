@@ -180,3 +180,4 @@ import Hypertournaments.IncreasingTupleUniqueness
 import Hypertournaments.OddToggleP1ActualJointSymmetry
 import Hypertournaments.OddToggleP1NoJointInterface
 import Hypertournaments.LocalIndexCanonicalImage
+import Hypertournaments.OddToggleP1JointSideOmissionLocalIndex
