@@ -489,3 +489,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1Side_old_packet_allowed
 #print axioms Hypertournaments.p1TypeZero_allowed
 #print axioms Hypertournaments.p1Side_admissible_of_rows_or_zero
+#print axioms Hypertournaments.p1SideTwoOldPacket_card
+#print axioms Hypertournaments.p1SideHyper_canonicalSignTable_two_old
