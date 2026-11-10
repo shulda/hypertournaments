@@ -421,3 +421,4 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1OldVertex_pad_or_core
 #print axioms Hypertournaments.p1PadCore_images_cover
 #print axioms Hypertournaments.p1PadCore_images_disjoint
+#print axioms Hypertournaments.p1CanonicalRowPositiveCount_split
