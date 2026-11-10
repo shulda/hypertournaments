@@ -157,3 +157,5 @@ import Hypertournaments.OddToggleP1PadRowFromSplit
 import Hypertournaments.OddToggleP1SidePacketRawSum
 import Hypertournaments.OddToggleP1ActualRawCount
 import Hypertournaments.OddToggleP1SideEvenRows
+import Hypertournaments.OddToggleP1RowMatchesBase
+import Hypertournaments.OddToggleP1RightProtectedPositions

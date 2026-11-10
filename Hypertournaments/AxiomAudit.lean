@@ -473,3 +473,9 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1NatEven_ofZMod2_zero
 #print axioms Hypertournaments.p1SidePacket_rawEven_of_rowParity
 #print axioms Hypertournaments.p1SidePacket_allowed_of_rowParity
+#print axioms Hypertournaments.p1BaseVertexBit_pad
+#print axioms Hypertournaments.p1BaseVertexBit_core
+#print axioms Hypertournaments.p1CanonicalLeft_row_matches_base
+#print axioms Hypertournaments.p1CanonicalRight_row_matches_base_unprotected
+#print axioms Hypertournaments.p1RightCoreZero_old_position
+#print axioms Hypertournaments.p1RightCoreFour_old_position
