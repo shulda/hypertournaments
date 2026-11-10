@@ -30,7 +30,13 @@ theorem p1CanonicalLink_pad_core (k : ℕ) (left : Bool)
   have hj : ¬(p1CoreAt k j).val < 4*k := by
     have h := p1CoreAt_ge k j
     omega
-  simp [p1CanonicalLink, hs, hj, p1PadAt, p1CoreAt]
+  simp only [p1CanonicalLink, dif_pos hs, dif_neg hj]
+  congr 1
+  · apply Fin.ext
+    rfl
+  · apply Fin.ext
+    dsimp [p1CoreAt]
+    omega
 
 theorem p1CanonicalPad_row_positiveCount (k : ℕ) (left : Bool)
     (s : Fin (2*(2*k))) :
@@ -64,12 +70,10 @@ theorem p1CanonicalPad_row_positiveCount (k : ℕ) (left : Bool)
     rw [hbits]
     exact p1RightPadCore_row_positiveCount k s
   rw [hpad, hcore]
-  decide
 
 theorem p1CanonicalPad_rowParity (k : ℕ) (left : Bool)
     (s : Fin (2*(2*k))) :
     p1CanonicalRowPositiveCount k left (p1PadAt k s) % 2 = 1 := by
   rw [p1CanonicalPad_row_positiveCount]
-  decide
 
 end Hypertournaments
