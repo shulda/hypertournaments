@@ -37,7 +37,7 @@ theorem localIndex_preserves
     congr 1
     ext i
     simp only [Finset.mem_filter, Finset.mem_univ, true_and]
-    exact congrArg (· = true) (hnorm i)
+    rw [hnorm i]
   unfold localIndex
   rw [hcount]
 
