@@ -60,7 +60,7 @@ def p3ZeroSumTupleEquiv {G : Type*} [AddCommGroup G] (m : ℕ) :
 /-- There are exactly |G|^m zero-sum words of length m+1,
 for every finite additive commutative group G. -/
 theorem p3ZeroSumTuple_card {G : Type*}
-    [AddCommGroup G] [Fintype G] (m : ℕ) :
+    [AddCommGroup G] [Fintype G] [DecidableEq G] (m : ℕ) :
     Fintype.card
       {f : Fin (m+1) → G // (∑ i : Fin (m+1), f i) = 0} =
         (Fintype.card G)^m := by
