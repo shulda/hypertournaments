@@ -167,3 +167,5 @@ import Hypertournaments.OddToggleP1MixedPacketOrder
 import Hypertournaments.OddToggleP1JointFacetImages
 import Hypertournaments.OddToggleP1TwoOldCanonicalSign
 import Hypertournaments.OddToggleP1JointEndpointSigns
+import Hypertournaments.CanonicalIncreasingFacetSign
+import Hypertournaments.OddToggleP1ActualMixedSupport
