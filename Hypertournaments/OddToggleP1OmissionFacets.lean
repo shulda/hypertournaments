@@ -82,6 +82,8 @@ theorem p1SidePacket_missing_two_old (k : ℕ)
   simp only [Finset.mem_erase, Finset.mem_univ, and_true,
     Finset.mem_insert, Finset.mem_singleton]
   simp only [not_and_or, not_not]
+  change (x.castSucc = w.castSucc ∨ x.castSucc = v.castSucc) ↔
+    (x = v ∨ x = w)
   rw [hw, hv]
   tauto
 
