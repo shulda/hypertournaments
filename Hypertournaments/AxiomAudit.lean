@@ -417,3 +417,16 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1PadParity_complement
 #print axioms Hypertournaments.p1RightPadCore_row_positiveCount
 #print axioms Hypertournaments.p1LeftPadCore_row_positiveCount
+#print axioms Hypertournaments.p1Base_fullVertices
+#print axioms Hypertournaments.p1Base_fullOrderedTuple_id
+#print axioms Hypertournaments.p1BaseHyper_full_rawSigns
+#print axioms Hypertournaments.p1BaseHyper_increasing_allowed
+#print axioms Hypertournaments.p1BaseHyper_admissible
+#print axioms Hypertournaments.p1CoreAt_two_lt_four
+#print axioms Hypertournaments.p1CanonicalLink_core_24_disagree
+#print axioms Hypertournaments.p1SideSignTable_core_24_disagree
+#print axioms Hypertournaments.p1SideHyper_core_24_orient_disagree
+#print axioms Hypertournaments.p1Core24Facet_card
+#print axioms Hypertournaments.p1Core24Facet_last_mem
+#print axioms Hypertournaments.p1Core24Facet_missing
+#print axioms Hypertournaments.p1ConcreteSides_orient_disagreement
