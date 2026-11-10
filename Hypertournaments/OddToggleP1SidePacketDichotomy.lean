@@ -1,4 +1,4 @@
-import Hypertournaments.OddToggleP1ExplicitSides
+import Hypertournaments.OddToggleP1OmissionFacets
 import Hypertournaments.AllArityCanonicalAdmissibility
 
 /-!
@@ -23,8 +23,8 @@ theorem p1OnePointSubset_eq_erase
     (hQ : Q.card = a) :
     ∃ v : Fin (a+1), Q = Finset.univ.erase v := by
   have hmiss : ((Finset.univ : Finset (Fin (a+1))) \ Q).card = 1 := by
-    rw [Finset.card_sdiff (Finset.subset_univ Q)]
-    simp only [Finset.card_univ, Fintype.card_fin, hQ]
+    rw [Finset.card_sdiff]
+    simp only [Finset.inter_univ, Finset.card_univ, Fintype.card_fin, hQ]
     omega
   obtain ⟨v, hv⟩ := Finset.card_eq_one.mp hmiss
   refine ⟨v, ?_⟩
@@ -46,11 +46,22 @@ theorem p1SideSubset_old_or_omit (k : ℕ)
           (Fin.last (4*k+6)) ∨
       ∃ v : Fin (4*k+6), Q = p1SidePacketOmitOld k v := by
   obtain ⟨x, hx⟩ := p1OnePointSubset_eq_erase (4*k+6) Q hQ
-  rcases x.eq_castSucc_or_eq_last with ⟨v, rfl⟩ | rfl
-  · right
-    exact ⟨v, by simpa only [p1SidePacketOmitOld] using hx⟩
+  by_cases hxlast : x = Fin.last (4*k+6)
   · left
-    exact hx
+    simpa only [hxlast] using hx
+  · right
+    have hlt : x.val < 4*k+6 := by
+      have hb := x.isLt
+      have hnot : x.val ≠ 4*k+6 := by
+        intro he
+        apply hxlast
+        apply Fin.ext
+        simpa only [Fin.val_last] using he
+      omega
+    let v : Fin (4*k+6) := ⟨x.val, hlt⟩
+    refine ⟨v, ?_⟩
+    have hxcast : v.castSucc = x := Fin.ext rfl
+    simpa only [p1SidePacketOmitOld, hxcast] using hx
 
 /-- The subset of old embedded vertices is the complete side
 universe after erasing the last (new) vertex. -/
@@ -60,17 +71,26 @@ theorem p1OldBaseImage_univ (k : ℕ) :
     (Finset.univ : Finset (Fin (4*k+6+1))).erase
       (Fin.last (4*k+6)) := by
   ext x
-  rcases x.eq_castSucc_or_eq_last with ⟨v, rfl⟩ | rfl
-  · constructor
-    · intro _
-      exact Finset.mem_erase.mpr
-        ⟨Fin.castSucc_ne_last v, Finset.mem_univ _⟩
-    · intro _
-      exact Finset.mem_image.mpr ⟨v, Finset.mem_univ _, rfl⟩
-  · constructor
-    · rintro ⟨v, _, hv⟩
-      exact False.elim ((Fin.castSucc_ne_last v) hv)
-    · intro hv
-      exact False.elim ((Finset.mem_erase.mp hv).1 rfl)
+  constructor
+  · rintro ⟨v, _, hv⟩
+    apply Finset.mem_erase.mpr
+    constructor
+    · intro he
+      exact (Fin.castSucc_ne_last v) (hv.trans he)
+    · exact Finset.mem_univ _
+  · intro hx
+    have hxlast : x ≠ Fin.last (4*k+6) :=
+      (Finset.mem_erase.mp hx).1
+    have hlt : x.val < 4*k+6 := by
+      have hb := x.isLt
+      have hnot : x.val ≠ 4*k+6 := by
+        intro he
+        apply hxlast
+        apply Fin.ext
+        simpa only [Fin.val_last] using he
+      omega
+    let v : Fin (4*k+6) := ⟨x.val, hlt⟩
+    exact Finset.mem_image.mpr
+      ⟨v, Finset.mem_univ _, Fin.ext rfl⟩
 
 end Hypertournaments
