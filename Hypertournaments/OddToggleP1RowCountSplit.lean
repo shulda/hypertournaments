@@ -68,6 +68,5 @@ theorem p1CanonicalRowPositiveCount_split
   unfold p1CanonicalRowPositiveCount
   rw [hfilter, Finset.card_union_of_disjoint hfilterdisj,
       hpad, hcore]
-  rfl
 
 end Hypertournaments
