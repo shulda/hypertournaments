@@ -133,3 +133,5 @@ import Hypertournaments.OddToggleP1RawCountParity
 import Hypertournaments.OddToggleP1DoubleFacet
 import Hypertournaments.OddToggleP1ActualCoboundary
 import Hypertournaments.OddToggleP1ActualPhase
+import Hypertournaments.OddToggleP1Naturality
+import Hypertournaments.OddToggleP1ActualZeroTwo
