@@ -79,8 +79,8 @@ theorem p1Core24Facet_missing (k : ℕ) :
       (x.castSucc : Fin (4*k+6+1)) = y.castSucc ↔ x=y := by
     constructor
     · intro h
-      apply Fin.ext
-      exact congrArg Fin.val h
+      exact (Fin.castSuccEmb : Fin (4*k+6) ↪
+        Fin (4*k+6+1)).injective h
     · intro h
       rw [h]
   ext x
