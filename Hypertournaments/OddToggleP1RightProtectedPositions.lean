@@ -25,7 +25,10 @@ theorem p1RightCoreZero_old_position (k : ℕ)
   rcases p1OldVertex_pad_or_core k w with ⟨s, rfl⟩ | ⟨j, rfl⟩
   · rw [p1CanonicalLink_core_pad, p1RightPadZero_alternating]
     have hs := p1PadAt_lt k s
-    simp [hs, p1PadAt]
+    have hlt : s.val < 4*k := by
+      have hbound := s.isLt
+      omega
+    simp only [if_pos hlt]
   · have hjne : j ≠ 0 := by
       intro he
       subst j
@@ -57,7 +60,10 @@ theorem p1RightCoreFour_old_position (k : ℕ)
     have hs : (p1PadAt k s).val < 4*k+4 := by
       have h := p1PadAt_lt k s
       omega
-    simp [hs, p1PadAt]
+    have hlt : s.val < 4*k+4 := by
+      have hbound := s.isLt
+      omega
+    simp only [if_pos hlt]
   · have hjne : j ≠ 4 := by
       intro he
       subst j
