@@ -555,3 +555,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1NoCanonicalJoint
 #print axioms Hypertournaments.p1BadOnePoint_all
 #print axioms Hypertournaments.p1NotHasAP_all
+#print axioms Hypertournaments.oddToggleOnePointObstructions_of_p3
+#print axioms Hypertournaments.negative_classification_all_of_p3
+#print axioms Hypertournaments.negativeGoal_all_of_p3
