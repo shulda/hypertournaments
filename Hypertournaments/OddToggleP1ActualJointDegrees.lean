@@ -25,8 +25,7 @@ theorem p1JointParentPacket_card (k : ℕ)
     (p1JointParentPacket k x).card = 4*k+7 := by
   have h := Finset.card_erase_add_one
     (Finset.mem_univ x : x ∈ (Finset.univ : Finset (Fin (4*k+6+2))))
-  change ((Finset.univ : Finset (Fin (4*k+6+2))).erase x).card + 1 =
-    4*k+6+2 at h
+  simp only [Finset.card_univ, Fintype.card_fin] at h
   change ((Finset.univ : Finset (Fin (4*k+6+2))).erase x).card =
     4*k+7
   omega
