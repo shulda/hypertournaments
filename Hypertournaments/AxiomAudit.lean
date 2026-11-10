@@ -498,3 +498,8 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1RightCoreFour_packet_localIndex
 #print axioms Hypertournaments.p1LeftSide_admissible
 #print axioms Hypertournaments.p1RightSide_admissible
+#print axioms Hypertournaments.p1JointParentPacket_card
+#print axioms Hypertournaments.p1JointHomogeneousNeighbors_zero_or_two
+#print axioms Hypertournaments.p1JointHomogeneousNeighbors_mem_iff
+#print axioms Hypertournaments.p1JointHomogeneousNeighbors_ne_self
+#print axioms Hypertournaments.p1JointParentFacet_vertexSet
