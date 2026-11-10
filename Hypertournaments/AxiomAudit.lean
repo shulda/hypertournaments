@@ -430,3 +430,9 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1Core24Facet_last_mem
 #print axioms Hypertournaments.p1Core24Facet_missing
 #print axioms Hypertournaments.p1ConcreteSides_orient_disagreement
+#print axioms Hypertournaments.p1SidePacketOmitOld_mem_old
+#print axioms Hypertournaments.p1SidePacketOmitOld_last
+#print axioms Hypertournaments.p1SidePacket_missing_two_old
+#print axioms Hypertournaments.p1SidePacket_missing_old_new
+#print axioms Hypertournaments.p1SidePacket_sign_erase_new
+#print axioms Hypertournaments.p1SidePacket_sign_erase_old
