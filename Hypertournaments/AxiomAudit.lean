@@ -457,3 +457,11 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1SidePacket_sign_erase_old
 #print axioms Hypertournaments.p1SidePacket_sign_erase_old_ne
 #print axioms Hypertournaments.p1SidePacket_erase_last_eq_old_image
+#print axioms Hypertournaments.p1CanonicalLink_core_pad
+#print axioms Hypertournaments.p1CanonicalCore_padContribution_even
+#print axioms Hypertournaments.p1CanonicalCore_coreContribution_parity
+#print axioms Hypertournaments.p1CanonicalCore_rowParity
+#print axioms Hypertournaments.p1CanonicalLink_pad_pad_false
+#print axioms Hypertournaments.p1CanonicalLink_pad_core
+#print axioms Hypertournaments.p1CanonicalPad_row_positiveCount
+#print axioms Hypertournaments.p1CanonicalPad_rowParity
