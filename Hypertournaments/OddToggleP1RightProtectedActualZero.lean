@@ -32,7 +32,13 @@ theorem p1RightCoreFour_packet_localIndex (k : ℕ)
       ((p1SidePacketOmitOld k (p1CoreAt k (4 : Fin 6))).orderEmbOfFin hQ).toEmbedding = 0 := by
   apply p1SidePacket_localIndex_zero_of_link k (p1CoreAt k (4 : Fin 6)) true
   · intro w hw
-    simpa [p1CoreAt] using (p1RightCoreFour_old_position k w hw)
+    rw [p1RightCoreFour_old_position k w hw]
+    change Bool.not (decide (((if w.val < 4*k+4 then
+      w.val else w.val-1)%2)=1)) =
+      Bool.xor true (decide (((if w.val < 4*k+4 then
+        w.val else w.val-1)%2)=1))
+    cases h : decide (((if w.val < 4*k+4 then
+      w.val else w.val-1)%2)=1) <;> rfl
   · rw [p1BaseVertexBit_core]
     have hp : (4*k+5)%2=1 := by omega
     simp [p1CoreBaseBit, hp]
