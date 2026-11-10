@@ -495,3 +495,4 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1JointMixedPacket_card
 #print axioms Hypertournaments.p1JointMixedPacket_comm
 #print axioms Hypertournaments.Hyper.p1Homogeneous_lastTwo_raw_ne
+#print axioms Hypertournaments.p1JointMixedPacket_sorted_endpoints
