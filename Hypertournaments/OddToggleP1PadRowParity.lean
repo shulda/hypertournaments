@@ -12,8 +12,8 @@ the two latter entries are complementary according to s mod 2.
 Hence every right pad row has exactly five positive links, while
 the original (precanonicalized) left pad row has one positive link.
 Both counts are odd, matching the positive base bit of any pad.
-The canonicalized left table uses the right pad row; the parity
-remains odd because the complement of six bits preserves parity.
+The canonicalized left table uses the right pad row, so its parity
+remains odd; complementation of six entries also preserves parity.
 
 This exact all-arity finite fact is another independent component
 of side age membership for the explicit p1 diagram.
