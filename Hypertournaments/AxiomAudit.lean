@@ -533,3 +533,7 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1JointHomogeneousNeighbors_symmetric
 #print axioms Hypertournaments.p1HasBadOnePoint_of_no_canonical_joint
 #print axioms Hypertournaments.p1NotHasAP_of_no_canonical_joint
+#print axioms Hypertournaments.p1JointMixedPacket_thirdLast_of_max_old
+#print axioms Hypertournaments.p1JointMixed24_thirdLast_a5
+#print axioms Hypertournaments.p1JointMixed25_thirdLast_a4
+#print axioms Hypertournaments.p1Joint_forced24_25_homogeneous_contradiction
