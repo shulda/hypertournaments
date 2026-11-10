@@ -1,6 +1,7 @@
 import Hypertournaments.OddToggleP1SidePacketOldImage
 import Hypertournaments.OddToggleP1RowCountSplit
 import Hypertournaments.OddToggleP1Parity
+import Hypertournaments.OddToggleP1BooleanParity
 import Hypertournaments.OddToggleP1CanonicalLinkSymmetry
 
 /-!
@@ -84,7 +85,7 @@ theorem p1SidePacket_rawSign_sum
       Q = insert new (Q.erase new) :=
         (Finset.insert_erase hnew).symm
       _ = insert new (S.image emb) :=
-        congrArg (Finset.insert new) hdelete
+        congrArg (fun T : Finset (Fin (4*k+6+1)) => insert new T) hdelete
   have hnot : new ∉ S.image emb :=
     p1Last_not_mem_base_image k S
   have hinj : Set.InjOn (emb : Fin (4*k+6) → Fin (4*k+6+1))
