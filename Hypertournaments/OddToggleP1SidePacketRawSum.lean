@@ -45,8 +45,9 @@ theorem p1CanonicalRow_sum_erase
   have hbit (w : Fin (4*k+6)) :
       p1BitToZMod (p1CanonicalLink k left v w) =
         (if H w then (1 : ZMod 2) else 0) := by
+    dsimp [H]
     cases h : p1CanonicalLink k left v w <;>
-      simp [H, h, p1BitToZMod]
+      simp [h, p1BitToZMod]
   calc
     (∑ w ∈ S, p1BitToZMod (p1CanonicalLink k left v w)) =
         ∑ w ∈ S, (if H w then (1 : ZMod 2) else 0) := by
