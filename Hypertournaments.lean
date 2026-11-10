@@ -138,3 +138,5 @@ import Hypertournaments.OddToggleP1ActualZeroTwo
 import Hypertournaments.OddToggleP1EvenRawAllowed
 import Hypertournaments.OddToggleP1CanonicalLinks
 import Hypertournaments.OddToggleP1ExplicitSides
+import Hypertournaments.OddToggleP1MissingSets
+import Hypertournaments.OddToggleP1BaseParity
