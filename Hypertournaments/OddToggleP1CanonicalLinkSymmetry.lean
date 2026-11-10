@@ -28,7 +28,9 @@ theorem p1CanonicalLink_symmetric
     · simp [p1CanonicalLink, hv, hw]
   · by_cases hw : w.val < 4*k
     · simp [p1CanonicalLink, hv, hw]
-    · simp [p1CanonicalLink, hv, hw, min_comm, max_comm]
+    · cases left <;>
+        simp [p1CanonicalLink, hv, hw, p1CoreLeftSymBit,
+          p1CoreRightSymBit, min_comm, max_comm, eq_comm]
 
 /-- Diagonal link entries are irrelevant to the missing-pair
 construction and have been fixed to false on both sides. -/
