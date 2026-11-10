@@ -85,11 +85,15 @@ theorem p1Joint_forced24_25_homogeneous_contradiction (k : ℕ)
   have hset24 :
       tupleVertices (facet g24.toEmbedding j0) =
         Q24.erase (p1JointLeftNew k) := by
-    rw [tupleVertices_facet_eq_erase, hverts24, hlast24]
+    rw [tupleVertices_facet_eq_erase, hverts24]
+    change Q24.erase (g24 j0) = Q24.erase (p1JointLeftNew k)
+    rw [hlast24]
   have hset25 :
       tupleVertices (facet g25.toEmbedding j0) =
         Q25.erase (p1JointLeftNew k) := by
-    rw [tupleVertices_facet_eq_erase, hverts25, hlast25]
+    rw [tupleVertices_facet_eq_erase, hverts25]
+    change Q25.erase (g25 j0) = Q25.erase (p1JointLeftNew k)
+    rw [hlast25]
   have hbit24 : p1CanonicalLink k false v w4 = true := by
     rw [p1CanonicalLink_core_right]
     decide
@@ -118,12 +122,14 @@ theorem p1Joint_forced24_25_homogeneous_contradiction (k : ℕ)
     omega
   have hphase24 : b24 = true := by
     have he := hb24 j0
-    simp only [decide_eq_false_iff_not, hj0, Bool.xor_false] at he
-    exact he.symm.trans hraw24
+    have hbit : decide (j0.val % 2 = 1) = false := by simp [hj0]
+    rw [hbit] at he
+    simpa only [Bool.xor_false] using (he.symm.trans hraw24)
   have hphase25 : b25 = false := by
     have he := hb25 j0
-    simp only [decide_eq_false_iff_not, hj0, Bool.xor_false] at he
-    exact he.symm.trans hraw25
+    have hbit : decide (j0.val % 2 = 1) = false := by simp [hj0]
+    rw [hbit] at he
+    simpa only [Bool.xor_false] using (he.symm.trans hraw25)
   have hlastOld24 :
       g24 j = p1JointOld k w5 :=
     p1JointMixed24_thirdLast_a5 k hQ24
@@ -134,7 +140,9 @@ theorem p1Joint_forced24_25_homogeneous_contradiction (k : ℕ)
       tupleVertices (facet g24.toEmbedding j) =
         tupleVertices (facet g25.toEmbedding j) := by
     rw [tupleVertices_facet_eq_erase, tupleVertices_facet_eq_erase,
-      hverts24, hverts25, hlastOld24, hlastOld25]
+      hverts24, hverts25]
+    change Q24.erase (g24 j) = Q25.erase (g25 j)
+    rw [hlastOld24, hlastOld25]
     ext t
     simp only [Q24, Q25, p1JointMixedPacket, Finset.mem_erase,
       Finset.mem_univ, true_and]
@@ -143,14 +151,16 @@ theorem p1Joint_forced24_25_homogeneous_contradiction (k : ℕ)
       E.canonicalSignTable (tupleVertices (facet g24.toEmbedding j)) =
         false := by
     have hh := hb24 j
-    simp [hj, hphase24] at hh
-    exact hh
+    have hbit : decide (j.val % 2 = 1) = true := by simp [hj]
+    rw [hbit, hphase24] at hh
+    simpa only [Bool.true_xor] using hh
   have hsign25 :
       E.canonicalSignTable (tupleVertices (facet g25.toEmbedding j)) =
         true := by
     have hh := hb25 j
-    simp [hj, hphase25] at hh
-    exact hh
+    have hbit : decide (j.val % 2 = 1) = true := by simp [hj]
+    rw [hbit, hphase25] at hh
+    simpa only [Bool.false_xor] using hh
   have hcontr : (false : Bool) = true := by
     calc
       false = E.canonicalSignTable
