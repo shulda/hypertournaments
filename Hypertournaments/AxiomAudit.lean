@@ -442,3 +442,16 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1RightCoreFour_complement_alternating
 #print axioms Hypertournaments.p1RightPadZero_alternating
 #print axioms Hypertournaments.p1RightPadFour_complement_alternating
+#print axioms Hypertournaments.p1Zero_mem_toggleZero
+#print axioms Hypertournaments.Hyper.p1Toggle_allowed_of_raw_even_or_zero
+#print axioms Hypertournaments.Hyper.p1Toggle_admissible_of_ordered_even_or_zero
+#print axioms Hypertournaments.p1CoreLeftSymBit_comm
+#print axioms Hypertournaments.p1CoreRightSymBit_comm
+#print axioms Hypertournaments.p1CanonicalLink_symmetric
+#print axioms Hypertournaments.p1CanonicalLink_diagonal_false
+#print axioms Hypertournaments.p1SidePacketOmitOld_mem_old
+#print axioms Hypertournaments.p1SidePacketOmitOld_last
+#print axioms Hypertournaments.p1SidePacket_missing_two_old
+#print axioms Hypertournaments.p1SidePacket_missing_old_new
+#print axioms Hypertournaments.p1SidePacket_sign_erase_new
+#print axioms Hypertournaments.p1SidePacket_sign_erase_old
