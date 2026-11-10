@@ -503,3 +503,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1JointHomogeneousNeighbors_mem_iff
 #print axioms Hypertournaments.p1JointHomogeneousNeighbors_ne_self
 #print axioms Hypertournaments.p1JointParentFacet_vertexSet
+#print axioms Hypertournaments.increasingEmb_eq_of_tupleVertices
+#print axioms Hypertournaments.p1JointHomogeneousNeighbors_symmetric
