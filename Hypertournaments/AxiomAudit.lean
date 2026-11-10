@@ -485,3 +485,7 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1RightCoreFour_old_position
 #print axioms Hypertournaments.p1SidePacket_old_position
 #print axioms Hypertournaments.p1SidePacket_last_is_new
+#print axioms Hypertournaments.p1SidePacket_raw_alternating_of_link
+#print axioms Hypertournaments.p1SidePacket_localIndex_zero_of_link
+#print axioms Hypertournaments.p1RightCoreZero_packet_localIndex
+#print axioms Hypertournaments.p1RightCoreFour_packet_localIndex
