@@ -52,6 +52,6 @@ theorem p1PairMissingBit_pair
   have hwnot : ¬w < v := not_lt.mpr (le_of_lt hvw)
   unfold p1PairMissingBit
   cases hlink : p1CanonicalLink k left v w <;>
-    simp [Finset.filter_insert, hvw, hvne, hwnot, hlink]
+    simp [Finset.filter_insert, Finset.filter_singleton, hvw, hvne, hwnot, hlink]
 
 end Hypertournaments
