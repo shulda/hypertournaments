@@ -414,3 +414,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1BasePositiveSet
 #print axioms Hypertournaments.p1BaseVertexBit_positiveCount
 #print axioms Hypertournaments.p1BaseVertexBit_even
+#print axioms Hypertournaments.p1PadParity_complement
+#print axioms Hypertournaments.p1RightPadCore_row_positiveCount
+#print axioms Hypertournaments.p1LeftPadCore_row_positiveCount
