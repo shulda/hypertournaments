@@ -136,3 +136,5 @@ import Hypertournaments.OddToggleP1ActualPhase
 import Hypertournaments.OddToggleP1Naturality
 import Hypertournaments.OddToggleP1ActualZeroTwo
 import Hypertournaments.OddToggleP1EvenRawAllowed
+import Hypertournaments.OddToggleP1CanonicalLinks
+import Hypertournaments.OddToggleP1ExplicitSides
