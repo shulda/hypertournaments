@@ -500,3 +500,8 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1LeftJoint_image_univ
 #print axioms Hypertournaments.p1JointMixed_rightFacet_image
 #print axioms Hypertournaments.p1JointMixed_leftFacet_image
+#print axioms Hypertournaments.p1SideTwoOldPacket_card
+#print axioms Hypertournaments.p1SideHyper_canonicalSignTable_two_old
+#print axioms Hypertournaments.p1RightJointOrderEmb_toEmbedding
+#print axioms Hypertournaments.p1JointMixed_right_canonicalSign
+#print axioms Hypertournaments.p1JointMixed_left_canonicalSign
