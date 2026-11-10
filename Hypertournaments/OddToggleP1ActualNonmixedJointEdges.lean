@@ -36,25 +36,18 @@ theorem p1JointOld_leftNew_neighbor_iff_rightZero
     ne_of_lt (p1JointOld_lt_left k v)
   have hnb := p1JointNeighbor_mem_iff_canonical_zero k E
     (p1JointOld k v) (p1JointLeftNew k) hneq
-  have hloc := p1JointRightOmission_localIndex k v E hER
-  constructor
-  · intro h
-    have hh := hnb.mp h
-    have hz :
+  have htransfer :
       localIndex E
-        ((((Finset.univ : Finset (Fin (4*k+6+2))).erase
-          (p1JointOld k v)).erase (p1JointLeftNew k)).orderEmbOfFin
-          (by
-            rw [← p1RightSideOmission_image_joint k v]
-            rw [Finset.card_image_of_injective _
-              (p1RightJointOrderEmb k).injective]
-            exact p1SidePacketOmitOld_card k v)).toEmbedding = 0 := by
-      simpa only [p1JointDoubleDeletion] using hh
-    exact hloc.symm.trans hz
-  · intro hz
-    apply hnb.mpr
-    have hh := hloc.trans hz
-    simpa only [p1JointDoubleDeletion] using hh
+        ((p1JointDoubleDeletion k
+          (p1JointOld k v) (p1JointLeftNew k)).orderEmbOfFin
+            (p1JointDoubleDeletion_card k _ _ hneq)).toEmbedding =
+        localIndex (p1SideHyper k false)
+          ((p1SidePacketOmitOld k v).orderEmbOfFin
+            (p1SidePacketOmitOld_card k v)).toEmbedding := by
+    simpa only [p1JointDoubleDeletion] using
+      (p1JointRightOmission_localIndex k v E hER)
+  rw [htransfer] at hnb
+  exact hnb
 
 /-- The right-new edge at old v is homogeneous precisely when
 the left one-point packet omitting v is homogeneous. -/
@@ -73,26 +66,18 @@ theorem p1JointOld_rightNew_neighbor_iff_leftZero
       (p1JointLeft_lt_right k))
   have hnb := p1JointNeighbor_mem_iff_canonical_zero k E
     (p1JointOld k v) (p1JointRightNew k) hneq
-  have hloc := p1JointLeftOmission_localIndex k v E hEL
-  constructor
-  · intro h
-    have hh := hnb.mp h
-    have hz :
+  have htransfer :
       localIndex E
-        ((((Finset.univ : Finset (Fin (4*k+6+2))).erase
-          (p1JointOld k v)).erase (p1JointRightNew k)).orderEmbOfFin
-          (by
-            rw [← p1LeftSideOmission_image_joint k v]
-            rw [Finset.card_image_of_injective _
-              (Fin.castSuccOrderEmb :
-                Fin (4*k+6+1) ↪o Fin (4*k+6+2)).injective]
-            exact p1SidePacketOmitOld_card k v)).toEmbedding = 0 := by
-      simpa only [p1JointDoubleDeletion] using hh
-    exact hloc.symm.trans hz
-  · intro hz
-    apply hnb.mpr
-    have hh := hloc.trans hz
-    simpa only [p1JointDoubleDeletion] using hh
+        ((p1JointDoubleDeletion k
+          (p1JointOld k v) (p1JointRightNew k)).orderEmbOfFin
+            (p1JointDoubleDeletion_card k _ _ hneq)).toEmbedding =
+        localIndex (p1SideHyper k true)
+          ((p1SidePacketOmitOld k v).orderEmbOfFin
+            (p1SidePacketOmitOld_card k v)).toEmbedding := by
+    simpa only [p1JointDoubleDeletion] using
+      (p1JointLeftOmission_localIndex k v E hEL)
+  rw [htransfer] at hnb
+  exact hnb
 
 /-- In every potential joint the core vertex a4 has its fixed
 homogeneous edge to left-new, and neither a4 nor a2 is adjacent
