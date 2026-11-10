@@ -46,9 +46,12 @@ theorem p1RightPadFour_complement_alternating (k : ℕ)
     (s : Fin (2*(2*k))) :
     p1RightPadCoreBit k s (4 : Fin 6) =
       !(decide (s.val%2=1)) := by
-  have h := p1PadParity_complement s.val
-  simp only [p1RightPadCoreBit, if_neg (by decide : (4 : Fin 6) ≠ 0),
-    if_pos (by decide : (4 : Fin 6) = 4)]
-  exact h
+  change decide (s.val%2=0) = !(decide (s.val%2=1))
+  have hcases : s.val%2=0 ∨ s.val%2=1 := by omega
+  rcases hcases with hz | ho
+  · have hn : s.val%2 ≠ 1 := by omega
+    simp [hz, hn]
+  · have hn : s.val%2 ≠ 0 := by omega
+    simp [ho, hn]
 
 end Hypertournaments
