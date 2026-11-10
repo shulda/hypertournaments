@@ -28,14 +28,18 @@ theorem p1OrderedFacet_vertices
     tupleVertices (p1OrderedFacet f i).toEmbedding =
       (((Finset.univ : Finset (Fin (n+2))).erase i).image
         f.toEmbedding) := by
+  have hfi : f.toEmbedding i = f i := rfl
   calc
     tupleVertices (p1OrderedFacet f i).toEmbedding =
         (tupleVertices f.toEmbedding).erase (f i) := by
-          rw [p1OrderedFacet_toEmbedding, tupleVertices_facet_eq_erase]
+      rw [p1OrderedFacet_toEmbedding]
+      simpa only [hfi] using
+        (tupleVertices_facet_eq_erase f.toEmbedding i)
     _ = (((Finset.univ : Finset (Fin (n+2))).erase i).image
           f.toEmbedding) := by
-      rw [p1ImageErase f.toEmbedding (Finset.univ : Finset (Fin (n+2))) i]
-      rfl
+      simpa [tupleVertices, hfi] using
+        (p1ImageErase f.toEmbedding
+          (Finset.univ : Finset (Fin (n+2))) i).symm
 
 /-- The unsigned F₂ coboundary commutes with injective finite-set
 images, without restricting to a fixed arity or degree. -/
@@ -49,6 +53,7 @@ theorem p1Coboundary_image
   rw [Finset.sum_image (fun i _ j _ heq => f.injective heq)]
   apply Finset.sum_congr rfl
   intro i _
+  change e ((Q.erase i).image f) = e ((Q.image f).erase (f i))
   rw [p1ImageErase f Q i]
 
 /-- If the actual homogeneous indicator on each deleted packet equals
