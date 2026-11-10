@@ -150,3 +150,4 @@ import Hypertournaments.OddToggleP1RightProtectedRows
 import Hypertournaments.OddToggleP1LocalCertificate
 import Hypertournaments.OddToggleP1CanonicalLinkSymmetry
 import Hypertournaments.OddToggleP1OmissionFacets
+import Hypertournaments.OddToggleP1OmissionAllLinks
