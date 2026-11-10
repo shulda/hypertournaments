@@ -462,3 +462,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1OrderedSigns_rawFacetSum
 #print axioms Hypertournaments.p1SidePacketOmitOld_card
 #print axioms Hypertournaments.p1SidePacket_intrinsic_rawFacetCount
+#print axioms Hypertournaments.p1NatEven_ofZMod2_zero
+#print axioms Hypertournaments.p1SidePacket_rawEven_of_rowParity
+#print axioms Hypertournaments.p1SidePacket_allowed_of_rowParity
