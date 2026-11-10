@@ -96,8 +96,7 @@ theorem p1JointRightOmission_localIndex
   have hloc := localIndex_image_orderEmb_preserves
     (p1SideHyper k false) E (p1RightJointOrderEmb k) he
     (p1SidePacketOmitOld k v) (p1SidePacketOmitOld_card k v)
-  rw [p1RightSideOmission_image_joint k v] at hloc
-  simpa using hloc
+  simpa only [p1RightSideOmission_image_joint k v] using hloc
 
 /-- Exact genuine local-index transfer from the left one-point
 side into its corresponding nonmixed joint packet. -/
@@ -128,7 +127,6 @@ theorem p1JointLeftOmission_localIndex
     (p1SideHyper k true) E
     (Fin.castSuccOrderEmb : Fin (4*k+6+1) ↪o Fin (4*k+6+2)) he
     (p1SidePacketOmitOld k v) (p1SidePacketOmitOld_card k v)
-  rw [p1LeftSideOmission_image_joint k v] at hloc
-  simpa using hloc
+  simpa only [p1LeftSideOmission_image_joint k v] using hloc
 
 end Hypertournaments
