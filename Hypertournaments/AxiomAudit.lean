@@ -498,3 +498,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1RightCoreFour_packet_localIndex
 #print axioms Hypertournaments.p1LeftSide_admissible
 #print axioms Hypertournaments.p1RightSide_admissible
+#print axioms Hypertournaments.Hyper.p1Toggle_nonhomogeneous_of_even_raw
+#print axioms Hypertournaments.p1LeftSide_omission_nonhomogeneous
+#print axioms Hypertournaments.p1RightSide_omission_unprotected_nonhomogeneous
