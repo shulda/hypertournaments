@@ -518,3 +518,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1RightJointOrderEmb_toEmbedding
 #print axioms Hypertournaments.p1JointMixed_right_canonicalSign
 #print axioms Hypertournaments.p1JointMixed_left_canonicalSign
+#print axioms Hypertournaments.Hyper.orient_facet_eq_canonical_erase
+#print axioms Hypertournaments.p1Joint_homogeneous_mixed_link_disagreement
+#print axioms Hypertournaments.p1Joint_homogeneous_mixed_core_support
