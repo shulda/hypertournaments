@@ -34,11 +34,9 @@ theorem p1CanonicalLink_core_pad
     p1PadAt_lt k s
   simp only [p1CanonicalLink, dif_neg hcore, dif_pos hpad]
   congr 1
-  · apply Fin.ext
-    rfl
-  · apply Fin.ext
-    dsimp [p1CoreAt]
-    omega
+  apply Fin.ext
+  dsimp [p1CoreAt]
+  omega
 
 /-- On a core row, the pad-column contribution is always even. -/
 theorem p1CanonicalCore_padContribution_even
