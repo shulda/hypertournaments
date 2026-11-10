@@ -430,3 +430,7 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1Core24Facet_last_mem
 #print axioms Hypertournaments.p1Core24Facet_missing
 #print axioms Hypertournaments.p1ConcreteSides_orient_disagreement
+#print axioms Hypertournaments.p1RightCoreZero_alternating
+#print axioms Hypertournaments.p1RightCoreFour_complement_alternating
+#print axioms Hypertournaments.p1RightPadZero_alternating
+#print axioms Hypertournaments.p1RightPadFour_complement_alternating
