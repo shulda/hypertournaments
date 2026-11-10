@@ -518,3 +518,7 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1RightJointOrderEmb_toEmbedding
 #print axioms Hypertournaments.p1JointMixed_right_canonicalSign
 #print axioms Hypertournaments.p1JointMixed_left_canonicalSign
+#print axioms Hypertournaments.p1JointMixedPacket_thirdLast_of_max_old
+#print axioms Hypertournaments.p1JointMixed24_thirdLast_a5
+#print axioms Hypertournaments.p1JointMixed25_thirdLast_a4
+#print axioms Hypertournaments.p1Joint_forced24_25_homogeneous_contradiction
