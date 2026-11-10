@@ -21,7 +21,7 @@ theorem p1BaseMissingBit_singleton
     (k : ℕ) (v : Fin (4*k+6)) :
     p1BaseMissingBit k ({v} : Finset (Fin (4*k+6))) =
       p1BaseVertexBit k v := by
-  unfold p1BaseMissingBit
+  simp only [p1BaseMissingBit, Finset.filter_singleton]
   cases hv : p1BaseVertexBit k v <;> simp [hv]
 
 /-- Deleting one vertex from the complete old base recovers its
@@ -52,6 +52,6 @@ theorem p1PairMissingBit_pair
   have hwnot : ¬w < v := not_lt.mpr (le_of_lt hvw)
   unfold p1PairMissingBit
   cases hlink : p1CanonicalLink k left v w <;>
-    simp [hvw, hvne, hwnot, hlink]
+    simp [Finset.filter_insert, hvw, hvne, hwnot, hlink]
 
 end Hypertournaments
