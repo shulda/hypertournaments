@@ -1,4 +1,5 @@
 import Hypertournaments.OddToggleP1CoreRowParity
+import Hypertournaments.OddToggleP1ExplicitSides
 import Hypertournaments.OddToggleP1PadRowFromSplit
 import Hypertournaments.OddToggleP1PadCorePartition
 
