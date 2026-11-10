@@ -473,3 +473,7 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1NatEven_ofZMod2_zero
 #print axioms Hypertournaments.p1SidePacket_rawEven_of_rowParity
 #print axioms Hypertournaments.p1SidePacket_allowed_of_rowParity
+#print axioms Hypertournaments.p1OnePointSubset_eq_erase
+#print axioms Hypertournaments.p1SideSubset_old_or_omit
+#print axioms Hypertournaments.p1OldBaseImage_univ
+#print axioms Hypertournaments.p1SidePacket_orderEmb_eq_succAbove
