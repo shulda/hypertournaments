@@ -485,3 +485,7 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1RightCoreFour_old_position
 #print axioms Hypertournaments.p1SidePacket_old_position
 #print axioms Hypertournaments.p1SidePacket_last_is_new
+#print axioms Hypertournaments.p1OldPacket_orderEmb_eq_inclusion
+#print axioms Hypertournaments.p1Side_old_packet_allowed
+#print axioms Hypertournaments.p1TypeZero_allowed
+#print axioms Hypertournaments.p1Side_admissible_of_rows_or_zero
