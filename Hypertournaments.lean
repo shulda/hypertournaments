@@ -164,3 +164,4 @@ import Hypertournaments.OddToggleP1RightProtectedPositions
 import Hypertournaments.OddToggleP1SidePacketIndex
 import Hypertournaments.OddToggleP1SideAdmissibilityReduction
 import Hypertournaments.OddToggleP1LinkDisagreementSupport
+import Hypertournaments.CanonicalIncreasingFacetSign
