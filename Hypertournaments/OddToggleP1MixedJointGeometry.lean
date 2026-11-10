@@ -93,7 +93,9 @@ theorem p1JointMixedPacket_card (k : ℕ)
     intro he
     apply hvw
     apply Fin.ext
-    exact congrArg Fin.val he
+    have hval := congrArg Fin.val he
+    change v.val = w.val at hval
+    exact hval
   have hfirst :=
     Finset.card_erase_add_one
       (Finset.mem_univ (p1JointOld k v) :
@@ -114,7 +116,9 @@ is erased first. -/
 theorem p1JointMixedPacket_comm (k : ℕ)
     (v w : Fin (4*k+6)) :
     p1JointMixedPacket k v w = p1JointMixedPacket k w v := by
-  simp [p1JointMixedPacket, Finset.erase_comm]
+  ext x
+  simp only [p1JointMixedPacket, Finset.mem_erase, Finset.mem_univ, and_true]
+  tauto
 
 /-- Homogeneous intrinsic packets have opposite raw orientations at
 their final two facet positions, since normalization toggles parity. -/
@@ -144,8 +148,8 @@ theorem Hyper.p1Homogeneous_lastTwo_raw_ne
   change A.orient (facet f i0) ≠ A.orient (facet f i1)
   intro heq
   rw [← heq] at hb1
-  have hcontr : !(A.orient (facet f i0)) =
+  have hcontr : Bool.not (A.orient (facet f i0)) =
       A.orient (facet f i0) := hb1.trans hb0.symm
-  cases hx : A.orient (facet f i0) <;> simp_all
+  cases hx : A.orient (facet f i0) <;> simp [hx] at hcontr
 
 end Hypertournaments
