@@ -407,3 +407,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1MissingBase_of_base_image
 #print axioms Hypertournaments.p1SideSignTable_image_base
 #print axioms Hypertournaments.p1SideHyper_preserves_base
+#print axioms Hypertournaments.p1CanonicalLink_symmetric
+#print axioms Hypertournaments.p1CanonicalLink_diagonal_false
