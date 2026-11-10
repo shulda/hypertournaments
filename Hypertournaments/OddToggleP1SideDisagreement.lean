@@ -76,6 +76,9 @@ theorem p1SideHyper_core_24_orient_disagree
     rw [fromOrderedSigns_orient_strictMono
       (p1SideSignTable k left) t.toEmbedding t.strictMono, hvertices]
   have hbad := p1SideSignTable_core_24_disagree k Q hend hmiss
-  simpa only [htable true, htable false] using hbad
+  change (p1SideHyper k true).orient t.toEmbedding ≠
+    (p1SideHyper k false).orient t.toEmbedding
+  rw [htable true, htable false]
+  exact hbad
 
 end Hypertournaments
