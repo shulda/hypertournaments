@@ -477,3 +477,9 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1SideSubset_old_or_omit
 #print axioms Hypertournaments.p1OldBaseImage_univ
 #print axioms Hypertournaments.p1SidePacket_orderEmb_eq_succAbove
+#print axioms Hypertournaments.p1BaseVertexBit_pad
+#print axioms Hypertournaments.p1BaseVertexBit_core
+#print axioms Hypertournaments.p1CanonicalLeft_row_matches_base
+#print axioms Hypertournaments.p1CanonicalRight_row_matches_base_unprotected
+#print axioms Hypertournaments.p1RightCoreZero_old_position
+#print axioms Hypertournaments.p1RightCoreFour_old_position
