@@ -498,3 +498,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1RightCoreFour_packet_localIndex
 #print axioms Hypertournaments.p1LeftSide_admissible
 #print axioms Hypertournaments.p1RightSide_admissible
+#print axioms Hypertournaments.p3ZeroSum_eq_of_agree_except
+#print axioms Hypertournaments.p3ZeroSum_second_disagreement
