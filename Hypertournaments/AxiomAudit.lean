@@ -492,3 +492,9 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1CoreSym_disagree_iff_eligible
 #print axioms Hypertournaments.p1CanonicalLink_disagreement_support
 #print axioms Hypertournaments.p1CanonicalLink_disagreement_of_eligible
+#print axioms Hypertournaments.p1SidePacket_raw_alternating_of_link
+#print axioms Hypertournaments.p1SidePacket_localIndex_zero_of_link
+#print axioms Hypertournaments.p1RightCoreZero_packet_localIndex
+#print axioms Hypertournaments.p1RightCoreFour_packet_localIndex
+#print axioms Hypertournaments.p1LeftSide_admissible
+#print axioms Hypertournaments.p1RightSide_admissible
