@@ -66,7 +66,7 @@ theorem p1DoubleErase_image
       ((Finset.univ : Finset (Fin (n+2))).erase i).image
         f.toEmbedding =
         (tupleVertices f.toEmbedding).erase (f i) := by
-    simpa only [tupleVertices] using
+    simpa [tupleVertices] using
       (p1ImageErase f.toEmbedding
         (Finset.univ : Finset (Fin (n+2))) i)
   have hsecond :=
@@ -119,9 +119,10 @@ theorem Hyper.p1ActualPhase_family
   obtain ⟨t, ht, hindex, hverts⟩ :=
     p1ActualDoubleFacet_vertices f i j hji.symm
   have hphaseEq : phase i = Classical.choose (hphase i hi) := by
-    change (if hh : H i then Classical.choose (hphase i hh) else false) =
-      Classical.choose (hphase i hi)
-    simp only [dif_pos hi]
+    dsimp [phase]
+    split_ifs with hh
+    · rfl
+    · exact (hh hi).elim
   calc
     A.canonicalSignTable
         (Finset.image f.toEmbedding
