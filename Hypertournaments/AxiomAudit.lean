@@ -438,3 +438,7 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1PadCore_images_cover
 #print axioms Hypertournaments.p1PadCore_images_disjoint
 #print axioms Hypertournaments.p1CanonicalRowPositiveCount_split
+#print axioms Hypertournaments.p1CoreLeftSymBit_comm
+#print axioms Hypertournaments.p1CoreRightSymBit_comm
+#print axioms Hypertournaments.p1CanonicalLink_symmetric
+#print axioms Hypertournaments.p1CanonicalLink_diagonal_false
