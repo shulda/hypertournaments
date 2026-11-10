@@ -492,3 +492,4 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1CoreSym_disagree_iff_eligible
 #print axioms Hypertournaments.p1CanonicalLink_disagreement_support
 #print axioms Hypertournaments.p1CanonicalLink_disagreement_of_eligible
+#print axioms Hypertournaments.Hyper.orient_facet_eq_canonical_erase
