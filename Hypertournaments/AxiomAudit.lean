@@ -538,3 +538,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1LeftSideOmission_image_joint
 #print axioms Hypertournaments.p1JointRightOmission_localIndex
 #print axioms Hypertournaments.p1JointLeftOmission_localIndex
+#print axioms Hypertournaments.p1JointOld_leftNew_neighbor_iff_rightZero
+#print axioms Hypertournaments.p1JointOld_rightNew_neighbor_iff_leftZero
+#print axioms Hypertournaments.p1JointCore_fixed_and_excluded_new_edges
