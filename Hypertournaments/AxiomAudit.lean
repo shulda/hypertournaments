@@ -498,3 +498,4 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1RightCoreFour_packet_localIndex
 #print axioms Hypertournaments.p1LeftSide_admissible
 #print axioms Hypertournaments.p1RightSide_admissible
+#print axioms Hypertournaments.increasingEmb_eq_of_tupleVertices

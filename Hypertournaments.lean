@@ -167,3 +167,4 @@ import Hypertournaments.OddToggleP1LinkDisagreementSupport
 import Hypertournaments.OddToggleP1SideHomogeneousBridge
 import Hypertournaments.OddToggleP1RightProtectedActualZero
 import Hypertournaments.OddToggleP1SidesAdmissible
+import Hypertournaments.IncreasingTupleUniqueness
