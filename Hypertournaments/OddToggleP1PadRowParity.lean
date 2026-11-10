@@ -59,6 +59,5 @@ theorem p1LeftPadCore_row_positiveCount
     (fun j : Fin 6 => !(p1RightPadCoreBit k s j)) = 1
   rw [boolPacketPositiveCount_not,
       p1RightPadCore_row_positiveCount k s]
-  decide
 
 end Hypertournaments
