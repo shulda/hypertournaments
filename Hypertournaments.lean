@@ -179,3 +179,4 @@ import Hypertournaments.OddToggleP1ActualJointDegrees
 import Hypertournaments.IncreasingTupleUniqueness
 import Hypertournaments.OddToggleP1ActualJointSymmetry
 import Hypertournaments.OddToggleP1NoJointInterface
+import Hypertournaments.OddToggleP1NeighborCanonicalPair
