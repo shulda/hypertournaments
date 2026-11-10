@@ -515,3 +515,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1JointMixed_leftFacet_image
 #print axioms Hypertournaments.p1SideTwoOldPacket_card
 #print axioms Hypertournaments.p1SideHyper_canonicalSignTable_two_old
+#print axioms Hypertournaments.Hyper.p1Toggle_nonhomogeneous_of_even_raw
+#print axioms Hypertournaments.p1LeftSide_omission_nonhomogeneous
+#print axioms Hypertournaments.p1RightSide_omission_unprotected_nonhomogeneous
