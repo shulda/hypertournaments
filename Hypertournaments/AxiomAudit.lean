@@ -398,3 +398,10 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1Coboundary_image
 #print axioms Hypertournaments.Hyper.p1Actual_zero_or_two_of_indicator
 #print axioms Hypertournaments.Hyper.p1Toggle_actual_zero_or_two
+#print axioms Hypertournaments.p1CanonicalLink_pad_agree
+#print axioms Hypertournaments.p1CanonicalLink_core_left
+#print axioms Hypertournaments.p1CanonicalLink_core_right
+#print axioms Hypertournaments.p1Last_not_mem_base_image
+#print axioms Hypertournaments.p1MissingBase_of_base_image
+#print axioms Hypertournaments.p1SideSignTable_image_base
+#print axioms Hypertournaments.p1SideHyper_preserves_base
