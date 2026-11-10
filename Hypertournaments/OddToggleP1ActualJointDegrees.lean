@@ -27,8 +27,9 @@ theorem p1JointParentPacket_card (k : ℕ)
     (Finset.mem_univ x : x ∈ (Finset.univ : Finset (Fin (4*k+6+2))))
   change ((Finset.univ : Finset (Fin (4*k+6+2))).erase x).card + 1 =
     4*k+6+2 at h
-  exact (by change ((Finset.univ : Finset (Fin (4*k+6+2))).erase x).card =
-    4*k+7; omega)
+  change ((Finset.univ : Finset (Fin (4*k+6+2))).erase x).card =
+    4*k+7
+  omega
 
 /-- The unique increasing enumeration of the parent with x erased. -/
 def p1JointParentOrderEmb (k : ℕ) (x : Fin (4*k+6+2)) :
