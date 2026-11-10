@@ -32,11 +32,9 @@ theorem p1CanonicalLink_pad_core (k : ℕ) (left : Bool)
     omega
   simp only [p1CanonicalLink, dif_pos hs, dif_neg hj]
   congr 1
-  · apply Fin.ext
-    rfl
-  · apply Fin.ext
-    dsimp [p1CoreAt]
-    omega
+  apply Fin.ext
+  dsimp [p1CoreAt]
+  omega
 
 theorem p1CanonicalPad_row_positiveCount (k : ℕ) (left : Bool)
     (s : Fin (2*(2*k))) :
