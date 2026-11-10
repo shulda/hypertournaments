@@ -376,3 +376,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1DoubleErase_image
 #print axioms Hypertournaments.Hyper.p1ActualPhase_family
 #print axioms Hypertournaments.Hyper.p1ActualHomogeneous_card_le_two
+#print axioms Hypertournaments.p1OrderedFacet_vertices
+#print axioms Hypertournaments.p1Coboundary_image
+#print axioms Hypertournaments.Hyper.p1Actual_zero_or_two_of_indicator
