@@ -153,7 +153,7 @@ theorem p1Joint_forced24_25_homogeneous_contradiction (k : ℕ)
     have hh := hb24 j
     have hbit : decide (j.val % 2 = 1) = true := by simp [hj]
     rw [hbit, hphase24] at hh
-    simpa only [Bool.true_xor] using hh
+    simpa using hh
   have hsign25 :
       E.canonicalSignTable (tupleVertices (facet g25.toEmbedding j)) =
         true := by
