@@ -398,3 +398,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1Coboundary_image
 #print axioms Hypertournaments.Hyper.p1Actual_zero_or_two_of_indicator
 #print axioms Hypertournaments.Hyper.p1Toggle_actual_zero_or_two
+#print axioms Hypertournaments.p1OddMinority_of_evenShiftedCount
+#print axioms Hypertournaments.Hyper.p1Toggle_allowed_of_even_rawFacetCount
