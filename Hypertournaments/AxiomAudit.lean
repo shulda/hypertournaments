@@ -546,3 +546,8 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1JointMixed24_thirdLast_a5
 #print axioms Hypertournaments.p1JointMixed25_thirdLast_a4
 #print axioms Hypertournaments.p1Joint_forced24_25_homogeneous_contradiction
+#print axioms Hypertournaments.p3ZeroSum_eq_of_agree_except
+#print axioms Hypertournaments.p3ZeroSum_second_disagreement
+#print axioms Hypertournaments.p3ZeroSumExtend_sum_zero
+#print axioms Hypertournaments.p3ZeroSumTupleEquiv
+#print axioms Hypertournaments.p3ZeroSumTuple_card
