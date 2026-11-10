@@ -534,3 +534,7 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1HasBadOnePoint_of_no_canonical_joint
 #print axioms Hypertournaments.p1NotHasAP_of_no_canonical_joint
 #print axioms Hypertournaments.localIndex_image_orderEmb_preserves
+#print axioms Hypertournaments.p1RightSideOmission_image_joint
+#print axioms Hypertournaments.p1LeftSideOmission_image_joint
+#print axioms Hypertournaments.p1JointRightOmission_localIndex
+#print axioms Hypertournaments.p1JointLeftOmission_localIndex
