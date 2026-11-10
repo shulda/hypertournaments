@@ -127,7 +127,6 @@ theorem p1SidePacket_rawSign_sum
         F new + (∑ w ∈ S, F (emb w)) := hsum
     _ = p1BitToZMod (p1BaseVertexBit k v) +
           ((p1CanonicalRowPositiveCount k left v : ℕ) : ZMod 2) := by
-      rw [hFnew, hFrow]
-      exact hrowsum.congrArg (fun x => p1BitToZMod (p1BaseVertexBit k v) + x)
+      rw [hFnew, hFrow, hrowsum]
 
 end Hypertournaments
