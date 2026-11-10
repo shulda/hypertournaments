@@ -392,3 +392,7 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1CanonicalLink_pad_agree
 #print axioms Hypertournaments.p1CanonicalLink_core_left
 #print axioms Hypertournaments.p1CanonicalLink_core_right
+#print axioms Hypertournaments.p1Last_not_mem_base_image
+#print axioms Hypertournaments.p1MissingBase_of_base_image
+#print axioms Hypertournaments.p1SideSignTable_image_base
+#print axioms Hypertournaments.p1SideHyper_preserves_base
