@@ -79,7 +79,7 @@ theorem p1JointRightOmission_localIndex
     (hER : Preserves (p1SideHyper k false) E
        (rightJointInclusion (4*k+6))) :
     localIndex E
-      (((Finset.univ : Finset (Fin (4*k+6+2))).erase
+      ((((Finset.univ : Finset (Fin (4*k+6+2))).erase
         (p1JointOld k v)).erase (p1JointLeftNew k)).orderEmbOfFin
         (by
           rw [← p1RightSideOmission_image_joint k v]
@@ -107,7 +107,7 @@ theorem p1JointLeftOmission_localIndex
     (hEL : Preserves (p1SideHyper k true) E
        (leftJointInclusion (4*k+6))) :
     localIndex E
-      (((Finset.univ : Finset (Fin (4*k+6+2))).erase
+      ((((Finset.univ : Finset (Fin (4*k+6+2))).erase
         (p1JointOld k v)).erase (p1JointRightNew k)).orderEmbOfFin
         (by
           rw [← p1LeftSideOmission_image_joint k v]
