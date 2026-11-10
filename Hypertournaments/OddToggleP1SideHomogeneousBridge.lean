@@ -53,12 +53,13 @@ theorem p1SidePacket_raw_alternating_of_link
   · obtain ⟨w, hwne, hwi, hpos⟩ :=
       p1SidePacket_old_position k v hQ i hi
     rw [hraw, hwi]
-    rw [p1SidePacket_sign_erase_old_ne k false v w hwne]
+    rw [p1SidePacket_sign_erase_old_ne k false v w hwne.symm]
     rw [hlink w hwne]
     rw [hpos]
   · have heq : i = Fin.last (4*k+5) := by
       apply Fin.ext
       have hib := i.isLt
+      simp only [Fin.val_last]
       omega
     subst i
     rw [hraw, p1SidePacket_last_is_new k v hQ]
