@@ -188,3 +188,4 @@ import Hypertournaments.OddToggleP1ActualCoreNeighborSupport
 import Hypertournaments.OddToggleP1ForcedFacetPositions
 import Hypertournaments.OddToggleP1ActualForcedFacetContradiction
 import Hypertournaments.OddToggleP1CompleteNoJoint
+import Hypertournaments.NegativeModuloP3
