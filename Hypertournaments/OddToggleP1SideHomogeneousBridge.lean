@@ -36,7 +36,7 @@ theorem p1SidePacket_raw_alternating_of_link
   let Q : Finset (Fin (4*k+6+1)) := p1SidePacketOmitOld k v
   let g : Fin (4*k+6) ↪o Fin (4*k+6+1) := Q.orderEmbOfFin hQ
   have hverts : tupleVertices g.toEmbedding = Q := by
-    simpa only [tupleVertices] using
+    simpa [tupleVertices, g] using
       (Finset.image_orderEmbOfFin_univ Q hQ)
   have hraw :
       (p1SideHyper k false).orient (facet g.toEmbedding i) =
@@ -48,8 +48,7 @@ theorem p1SidePacket_raw_alternating_of_link
         fromOrderedSigns_facet_increasing (p1SideSignTable k false) g i
       _ = p1SideSignTable k false (Q.erase (g i)) := by
         rw [tupleVertices_facet_eq_erase, hverts]
-  change (p1SideHyper k false).orient (facet g.toEmbedding i) =
-    b ^^ decide (i.val%2=1)
+        rfl
   by_cases hi : i.val < 4*k+5
   · obtain ⟨w, hwne, hwi, hpos⟩ :=
       p1SidePacket_old_position k v hQ i hi
