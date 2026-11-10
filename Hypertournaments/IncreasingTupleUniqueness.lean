@@ -19,7 +19,7 @@ theorem increasingEmb_eq_of_tupleVertices
     f = g := by
   let Q : Finset (Fin a) := tupleVertices f.toEmbedding
   have hQ : Q.card = m := by
-    change ((Finset.univ : Finset (Fin m)).image f.toEmbedding).card = m
+    dsimp [Q, tupleVertices]
     rw [Finset.card_image_of_injective _ f.injective]
     simp
   have hf : ∀ i : Fin m, f i ∈ Q := by
@@ -41,6 +41,6 @@ theorem increasingEmb_eq_of_tupleVertices
         (Q.orderEmbOfFin hQ : Fin m → Fin a) :=
     Finset.orderEmbOfFin_unique hQ hg g.strictMono
   ext i
-  exact congrFun (heqf.trans heqg.symm) i
+  exact congrArg Fin.val (congrFun (heqf.trans heqg.symm) i)
 
 end Hypertournaments
