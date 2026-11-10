@@ -32,7 +32,13 @@ theorem p1CanonicalLink_core_pad
     omega
   have hpad : (p1PadAt k s).val < 4*k :=
     p1PadAt_lt k s
-  simp [p1CanonicalLink, hcore, hpad, p1CoreAt, p1PadAt]
+  simp only [p1CanonicalLink, dif_neg hcore, dif_pos hpad]
+  congr 1
+  · apply Fin.ext
+    rfl
+  · apply Fin.ext
+    dsimp [p1CoreAt]
+    omega
 
 /-- On a core row, the pad-column contribution is always even. -/
 theorem p1CanonicalCore_padContribution_even
