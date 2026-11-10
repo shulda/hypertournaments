@@ -400,3 +400,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.Hyper.p1Toggle_actual_zero_or_two
 #print axioms Hypertournaments.p1OddMinority_of_evenShiftedCount
 #print axioms Hypertournaments.Hyper.p1Toggle_allowed_of_even_rawFacetCount
+#print axioms Hypertournaments.p1PadParity_complement
+#print axioms Hypertournaments.p1RightPadCore_row_positiveCount
+#print axioms Hypertournaments.p1LeftPadCore_row_positiveCount
