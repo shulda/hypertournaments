@@ -438,3 +438,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1PadCore_images_cover
 #print axioms Hypertournaments.p1PadCore_images_disjoint
 #print axioms Hypertournaments.p1CanonicalRowPositiveCount_split
+#print axioms Hypertournaments.p1Zero_mem_toggleZero
+#print axioms Hypertournaments.Hyper.p1Toggle_allowed_of_raw_even_or_zero
+#print axioms Hypertournaments.Hyper.p1Toggle_admissible_of_ordered_even_or_zero
