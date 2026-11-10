@@ -79,8 +79,10 @@ theorem p1Last_not_mem_base_image (k : ℕ)
   intro h
   obtain ⟨v, _, hv⟩ := Finset.mem_image.mp h
   have hlt : v.val < 4*k+6 := v.isLt
-  have heq := congrArg Fin.val hv
-  simp only [Fin.val_last, Fin.val_castSucc] at heq
+  have heq : v.val = 4*k+6 := by
+    have hvVal := congrArg Fin.val hv
+    change v.val = 4*k+6 at hvVal
+    exact hvVal
   omega
 
 /-- Canonical inclusion transports missing old vertices exactly. -/
