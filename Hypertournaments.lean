@@ -159,3 +159,5 @@ import Hypertournaments.OddToggleP1ActualRawCount
 import Hypertournaments.OddToggleP1SideEvenRows
 import Hypertournaments.OddToggleP1SidePacketDichotomy
 import Hypertournaments.OddToggleP1SidePacketOrder
+import Hypertournaments.OddToggleP1RowMatchesBase
+import Hypertournaments.OddToggleP1RightProtectedPositions
