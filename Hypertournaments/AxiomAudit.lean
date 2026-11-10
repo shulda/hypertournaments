@@ -389,3 +389,8 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1ActualDoubleFacet_vertices
 #print axioms Hypertournaments.Hyper.p1CanonicalRawFacetSum
 #print axioms Hypertournaments.Hyper.p1Toggle_typeZero_indicator_eq_coboundary
+#print axioms Hypertournaments.p1OrderedFacet_toEmbedding
+#print axioms Hypertournaments.p1ImageErase
+#print axioms Hypertournaments.p1DoubleErase_image
+#print axioms Hypertournaments.Hyper.p1ActualPhase_family
+#print axioms Hypertournaments.Hyper.p1ActualHomogeneous_card_le_two
