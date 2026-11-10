@@ -56,7 +56,7 @@ theorem p1BasePositiveSet (k : ℕ) :
       cases hv : p1BaseVertexBit k v
       · exact False.elim
           (((p1BaseVertexBit_false_iff k v).mp hv).elim hn.1 hn.2)
-      · exact hv
+      · rfl
   simpa only [Finset.mem_filter, Finset.mem_univ, true_and,
     Finset.mem_erase, and_true, and_comm] using hbit
 
@@ -67,19 +67,29 @@ theorem p1BaseVertexBit_positiveCount (k : ℕ) :
       (fun v : Fin (4*k+6) => p1BaseVertexBit k v) = 4*k+4 := by
   let v2 : Fin (4*k+6) := p1CoreAt k (2 : Fin 6)
   let v4 : Fin (4*k+6) := p1CoreAt k (4 : Fin 6)
-  have hne : v2 ≠ v4 := ne_of_lt (p1CoreAt_two_lt_four k)
+  have hne : v2 ≠ v4 := by
+    intro he
+    have hv := congrArg Fin.val he
+    change 4*k+2 = 4*k+4 at hv
+    omega
   have hmem2 :
       v2 ∈ (Finset.univ : Finset (Fin (4*k+6))) := Finset.mem_univ _
   have hmem4 :
       v4 ∈ (Finset.univ : Finset (Fin (4*k+6))).erase v2 :=
     Finset.mem_erase.mpr ⟨Ne.symm hne, Finset.mem_univ _⟩
-  have hcard2 := Finset.card_erase_add_one hmem2
-  have hcard4 := Finset.card_erase_add_one hmem4
+  have hcard2 :
+      ((Finset.univ : Finset (Fin (4*k+6))).erase v2).card + 1 =
+        4*k+6 := by
+    simpa using Finset.card_erase_add_one hmem2
+  have hcard4 :
+      (((Finset.univ : Finset (Fin (4*k+6))).erase v2).erase v4).card + 1 =
+        ((Finset.univ : Finset (Fin (4*k+6))).erase v2).card := by
+    exact Finset.card_erase_add_one hmem4
   change (Finset.univ.filter (fun v : Fin (4*k+6) =>
     p1BaseVertexBit k v = true)).card = 4*k+4
   rw [p1BasePositiveSet]
-  have hfull :
-      (Finset.univ : Finset (Fin (4*k+6))).card = 4*k+6 := by simp
+  change (((Finset.univ : Finset (Fin (4*k+6))).erase v2).erase v4).card =
+    4*k+4
   omega
 
 theorem p1BaseVertexBit_even (k : ℕ) :
