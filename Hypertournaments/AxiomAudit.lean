@@ -546,3 +546,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1JointMixed24_thirdLast_a5
 #print axioms Hypertournaments.p1JointMixed25_thirdLast_a4
 #print axioms Hypertournaments.p1Joint_forced24_25_homogeneous_contradiction
+#print axioms Hypertournaments.p3MixedBaseFlip_preserves_endpoint_disagreement
+#print axioms Hypertournaments.p3UniqueBaseBit_for_alternating_endpoints
