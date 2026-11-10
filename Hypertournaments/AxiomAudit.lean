@@ -417,5 +417,3 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1PadParity_complement
 #print axioms Hypertournaments.p1RightPadCore_row_positiveCount
 #print axioms Hypertournaments.p1LeftPadCore_row_positiveCount
-#print axioms Hypertournaments.p1CanonicalLink_symmetric
-#print axioms Hypertournaments.p1CanonicalLink_diagonal_false
