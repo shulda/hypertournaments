@@ -385,3 +385,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1NatCast_eq_oddBit
 #print axioms Hypertournaments.Hyper.p1RawFacetCount_toZMod
 #print axioms Hypertournaments.Hyper.p1Toggle_typeZero_iff_rawFacetParityOne
+#print axioms Hypertournaments.Hyper.localIndex_zero_rawFacet_eq_iff_parity_eq
+#print axioms Hypertournaments.Hyper.localIndex_zero_rawFacet_ne_iff_parity_ne
