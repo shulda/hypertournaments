@@ -405,3 +405,7 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1MissingBase_of_base_image
 #print axioms Hypertournaments.p1SideSignTable_image_base
 #print axioms Hypertournaments.p1SideHyper_preserves_base
+#print axioms Hypertournaments.p1BaseVertexBit_false_iff
+#print axioms Hypertournaments.p1BasePositiveSet
+#print axioms Hypertournaments.p1BaseVertexBit_positiveCount
+#print axioms Hypertournaments.p1BaseVertexBit_even

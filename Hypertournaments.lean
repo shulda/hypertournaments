@@ -137,3 +137,4 @@ import Hypertournaments.OddToggleP1Naturality
 import Hypertournaments.OddToggleP1ActualZeroTwo
 import Hypertournaments.OddToggleP1CanonicalLinks
 import Hypertournaments.OddToggleP1ExplicitSides
+import Hypertournaments.OddToggleP1BaseParity
