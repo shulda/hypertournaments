@@ -500,3 +500,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1RightSide_admissible
 #print axioms Hypertournaments.p3ZeroSum_eq_of_agree_except
 #print axioms Hypertournaments.p3ZeroSum_second_disagreement
+#print axioms Hypertournaments.p3ZeroSumExtend_sum_zero
+#print axioms Hypertournaments.p3ZeroSumTupleEquiv
+#print axioms Hypertournaments.p3ZeroSumTuple_card
