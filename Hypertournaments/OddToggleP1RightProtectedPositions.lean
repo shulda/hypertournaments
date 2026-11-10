@@ -28,7 +28,9 @@ theorem p1RightCoreZero_old_position (k : ℕ)
     have hlt : s.val < 4*k := by
       have hbound := s.isLt
       omega
-    simp only [if_pos hlt]
+    change decide (s.val%2=1) =
+      decide (((if s.val < 4*k then s.val else s.val-1)%2)=1)
+    simp [hlt]
   · have hjne : j ≠ 0 := by
       intro he
       subst j
@@ -63,7 +65,9 @@ theorem p1RightCoreFour_old_position (k : ℕ)
     have hlt : s.val < 4*k+4 := by
       have hbound := s.isLt
       omega
-    simp only [if_pos hlt]
+    change (!(decide (s.val%2=1))) =
+      !(decide (((if s.val < 4*k+4 then s.val else s.val-1)%2)=1))
+    simp [hlt]
   · have hjne : j ≠ 4 := by
       intro he
       subst j
