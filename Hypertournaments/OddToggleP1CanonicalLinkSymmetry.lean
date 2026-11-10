@@ -15,6 +15,26 @@ side-admissibility argument. Neither is an AP or admissibility claim.
 
 namespace Hypertournaments
 
+/-- The finite six-core left and right link tables are symmetric
+since they depend only on the unordered pair of core vertices. -/
+theorem p1CoreLeftSymBit_comm (x y : Fin 6) :
+    p1CoreLeftSymBit x y = p1CoreLeftSymBit y x := by
+  unfold p1CoreLeftSymBit
+  by_cases h : x = y
+  · subst y
+    rfl
+  · have h' : y ≠ x := Ne.symm h
+    simp [h, h', min_comm, max_comm]
+
+theorem p1CoreRightSymBit_comm (x y : Fin 6) :
+    p1CoreRightSymBit x y = p1CoreRightSymBit y x := by
+  unfold p1CoreRightSymBit
+  by_cases h : x = y
+  · subst y
+    rfl
+  · have h' : y ≠ x := Ne.symm h
+    simp [h, h', min_comm, max_comm]
+
 /-- Each p1 canonical side link table is symmetric in its two
 omitted base vertices. -/
 theorem p1CanonicalLink_symmetric
@@ -28,9 +48,16 @@ theorem p1CanonicalLink_symmetric
     · simp [p1CanonicalLink, hv, hw]
   · by_cases hw : w.val < 4*k
     · simp [p1CanonicalLink, hv, hw]
-    · cases left <;>
-        simp [p1CanonicalLink, hv, hw, p1CoreLeftSymBit,
-          p1CoreRightSymBit, min_comm, max_comm, eq_comm]
+    · have hleft : ∀ (x y : Fin 6),
+          p1CoreLeftSymBit x y = p1CoreLeftSymBit y x :=
+        p1CoreLeftSymBit_comm
+      have hright : ∀ (x y : Fin 6),
+          p1CoreRightSymBit x y = p1CoreRightSymBit y x :=
+        p1CoreRightSymBit_comm
+      simp only [p1CanonicalLink, dif_neg hv, dif_neg hw]
+      cases left
+      · exact hright _ _
+      · exact hleft _ _
 
 /-- Diagonal link entries are irrelevant to the missing-pair
 construction and have been fixed to false on both sides. -/
