@@ -146,3 +146,4 @@ import Hypertournaments.OddToggleP1SideDisagreement
 import Hypertournaments.OddToggleP1ConcreteDisagreement
 import Hypertournaments.OddToggleP1PadCorePartition
 import Hypertournaments.OddToggleP1RowCountSplit
+import Hypertournaments.OddToggleP1LocalCertificate
