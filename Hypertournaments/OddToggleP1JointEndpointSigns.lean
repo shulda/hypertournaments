@@ -61,8 +61,8 @@ theorem p1JointMixed_right_canonicalSign
       E.canonicalSignTable (S.image (p1RightJointOrderEmb k)) := by
         rw [himage]
     _ = (p1SideHyper k false).canonicalSignTable S :=
-      E.canonicalSignTable_image_orderEmbedding
-        (p1SideHyper k false) E (p1RightJointOrderEmb k) hER' S
+      (p1SideHyper k false).canonicalSignTable_image_orderEmbedding
+        E (p1RightJointOrderEmb k) hER' S
     _ = p1CanonicalLink k false v w :=
       p1SideHyper_canonicalSignTable_two_old k false v w hvne
 
@@ -104,9 +104,8 @@ theorem p1JointMixed_left_canonicalSign
           Fin (4*k+6+1) ↪o Fin (4*k+6+2))) := by
         rw [himage]
     _ = (p1SideHyper k true).canonicalSignTable S :=
-      E.canonicalSignTable_image_orderEmbedding
-        (p1SideHyper k true) E
-        (Fin.castSuccOrderEmb : Fin (4*k+6+1) ↪o Fin (4*k+6+2))
+      (p1SideHyper k true).canonicalSignTable_image_orderEmbedding
+        E (Fin.castSuccOrderEmb : Fin (4*k+6+1) ↪o Fin (4*k+6+2))
         hEL' S
     _ = p1CanonicalLink k true v w :=
       p1SideHyper_canonicalSignTable_two_old k true v w hvne
