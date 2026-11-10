@@ -399,3 +399,7 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1BaseMissingBit_singleton
 #print axioms Hypertournaments.p1BaseSignTable_erase
 #print axioms Hypertournaments.p1PairMissingBit_pair
+#print axioms Hypertournaments.p1CoreAt_two_lt_four
+#print axioms Hypertournaments.p1CanonicalLink_core_24_disagree
+#print axioms Hypertournaments.p1SideSignTable_core_24_disagree
+#print axioms Hypertournaments.p1SideHyper_core_24_orient_disagree
