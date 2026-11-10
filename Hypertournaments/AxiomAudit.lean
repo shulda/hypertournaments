@@ -485,3 +485,13 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1RightCoreFour_old_position
 #print axioms Hypertournaments.p1SidePacket_old_position
 #print axioms Hypertournaments.p1SidePacket_last_is_new
+#print axioms Hypertournaments.p1JointOld_lt_left
+#print axioms Hypertournaments.p1JointLeft_lt_right
+#print axioms Hypertournaments.p1JointOld_left_inclusion
+#print axioms Hypertournaments.p1JointOld_right_inclusion
+#print axioms Hypertournaments.p1JointLeftNew_inclusion
+#print axioms Hypertournaments.p1JointRightNew_inclusion
+#print axioms Hypertournaments.p1JointMixedPacket_new_mem
+#print axioms Hypertournaments.p1JointMixedPacket_card
+#print axioms Hypertournaments.p1JointMixedPacket_comm
+#print axioms Hypertournaments.Hyper.p1Homogeneous_lastTwo_raw_ne
