@@ -465,3 +465,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1CanonicalLink_pad_core
 #print axioms Hypertournaments.p1CanonicalPad_row_positiveCount
 #print axioms Hypertournaments.p1CanonicalPad_rowParity
+#print axioms Hypertournaments.p1RightCoreZero_old_position
+#print axioms Hypertournaments.p1RightCoreFour_old_position
