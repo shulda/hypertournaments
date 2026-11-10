@@ -1,5 +1,6 @@
 import Hypertournaments.OddToggleP1MixedPacketOrder
 import Hypertournaments.OddToggleP1Core
+import Hypertournaments.OddToggleP1CanonicalLinks
 
 /-!
 # The final old facet positions in two critical p1 mixed packets
