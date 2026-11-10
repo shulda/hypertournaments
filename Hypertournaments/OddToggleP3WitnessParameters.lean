@@ -43,7 +43,6 @@ theorem p3WitnessTrialPartition (m : ℕ) (hm : 2 ≤ m) :
   have ht : t = (2^m)*2*m^(m-2) := by
     dsimp [t, p3WitnessBlockSize]
     rw [pow_succ]
-    ring
   change t^(m-1) = (2^m) * (2 * (m*t)^(m-2))
   have hm1 : m-1 = (m-2)+1 := by omega
   calc
