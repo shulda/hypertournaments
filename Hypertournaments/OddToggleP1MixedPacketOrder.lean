@@ -84,7 +84,9 @@ theorem p1JointMixedPacket_sorted_endpoints (k : ℕ)
     apply Fin.ext
     have hlo : (p1JointLeftNew k).val ≤ (g q).val := hLle
     have hhi : (g q).val < (p1JointRightNew k).val := hqRight
-    dsimp [p1JointLeftNew, p1JointRightNew] at hlo hhi
+    change 4*k+6 ≤ (g q).val at hlo
+    simp only [p1JointRightNew, Fin.val_last] at hhi
+    change (g q).val = 4*k+6
     omega
   exact ⟨hleft, hright⟩
 
