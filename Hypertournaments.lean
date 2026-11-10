@@ -160,3 +160,4 @@ import Hypertournaments.OddToggleP1SideEvenRows
 import Hypertournaments.OddToggleP1SidePacketDichotomy
 import Hypertournaments.OddToggleP1SidePacketOrder
 import Hypertournaments.LocalIndexPreserves
+import Hypertournaments.OddToggleP1SideAdmissibilityReduction
