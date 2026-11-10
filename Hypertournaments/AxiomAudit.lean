@@ -483,3 +483,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1CanonicalRight_row_matches_base_unprotected
 #print axioms Hypertournaments.p1RightCoreZero_old_position
 #print axioms Hypertournaments.p1RightCoreFour_old_position
+#print axioms Hypertournaments.p1SidePacket_old_position
+#print axioms Hypertournaments.p1SidePacket_last_is_new
