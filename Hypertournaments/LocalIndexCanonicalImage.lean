@@ -33,9 +33,11 @@ theorem localIndex_image_orderEmb_preserves
     exact hQ
   have hsource : ∀ i : Fin (n+1), (Q.orderEmbOfFin hQ i) ∈ Q := by
     intro i
-    have hrange := Finset.image_orderEmbOfFin_univ Q hQ
-    rw [← hrange]
-    exact Finset.mem_image_of_mem _ (Finset.mem_univ i)
+    have hv : Q.orderEmbOfFin hQ i ∈
+        (Finset.univ : Finset (Fin (n+1))).image (Q.orderEmbOfFin hQ) :=
+      Finset.mem_image_of_mem _ (Finset.mem_univ i)
+    rw [Finset.image_orderEmbOfFin_univ Q hQ] at hv
+    exact hv
   have hmem : ∀ i : Fin (n+1),
       e (Q.orderEmbOfFin hQ i) ∈ Q.image e := by
     intro i
