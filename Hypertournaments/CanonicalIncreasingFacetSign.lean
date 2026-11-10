@@ -30,5 +30,6 @@ theorem Hyper.orient_facet_eq_canonical_erase
     _ = A.canonicalSignTable
           ((tupleVertices f.toEmbedding).erase (f i)) := by
       rw [tupleVertices_facet_eq_erase]
+      rfl
 
 end Hypertournaments
