@@ -19,8 +19,9 @@ namespace Hypertournaments
 theorem p1SidePacket_orderEmb_eq_succAbove
     (k : ℕ) (v : Fin (4*k+6))
     (hQ : (p1SidePacketOmitOld k v).card = 4*k+6) :
-    (p1SidePacketOmitOld k v).orderEmbOfFin hQ =
-      Fin.succAboveEmb (v.castSucc : Fin (4*k+6+1)) := by
+    ∀ i : Fin (4*k+6),
+      (p1SidePacketOmitOld k v).orderEmbOfFin hQ i =
+        (v.castSucc : Fin (4*k+6+1)).succAbove i := by
   let Q : Finset (Fin (4*k+6+1)) := p1SidePacketOmitOld k v
   have hmem : ∀ i : Fin (4*k+6),
       ((v.castSucc : Fin (4*k+6+1)).succAbove i) ∈ Q := by
@@ -38,7 +39,7 @@ theorem p1SidePacket_orderEmb_eq_succAbove
         (v.castSucc : Fin (4*k+6+1)).succAbove i) =
         (Q.orderEmbOfFin hQ : Fin (4*k+6) → Fin (4*k+6+1)) :=
     Finset.orderEmbOfFin_unique hQ hmem hmono
-  ext i
+  intro i
   exact (congrFun heq i).symm
 
 end Hypertournaments
