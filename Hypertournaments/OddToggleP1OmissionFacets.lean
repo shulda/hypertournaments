@@ -46,14 +46,13 @@ theorem p1SidePacketOmitOld_mem_old (k : ℕ)
 theorem p1SidePacketOmitOld_last (k : ℕ)
     (v : Fin (4*k+6)) :
     Fin.last (4*k+6) ∈ p1SidePacketOmitOld k v := by
-  change Fin.last (4*k+6) ≠ v.castSucc ∧ True
-  constructor
-  · intro he
-    have hval := congrArg Fin.val he
-    have hv := v.isLt
-    simp only [Fin.val_last, Fin.val_castSucc] at hval
-    omega
-  · trivial
+  simp only [p1SidePacketOmitOld, Finset.mem_erase,
+    Finset.mem_univ, and_true]
+  intro he
+  have hval := congrArg Fin.val he
+  have hv := v.isLt
+  simp only [Fin.val_last, Fin.val_castSucc] at hval
+  omega
 
 /-- Omitting old v and then old w leaves exactly those two
 old base vertices missing, independently of their order. -/
