@@ -414,3 +414,10 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1BasePositiveSet
 #print axioms Hypertournaments.p1BaseVertexBit_positiveCount
 #print axioms Hypertournaments.p1BaseVertexBit_even
+#print axioms Hypertournaments.p1PadAt_lt
+#print axioms Hypertournaments.p1PadAt_injective
+#print axioms Hypertournaments.p1CoreAt_injective
+#print axioms Hypertournaments.p1CoreAt_ge
+#print axioms Hypertournaments.p1OldVertex_pad_or_core
+#print axioms Hypertournaments.p1PadCore_images_cover
+#print axioms Hypertournaments.p1PadCore_images_disjoint
