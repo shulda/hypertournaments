@@ -515,3 +515,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1JointMixed_leftFacet_image
 #print axioms Hypertournaments.p1SideTwoOldPacket_card
 #print axioms Hypertournaments.p1SideHyper_canonicalSignTable_two_old
+#print axioms Hypertournaments.p1JointMixedPacket_thirdLast_of_max_old
+#print axioms Hypertournaments.p1JointMixed24_thirdLast_a5
+#print axioms Hypertournaments.p1JointMixed25_thirdLast_a4
