@@ -585,3 +585,9 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.Hyper.p3SwitchingAllowed_iff_coboundary_zero
 #print axioms Hypertournaments.p3Zero_mem_switchingAllowed
 #print axioms Hypertournaments.Hyper.p3ToggleAllowed_iff_coboundary_zero_and_nonhomogeneous
+#print axioms Hypertournaments.p3BitToZMod_roundtrip
+#print axioms Hypertournaments.p3HyperFromPotential_canonical
+#print axioms Hypertournaments.p3HyperFromPotential_canonicalZMod
+#print axioms Hypertournaments.p3HyperFromPotential_rawCoboundary_zero
+#print axioms Hypertournaments.p3HyperFromPotential_switchingAllowed
+#print axioms Hypertournaments.p3HyperFromPotential_toggleAllowed_iff_nonhomogeneous
