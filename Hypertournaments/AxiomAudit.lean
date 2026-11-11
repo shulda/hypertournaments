@@ -546,3 +546,14 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1JointMixed24_thirdLast_a5
 #print axioms Hypertournaments.p1JointMixed25_thirdLast_a4
 #print axioms Hypertournaments.p1Joint_forced24_25_homogeneous_contradiction
+#print axioms Hypertournaments.localIndex_image_orderEmb_preserves
+#print axioms Hypertournaments.p1RightSideOmission_image_joint
+#print axioms Hypertournaments.p1LeftSideOmission_image_joint
+#print axioms Hypertournaments.p1JointRightOmission_localIndex
+#print axioms Hypertournaments.p1JointLeftOmission_localIndex
+#print axioms Hypertournaments.p1JointOld_leftNew_neighbor_iff_rightZero
+#print axioms Hypertournaments.p1JointOld_rightNew_neighbor_iff_leftZero
+#print axioms Hypertournaments.p1JointCore_fixed_and_excluded_new_edges
+#print axioms Hypertournaments.p1NoCanonicalJoint
+#print axioms Hypertournaments.p1BadOnePoint_all
+#print axioms Hypertournaments.p1NotHasAP_all
