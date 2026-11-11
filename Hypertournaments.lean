@@ -192,3 +192,5 @@ import Hypertournaments.NegativeModuloP3
 import Hypertournaments.OddToggleP3ZeroSumCode
 import Hypertournaments.OddToggleP3ZeroSumCount
 import Hypertournaments.CoboundaryGauge
+import Hypertournaments.OddToggleP3RandomSources
+import Hypertournaments.OddToggleP3WitnessParameters
