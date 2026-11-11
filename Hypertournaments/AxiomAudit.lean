@@ -576,3 +576,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3AlternatingWords_card
 #print axioms Hypertournaments.p3MixedBaseFlip_preserves_endpoint_disagreement
 #print axioms Hypertournaments.p3UniqueBaseBit_for_alternating_endpoints
+#print axioms Hypertournaments.Hyper.localIndex_ne_zero_of_oppositeParity_equalRaw
+#print axioms Hypertournaments.Hyper.localIndex_ne_zero_of_oppositeParity_zeroRaw
+#print axioms Hypertournaments.Hyper.localIndex_ne_zero_of_oppositeParity_zeroCanonical
