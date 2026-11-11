@@ -70,7 +70,7 @@ theorem p3DistinctTransversals_disjoint_random_sources
     (u v : Fin (m+1)) :
     p3RandomSourceIndex m f u ≠ p3RandomSourceIndex m g v := by
   intro h
-  have hpair := (p3RandomSourceIndex_injective m) (f, u) (g, v) h
+  have hpair : (f, u) = (g, v) := (p3RandomSourceIndex_injective m) h
   exact hfg (congrArg Prod.fst hpair)
 
 end Hypertournaments
