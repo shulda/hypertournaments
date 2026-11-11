@@ -194,3 +194,5 @@ import Hypertournaments.OddToggleP3ZeroSumCount
 import Hypertournaments.CoboundaryGauge
 import Hypertournaments.OddToggleP3RandomSources
 import Hypertournaments.OddToggleP3WitnessParameters
+import Hypertournaments.OddToggleP3BoolPhases
+import Hypertournaments.OddToggleP3MixedPolarity
