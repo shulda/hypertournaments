@@ -575,3 +575,4 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.Hyper.p3LocalIndex_mod_two
 #print axioms Hypertournaments.Hyper.p3SwitchingAllowed_iff_rawFacetParityEven
 #print axioms Hypertournaments.Hyper.p3SwitchingAllowed_iff_coboundary_zero
+#print axioms Hypertournaments.Hyper.p3Switching_has_canonical_potential
