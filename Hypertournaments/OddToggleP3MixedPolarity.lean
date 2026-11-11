@@ -33,10 +33,11 @@ the homogeneous endpoint pattern beta=not b, alpha=b. -/
 theorem p3UniqueBaseBit_for_alternating_endpoints
     (b left right : Bool) (hLR : left ≠ right) :
     ∃! w : Bool, (w ^^ left = b) ∧ (w ^^ right = !b) := by
-  cases b <;> cases left <;> cases right
-  all_goals
-    first
-    | exact (by decide)
-    | exact False.elim (hLR rfl)
+  refine ⟨b ^^ left, ?_, ?_⟩
+  · constructor
+    · cases b <;> cases left <;> decide
+    · cases b <;> cases left <;> cases right <;> simp_all
+  · intro w hw
+    cases b <;> cases left <;> cases w <;> simp_all
 
 end Hypertournaments
