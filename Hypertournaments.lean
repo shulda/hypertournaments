@@ -188,3 +188,7 @@ import Hypertournaments.LocalIndexCanonicalImage
 import Hypertournaments.OddToggleP1JointSideOmissionLocalIndex
 import Hypertournaments.OddToggleP1ActualNonmixedJointEdges
 import Hypertournaments.OddToggleP1CompleteNoJoint
+import Hypertournaments.NegativeModuloP3
+import Hypertournaments.OddToggleP3ZeroSumCode
+import Hypertournaments.OddToggleP3ZeroSumCount
+import Hypertournaments.CoboundaryGauge
