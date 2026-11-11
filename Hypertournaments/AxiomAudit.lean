@@ -576,3 +576,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3AlternatingWords_card
 #print axioms Hypertournaments.p3MixedBaseFlip_preserves_endpoint_disagreement
 #print axioms Hypertournaments.p3UniqueBaseBit_for_alternating_endpoints
+#print axioms Hypertournaments.p3BoolRestriction_surjective
+#print axioms Hypertournaments.p3ZeroSumRandomSourceAssignments_surjective
