@@ -195,3 +195,4 @@ import Hypertournaments.CoboundaryGauge
 import Hypertournaments.OddToggleP3RandomSources
 import Hypertournaments.OddToggleP3WitnessParameters
 import Hypertournaments.OddToggleP3SwitchingParity
+import Hypertournaments.OddToggleP3SwitchingPotentialConverse
