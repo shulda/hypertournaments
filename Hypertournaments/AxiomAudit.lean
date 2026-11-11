@@ -576,3 +576,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3AlternatingWords_card
 #print axioms Hypertournaments.p3MixedBaseFlip_preserves_endpoint_disagreement
 #print axioms Hypertournaments.p3UniqueBaseBit_for_alternating_endpoints
+#print axioms Hypertournaments.p3Coboundary_add
+#print axioms Hypertournaments.p3SideLink_sum_eq_coboundary
+#print axioms Hypertournaments.p3MixedGauge_of_link_parity
