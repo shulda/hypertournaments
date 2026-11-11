@@ -570,3 +570,9 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3DistinctTransversals_disjoint_random_sources
 #print axioms Hypertournaments.p3WitnessBlockSize_pos
 #print axioms Hypertournaments.p3WitnessTrialPartition
+#print axioms Hypertournaments.p3BoolTranslate_involutive
+#print axioms Hypertournaments.p3BoolTranslateEquiv
+#print axioms Hypertournaments.p3AlternatingWord_injective
+#print axioms Hypertournaments.p3AlternatingWords_card
+#print axioms Hypertournaments.p3MixedBaseFlip_preserves_endpoint_disagreement
+#print axioms Hypertournaments.p3UniqueBaseBit_for_alternating_endpoints
