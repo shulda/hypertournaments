@@ -557,3 +557,12 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p1NoCanonicalJoint
 #print axioms Hypertournaments.p1BadOnePoint_all
 #print axioms Hypertournaments.p1NotHasAP_all
+#print axioms Hypertournaments.oddToggleOnePointObstructions_of_p3
+#print axioms Hypertournaments.negative_classification_all_of_p3
+#print axioms Hypertournaments.negativeGoal_all_of_p3
+#print axioms Hypertournaments.p3ZeroSum_eq_of_agree_except
+#print axioms Hypertournaments.p3ZeroSum_second_disagreement
+#print axioms Hypertournaments.p3ZeroSumExtend_sum_zero
+#print axioms Hypertournaments.p3ZeroSumTupleEquiv
+#print axioms Hypertournaments.p3ZeroSumTuple_card
+#print axioms Hypertournaments.coboundary_equal_on_degree_implies_gauge
