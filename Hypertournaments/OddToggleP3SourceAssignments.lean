@@ -51,7 +51,8 @@ theorem p3ZeroSumRandomSourceAssignments_surjective
             {f : Fin (m+1) → G // (∑ i : Fin (m+1), f i) = 0} × Fin (m+1) =>
           values (p3RandomSourceIndex m fu.1 fu.2)) := by
   exact p3BoolRestriction_surjective
-    (fun fu =>
+    (fun fu :
+      {f : Fin (m+1) → G // (∑ i : Fin (m+1), f i) = 0} × Fin (m+1) =>
       p3RandomSourceIndex m fu.1 fu.2)
     (p3RandomSourceIndex_injective m)
 
