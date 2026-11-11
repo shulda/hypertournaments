@@ -197,3 +197,5 @@ import Hypertournaments.OddToggleP3WitnessParameters
 import Hypertournaments.OddToggleP3BoolPhases
 import Hypertournaments.OddToggleP3MixedPolarity
 import Hypertournaments.OddToggleP3SourceAssignments
+import Hypertournaments.OddToggleP3SwitchingParity
+import Hypertournaments.OddToggleP3AgeSplit
