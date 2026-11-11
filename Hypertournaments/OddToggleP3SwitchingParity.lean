@@ -62,7 +62,7 @@ theorem Hyper.p3RawFacetCount_toZMod
   rw [hbits, hcount, hhalf] at hxor
   change ((boolPacketPositiveCount raw : ℕ) : ZMod 2) =
     ((positiveFacetCount A f : ℕ) : ZMod 2)
-  simpa only [add_zero] using hxor.symm
+  simpa only [add_zero, boolPacketPositiveCount, positiveFacetCount] using hxor.symm
 
 /-- Since an arity 4k+3 packet has even length, its minority
 type index has the same parity as its normalized positive count. -/
