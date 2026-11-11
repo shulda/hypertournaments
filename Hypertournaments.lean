@@ -196,3 +196,5 @@ import Hypertournaments.OddToggleP3RandomSources
 import Hypertournaments.OddToggleP3WitnessParameters
 import Hypertournaments.OddToggleP3BoolPhases
 import Hypertournaments.OddToggleP3MixedPolarity
+import Hypertournaments.OddToggleP3CochainSideLinks
+import Hypertournaments.OddToggleP3MixedGaugeAssembly
