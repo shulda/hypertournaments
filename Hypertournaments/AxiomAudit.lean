@@ -566,3 +566,7 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3ZeroSumTupleEquiv
 #print axioms Hypertournaments.p3ZeroSumTuple_card
 #print axioms Hypertournaments.coboundary_equal_on_degree_implies_gauge
+#print axioms Hypertournaments.p3RandomSourceIndex_injective
+#print axioms Hypertournaments.p3DistinctTransversals_disjoint_random_sources
+#print axioms Hypertournaments.p3WitnessBlockSize_pos
+#print axioms Hypertournaments.p3WitnessTrialPartition
