@@ -570,3 +570,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3DistinctTransversals_disjoint_random_sources
 #print axioms Hypertournaments.p3WitnessBlockSize_pos
 #print axioms Hypertournaments.p3WitnessTrialPartition
+#print axioms Hypertournaments.p3BoolRestriction_surjective
+#print axioms Hypertournaments.p3ZeroSumRandomSourceAssignments_surjective
