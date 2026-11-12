@@ -599,3 +599,7 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3SidePotential_oldOnly
 #print axioms Hypertournaments.p3TwoSidePotentials_agree_oldOnly
 #print axioms Hypertournaments.p3SideOldPart_image
+#print axioms Hypertournaments.p3BlockOccupancy_one_witness
+#print axioms Hypertournaments.p3SidePotential_nonzero_covers_protected
+#print axioms Hypertournaments.p3SidePotential_coboundary_zero_of_missing_protected
+#print axioms Hypertournaments.p3SidePotential_coboundary_zero_of_unique_protected
