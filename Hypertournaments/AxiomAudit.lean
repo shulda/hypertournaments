@@ -631,3 +631,11 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3FirstSixSingletonPair_of_twoExcess
 #print axioms Hypertournaments.p3ConsecutiveSingletonFibers_oppositeParity
 #print axioms Hypertournaments.p3AllOldFullBlocks_two_singletons_oppositeParity
+#print axioms Hypertournaments.p3SingletonBlock_vertex_unique
+#print axioms Hypertournaments.p3SingletonBlock_erase_missing
+#print axioms Hypertournaments.p3BasePotential_zero_of_missing_block
+#print axioms Hypertournaments.p3SidePotential_coboundary_zero_old_missing_block
+#print axioms Hypertournaments.p3AllOldSidePacket_all_raw_facets_zero_of_missing_block
+#print axioms Hypertournaments.p3BasePotential_coboundary_zero_missing_block
+#print axioms Hypertournaments.p3BaseHyper_raw_zero_at_singleton
+#print axioms Hypertournaments.p3BaseFullOldPacket_allowed
