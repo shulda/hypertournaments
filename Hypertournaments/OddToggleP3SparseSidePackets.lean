@@ -87,14 +87,25 @@ theorem p3SidePacket_allowed_of_two_missing_blocks
   let q0 : Fin (4*k+4) := ⟨0, by omega⟩
   let q1 : Fin (4*k+4) := ⟨1, by omega⟩
   have hpar : decide (q0.val%2=1) ≠ decide (q1.val%2=1) := by
-    decide
+    simp [q0, q1]
   have hnot : localIndex A f.toEmbedding ≠ 0 :=
     A.localIndex_ne_zero_of_oppositeParity_zeroRaw
       f q0 q1 hpar (hraw q0) (hraw q1)
+  have hrawA : ∀ q : Fin (4*k+4),
+      A.orient (facet f.toEmbedding q) = false := hraw
+  have hfilter :
+      (Finset.univ.filter
+        (fun q : Fin (4*k+4) => A.orient (facet f.toEmbedding q) = true)) =
+          ∅ := by
+    ext q
+    simp [hrawA q]
   have hcount :
       boolPacketPositiveCount
         (fun q : Fin (4*k+4) => A.orient (facet f.toEmbedding q)) = 0 := by
-    simp [boolPacketPositiveCount, hraw]
+    change (Finset.univ.filter
+      (fun q : Fin (4*k+4) => A.orient (facet f.toEmbedding q) = true)).card = 0
+    rw [hfilter]
+    rfl
   have hswitch : localIndex A f.toEmbedding ∈
       switchingAllowed (4*k+3) := by
     apply (A.p3SwitchingAllowed_iff_rawFacetParityEven k f.toEmbedding).mpr
