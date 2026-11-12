@@ -606,3 +606,4 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3AtMostTwoNonSingletonOfTwoExcess
 #print axioms Hypertournaments.p3BlockOccupancy_sum_eq_card
 #print axioms Hypertournaments.p3ActualBlock_nonSingleton_le_two
+#print axioms Hypertournaments.p3FirstSixSingletonPair_of_twoExcess
