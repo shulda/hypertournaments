@@ -603,3 +603,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3SidePotential_nonzero_covers_protected
 #print axioms Hypertournaments.p3SidePotential_coboundary_zero_of_missing_protected
 #print axioms Hypertournaments.p3SidePotential_coboundary_zero_of_unique_protected
+#print axioms Hypertournaments.p3SidePotential_zero_of_two_missing_blocks
+#print axioms Hypertournaments.p3SidePotential_coboundary_zero_of_two_missing_blocks
