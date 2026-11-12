@@ -244,3 +244,4 @@ import Hypertournaments.OddToggleP3MonotoneIsolatedBlocks
 import Hypertournaments.OddToggleP3BadPatternCount
 import Hypertournaments.OddToggleP3SixRepeatGlobalSingletons
 import Hypertournaments.OddToggleP3FiniteBernoulliBound
+import Hypertournaments.OddToggleP3WitnessHalfBound
