@@ -716,3 +716,4 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3CanonicalPacket_old_position_ne_fresh
 #print axioms Hypertournaments.p3CanonicalPacket_old_vertex_lift
 #print axioms Hypertournaments.p3CanonicalFresh_old_enumeration
+#print axioms Hypertournaments.p3CanonicalFresh_old_enumeration_membership
