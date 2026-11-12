@@ -697,3 +697,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3Witness_gaugeExponent_lt_groups
 #print axioms Hypertournaments.p3Witness_trialGroupSize_ge_two
 #print axioms Hypertournaments.p3Witness_finiteGaugeUnion_strict_half
+#print axioms Hypertournaments.p3TrialPolarity_iff_badPatterns
+#print axioms Hypertournaments.p3TrialPolarity_exact_finite_frequency

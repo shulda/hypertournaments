@@ -253,3 +253,4 @@ import Hypertournaments.OddToggleP3FiniteUnionBound
 import Hypertournaments.OddToggleP3FullTrialSources
 import Hypertournaments.OddToggleP3FiniteBernoulliBound
 import Hypertournaments.OddToggleP3WitnessHalfBound
+import Hypertournaments.OddToggleP3TrialPolarityCount
