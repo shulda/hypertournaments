@@ -706,3 +706,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3GaugeRestrictExtend_coboundary
 #print axioms Hypertournaments.p3GoodTrialPatterns_card
 #print axioms Hypertournaments.p3GoodTrials_product_card
+#print axioms Hypertournaments.p3FullTrialRestriction_surjective
+#print axioms Hypertournaments.p3FullTrialRestriction_exact_fiber_count
+#print axioms Hypertournaments.p3FullTrialRestriction_exact_pattern_ratio
