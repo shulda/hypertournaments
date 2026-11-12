@@ -7,8 +7,8 @@ import Hypertournaments.AllArityCanonicalAdmissibility
 # Exact sufficient support geometry for full p3 side admissibility
 
 A potential z may be arbitrary on its permitted support. Suppose all
-nonzero potential entries meet each label in a protected block family.
-If EVERY canonical (4k+4)-packet has two protected singleton blocks
+nonzero potential entries meet each label in a protectedBlocks block family.
+If EVERY canonical (4k+4)-packet has two protectedBlocks singleton blocks
 whose vertices occupy positions of opposite deletion parity, then
 each of those two facets has raw sign zero. Therefore the actual
 potential-induced intrinsic Hyper (4k+3) contains no homogeneous
@@ -16,7 +16,7 @@ packet. Switching parity holds automatically by δδ=0, so the full
 exceptional toggleZero age condition follows.
 
 This criterion is conditional on the explicit block-pair geometry.
-For packets missing a protected block, the existing missing-block
+For packets missing a protectedBlocks block, the existing missing-block
 zero-facet lemma will allow a different later geometry certificate.
 This file does NOT assert that the concrete random p3 sides already
 satisfy the stated geometry in every packet.
@@ -24,19 +24,19 @@ satisfy the stated geometry in every packet.
 
 namespace Hypertournaments
 
-/-- Two protected singleton blocks in opposite parity positions
+/-- Two protectedBlocks singleton blocks in opposite parity positions
 give a genuine exceptional-age local packet of the potential-induced
 intrinsic hypertournament. -/
 theorem p3PotentialPacket_allowed_of_protected_pair
     (k a : ℕ) {I : Type*}
-    (block : Fin a → I) (protected : Finset I)
+    (block : Fin a → I) (protectedBlocks : Finset I)
     (z : Finset (Fin a) → ZMod 2)
-    (hcover : p3PotentialCoversBlocks block protected z)
+    (hcover : p3PotentialCoversBlocks block protectedBlocks z)
     (f : Fin (4*k+4) ↪o Fin a)
     (i j : Fin (4*k+4))
     (hpar : decide (i.val%2=1) ≠ decide (j.val%2=1))
-    (hip : block (f i) ∈ protected)
-    (hjp : block (f j) ∈ protected)
+    (hip : block (f i) ∈ protectedBlocks)
+    (hjp : block (f j) ∈ protectedBlocks)
     (huniquei : ∀ q : Fin (4*k+4),
       block (f q) = block (f i) → q = i)
     (huniquej : ∀ q : Fin (4*k+4),
@@ -46,11 +46,11 @@ theorem p3PotentialPacket_allowed_of_protected_pair
   have hiZ : p3PotentialSign z
       (tupleVertices (facet f.toEmbedding i)) = false :=
     p3PotentialSign_zero_on_unique_packet_block
-      block protected z hcover f i hip huniquei
+      block protectedBlocks z hcover f i hip huniquei
   have hjZ : p3PotentialSign z
       (tupleVertices (facet f.toEmbedding j)) = false :=
     p3PotentialSign_zero_on_unique_packet_block
-      block protected z hcover f j hjp huniquej
+      block protectedBlocks z hcover f j hjp huniquej
   have hiCard : (tupleVertices (facet f.toEmbedding i)).card = 4*k+3 := by
     dsimp [tupleVertices]
     rw [Finset.card_image_of_injective _ (facet f.toEmbedding i).injective]
@@ -76,18 +76,18 @@ theorem p3PotentialPacket_allowed_of_protected_pair
     ⟨p3HyperFromPotential_rawCoboundary_zero (4*k+3) a z f, hnot⟩
 
 /-- A purely finite block-support hypothesis and the existence
-of opposite-parity singleton protected blocks in EVERY canonical
+of opposite-parity singleton protectedBlocks blocks in EVERY canonical
 packet suffice for full intrinsic age membership, including all
 unordered/reordered injective tuples. -/
 theorem p3PotentialHyper_admissible_of_protected_pairs
     (k a : ℕ) {I : Type*}
-    (block : Fin a → I) (protected : Finset I)
+    (block : Fin a → I) (protectedBlocks : Finset I)
     (z : Finset (Fin a) → ZMod 2)
-    (hcover : p3PotentialCoversBlocks block protected z)
+    (hcover : p3PotentialCoversBlocks block protectedBlocks z)
     (hgeometry : ∀ f : Fin (4*k+4) ↪o Fin a,
       ∃ i j : Fin (4*k+4),
         decide (i.val%2=1) ≠ decide (j.val%2=1) ∧
-        block (f i) ∈ protected ∧ block (f j) ∈ protected ∧
+        block (f i) ∈ protectedBlocks ∧ block (f j) ∈ protectedBlocks ∧
         (∀ q : Fin (4*k+4),
           block (f q) = block (f i) → q = i) ∧
         (∀ q : Fin (4*k+4),
@@ -103,7 +103,7 @@ theorem p3PotentialHyper_admissible_of_protected_pairs
   obtain ⟨i, j, hpar, hip, hjp, hui, huj⟩ := hgeometry f
   have hallowed :=
     p3PotentialPacket_allowed_of_protected_pair
-      k a block protected z hcover f i j hpar hip hjp hui huj
+      k a block protectedBlocks z hcover f i j hpar hip hjp hui huj
   change localIndex (p3HyperFromPotential (4*k+3) a z)
       (Q.orderEmbOfFin hQ').toEmbedding ∈
       toggleZero (switchingAllowed (4*k+3)) at hallowed
