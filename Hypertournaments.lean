@@ -256,3 +256,4 @@ import Hypertournaments.OddToggleP3WitnessHalfBound
 import Hypertournaments.OddToggleP3TrialPolarityCount
 import Hypertournaments.OddToggleP3GaugeChoices
 import Hypertournaments.OddToggleP3AllTrialsCount
+import Hypertournaments.OddToggleP3FreshPacketOrder
