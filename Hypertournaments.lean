@@ -223,3 +223,4 @@ import Hypertournaments.OddToggleP3SortedBlockFibers
 import Hypertournaments.OddToggleP3AllZeroRawType
 import Hypertournaments.OddToggleP3SingletonErasure
 import Hypertournaments.OddToggleP3ProtectedTriple
+import Hypertournaments.OddToggleP3ActualProtectedSidePackets
