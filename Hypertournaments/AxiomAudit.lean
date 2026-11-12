@@ -706,3 +706,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3GaugeRestrictExtend_coboundary
 #print axioms Hypertournaments.p3GoodTrialPatterns_card
 #print axioms Hypertournaments.p3GoodTrials_product_card
+#print axioms Hypertournaments.p3CanonicalFresh_is_last_packet_position
+#print axioms Hypertournaments.p3CanonicalPacket_old_position_ne_fresh
+#print axioms Hypertournaments.p3CanonicalPacket_old_vertex_lift
