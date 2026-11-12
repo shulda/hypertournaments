@@ -639,3 +639,8 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3BasePotential_coboundary_zero_missing_block
 #print axioms Hypertournaments.p3BaseHyper_raw_zero_at_singleton
 #print axioms Hypertournaments.p3BaseFullOldPacket_allowed
+#print axioms Hypertournaments.Hyper.p3LocalIndex_central_of_all_raw_zero
+#print axioms Hypertournaments.Hyper.p3ToggleAllowed_of_all_raw_zero
+#print axioms Hypertournaments.p3BaseOldPacket_allRawZero_of_missing_block
+#print axioms Hypertournaments.p3BaseOldPacket_allowed_of_missing_block
+#print axioms Hypertournaments.p3BaseHyper_admissible
