@@ -208,3 +208,4 @@ import Hypertournaments.OddToggleP3PotentialSwitching
 import Hypertournaments.OddToggleP3SixBlockGeometry
 import Hypertournaments.OddToggleP3ExplicitPotentials
 import Hypertournaments.OddToggleP3OccupancyExcess
+import Hypertournaments.OddToggleP3ActualOccupancies
