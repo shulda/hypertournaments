@@ -243,3 +243,4 @@ import Hypertournaments.OddToggleP3SixEdgeIsolatedWitnesses
 import Hypertournaments.OddToggleP3UniformSourceFibers
 import Hypertournaments.OddToggleP3UniformSourceCounting
 import Hypertournaments.OddToggleP3ZeroSumUniformCount
+import Hypertournaments.OddToggleP3FiniteBadEventCount
