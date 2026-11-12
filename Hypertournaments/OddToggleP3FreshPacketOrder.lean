@@ -24,8 +24,12 @@ theorem p3CanonicalFresh_is_last_packet_position
     (hFresh : Fin.last a ∈ tupleVertices f.toEmbedding) :
     f (Fin.last n) = Fin.last a := by
   obtain ⟨i, _, hi⟩ := Finset.mem_image.mp hFresh
+  have hi' : f i = Fin.last a := by
+    change f i = Fin.last a at hi
+    exact hi
   by_cases hlast : i = Fin.last n
-  · simpa only [hlast] using hi
+  · subst i
+    exact hi'
   · have hlt : i < Fin.last n := by
       apply Fin.lt_def.mpr
       have hne : i.val ≠ n := by
@@ -35,9 +39,10 @@ theorem p3CanonicalFresh_is_last_packet_position
         exact hv
       have hv := i.isLt
       change i.val < n+1 at hv
+      change i.val < n
       omega
     have hstrict := f.strictMono hlt
-    rw [hi] at hstrict
+    rw [hi'] at hstrict
     have hv : (f (Fin.last n)).val < a+1 :=
       (f (Fin.last n)).isLt
     change a < (f (Fin.last n)).val at hstrict
