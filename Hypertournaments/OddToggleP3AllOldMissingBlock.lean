@@ -29,9 +29,12 @@ theorem p3BasePotential_zero_of_missing_block
     have hfilter :
         U.filter (fun v => p3BlockNumber t v = i.val) = ∅ := by
       ext v
-      simp only [Finset.mem_filter, Finset.mem_empty, iff_false]
-      rintro ⟨hv, heq⟩
-      exact hmissing v hv heq
+      simp only [Finset.mem_filter]
+      constructor
+      · rintro ⟨hv, heq⟩
+        exact False.elim ((hmissing v hv) heq)
+      · intro hv
+        simp at hv
     rw [hfilter]
     rfl
   have hnot : ¬ p3IsBlockTransversal m t U := by
