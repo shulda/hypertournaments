@@ -715,3 +715,8 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3CanonicalFresh_is_last_packet_position
 #print axioms Hypertournaments.p3CanonicalPacket_old_position_ne_fresh
 #print axioms Hypertournaments.p3CanonicalPacket_old_vertex_lift
+#print axioms Hypertournaments.p3SixRepeat_le_two_of_image_card
+#print axioms Hypertournaments.p3SixDistinctLabels_oppositeParity_singletons
+#print axioms Hypertournaments.p3SortedPacket_image_card_ge_of_all_but_one
+#print axioms Hypertournaments.p3SortedPacket_qMinusOne_image_large
+#print axioms Hypertournaments.p3Sorted_qMinusOne_oppositeParity_singletons
