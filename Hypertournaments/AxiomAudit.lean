@@ -675,3 +675,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3BoolRestriction_exact_fiber_count
 #print axioms Hypertournaments.p3ZeroSumSelectedSource_card
 #print axioms Hypertournaments.p3ZeroSumSelectedSource_exact_uniform_count
+#print axioms Hypertournaments.p3BoolRestriction_badEventSigmaEquiv
+#print axioms Hypertournaments.p3BoolRestriction_badEvent_card
+#print axioms Hypertournaments.p3BoolRestriction_badEvent_exact_ratio
