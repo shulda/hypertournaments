@@ -64,11 +64,11 @@ theorem Hyper.p3ActualJoint_mixedParity
   have hlRS : l ∉ insert r S := by
     simp only [Finset.mem_insert, not_or]
     exact ⟨hlr, hls⟩
-  have hcardR : (insert r S).card = S.card + 1 :=
-    Finset.card_insert_of_not_mem hrs
+  have hcardR : (insert r S).card = S.card + 1 := by
+    simp [hrs]
   have hcardP : (insert l (insert r S)).card = 4*k+4 := by
-    have hcardL : (insert l (insert r S)).card = (insert r S).card + 1 :=
-      Finset.card_insert_of_not_mem hlRS
+    have hcardL : (insert l (insert r S)).card = (insert r S).card + 1 := by
+      simp [hlRS]
     omega
   let P : Finset (Fin (a+2)) := insert l (insert r S)
   let f : Fin (4*k+4) ↪o Fin (a+2) :=
