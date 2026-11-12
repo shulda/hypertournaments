@@ -628,3 +628,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3SidePacket_allowed_of_two_missing_blocks
 #print axioms Hypertournaments.p3SortedOldPacket_block_monotone
 #print axioms Hypertournaments.p3SortedOldPacket_fiber_card_eq_occupancy
+#print axioms Hypertournaments.p3FirstSixSingletonPair_of_twoExcess
+#print axioms Hypertournaments.p3ConsecutiveSingletonFibers_oppositeParity
+#print axioms Hypertournaments.p3AllOldFullBlocks_two_singletons_oppositeParity
