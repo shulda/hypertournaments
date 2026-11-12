@@ -617,3 +617,7 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3Coboundary_image_injective
 #print axioms Hypertournaments.p3SidePotential_image_old_base
 #print axioms Hypertournaments.p3SideHyper_preserves_base
+#print axioms Hypertournaments.p3BasePotential_zero_of_missing_block
+#print axioms Hypertournaments.p3SidePotential_coboundary_zero_old_missing_block
+#print axioms Hypertournaments.p3AllOldSidePacket_all_raw_facets_zero_of_missing_block
+#print axioms Hypertournaments.p3AllOldSidePacket_allowed_of_missing_block
