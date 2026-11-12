@@ -720,3 +720,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3SortedPacket_image_card_ge_of_all_but_one
 #print axioms Hypertournaments.p3SortedPacket_qMinusOne_image_large
 #print axioms Hypertournaments.p3Sorted_qMinusOne_oppositeParity_singletons
+#print axioms Hypertournaments.p3GoodSelectedTrialSet_card
+#print axioms Hypertournaments.p3AllGlobalGoodTrialAssignments_exact_ratio
