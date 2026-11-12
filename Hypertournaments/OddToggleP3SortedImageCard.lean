@@ -58,7 +58,7 @@ theorem p3SortedPacket_image_card_ge_of_all_but_one
     obtain ⟨j, _, hj⟩ := Finset.mem_image.mp hvimage
     apply Finset.mem_image.mpr
     refine ⟨j, Finset.mem_univ _, ?_⟩
-    change B j = i.val
+    change p3BlockNumber t (U.orderEmbOfFin hU j) = i.val
     change U.orderEmbOfFin hU j = v at hj
     rw [hj]
     exact hvB
