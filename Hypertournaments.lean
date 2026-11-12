@@ -244,3 +244,5 @@ import Hypertournaments.OddToggleP3UniformSourceFibers
 import Hypertournaments.OddToggleP3UniformSourceCounting
 import Hypertournaments.OddToggleP3ZeroSumUniformCount
 import Hypertournaments.OddToggleP3FiniteBadEventCount
+import Hypertournaments.OddToggleP3BadPatternCount
+import Hypertournaments.OddToggleP3BadTrialCount
