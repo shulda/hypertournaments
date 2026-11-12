@@ -60,7 +60,7 @@ theorem p3CanonicalFresh_old_enumeration
   have hUnique :
       (fun i : Fin n => e i) =
         (U.orderEmbOfFin hU : Fin n → Fin a) :=
-    Finset.orderEmbOfFin_unique U hMember e.strictMono
+    Finset.orderEmbOfFin_unique hU hMember e.strictMono
   refine ⟨U, hU, ?_⟩
   intro i
   have hEq : e i = U.orderEmbOfFin hU i := congrFun hUnique i
