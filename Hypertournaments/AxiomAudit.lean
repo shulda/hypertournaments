@@ -617,3 +617,12 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3Coboundary_image_injective
 #print axioms Hypertournaments.p3SidePotential_image_old_base
 #print axioms Hypertournaments.p3SideHyper_preserves_base
+#print axioms Hypertournaments.p3AtMostTwoNonSingletonOfTwoExcess
+#print axioms Hypertournaments.p3BlockOccupancy_sum_eq_card
+#print axioms Hypertournaments.p3ActualBlock_nonSingleton_le_two
+#print axioms Hypertournaments.p3FiveBlocks_goodAdjacent_or_alternating
+#print axioms Hypertournaments.p3FiveBlockAlternating_singletons_oppositeParity
+#print axioms Hypertournaments.p3SidePotential_zero_of_two_missing_blocks
+#print axioms Hypertournaments.p3SidePotential_coboundary_zero_of_two_missing_blocks
+#print axioms Hypertournaments.p3SidePacket_all_raw_facets_zero_of_two_missing_blocks
+#print axioms Hypertournaments.p3SidePacket_allowed_of_two_missing_blocks
