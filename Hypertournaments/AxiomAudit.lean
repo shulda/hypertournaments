@@ -654,3 +654,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3BaseOldPacket_allRawZero_of_missing_block
 #print axioms Hypertournaments.p3BaseOldPacket_allowed_of_missing_block
 #print axioms Hypertournaments.p3BaseHyper_admissible
+#print axioms Hypertournaments.p3SidePacket_raw_zero_at_protected_singleton
+#print axioms Hypertournaments.p3SidePacket_allowed_of_two_protected_singletons
