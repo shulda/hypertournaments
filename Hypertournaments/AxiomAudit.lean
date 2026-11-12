@@ -673,3 +673,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3BadPattern_injective
 #print axioms Hypertournaments.p3BadPattern_exact_two
 #print axioms Hypertournaments.p3BadPattern_total_card
+#print axioms Hypertournaments.p3FiniteUnionBound_exists_good
+#print axioms Hypertournaments.p3FiniteUnionBound_of_common_event_bound
