@@ -29,7 +29,8 @@ theorem p3BlockOccupancy_one_witness
     ∃ v : Fin (m*t), v ∈ U ∧ p3BlockNumber t v = i.val := by
   have hpos :
       0 < (U.filter (fun v => p3BlockNumber t v = i.val)).card := by
-    simpa [p3BlockOccupancy] using (show 0 < 1 by omega : Nat.lt (0:ℕ) 1)
+    change (U.filter (fun v => p3BlockNumber t v = i.val)).card = 1 at h
+    omega
   obtain ⟨v, hv⟩ := Finset.card_pos.mp hpos
   exact ⟨v, (Finset.mem_filter.mp hv).1, (Finset.mem_filter.mp hv).2⟩
 
@@ -95,32 +96,24 @@ theorem p3SidePotential_coboundary_zero_of_missing_protected
       (Q.erase x) hnonzero i hi
   exact (hmissing v (Finset.mem_of_mem_erase hv)) hblock
 
-/-- Deleting the unique old vertex of a protected block forces
-the potential coboundary to vanish on that deleted facet. -/
+/-- Deleting the unique old vertex of a chosen protected block
+forces the potential coboundary to vanish on that deleted facet. -/
 theorem p3SidePotential_coboundary_zero_of_unique_protected
     (m t : ℕ) {V : Type*} [DecidableEq V]
     (old : Fin (m*t) ↪ V) (fresh : V)
     (eligible protectedBlocks : Finset (Fin m))
     (hdisjoint : Disjoint eligible protectedBlocks)
     (W L : Finset (Fin (m*t)) → ZMod 2)
-    (Q : Finset V) (v : Fin (m*t))
-    (hprotected : (⟨p3BlockNumber t v, by
-      have hpos : 0 < t := by omega
-      have hv := v.isLt
-      apply (Nat.div_lt_iff_lt_mul hpos).2
-      simpa [Nat.mul_comm] using hv⟩ : Fin m) ∈ protectedBlocks)
+    (Q : Finset V) (v : Fin (m*t)) (i : Fin m)
+    (hi : i ∈ protectedBlocks)
+    (hvi : p3BlockNumber t v = i.val)
     (hunique : ∀ w : Fin (m*t), old w ∈ Q →
-      p3BlockNumber t w = p3BlockNumber t v → w = v) :
+      p3BlockNumber t w = i.val → w = v) :
     coboundary (p3SidePotential m t old fresh eligible W L)
       (Q.erase (old v)) = 0 := by
-  let i : Fin m := ⟨p3BlockNumber t v, by
-    have hpos : 0 < t := by omega
-    have hv := v.isLt
-    apply (Nat.div_lt_iff_lt_mul hpos).2
-    simpa [Nat.mul_comm] using hv⟩
   apply p3SidePotential_coboundary_zero_of_missing_protected
       m t old fresh eligible protectedBlocks hdisjoint W L
-      (Q.erase (old v)) i hprotected
+      (Q.erase (old v)) i hi
   intro w hw hblock
   have hne : old w ≠ old v := (Finset.mem_erase.mp hw).1
   have hsame : w = v :=
