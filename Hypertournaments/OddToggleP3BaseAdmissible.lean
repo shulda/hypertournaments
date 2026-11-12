@@ -47,6 +47,7 @@ theorem p3BaseOldPacket_allRawZero_of_missing_block
       dsimp [tupleVertices, f]
       exact Finset.image_orderEmbOfFin_univ Q hQ
     rw [hf]
+    rfl
   have hmissing' :
       ∀ v ∈ Q.erase (f q), p3BlockNumber t v ≠ i.val := by
     intro v hv
