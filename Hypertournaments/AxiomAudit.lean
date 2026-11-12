@@ -669,3 +669,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3CanonicalSide_admissible_of_fresh_packets
 #print axioms Hypertournaments.p3CanonicalSpan_admissible_of_fresh_packets
 #print axioms Hypertournaments.p3SixEdge_isolated_even_odd_witnesses
+#print axioms Hypertournaments.p3BoolRestriction_fiberEquiv
+#print axioms Hypertournaments.p3BoolRestriction_fibers_same_card

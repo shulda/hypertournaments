@@ -240,3 +240,4 @@ import Hypertournaments.OnePointAgeByNewPackets
 import Hypertournaments.OddToggleP3CanonicalSides
 import Hypertournaments.OddToggleP3CanonicalSideAgeReduction
 import Hypertournaments.OddToggleP3SixEdgeIsolatedWitnesses
+import Hypertournaments.OddToggleP3UniformSourceFibers
