@@ -629,3 +629,4 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3DoubleCone_packet_boundary
 #print axioms Hypertournaments.p3DoubleCone_mixed_parity_of_zero
 #print axioms Hypertournaments.Hyper.p3ActualJoint_mixedParity
+#print axioms Hypertournaments.Hyper.p3ActualJoint_has_mixed_gauge
