@@ -21,7 +21,7 @@ def p3FirstSixEmbedding (m : ℕ) (hm : 6 ≤ m) : Fin 6 ↪ Fin m where
   inj' := by
     intro i j h
     apply Fin.ext
-    exact congrArg Fin.val h
+    exact congrArg (fun x : Fin m => x.val) h
 
 /-- A positive occupancy with two excess vertices has two
 consecutive singleton labels within the first six blocks. -/
