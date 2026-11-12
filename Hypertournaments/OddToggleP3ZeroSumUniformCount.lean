@@ -47,7 +47,7 @@ theorem p3ZeroSumSelectedSource_exact_uniform_count
     2 ^ (Fintype.card
       (Fin (m+1) × (Fin (m+1) → G))) =
       2 ^ ((m+1) * (Fintype.card G)^m) *
-        Fintype.card
+        Nat.card
           {values : (Fin (m+1) × (Fin (m+1) → G)) → Bool //
             (fun qi :
               {q : Fin (m+1) → G // (∑ i : Fin (m+1), q i) = 0} ×
