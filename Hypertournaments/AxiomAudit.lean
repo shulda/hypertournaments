@@ -626,3 +626,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3SidePotential_coboundary_zero_of_two_missing_blocks
 #print axioms Hypertournaments.p3SidePacket_all_raw_facets_zero_of_two_missing_blocks
 #print axioms Hypertournaments.p3SidePacket_allowed_of_two_missing_blocks
+#print axioms Hypertournaments.p3NonSingleton_count_le_excess
+#print axioms Hypertournaments.p3ProtectedTriple_patterns
+#print axioms Hypertournaments.p3ProtectedTriple_singletons_oppositeParity
