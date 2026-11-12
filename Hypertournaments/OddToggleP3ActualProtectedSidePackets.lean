@@ -45,8 +45,8 @@ theorem p3SidePacket_raw_zero_at_protected_singleton
   have hdel :
       tupleVertices (facet f.toEmbedding q) =
         (tupleVertices f.toEmbedding).erase (old v) := by
-    rw [tupleVertices_facet_eq_erase f.toEmbedding q]
-    rw [← hvertex]
+    simpa only [hvertex] using
+      (tupleVertices_facet_eq_erase f.toEmbedding q)
   have hzero :=
     p3SidePotential_coboundary_zero_of_unique_protected
       m t old fresh eligible protectedBlocks hdisjoint
