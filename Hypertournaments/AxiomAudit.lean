@@ -596,3 +596,9 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.Hyper.localIndex_ne_zero_of_oppositeParity_equalRaw
 #print axioms Hypertournaments.Hyper.localIndex_ne_zero_of_oppositeParity_zeroRaw
 #print axioms Hypertournaments.Hyper.localIndex_ne_zero_of_oppositeParity_zeroCanonical
+#print axioms Hypertournaments.p3Coboundary_zero_of_missing_protected
+#print axioms Hypertournaments.p3Coboundary_zero_of_unique_protected
+#print axioms Hypertournaments.p3PotentialSign_zero_of_unique_protected
+#print axioms Hypertournaments.p3PotentialSign_zero_on_unique_packet_block
+#print axioms Hypertournaments.p3PotentialPacket_allowed_of_protected_pair
+#print axioms Hypertournaments.p3PotentialHyper_admissible_of_protected_pairs
