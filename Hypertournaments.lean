@@ -223,3 +223,5 @@ import Hypertournaments.OddToggleP3AllOldFullBlockPair
 import Hypertournaments.OddToggleP3SingletonErasure
 import Hypertournaments.OddToggleP3AllOldMissingBlock
 import Hypertournaments.OddToggleP3BaseFullPacketAge
+import Hypertournaments.OddToggleP3AllZeroRawType
+import Hypertournaments.OddToggleP3BaseAdmissible
