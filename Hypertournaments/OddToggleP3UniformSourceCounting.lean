@@ -45,7 +45,7 @@ theorem p3BoolRestriction_exact_fiber_count
     (target : A → Bool) :
     2 ^ (Fintype.card B) =
       2 ^ (Fintype.card A) *
-        Fintype.card
+        Nat.card
           {values : B → Bool // (fun a : A => values (f a)) = target} := by
   classical
   calc
@@ -64,10 +64,12 @@ theorem p3BoolRestriction_exact_fiber_count
           {values : B → Bool // (fun a : A => values (f a)) = target} := by
             apply Finset.sum_congr rfl
             intro p _
-            exact p3BoolRestriction_fibers_same_card f hf p target
+            have heq := p3BoolRestriction_fibers_same_card f hf p target
+            simpa only [Nat.card_eq_fintype_card] using heq
     _ = 2 ^ (Fintype.card A) *
-        Fintype.card
+        Nat.card
           {values : B → Bool // (fun a : A => values (f a)) = target} := by
+            simp only [Nat.card_eq_fintype_card]
             simp
 
 end Hypertournaments
