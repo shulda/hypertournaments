@@ -676,3 +676,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3SixActualRepeat_false_strict
 #print axioms Hypertournaments.p3SixActualIsolated_global_singleton
 #print axioms Hypertournaments.p3SixRepeat_global_oppositeParity_singletons
+#print axioms Hypertournaments.p3FullTrialSourceIndex_injective
+#print axioms Hypertournaments.p3FullTrialSourceIndex_card
