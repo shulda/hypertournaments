@@ -19,6 +19,9 @@ bad-label count premises are separate.
 
 namespace Hypertournaments
 
+set_option maxRecDepth 8192
+set_option maxHeartbeats 4000000
+
 /-- At most one bad block among four consecutive labels leaves
 some adjacent pair of singleton blocks. -/
 theorem p3FourBlocks_good_consecutive_pair
