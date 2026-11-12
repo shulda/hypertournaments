@@ -24,9 +24,9 @@ theorem p3HyperFromPotential_switchingAllowed
     (f : Fin (4*k+4) ↪o Fin a) :
     localIndex (p3HyperFromPotential (4*k+3) a z) f.toEmbedding ∈
       switchingAllowed (4*k+3) := by
-  apply ((p3HyperFromPotential (4*k+3) a z).
-    p3SwitchingAllowed_iff_coboundary_zero k a f).mpr
-  exact p3HyperFromPotential_rawCoboundary_zero (4*k+3) a z f
+  exact (Hyper.p3SwitchingAllowed_iff_coboundary_zero
+    k a (p3HyperFromPotential (4*k+3) a z) f).mpr
+    (p3HyperFromPotential_rawCoboundary_zero (4*k+3) a z f)
 
 /-- For potential-induced structures the exceptional age
 criterion is JUST the absence of homogeneous packets. -/
@@ -37,8 +37,8 @@ theorem p3HyperFromPotential_toggleAllowed_iff_nonhomogeneous
       toggleZero (switchingAllowed (4*k+3)) ↔
     localIndex (p3HyperFromPotential (4*k+3) a z) f.toEmbedding ≠ 0 := by
   have hpar := p3HyperFromPotential_rawCoboundary_zero (4*k+3) a z f
-  rw [((p3HyperFromPotential (4*k+3) a z).
-    p3ToggleAllowed_iff_coboundary_zero_and_nonhomogeneous k a f)]
+  rw [Hyper.p3ToggleAllowed_iff_coboundary_zero_and_nonhomogeneous
+    k a (p3HyperFromPotential (4*k+3) a z) f]
   simp [hpar]
 
 end Hypertournaments
