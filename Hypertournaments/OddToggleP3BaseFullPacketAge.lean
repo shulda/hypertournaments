@@ -71,6 +71,7 @@ theorem p3BaseHyper_raw_zero_at_singleton
       dsimp [tupleVertices, f]
       exact Finset.image_orderEmbOfFin_univ U hU
     rw [hfvertices]
+    rfl
   change (Hyper.fromOrderedSigns
     (p3PotentialSign (p3BasePotential m t W))).orient
       (facet f.toEmbedding x) = false
