@@ -600,3 +600,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3HyperFromPotential_toggleAllowed_iff_nonhomogeneous
 #print axioms Hypertournaments.p3SixBlocks_good_consecutive_pair
 #print axioms Hypertournaments.p3Consecutive_singleton_blocks_adjacent_positions
+#print axioms Hypertournaments.p3SidePotential_oldOnly
+#print axioms Hypertournaments.p3TwoSidePotentials_agree_oldOnly
+#print axioms Hypertournaments.p3SideOldPart_image
