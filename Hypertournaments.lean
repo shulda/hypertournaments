@@ -229,3 +229,4 @@ import Hypertournaments.OddToggleP3JointPotentialLinks
 import Hypertournaments.OddToggleP3GenuineSideLinkTransfer
 import Hypertournaments.OddToggleP3FinitePotentialLift
 import Hypertournaments.OddToggleP3LiftedSideLinks
+import Hypertournaments.OddToggleP3LiftedSideBaseAgreement
