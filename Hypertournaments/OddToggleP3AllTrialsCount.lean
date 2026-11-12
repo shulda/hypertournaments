@@ -81,19 +81,23 @@ patterns at each trial is (2^(m+1)-2)^|T|. -/
 theorem p3GoodTrials_product_card
     {T : Type*} [Fintype T] (m : ℕ) (hm : 0 < m)
     (choice : T → Bool → Bool) :
-    Fintype.card
+    Nat.card
       {family : T → p3TrialPatternWord m //
         ∀ t : T, family t ∉ p3BadTrialPatternSet m (choice t)} =
       (2^(m+1)-2)^(Fintype.card T) := by
   classical
   calc
-    Fintype.card
+    Nat.card
         {family : T → p3TrialPatternWord m //
           ∀ t : T, family t ∉ p3BadTrialPatternSet m (choice t)} =
-      Fintype.card ((t : T) →
+      Nat.card ((t : T) →
         {word : p3TrialPatternWord m //
           word ∉ p3BadTrialPatternSet m (choice t)}) :=
-        Fintype.card_congr (p3GoodTrialProductEquiv m choice)
+        Nat.card_congr (p3GoodTrialProductEquiv m choice)
+    _ = Fintype.card ((t : T) →
+        {word : p3TrialPatternWord m //
+          word ∉ p3BadTrialPatternSet m (choice t)}) := by
+            simp only [Nat.card_eq_fintype_card]
     _ = ∏ t : T, Fintype.card
           {word : p3TrialPatternWord m //
             word ∉ p3BadTrialPatternSet m (choice t)} := by
