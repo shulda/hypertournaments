@@ -658,3 +658,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3LiftFinPotential_image
 #print axioms Hypertournaments.p3LiftFinPotential_coboundary_image
 #print axioms Hypertournaments.p3SideHyper_jointCanonicalViaLift
+#print axioms Hypertournaments.p3BadPattern_injective
+#print axioms Hypertournaments.p3BadPattern_exact_two
+#print axioms Hypertournaments.p3BadPattern_total_card
