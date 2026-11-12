@@ -598,3 +598,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.Hyper.localIndex_ne_zero_of_oppositeParity_zeroCanonical
 #print axioms Hypertournaments.p3HyperFromPotential_switchingAllowed
 #print axioms Hypertournaments.p3HyperFromPotential_toggleAllowed_iff_nonhomogeneous
+#print axioms Hypertournaments.p3SixBlocks_good_consecutive_pair
+#print axioms Hypertournaments.p3Consecutive_singleton_blocks_adjacent_positions
