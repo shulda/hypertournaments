@@ -45,7 +45,7 @@ theorem onePoint_admissible_of_new_packets
         intro i j hij
         apply f.injective
         apply Fin.ext
-        exact congrArg Fin.val hij
+        exact congrArg (fun v : Fin a => v.val) hij
     }
     have htrans : g.trans (onePointBaseEmbedding a) = f := by
       ext i
