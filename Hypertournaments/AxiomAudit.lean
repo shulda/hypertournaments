@@ -721,3 +721,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3SortedPacket_qMinusOne_image_large
 #print axioms Hypertournaments.p3Sorted_qMinusOne_oppositeParity_singletons
 #print axioms Hypertournaments.p3FiniteUnionBound_of_fraction_bound
+#print axioms Hypertournaments.p3CanonicalFresh_old_enumeration
+#print axioms Hypertournaments.p3CanonicalFresh_old_enumeration_membership
+#print axioms Hypertournaments.p3CanonicalFresh_qMinusOne_singleton_positions
