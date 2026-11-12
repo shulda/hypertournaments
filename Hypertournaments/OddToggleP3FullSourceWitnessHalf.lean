@@ -55,6 +55,5 @@ theorem p3Witness_fullSourceGauge_strict_half
     _ < ((2^m)^N)*2^N := hscaled
     _ = 2^((m+1)*N) := by
       simp only [add_mul, one_mul, pow_add, pow_mul]
-      ring
 
 end Hypertournaments
