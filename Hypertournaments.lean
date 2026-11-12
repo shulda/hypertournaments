@@ -239,3 +239,4 @@ import Hypertournaments.OddToggleP3SixRepeatEdges
 import Hypertournaments.OnePointAgeByNewPackets
 import Hypertournaments.OddToggleP3CanonicalSides
 import Hypertournaments.OddToggleP3CanonicalSideAgeReduction
+import Hypertournaments.OddToggleP3SixEdgeIsolatedWitnesses
