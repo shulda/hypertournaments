@@ -33,6 +33,7 @@ theorem p3AtMostTwoNonSingletonOfTwoExcess
     · simp only [if_pos hb]
       omega
     · simp only [if_neg hb]
+      have hp := hpositive i
       omega
   have hsum :
       (∑ i : Fin m, ((1 : ℕ) + if 1 < occ i then 1 else 0)) ≤
