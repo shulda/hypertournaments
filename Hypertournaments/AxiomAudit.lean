@@ -639,3 +639,8 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3NonSingleton_count_le_excess
 #print axioms Hypertournaments.p3ProtectedTriple_patterns
 #print axioms Hypertournaments.p3ProtectedTriple_singletons_oppositeParity
+#print axioms Hypertournaments.Hyper.p3ActualJoint_mixedParity
+#print axioms Hypertournaments.Hyper.p3ActualJoint_has_mixed_gauge
+#print axioms Hypertournaments.Hyper.p3ActualJoint_gauge_of_side_potentials
+#print axioms Hypertournaments.p3SideHyper_canonicalZMod
+#print axioms Hypertournaments.p3SideHyper_jointCanonicalLinkZMod
