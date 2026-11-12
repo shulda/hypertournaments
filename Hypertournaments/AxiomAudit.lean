@@ -639,3 +639,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3NonSingleton_count_le_excess
 #print axioms Hypertournaments.p3ProtectedTriple_patterns
 #print axioms Hypertournaments.p3ProtectedTriple_singletons_oppositeParity
+#print axioms Hypertournaments.p3SidePacket_raw_zero_at_protected_singleton
+#print axioms Hypertournaments.p3SidePacket_allowed_of_two_protected_singletons
