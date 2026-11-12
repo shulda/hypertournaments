@@ -205,3 +205,5 @@ import Hypertournaments.OddToggleP3CochainSideLinks
 import Hypertournaments.OddToggleP3MixedGaugeAssembly
 import Hypertournaments.OddToggleP3ProtectedFacets
 import Hypertournaments.OddToggleP3PotentialSwitching
+import Hypertournaments.OddToggleP3SixBlockGeometry
+import Hypertournaments.OddToggleP3ExplicitPotentials
