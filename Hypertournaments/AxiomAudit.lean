@@ -709,3 +709,9 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3FullTrialRestriction_surjective
 #print axioms Hypertournaments.p3FullTrialRestriction_exact_fiber_count
 #print axioms Hypertournaments.p3FullTrialRestriction_exact_pattern_ratio
+#print axioms Hypertournaments.p3SidePotential_coboundary_zero_of_missing_singleton
+#print axioms Hypertournaments.p3SidePacket_raw_zero_at_singleton_of_missing_block
+#print axioms Hypertournaments.p3SidePacket_allowed_of_missing_and_two_singletons
+#print axioms Hypertournaments.p3CanonicalFresh_is_last_packet_position
+#print axioms Hypertournaments.p3CanonicalPacket_old_position_ne_fresh
+#print axioms Hypertournaments.p3CanonicalPacket_old_vertex_lift
