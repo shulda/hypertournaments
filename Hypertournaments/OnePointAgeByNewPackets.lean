@@ -1,4 +1,5 @@
 import Hypertournaments.OnePointNonmixedAdmissible
+import Hypertournaments.FinitePresentation
 
 /-!
 # One-point age membership reduces to packets containing its new point
