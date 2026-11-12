@@ -699,3 +699,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3Witness_finiteGaugeUnion_strict_half
 #print axioms Hypertournaments.p3TrialPolarity_iff_badPatterns
 #print axioms Hypertournaments.p3TrialPolarity_exact_finite_frequency
+#print axioms Hypertournaments.p3SidePotential_coboundary_zero_of_missing_singleton
+#print axioms Hypertournaments.p3SidePacket_raw_zero_at_singleton_of_missing_block
+#print axioms Hypertournaments.p3SidePacket_allowed_of_missing_and_two_singletons
