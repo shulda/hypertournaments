@@ -644,3 +644,7 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.Hyper.p3ActualJoint_gauge_of_side_potentials
 #print axioms Hypertournaments.p3SideHyper_canonicalZMod
 #print axioms Hypertournaments.p3SideHyper_jointCanonicalLinkZMod
+#print axioms Hypertournaments.p3FinPreimage_image
+#print axioms Hypertournaments.p3LiftFinPotential_image
+#print axioms Hypertournaments.p3LiftFinPotential_coboundary_image
+#print axioms Hypertournaments.p3SideHyper_jointCanonicalViaLift
