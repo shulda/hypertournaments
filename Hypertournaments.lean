@@ -254,3 +254,4 @@ import Hypertournaments.OddToggleP3FullTrialSources
 import Hypertournaments.OddToggleP3FiniteBernoulliBound
 import Hypertournaments.OddToggleP3WitnessHalfBound
 import Hypertournaments.OddToggleP3TrialPolarityCount
+import Hypertournaments.OddToggleP3SortedImageCard
