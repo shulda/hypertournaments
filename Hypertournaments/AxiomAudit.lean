@@ -658,3 +658,8 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3LiftFinPotential_image
 #print axioms Hypertournaments.p3LiftFinPotential_coboundary_image
 #print axioms Hypertournaments.p3SideHyper_jointCanonicalViaLift
+#print axioms Hypertournaments.p3SidePacket_raw_zero_at_protected_singleton
+#print axioms Hypertournaments.p3SidePacket_allowed_of_two_protected_singletons
+#print axioms Hypertournaments.p3Finset_image_commutes
+#print axioms Hypertournaments.p3CanonicalLiftedSides_agree_old_base
+#print axioms Hypertournaments.p3SixEdgeFlags_two_parity_singletons
