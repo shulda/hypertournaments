@@ -617,3 +617,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3Coboundary_image_injective
 #print axioms Hypertournaments.p3SidePotential_image_old_base
 #print axioms Hypertournaments.p3SideHyper_preserves_base
+#print axioms Hypertournaments.Hyper.p3LocalIndex_central_of_all_raw_zero
+#print axioms Hypertournaments.Hyper.p3ToggleAllowed_of_all_raw_zero
