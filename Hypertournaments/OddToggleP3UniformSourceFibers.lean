@@ -28,8 +28,12 @@ noncomputable def p3BoolRestriction_fiberEquiv
     {values : B → Bool // (fun a : A => values (f a)) = p} ≃
       {values : B → Bool // (fun a : A => values (f a)) = q} := by
   classical
-  obtain ⟨shift, hshift⟩ :=
+  let hsurj :=
     p3BoolRestriction_surjective f hf (fun a : A => p a ^^ q a)
+  let shift : B → Bool := Classical.choose hsurj
+  have hshift :
+      (fun a : A => shift (f a)) = (fun a : A => p a ^^ q a) :=
+    Classical.choose_spec hsurj
   have hs (a : A) : shift (f a) = p a ^^ q a :=
     congrFun hshift a
   have hforward (v : {values : B → Bool //
@@ -66,11 +70,11 @@ theorem p3BoolRestriction_fibers_same_card
     {A B : Type*} [Fintype A] [Fintype B]
     (f : A → B) (hf : Function.Injective f)
     (p q : A → Bool) :
-    Fintype.card
+    Nat.card
       {values : B → Bool // (fun a : A => values (f a)) = p} =
-    Fintype.card
+    Nat.card
       {values : B → Bool // (fun a : A => values (f a)) = q} := by
   classical
-  exact Fintype.card_congr (p3BoolRestriction_fiberEquiv f hf p q)
+  exact Nat.card_congr (p3BoolRestriction_fiberEquiv f hf p q)
 
 end Hypertournaments
