@@ -217,3 +217,4 @@ import Hypertournaments.OddToggleP3FiveBlockException
 import Hypertournaments.OddToggleP3TwoMissingBlocks
 import Hypertournaments.OddToggleP3SparseSidePackets
 import Hypertournaments.OddToggleP3DoubleConeParity
+import Hypertournaments.OddToggleP3ActualJointParity
