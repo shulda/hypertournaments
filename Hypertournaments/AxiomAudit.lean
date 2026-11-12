@@ -644,3 +644,13 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.Hyper.p3ActualJoint_gauge_of_side_potentials
 #print axioms Hypertournaments.p3SideHyper_canonicalZMod
 #print axioms Hypertournaments.p3SideHyper_jointCanonicalLinkZMod
+#print axioms Hypertournaments.p3AllOldFullBlocks_two_singletons_oppositeParity
+#print axioms Hypertournaments.p3BasePotential_zero_of_missing_block
+#print axioms Hypertournaments.p3SidePotential_coboundary_zero_old_missing_block
+#print axioms Hypertournaments.p3AllOldSidePacket_all_raw_facets_zero_of_missing_block
+#print axioms Hypertournaments.p3BasePotential_coboundary_zero_missing_block
+#print axioms Hypertournaments.p3BaseHyper_raw_zero_at_singleton
+#print axioms Hypertournaments.p3BaseFullOldPacket_allowed
+#print axioms Hypertournaments.p3BaseOldPacket_allRawZero_of_missing_block
+#print axioms Hypertournaments.p3BaseOldPacket_allowed_of_missing_block
+#print axioms Hypertournaments.p3BaseHyper_admissible
