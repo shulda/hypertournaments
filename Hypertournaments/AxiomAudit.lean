@@ -678,3 +678,7 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3BoolRestriction_badEventSigmaEquiv
 #print axioms Hypertournaments.p3BoolRestriction_badEvent_card
 #print axioms Hypertournaments.p3BoolRestriction_badEvent_exact_ratio
+#print axioms Hypertournaments.p3BadPattern_injective
+#print axioms Hypertournaments.p3BadPattern_exact_two
+#print axioms Hypertournaments.p3BadPattern_total_card
+#print axioms Hypertournaments.p3BadTrial_exact_finite_frequency
