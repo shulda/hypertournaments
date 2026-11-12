@@ -699,3 +699,10 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3Witness_finiteGaugeUnion_strict_half
 #print axioms Hypertournaments.p3TrialPolarity_iff_badPatterns
 #print axioms Hypertournaments.p3TrialPolarity_exact_finite_frequency
+#print axioms Hypertournaments.p3GaugeDomain_card
+#print axioms Hypertournaments.p3BoolGaugeChoices_card
+#print axioms Hypertournaments.p3ZModGaugeChoices_card
+#print axioms Hypertournaments.p3GaugeRestrict_surjective
+#print axioms Hypertournaments.p3GaugeRestrictExtend_coboundary
+#print axioms Hypertournaments.p3GoodTrialPatterns_card
+#print axioms Hypertournaments.p3GoodTrials_product_card
