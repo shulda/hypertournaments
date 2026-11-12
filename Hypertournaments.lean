@@ -233,3 +233,4 @@ import Hypertournaments.OddToggleP3BaseFullPacketAge
 import Hypertournaments.OddToggleP3BaseAdmissible
 import Hypertournaments.OddToggleP3FinitePotentialLift
 import Hypertournaments.OddToggleP3LiftedSideLinks
+import Hypertournaments.OddToggleP3MonotoneIsolatedBlocks
