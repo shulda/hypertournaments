@@ -211,3 +211,5 @@ import Hypertournaments.OddToggleP3ProtectedCoverage
 import Hypertournaments.OddToggleP3ProtectedAgeCriterion
 import Hypertournaments.OddToggleP3ExplicitSideSupport
 import Hypertournaments.OddToggleP3BasePreservation
+import Hypertournaments.OddToggleP3AllOldMissingBlock
+import Hypertournaments.OddToggleP3AllOldMissingAge
