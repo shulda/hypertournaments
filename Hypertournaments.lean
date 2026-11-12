@@ -231,3 +231,4 @@ import Hypertournaments.OddToggleP3AllOldFullBlockPair
 import Hypertournaments.OddToggleP3AllOldMissingBlock
 import Hypertournaments.OddToggleP3BaseFullPacketAge
 import Hypertournaments.OddToggleP3BaseAdmissible
+import Hypertournaments.OddToggleP3SixRepeatEdges
