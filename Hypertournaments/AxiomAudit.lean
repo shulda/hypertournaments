@@ -676,3 +676,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3SixActualRepeat_false_strict
 #print axioms Hypertournaments.p3SixActualIsolated_global_singleton
 #print axioms Hypertournaments.p3SixRepeat_global_oppositeParity_singletons
+#print axioms Hypertournaments.p3Bernoulli_Mtrials_strict_half
+#print axioms Hypertournaments.p3Bernoulli_Kgroups_integer
+#print axioms Hypertournaments.p3Bernoulli_gauge_union_strict_half
