@@ -613,3 +613,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3SidePotential_nonzero_covers_protected
 #print axioms Hypertournaments.p3SidePotential_coboundary_zero_of_missing_protected
 #print axioms Hypertournaments.p3SidePotential_coboundary_zero_of_unique_protected
+#print axioms Hypertournaments.p3FiveBlocks_goodAdjacent_or_alternating
+#print axioms Hypertournaments.p3FiveBlockAlternating_singletons_oppositeParity
