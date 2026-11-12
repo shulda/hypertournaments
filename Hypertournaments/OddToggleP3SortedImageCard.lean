@@ -73,7 +73,7 @@ theorem p3SortedPacket_image_card_ge_of_all_but_one
     m-1 = otherBlocks.card := hOtherCard.symm
     _ = (otherBlocks.image (fun i : Fin m => i.val)).card :=
       hOtherImage.symm
-    _ ≤ (Finset.univ : Finset (Fin N)).image B |>.card :=
+    _ ≤ ((Finset.univ : Finset (Fin N)).image B).card :=
       Finset.card_le_card hSubset
 
 /-- In the q=m-1 one-fresh side-packet case, N=m+1 old vertices
