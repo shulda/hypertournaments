@@ -48,9 +48,21 @@ theorem p3AllOldFullBlocks_two_singletons_oppositeParity
   let j : Fin m := ⟨2*q.val+1, by have hlt := q.isLt; omega⟩
   have hstep : j.val = i.val + 1 := rfl
   have hi : p3BlockOccupancy m t U i = 1 := by
-    simpa only [occ, p3FirstSixEmbedding, i] using hq0
+    have heq :
+        p3FirstSixEmbedding m hm
+          (⟨2*q.val, by omega⟩ : Fin 6) = i := by
+      apply Fin.ext
+      rfl
+    rw [heq] at hq0
+    exact hq0
   have hj : p3BlockOccupancy m t U j = 1 := by
-    simpa only [occ, p3FirstSixEmbedding, j] using hq1
+    have heq :
+        p3FirstSixEmbedding m hm
+          (⟨2*q.val+1, by omega⟩ : Fin 6) = j := by
+      apply Fin.ext
+      rfl
+    rw [heq] at hq1
+    exact hq1
   let B : Fin (m+2) → ℕ :=
     fun x => p3BlockNumber t (U.orderEmbOfFin hU x)
   have hmono : Monotone B :=
