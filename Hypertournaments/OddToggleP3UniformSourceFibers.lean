@@ -34,14 +34,14 @@ noncomputable def p3BoolRestriction_fiberEquiv
   have hshift :
       (fun a : A => shift (f a)) = (fun a : A => p a ^^ q a) :=
     Classical.choose_spec hsurj
-  have hs (a : A) : shift (f a) = p a ^^ q a :=
+  have hs (a : A) : shift (f a) = (p a ^^ q a) :=
     congrFun hshift a
   have hforward (v : {values : B → Bool //
         (fun a : A => values (f a)) = p}) :
       (fun a : A => (p3BoolTranslate shift v.1) (f a)) = q := by
     funext a
     have hv : v.1 (f a) = p a := congrFun v.2 a
-    change v.1 (f a) ^^ shift (f a) = q a
+    change (v.1 (f a) ^^ shift (f a)) = q a
     rw [hv, hs a]
     cases hp : p a <;> cases hq : q a <;> simp [hp, hq]
   have hreverse (v : {values : B → Bool //
@@ -49,7 +49,7 @@ noncomputable def p3BoolRestriction_fiberEquiv
       (fun a : A => (p3BoolTranslate shift v.1) (f a)) = p := by
     funext a
     have hv : v.1 (f a) = q a := congrFun v.2 a
-    change v.1 (f a) ^^ shift (f a) = p a
+    change (v.1 (f a) ^^ shift (f a)) = p a
     rw [hv, hs a]
     cases hp : p a <;> cases hq : q a <;> simp [hp, hq]
   refine
