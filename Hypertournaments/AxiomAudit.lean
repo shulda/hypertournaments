@@ -596,3 +596,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.Hyper.localIndex_ne_zero_of_oppositeParity_equalRaw
 #print axioms Hypertournaments.Hyper.localIndex_ne_zero_of_oppositeParity_zeroRaw
 #print axioms Hypertournaments.Hyper.localIndex_ne_zero_of_oppositeParity_zeroCanonical
+#print axioms Hypertournaments.p3SidePotential_oldOnly
+#print axioms Hypertournaments.p3TwoSidePotentials_agree_oldOnly
+#print axioms Hypertournaments.p3SideOldPart_image
