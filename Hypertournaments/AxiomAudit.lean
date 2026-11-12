@@ -724,3 +724,9 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3CanonicalFresh_old_enumeration
 #print axioms Hypertournaments.p3CanonicalFresh_old_enumeration_membership
 #print axioms Hypertournaments.p3CanonicalFresh_qMinusOne_singleton_positions
+#print axioms Hypertournaments.p3ActualOneFresh_nonSingleton_le_one
+#print axioms Hypertournaments.p3ActualOneFresh_no_two_double_blocks
+#print axioms Hypertournaments.p3ActualOneFresh_gap_sum_eq_one
+#print axioms Hypertournaments.p3ActualOneFresh_occ_le_two
+#print axioms Hypertournaments.p3ActualOneFresh_three_blocks_le_four
+#print axioms Hypertournaments.p3ActualOneFresh_protectedTriple_numeric_parity
