@@ -699,3 +699,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3Witness_finiteGaugeUnion_strict_half
 #print axioms Hypertournaments.p3TrialPolarity_iff_badPatterns
 #print axioms Hypertournaments.p3TrialPolarity_exact_finite_frequency
+#print axioms Hypertournaments.p3SixRepeat_le_two_of_image_card
+#print axioms Hypertournaments.p3SixDistinctLabels_oppositeParity_singletons
