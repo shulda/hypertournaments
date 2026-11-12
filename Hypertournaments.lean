@@ -243,3 +243,4 @@ import Hypertournaments.OddToggleP3SixEdgeIsolatedWitnesses
 import Hypertournaments.OddToggleP3MonotoneIsolatedBlocks
 import Hypertournaments.OddToggleP3BadPatternCount
 import Hypertournaments.OddToggleP3SixRepeatGlobalSingletons
+import Hypertournaments.OddToggleP3FullTrialSources
