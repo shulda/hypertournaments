@@ -259,3 +259,5 @@ import Hypertournaments.OddToggleP3AllTrialsCount
 import Hypertournaments.OddToggleP3FullSourceUniform
 import Hypertournaments.OddToggleP3MissingSingletonPacket
 import Hypertournaments.OddToggleP3FreshPacketOrder
+import Hypertournaments.OddToggleP3FreshOldEnum
+import Hypertournaments.OddToggleP3FreshOldMembership
