@@ -663,3 +663,8 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3Finset_image_commutes
 #print axioms Hypertournaments.p3CanonicalLiftedSides_agree_old_base
 #print axioms Hypertournaments.p3SixEdgeFlags_two_parity_singletons
+#print axioms Hypertournaments.onePoint_admissible_of_new_packets
+#print axioms Hypertournaments.p3CanonicalSide_preserves_base
+#print axioms Hypertournaments.p3CanonicalSpan_preserves_base
+#print axioms Hypertournaments.p3CanonicalSide_admissible_of_fresh_packets
+#print axioms Hypertournaments.p3CanonicalSpan_admissible_of_fresh_packets
