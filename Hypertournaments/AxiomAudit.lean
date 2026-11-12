@@ -626,3 +626,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3SidePotential_coboundary_zero_of_two_missing_blocks
 #print axioms Hypertournaments.p3SidePacket_all_raw_facets_zero_of_two_missing_blocks
 #print axioms Hypertournaments.p3SidePacket_allowed_of_two_missing_blocks
+#print axioms Hypertournaments.p3FourBlocks_good_consecutive_pair
+#print axioms Hypertournaments.p3EightBlocks_good_consecutive_pair
