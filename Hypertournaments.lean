@@ -249,3 +249,7 @@ import Hypertournaments.OddToggleP3ZeroSumUniformCount
 import Hypertournaments.OddToggleP3FiniteBadEventCount
 import Hypertournaments.OddToggleP3BadTrialCount
 import Hypertournaments.OddToggleP3FiniteUnionBound
+
+import Hypertournaments.OddToggleP3FullTrialSources
+import Hypertournaments.OddToggleP3FiniteBernoulliBound
+import Hypertournaments.OddToggleP3WitnessHalfBound
