@@ -639,3 +639,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3NonSingleton_count_le_excess
 #print axioms Hypertournaments.p3ProtectedTriple_patterns
 #print axioms Hypertournaments.p3ProtectedTriple_singletons_oppositeParity
+#print axioms Hypertournaments.p3FinPreimage_image
+#print axioms Hypertournaments.p3LiftFinPotential_image
+#print axioms Hypertournaments.p3LiftFinPotential_coboundary_image
