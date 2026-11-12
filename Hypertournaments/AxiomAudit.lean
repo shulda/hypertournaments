@@ -603,3 +603,13 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3SidePotential_oldOnly
 #print axioms Hypertournaments.p3TwoSidePotentials_agree_oldOnly
 #print axioms Hypertournaments.p3SideOldPart_image
+#print axioms Hypertournaments.p3Coboundary_zero_of_missing_protected
+#print axioms Hypertournaments.p3Coboundary_zero_of_unique_protected
+#print axioms Hypertournaments.p3PotentialSign_zero_of_unique_protected
+#print axioms Hypertournaments.p3PotentialSign_zero_on_unique_packet_block
+#print axioms Hypertournaments.p3PotentialPacket_allowed_of_protected_pair
+#print axioms Hypertournaments.p3PotentialHyper_admissible_of_protected_pairs
+#print axioms Hypertournaments.p3BlockOccupancy_one_witness
+#print axioms Hypertournaments.p3SidePotential_nonzero_covers_protected
+#print axioms Hypertournaments.p3SidePotential_coboundary_zero_of_missing_protected
+#print axioms Hypertournaments.p3SidePotential_coboundary_zero_of_unique_protected
