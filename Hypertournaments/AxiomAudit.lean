@@ -803,3 +803,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3RealSelectedCanonicalSide_link_eq_globalSources
 #print axioms Hypertournaments.p3RealSelectedCanonicalLinks_sum_eq_allLinkSources
 #print axioms Hypertournaments.p3RealSelectedTwoSideFacet_eq_linkSource
+#print axioms Hypertournaments.p3ActualSelectedPuncture_card
+#print axioms Hypertournaments.p3ActualSelectedGauge_has_finite_support
+#print axioms Hypertournaments.p3ActualSelectedBoolGauge_count
