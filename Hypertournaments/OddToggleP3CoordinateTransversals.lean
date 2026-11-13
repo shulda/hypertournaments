@@ -61,7 +61,7 @@ theorem p3BlockCoordinateVertex_injective_coordinate
   have hv := congrArg Fin.val h
   change i.val*t+u.val = i.val*t+v.val at hv
   have heq : u.val = v.val := by omega
-  exact (ZMod.val_injective t) heq
+  exact ZMod.val_injective heq
 
 /-- A concrete old finite set selected by one cyclic coordinate
 in every consecutive old block. -/
