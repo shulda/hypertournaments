@@ -835,3 +835,4 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.Hyper.orderedFacet_orient_eq_canonical_erase
 #print axioms Hypertournaments.p3ActualSelectedRightEndpoint_badPattern_iff
 #print axioms Hypertournaments.p3ActualSelectedGaugeShift_complete
+#print axioms Hypertournaments.Hyper.p3Switching_alternating_prefix_right_forbidden
