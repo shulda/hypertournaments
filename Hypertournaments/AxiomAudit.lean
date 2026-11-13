@@ -750,3 +750,7 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3LowerProtectedTriple
 #print axioms Hypertournaments.p3UpperProtectedTriple
 #print axioms Hypertournaments.p3CanonicalSide_allowed_qAll_fresh_packet
+#print axioms Hypertournaments.p3BlockCoordinateVertex_blockNumber
+#print axioms Hypertournaments.p3BlockCoordinateVertex_injective_coordinate
+#print axioms Hypertournaments.p3CoordinateTransversal_vertex_injective
+#print axioms Hypertournaments.p3CoordinateTransversal_card
