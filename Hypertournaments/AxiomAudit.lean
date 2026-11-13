@@ -849,3 +849,4 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3FullSource_exists_oddLink_and_shifted_badTrial_for_all_gauges
 #print axioms Hypertournaments.p3ShiftedBadTrialPattern_mem_iff
 #print axioms Hypertournaments.p3NotShiftedGoodSelected_has_bad_trial
+#print axioms Hypertournaments.p3RealOddLink_forces_side_tuple_disagreement
