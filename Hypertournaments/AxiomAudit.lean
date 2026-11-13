@@ -805,3 +805,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3RealSelectedTwoSideFacet_eq_linkSource
 #print axioms Hypertournaments.Hyper.orient_disagree_of_canonicalSignTable_disagree
 #print axioms Hypertournaments.p3RealSelectedCanonicalLinks_mismatch_half
+#print axioms Hypertournaments.p3BlockCoordinateVertex_strictMono
+#print axioms Hypertournaments.p3CoordinateTransversal_orderEmbOfFin
