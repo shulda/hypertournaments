@@ -76,7 +76,7 @@ theorem p3ActualSelectedParentSet_card
   calc
     (insert l (insert r (Q.image old))).card =
         (insert r (Q.image old)).card + 1 := by simp [hl]
-    _ = (Q.image old).card + 2 := by simp [hr]; omega
+    _ = (Q.image old).card + 2 := by simp [hr]
     _ = 4*k+4 := by omega
 
 /-- Removing the true old vertex from block i of a selected
