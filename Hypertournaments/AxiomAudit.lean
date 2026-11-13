@@ -788,3 +788,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3RealLinkFromSources_selected
 #print axioms Hypertournaments.p3ActualSelectedPuncture_eligible_iff
 #print axioms Hypertournaments.p3RealSelectedPuncture_linkValue
+#print axioms Hypertournaments.p3RealSelectedLink_coboundary_eq_sourceSum
+#print axioms Hypertournaments.p3RealSelectedCanonicalSide_link_eq_globalSources
