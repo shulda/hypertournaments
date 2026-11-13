@@ -88,7 +88,8 @@ theorem p3ActualSelectedParent_increasing_tuple
     exact Fin.castSucc_lt_last _
   have hMonoL : StrictMono (Fin.snoc fOld l) :=
     p3StrictMono_snoc fOld l hOldMono hBelowL
-  have hBelowR : ∀ j : Fin (m+1), Fin.snoc fOld l j < r := by
+  have hBelowR : ∀ j : Fin (m+1),
+      (Fin.snoc fOld l : Fin (m+1) → Fin (a+2)) j < r := by
     intro j
     rcases j.eq_castSucc_or_eq_last with ⟨i,rfl⟩ | rfl
     · simpa only [Fin.snoc_castSucc] using
