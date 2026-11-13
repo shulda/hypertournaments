@@ -105,9 +105,9 @@ theorem Hyper.p3ActualSelectedJoint_has_boolean_source_shift
       ∀ (q : p3SelectedTrials (ZMod t) (4*k+1))
         (i : Fin (4*k+2)),
         E.canonicalSignTable (p3ActualSelectedMixedSet k t ht q i) =
-          bits (p3FullTrialSourceIndex (4*k+1) (q,Sum.inl i)) ^^
-          p3ZMod2ToBool (coboundary u
-            (p3ActualPunctureSubsetIndex (4*k+1) t ht (q,i))) := by
+          (bits (p3FullTrialSourceIndex (4*k+1) (q,Sum.inl i)) ^^
+           p3ZMod2ToBool (coboundary u
+             (p3ActualPunctureSubsetIndex (4*k+1) t ht (q,i)))) := by
   obtain ⟨u,hu⟩ :=
     E.p3ActualSelectedJoint_has_independent_source_gauge
       k t ht root eligible bits hE hL hR
