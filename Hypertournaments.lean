@@ -282,3 +282,5 @@ import Hypertournaments.OddToggleP3CanonicalFreshQAll
 import Hypertournaments.OddToggleP3OccupancyTrichotomy
 import Hypertournaments.OddToggleP3Halves
 import Hypertournaments.OddToggleP3QAllActualAge
+import Hypertournaments.OddToggleP3JointOrderEmbeddings
+import Hypertournaments.OddToggleP3CanonicalJointPacketImages
