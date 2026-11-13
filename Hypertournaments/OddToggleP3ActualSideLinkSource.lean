@@ -113,6 +113,13 @@ theorem p3CanonicalSide_link_on_full_transversal
   have hContract : ∀ U : Finset (Fin a),
       (contractAt fresh z) (U.image old) = link U := by
     intro U
+    have hnot : fresh ∉ U.image old := by
+      intro hv
+      obtain ⟨v, _, heq⟩ := Finset.mem_image.mp hv
+      exact Fin.castSucc_ne_last v heq
+    change (if fresh ∈ U.image old then 0 else
+      z (insert fresh (U.image old))) = link U
+    rw [if_neg hnot]
     exact p3CanonicalSidePotential_fresh_old_image
       m t eligible W L U
   have hCoboundary :
