@@ -284,3 +284,4 @@ import Hypertournaments.OddToggleP3Halves
 import Hypertournaments.OddToggleP3QAllActualAge
 import Hypertournaments.OddToggleP3CoordinateTransversals
 import Hypertournaments.OddToggleP3CoordinateTransversalFacts
+import Hypertournaments.OddToggleP3CoordinatePunctures
