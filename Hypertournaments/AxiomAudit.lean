@@ -781,3 +781,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3CoordinateTransversal_erase_vertex
 #print axioms Hypertournaments.p3CoordinatePuncture_isEligibleMissing
 #print axioms Hypertournaments.p3ActualPunctureSourceIndex_injective
+#print axioms Hypertournaments.p3ActualPunctureSubset_occupancies
+#print axioms Hypertournaments.p3ActualPunctureSubsetIndex_injective
