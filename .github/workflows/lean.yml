@@ -1,0 +1,149 @@
+name: Lean CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.head.ref || github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Check complete source coverage and specific imports
+        run: python3 tools/project_sources.py
+      - name: Restore pinned Mathlib source and build cache
+        id: mathlib-package-cache
+        uses: actions/cache/restore@v5
+        with:
+          path: .lake/packages
+          key: mathlib-packages-v2-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain', 'lakefile.toml', 'lake-manifest.json') }}
+      - name: Cache Lean toolchain
+        id: lean-cache
+        uses: actions/cache/restore@v5
+        with:
+          path: ~/.elan/toolchains
+          key: lean-toolchain-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain') }}
+      - name: Install elan from Ubuntu packages
+        shell: bash
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes elan zstd
+          elan --version
+      - name: Reject placeholders and custom axioms
+        shell: bash
+        run: |
+          if grep -R -nE '(^|[[:space:]])(sorry|admit)([[:space:]]|$)|^[[:space:]]*axiom[[:space:]]' --include='*.lean' Hypertournaments Hypertournaments.lean; then
+            echo "Unfinished proof or custom axiom found."
+            exit 1
+          fi
+      - name: Install pinned Lean with checked fallback mirror
+        shell: bash
+        run: |
+          set -euo pipefail
+          ok=0
+          if [ -x "$HOME/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean" ]; then
+            echo "Pinned toolchain already restored from cache"
+            ok=1
+          fi
+          if [ "$ok" != 1 ]; then
+          for attempt in 1 2 3; do
+            if elan toolchain install leanprover/lean4:v4.34.1; then
+              ok=1
+              break
+            fi
+            sleep $((attempt * 4))
+          done
+          fi
+          if [ "$ok" != 1 ]; then
+            echo "Official CDN unavailable; verifying exact official release SHA-256 from fallback mirror"
+            curl -fL --retry 3 --retry-all-errors --retry-delay 5 \
+              --connect-timeout 30 --max-time 900 \
+              'https://downloads.sourceforge.net/project/lean-4.mirror/v4.34.1/lean-4.34.1-linux.tar.zst' \
+              -o /tmp/lean-4.34.1-linux.tar.zst
+            echo '47bf4bbd78f70c2e9670598ab7124d92b6efb7330ff33e5fbb4030f6fd72e4e4  /tmp/lean-4.34.1-linux.tar.zst' | sha256sum -c -
+            mkdir -p "$HOME/.elan/toolchains/leanprover--lean4---v4.34.1"
+            tar --zstd -xf /tmp/lean-4.34.1-linux.tar.zst \
+              -C "$HOME/.elan/toolchains/leanprover--lean4---v4.34.1" --strip-components=1
+          fi
+          elan which lean
+          elan which lake
+      - name: Persist verified Lean toolchain
+        if: steps.lean-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v5
+        with:
+          path: ~/.elan/toolchains
+          key: lean-toolchain-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain') }}
+      - name: Expose pinned Lean binaries
+        shell: bash
+        run: |
+          echo "$(dirname "$(elan which lean)")" >> "$GITHUB_PATH"
+      - name: Resolve pinned Mathlib dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f lake-manifest.json
+          lake env true
+          git diff --exit-code -- lake-manifest.json
+      - name: Download precompiled Mathlib cache
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t roots < <(python3 tools/project_sources.py --mathlib-roots)
+          lake exe cache get "${roots[@]}"
+      - name: Cache verified Mathlib packages before proof checking
+        if: steps.mathlib-package-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v5
+        with:
+          path: .lake/packages
+          key: mathlib-packages-v2-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain', 'lakefile.toml', 'lake-manifest.json') }}
+      - name: Kernel-check all Lean modules
+        run: lake --rehash build
+      - name: Audit exported declarations
+        shell: bash
+        run: |
+          set -euo pipefail
+          lake env lean Hypertournaments/AxiomAudit.lean | tee /tmp/axioms.log
+          if grep -E 'sorryAx|unknown axiom|unexpected axiom' /tmp/axioms.log; then
+            echo "Unexpected axiom in proof output"
+            exit 1
+          fi
+      - name: Audit every project declaration against the standard axiom allowlist
+        shell: bash
+        run: |
+          set -euo pipefail
+          audit_dir="$(mktemp -d "$RUNNER_TEMP/hypertournaments-axiom-audit.XXXXXX")"
+          trap 'rm -rf "$audit_dir"' EXIT
+          git clone --depth 1 --branch v0.1.2 https://github.com/leanprover-community/axiom-audit.git "$audit_dir"
+          test "$(git -C "$audit_dir" rev-parse HEAD)" = 46024e005996495c65ef609368e11ab39c4222e3
+          cp lean-toolchain "$audit_dir/"
+          (cd "$audit_dir" && lake build)
+          lake env "$audit_dir/.lake/build/bin/axiom-audit" \
+            --root Hypertournaments --modules Hypertournaments \
+            --allow propext,Classical.choice,Quot.sound --json > axiom-audit.json
+          python3 - <<'PY'
+          import json
+          with open('axiom-audit.json') as source:
+              report = json.load(source)
+          assert report['ok'] is True
+          assert report['audited'] > 0
+          assert report['violations'] == []
+          assert set(report['axiomsUsed']) <= {'propext', 'Classical.choice', 'Quot.sound'}
+          print(json.dumps(report))
+          PY
+      - name: Preserve the exact-head axiom audit
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: axiom-audit-${{ github.event.pull_request.head.sha || github.sha }}
+          path: axiom-audit.json

@@ -1,0 +1,1564 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,longtable,array,multicol,enumitem}
+\usepackage[hidelinks]{hyperref}
+\allowdisplaybreaks
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\F}{\mathbb F_2}
+\newcommand{\K}{\mathcal K}
+\newcommand{\E}{\mathcal E}
+\newcommand{\Forb}{\operatorname{Forb}}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\bit}[1]{\mathtt{#1}}
+\title{Negative amalgamation results for $(n+1)$-constrained hypertournaments\\\large Mathematical audit and Lean-oriented technical note}
+\author{ChatGPT (GPT-6)\\\small AI-generated working note for Mat\v ej Kone\v cn\'y\\\small Not independently refereed or formally verified}
+\date{6 November 2026 --- audit draft 3}
+\begin{document}
+\maketitle
+\begin{abstract}
+We give a detailed, self-contained account of the \emph{negative}
+$(n+1)$-constrained amalgamation classification for finite
+$n$-hypertournaments, $n\ge4$. No positive amalgamation theorem is used.
+The proof has explicit non-amalgamable seeds, a one-coordinate cone,
+two type-shifting suspensions, and two uniform obstruction families.
+The two suspensions now share one general reflection lemma, and the
+probabilistic construction includes an explicit finite parameter bound.
+Two finite seed calculations are accompanied by exhaustive, independent
+checking scripts; the other arguments are mathematical proofs rather
+than computer assertions.
+This is an AI-written mathematical working note, checked in detail but
+not independently refereed or Lean-verified. Its intended uses are
+human mathematical review and subsequent formalisation. The separate
+five-constrained ternary census and its electronic certificates are
+not reproduced here.
+\end{abstract}
+\tableofcontents
+
+\section{Conventions and negative classification statements}\label{sec:statement}
+An \emph{orientation} of an $n$-set is an ordering of its vertices
+up to even permutation. An \emph{$n$-hypertournament} $B$ assigns one
+of its two orientations to every $n$-element subset of a finite vertex
+set $V(B)$. Embeddings are injections preserving these orientations.
+The induced substructure on $U\subseteq V(B)$ is given by restriction.
+
+\paragraph{Amalgamation conventions.}
+An \emph{ordinary amalgam} of embeddings $A\hookrightarrow B_\ell$
+and $A\hookrightarrow B_r$ consists of a hypertournament $C$ and
+embeddings $f_\ell:B_\ell\hookrightarrow C$,
+$f_r:B_r\hookrightarrow C$ agreeing on $A$.
+The property \emph{AP} means that every such diagram has an amalgam.
+The amalgam is \emph{strong} if the two images intersect exactly in
+(the image of) $A$. For a \emph{one-point diagram}
+$B_\ell=A\cup\{\ell\}$ and $B_r=A\cup\{r\}$, the two new
+vertices of any ordinary amalgam are either identified or remain
+distinct. In the second case, restriction to the union of the images
+produces a strong amalgam on $A\cup\{\ell,r\}$; it is therefore
+enough to exclude these two possibilities. Our sign computations
+always use one common auxiliary order on that union.
+
+\paragraph{Normalized facet packets.}
+Fix an auxiliary linear order, which is \emph{not} part of the
+language. Write $s_B(F)\in\{+1,-1\}$ for the sign of the chosen
+orientation of $F$, relative to the increasing enumeration. If
+$X=\{x_0<\cdots<x_n\}$, define
+\[
+ t_i(X)=(-1)^i s_B(X\setminus\{x_i\}),\qquad
+ d_n(X)=\min\bigl(\#\{i:t_i=+1\},\#\{i:t_i=-1\}\bigr).
+\]
+Changing the auxiliary order permutes the normalized signs and may
+reverse all of them simultaneously. Consequently $d_n$ is intrinsic.
+Conversely, two $(n+1)$-vertex hypertournaments have the same $d_n$
+if and only if they are isomorphic: permutations of the facets act on
+normalized packets by signed permutations, and an odd permutation
+interchanging two equally signed coordinates can adjust the parity
+of the relabelling (there are always at least two such coordinates).
+The isomorphism types are thus $T_{n,d}$ for
+$0\le d\le q=\lfloor(n+1)/2\rfloor$. We write
+$H_{n+1}=T_{n,0}$ and $C_{n+1}=T_{n,q}$.
+
+For a set $S$ of local types, let $\K^{(n)}_S$ consist of finite
+$n$-hypertournaments $B$ such that every $(n+1)$-subset of $V(B)$
+has one of the types in $S$. A packet is \emph{central} when it has
+type $T_{n,q}$ and \emph{homogeneous} when it has type $T_{n,0}$.
+
+For context only, the finite $n$-uniform Ramsey theorem shows that $\K^{(n)}_S$ is unbounded if and
+only if $T_{n,q}\in S$: after colouring the increasing $n$-sets by their
+orientation, any sufficiently large structure contains an
+$(n+1)$-set of constant colour and hence of central type; conversely,
+the increasing orientation on arbitrarily many vertices realizes only
+central types. \emph{This Ramsey fact is not used in the negative
+implications: throughout the proof, the hypothesis $T_{n,q}\in S$
+is taken explicitly.}
+
+\begin{theorem}[Necessary conditions for AP in the $(n+1)$-constrained case]
+\label{thm:classification}
+Let $n\ge4$, set $q=\lfloor(n+1)/2\rfloor$, and assume that
+$T_{n,q}\in S$ (equivalently, $\K^{(n)}_S$ is unbounded).
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=15mm]
+\item If $n$ is even and $T_{n,q-1}\notin S$, then
+$\K^{(n)}_S$ fails ordinary AP.
+\item If $n\ge5$ is odd, $T_{n,q-1}\notin S$, and
+\[
+ S\ne E_n:=\{T_{n,d}: d\equiv q\pmod2\},
+\]
+then $\K^{(n)}_S$ fails ordinary AP.
+\end{enumerate}
+In each negative case a one-point-versus-one-point
+non-amalgamation diagram exists, with the possibility of identifying
+the new vertices explicitly excluded.
+\end{theorem}
+
+The families outside the conclusion are listed solely as \emph{exceptions
+to the negative theorem}; their positive AP/SAP proofs belong to the
+companion manuscript~\cite{catalogue} and are not reproduced here.
+For arities $n=2,3$ there is no negative case in the unbounded
+$(n+1)$-constrained catalogue.
+
+For clarity we keep two distinct conventions for Boolean data. In the
+arity-four and arity-five seeds, $x=1$ means \emph{positive} sign;
+in the parity constructions below, $e=0$ means positive sign.
+The distinction is explicitly restated when needed, and all arithmetic
+on $\mathbb F_2$ is modulo $2$.
+
+For odd $n$ it is convenient to encode an orientation by a bit
+$e(F)\in\F$, with $e(F)=0$ denoting the positive increasing sign, and
+$e(F)=1$ the negative sign.  The convention is used consistently within
+the parity sections; the sign-based seed arguments will explicitly state
+their own Boolean convention.  The unsigned coboundary over $\F$ is
+\[
+ (\delta f)(Y)=\sum_{x\in Y}f(Y\setminus\{x\})\pmod2,
+\qquad \delta^2=0.
+\]
+For odd $n$, the switching class $E_n$ is exactly the class in which
+$\delta e=0$ on every $(n+1)$-set.  Indeed the parity of a raw
+$(n+1)$-facet packet equals $d_n+(n+1)/2$ modulo two.  We will use the following elementary exactness statement. It is
+included to avoid any dependence on a topological homology theorem.
+
+\begin{lemma}[A contracting cochain on a simplex]\label{lem:exactness}
+Let $V$ be finite, $r\ge2$, and let
+$g:\binom V r\to\mathbb F_2$ satisfy $\delta g=0$ on each
+$(r+1)$-set. Fix $a\in V$ and define
+$u:\binom V{r-1}\to\mathbb F_2$ by
+\[
+ u(T)=\begin{cases}g(\{a\}\cup T),&a\notin T,\\0,&a\in T.\end{cases}
+\]
+Then $g=\delta u$. In addition, $\delta^2=0$ in every arity.
+\end{lemma}
+\begin{proof}
+Each term in $\delta^2$ occurs exactly twice, so it vanishes in
+$\mathbb F_2$. If $a\in F\in\binom Vr$, only the deletion of $a$
+contributes to $\delta u(F)$, giving $g(F)$. If $a\notin F$,
+the equation $\delta g(\{a\}\cup F)=0$ gives
+$g(F)=\sum_{v\in F}g(\{a\}\cup(F\setminus\{v\}))=\delta u(F)$.
+\end{proof}
+
+For odd $n$, $\delta e=0$ on all $(n+1)$-sets therefore gives
+$e=\delta z$ for an $(n-1)$-set potential whenever the ambient
+vertex set is nonempty. (When fewer than $n$ vertices are present,
+there are no $n$-set orientations to reconstruct.)
+
+For integer-valued functions on fixed-size subsets we use the
+\emph{alternating} boundary operator
+\[
+ (\partial f)(\{v_0<\cdots<v_r\})
+ =\sum_{i=0}^r(-1)^if(\{v_0,\ldots,v_r\}\setminus\{v_i\}).
+\]
+Here $\partial^2=0$ by pairwise cancellation, just as for $\delta$.
+
+\section{Two elementary arity-four obstructions}\label{sec:arity4}
+We use $A=\{0,\ldots,m-1\}$, with a new vertex $\ell<A<r$.
+For $n=4$, put $x_{ij}=s(\{\ell,i,j,r\})\in\{\pm1\}$ and
+write $\alpha(ijk)=s(\ell ijk)$, $\beta(ijk)=s(ijkr)$.
+The mixed five-set $\{\ell,i,j,k,r\}$ has normalized facet signs
+\begin{equation}\label{eq:4-packet}
+ \bigl(\beta(ijk),-x_{jk},x_{ik},-x_{ij},\alpha(ijk)\bigr).
+\end{equation}
+
+\subsection{The central-only class $\K^{(4)}_{\{T_{4,2}\}}$}
+\begin{lemma}\label{lem:4-central}
+The class of finite $4$-hypertournaments in which every five-set has
+central type $T_{4,2}$ has no ordinary AP.
+\end{lemma}
+\begin{proof}
+Set $A=\{0,\ldots,6\}$.  For an ordered four-set, list below those
+with sign $+1$; all unlisted signs are $-1$:
+\begin{align*}
+\supp(s|_A)&=\{0123,0125,0234,0236,0256,1235,1245\},\\
+\supp(\alpha)&=\{013,014,015,016,024,025,026,035,045,046,056,156,\\[-2pt]
+ &\hspace{43mm}245,256,356,456\},\\
+\supp(\beta)&=\{014,015,016,025,046,056,146,156,246,256,346,356,456\}.
+\end{align*}
+The given base and both one-point extensions are central-only: on
+every one of their five-subsets, the normalized vector has two or three
+positive signs.  This is also an immediate check using the three
+finite lists above.
+
+Suppose a strong amalgam exists, and write $x_{ij}\in\{0,1\}$ for the
+truth value of ``the mixed four-set has sign $+1$''.  On each triple
+$Q=ijk$ with $\alpha(Q)=\beta(Q)=-1$, the central condition
+\eqref{eq:4-packet} is equivalent to
+\[
+ x_{ij}\Rightarrow x_{ik},\qquad
+ x_{jk}\Rightarrow x_{ik},\qquad
+ \neg(x_{ij}\wedge x_{jk}). \tag{$-$}
+\]
+When both endpoint signs are $+1$, it is equivalent to
+\[
+ x_{ik}\Rightarrow x_{ij},\qquad
+ x_{ik}\Rightarrow x_{jk},\qquad
+ x_{ij}\vee x_{jk}. \tag{$+$}
+\]
+For the seven triples
+\[
+ 012,\quad014,\quad023,\quad036,\quad046,\quad145,\quad456,
+\]
+the common endpoint sign is respectively
+$-,+,-,-,+,-,+$.  Using only these implications gives
+\[
+ \neg x_{01}\Rightarrow\neg x_{04}\Rightarrow x_{46}
+ \Rightarrow x_{45}\Rightarrow\neg x_{14}\Rightarrow x_{01}
+\]
+and
+\[
+\begin{split}
+ x_{01}&\Rightarrow x_{02}\Rightarrow x_{03}\Rightarrow x_{06}
+ \Rightarrow x_{04}\Rightarrow x_{14}\Rightarrow\neg x_{45}\\
+ &\Rightarrow\neg x_{46}\Rightarrow\neg x_{06}
+ \Rightarrow\neg x_{03}\Rightarrow\neg x_{02}
+ \Rightarrow\neg x_{01}.
+\end{split}
+\]
+Both truth values of $x_{01}$ lead to a contradiction.  An ordinary
+amalgam cannot identify $\ell$ and $r$, because such an identification
+would require $\alpha=-\beta$, whereas their displayed links do not
+satisfy this equality.  Hence ordinary AP fails.
+\end{proof}
+
+\subsection{The class omitting $T_{4,1}$}
+\begin{lemma}\label{lem:4-forb}
+The class $\K^{(4)}_{\{T_{4,0},T_{4,2}\}}=\Forb(T_{4,1})$
+does not have ordinary AP.
+\end{lemma}
+\begin{proof}
+Use $A=\{0,1,2,3,4,5\}$, with just the base four-set $1245$
+positive.  Put
+\[
+ \supp(\alpha)=\{035,135,235,345\},\qquad
+ \supp(\gamma)=\{012,034,035,045,134,245,345\},\quad
+ \gamma=-\beta.
+\]
+Every base five-set is central; among those using $\ell$, precisely
+$\ell0345$, $\ell1345$ and $\ell2345$ are homogeneous and all others
+central; every five-set using $r$ is central.  Thus the sides omit
+$T_{4,1}$.
+
+As above, set $v_{ij}=1$ when $x_{ij}=+1$ and $v_{ij}=0$ otherwise.
+On a triple $ijk$ with $i<j<k$, the condition that the mixed packet
+\eqref{eq:4-packet} omit $T_{4,1}$ is a constraint on the three bits
+$(v_{ij},v_{ik},v_{jk})$.  It falls into just three types:
+\[
+\begin{array}{c|l}
+ \text{type}&\text{forbidden triples of bits}\\\hline
+ \mathrm T&010,101\\
+ \mathrm C_-&001,100,111\\
+ \mathrm C_+&000,011,110
+\end{array}
+\]
+Here $\mathrm T$ means $\alpha=\gamma$, and $\mathrm C_\pm$
+means $\alpha=-\gamma=\pm1$.  From the displayed links the
+restrictions are
+\[
+\begin{array}{r|l}
+ \mathrm T&013,014,015,023,024,025,035,123,124,125,145,234,345\\
+ \mathrm C_-&012,034,045,134,245\\
+ \mathrm C_+&135,235.
+\end{array}\tag{*}
+\]
+
+We give a finite \emph{implication proof}, not an appeal to a search
+certificate.  First restrict $v$ to $\{1,2,3,4,5\}$.  The ten
+triples inside this set, using the rule $(*)$, have exactly the
+seventeen possible assignments displayed in Table~\ref{tab:n4paths}.
+For a direct check of exhaustiveness, Table~\ref{tab:n4extend}
+shows all sixteen assignments on $\{1,2,3,4\}$ that survive its
+four triples, and all their permitted choices of the four incident
+edges to vertex $5$; these are obtained by applying $(*)$ to its
+six new triples.  Thus no other assignment is missing.
+
+Fix one of those seventeen restrictions and let $y_i=v_{0i}$.
+For $i<j$ in $\{1,\ldots,5\}$, the mixed triple $0ij$ gives the
+following $2$-variable restriction (where a pair such as $01$
+denotes $(y_i,y_j)=(0,1)$):
+\[
+\begin{array}{c|cc}
+ &v_{ij}=0&v_{ij}=1\\\hline
+ ij\in\{12,34,45\}&(10)\text{ forbidden}&y_i\ne y_j\\
+ \text{other }ij &(01)\text{ forbidden}&(10)\text{ forbidden}.
+\end{array}\tag{**}
+\]
+In the exceptional cell $v_{ij}=1$, $ij\in\{12,34,45\}$,
+$y_i\ne y_j$ is a \emph{required} relation; every other cell
+lists a forbidden pair. Each forbidden pair gives an elementary
+implication from either literal to the negation of the other.  Table~\ref{tab:n4paths}
+exhibits, in every one of the seventeen cases, both an implication
+path $\neg y_i\Rightarrow y_i$ and a path
+$y_i\Rightarrow\neg y_i$, using only $(**)$.  Every path step is
+between the two literals indexed by the pair $ij$ that supplies its
+clause; hence each step can be checked directly from the table $(**)$.
+This is a contradiction independent of any remaining bits.
+
+Identification of $\ell,r$ would force $\alpha=\gamma$ on every
+triple, contrary to the explicit lists.  So the diagram has no
+ordinary amalgam.
+\end{proof}
+
+\section{Arity five: a central cone and a defect-graph obstruction}
+\label{sec:arity5}
+The class $\K^{(5)}_{\{T_{5,0},T_{5,3}\}}$ is a useful extra
+seed.  We give a mathematical proof of its failure of AP; it is not
+necessary to appeal to its earlier exhaustive-computation certificate.
+The third negative seed in arity five, $\K^{(5)}_{\{T_{5,3}\}}$,
+will follow from a one-coordinate cone, and the largest negative seed,
+$\K^{(5)}_{\{T_{5,0},T_{5,1},T_{5,3}\}}$, from the uniform
+obstruction in Section~\ref{sec:one-four}.
+
+\begin{lemma}[The zero-or-two principle]\label{lem:zero-two}
+Let $n\equiv1\pmod4$ and $n\ge5$, and suppose every $(n+1)$-set
+in an $n$-hypertournament is either central to the switching parity
+or homogeneous; more precisely, its type belongs to
+$\{T_{n,0},T_{n,1},T_{n,3},\ldots,T_{n,(n+1)/2}\}$.
+Then every $(n+2)$-vertex subset contains either zero or exactly two
+homogeneous $(n+1)$-subsets.
+\end{lemma}
+\begin{proof}
+Put $N=n+1\equiv2\pmod4$.  In the bit convention of
+Section~\ref{sec:statement}, a nonhomogeneous permitted $N$-packet
+has even raw parity, while a homogeneous packet is alternating and
+has odd raw parity.  Thus its indicator is
+$D(X)=\sum_{F\in\binom Xn}e(F)\pmod2$.
+On $N+1$ vertices the number of homogeneous $N$-subsets is even:
+every $n$-subset contributes to two $N$-subsets, so
+$\delta^2e=0$.
+
+It is at most two.  Write $Z=\{z_0<\cdots<z_N\}$ and suppose
+$Z\setminus\{z_i\}$ is homogeneous, whose raw packet has $e$-bits $(\lambda_i+j\bmod2)_j$,
+with phase $\lambda_i\in\F$. Comparing two such homogeneous subsets,
+indexed $i<j$, on their common $n$-facet gives
+\[
+ \lambda_i+\lambda_j=i+j+1\pmod2.
+\]
+Equivalently, $\mu_i:=\lambda_i+i$ satisfies
+$\mu_i+\mu_j=1$ for every pair of homogeneous subsets.
+Three such subsets yield three mutually inconsistent equations over
+$\F$.  Therefore there are at most two, and parity finishes.
+\end{proof}
+
+\subsection{The class $\{T_{5,0},T_{5,3}\}$}
+\begin{lemma}\label{lem:5-two}
+The $6$-constrained class
+$\K^{(5)}_{\{T_{5,0},T_{5,3}\}}$ fails ordinary AP.
+\end{lemma}
+\begin{proof}
+Let $A=\{0,1,2,3,4,5,6\}$ and put $\ell<A<r$.
+Encode the positive signs on base five-sets and on the two four-set
+links by the following lists (all unlisted signs are negative):
+\begin{align*}
+\supp(s|_A)&=\{01235,01246,01356,02345,02456,12346,13456\},\\
+\supp(\alpha)&=\{0123,0124,0125,0126,0135,0145,0146,0234,0245,\\[-2pt]
+ &\hspace{35mm}0345,0346,1234,1345\},\\
+\supp(\beta)&=\{0124,0134,0145,0156,0234,0236,0256,0346,0356,\\[-2pt]
+ &\hspace{20mm}1234,1235,1236,1245,1345,1356,1456,2346,2356\}.
+\end{align*}
+Here $\alpha(Q)=s(\{\ell\}\cup Q)$ and
+$\beta(Q)=s(Q\cup\{r\})$.  A direct facet check shows that all
+seven six-sets of $A$ have type $T_{5,3}$, all twenty-one six-sets
+of $A\cup\{\ell\}$ containing $\ell$ have type $T_{5,3}$, and
+in $A\cup\{r\}$ precisely three six-sets are homogeneous, namely
+\[
+ (A\setminus\{2,3\})\cup\{r\},\quad
+ (A\setminus\{2,6\})\cup\{r\},\quad
+ (A\setminus\{3,6\})\cup\{r\};
+\]
+the remaining six-sets on the right are central.  Thus both sides
+lie in the asserted class.
+
+Suppose there is a strong amalgam on
+$V=A\cup\{\ell,r\}$.  For a triple $T\subseteq A$ write
+$y_T=1$ when the mixed six-set $V\setminus T$ is homogeneous, and
+put $y_T=0$ otherwise.  The two fixed links can occur at opposite
+ends of an alternating packet only if
+$\alpha(A\setminus T)\ne\beta(A\setminus T)$.  Therefore $y_T$
+may be nonzero only for
+\begin{equation}\label{eq:eligible5}
+\begin{split}
+\mathcal U=\{&014,015,023,024,036,045,046,124,126,134,136,145,\\
+ &234,235,246,256,345,346,456\}.
+\end{split}
+\end{equation}
+By Lemma~\ref{lem:zero-two}, for every pair
+$ij\in\binom A2$, the number of homogeneous six-sets in
+$V\setminus\{i,j\}$ is $0$ or $2$.  The right-side homogeneous
+six-sets contribute once exactly for pairs $23,26,36$.
+Thus, writing $h_{ij}=\mathbf1_{ij\in\{23,26,36\}}$, we have
+\begin{equation}\label{eq:pair-degree5}
+ h_{ij}+\sum_{T\in\mathcal U:\ ij\subseteq T}y_T\in\{0,2\}
+ \qquad (ij\in\tbinom A2).
+\end{equation}
+The sum in~\eqref{eq:pair-degree5} is an \emph{integer} sum,
+not an $\mathbb F_2$ sum. We now solve these small incidence
+constraints explicitly,
+so that no computer assertion enters the proof.
+
+First reduce~\eqref{eq:pair-degree5} modulo two.  Take as four free
+bits
+\[
+ a=y_{014},\qquad b=y_{023},\qquad c=y_{124},\qquad d=y_{234}.
+\]
+The pair equations, in the order
+\[
+ 01,02,03,05,04,12,15,14,13,23,24,25,35,34,45,
+\]
+uniquely determine the other fifteen bits: at every stage the
+indicated pair equation has exactly one as-yet-unknown variable.
+Substituting into the remaining pair equations gives identities.
+Equivalently, with symmetric difference of sets, the resulting
+support is
+\begin{equation}\label{eq:four-free5}
+ \mathcal S(a,b,c,d)
+ =S_*\ \triangle\ aU_a\ \triangle\ bU_b\ \triangle\ cU_c\ \triangle\ dU_d,
+\end{equation}
+where
+\begin{align*}
+ S_*&=\{235,256,345,346,456\},\\
+ U_a&=\{014,015,045,145\},\\
+ U_b&=\{023,024,036,046,235,246,256,345,346,456\},\\
+ U_c&=\{124,126,134,136,246,346\},\\
+ U_d&=\{234,235,246,256,345,456\}.
+\end{align*}
+There are only sixteen choices of $(a,b,c,d)$.  For eleven of them
+some pair has incidence count four in~\eqref{eq:pair-degree5},
+contradicting the upper bound two.  Table~\ref{tab:n5supports}
+records an offending pair for each of these eleven choices.
+The other five possibilities are, writing each triple by its three
+digits,
+\[
+\begin{array}{c|l}
+ \mathrm A&124,126,134,136,234\\
+ \mathrm B&023,024,036,046,246\\
+ \mathrm C&234,246,346\\
+ \mathrm D&014,015,045,145,234,246,346\\
+ \mathrm E&235,256,345,346,456.
+\end{array}\tag{$\dagger$}
+\]
+
+It remains to rule out these five cases.  Write
+$x_{ijk}\in\F$ for the raw orientation bit of the mixed five-set
+$\{\ell,i,j,k,r\}$, with $x=1$ for positive sign, and let
+$\alpha(Q),\beta(Q)$ also denote $0$--$1$ positive-sign bits.
+For $Q=\{a<b<c<d\}$ the six normalized positive-sign bits are
+\begin{equation}\label{eq:mixed5packet}
+ \bigl(\beta(Q),1+x_{bcd},x_{acd},1+x_{abd},x_{abc},1+\alpha(Q)\bigr).
+\end{equation}
+When $V\setminus(A\setminus Q)$ is not homogeneous, this packet must
+have \emph{exactly three} entries equal to one.  When it is
+homogeneous, its entries are all equal, and the first coordinate
+fixes every mixed facet bit.  The following deductions use only this
+observation and the lists defining the sides:
+\begin{enumerate}[label=\textup{(\Alph*)},leftmargin=15mm]
+\item In case A, homogeneity fixes
+$x_{035}=x_{015}=1$, $x_{036}=x_{026}=0$.
+Centrality on $Q=0135$ forces $x_{013}=1$; centrality on $0236$
+forces $x_{023}=0$.  But on $0123$, the normalized packet has
+at most two positive entries, irrespective of its other bits.
+\item In case B, homogeneity fixes
+$x_{123}=1$, $x_{013}=0$, $x_{156}=x_{015}=1$, $x_{136}=0$.
+Centrality on $0123$ forces $x_{023}=1$;
+on $0156$ it forces $x_{016}=1$;
+on $0236$ it forces $x_{036}=0$.
+The packet on $0136$ then has exactly two positive entries,
+a contradiction.
+\item In case C, homogeneity fixes
+$x_{013}=x_{012}=0$, $x_{056}=1$, $x_{035}=0$.
+Centrality on $0123$ forces $x_{023}=1$; centrality on $0356$
+forces $x_{036}=1$.  The packet on $0236$ has at least four
+positive entries.
+\item In case D, homogeneity already forces
+$(x_{123},x_{023},x_{013},x_{012})=(1,1,0,0)$.
+The packet on $0123$ has only two positive entries.
+\item In case E, homogeneity forces
+$x_{015}=x_{013}=1$, $x_{026}=x_{023}=0$.
+Centrality on $0135$ gives $x_{035}=1$, while centrality on $0236$
+gives $x_{036}=0$.  The packet on $0356$ then has at least four
+positive entries.
+\end{enumerate}
+All five possible homogeneous-defect configurations are impossible.
+Thus no strong amalgam exists.  The vertices $\ell,r$ cannot be
+identified: their four-set links $\alpha,\beta$ disagree, and
+moving the new vertex across the four retained base vertices
+changes no sign.  Hence the obstruction is to ordinary AP.
+\end{proof}
+
+\subsection{A cone from even central arity to odd central arity}
+\begin{proposition}[Central-only cone]\label{prop:cone}
+Let $n\ge4$ be even.  If $\K^{(n)}_{\{T_{n,n/2}\}}$ has a
+one-point diagram without ordinary amalgam, so does
+$\K^{(n+1)}_{\{T_{n+1,n/2+1}\}}$.
+\end{proposition}
+\begin{proof}
+Write $s$ for the original signed orientation and
+$\partial s(Y)=\sum_{i=0}^{n}(-1)^is(Y\setminus\{y_i\})$
+for the alternating integer coboundary.  For every old central
+$(n+1)$-set $Y$, its coboundary is $\pm1$.
+Adjoin one common vertex $p$ before all the old vertices and put
+\[
+ s'(Z)=\begin{cases}
+ s(Z\setminus\{p\}),&p\in Z,\\
+ \partial s(Z),&p\notin Z,
+ \end{cases}\qquad |Z|=n+1.
+\]
+On an old $(n+2)$-set, $\partial s'=\partial^2s=0$.
+On $\{p\}\cup Y$, the first boundary term is $\partial s(Y)$,
+and the other terms add up to $-\partial s(Y)$.
+So every new $(n+2)$-set is central.
+Conversely, in any proposed amalgam, orient each old $n$-set
+$F$ by the sign of $\{p\}\cup F$.  Centrality on
+$\{p\}\cup Y$ forces the old coboundary to be the orientation
+of $Y$, hence to have absolute value one.  This recovers an old
+central-only amalgam, including any attempted identification of the
+new vertices.  Contradiction.
+\end{proof}
+
+In particular, Lemma~\ref{lem:4-central} and
+Proposition~\ref{prop:cone} give a purely mathematical negative
+seed for $\K^{(5)}_{\{T_{5,3}\}}$.  All three negative
+arity-five seeds now have mathematical proofs once the uniform
+$1\pmod4$ construction below is included.
+
+
+\section{A common reflection lemma for two-coordinate lifts}
+\label{sec:reflection}
+This lemma isolates the only non-local part of both arity-raising
+constructions. It is formulated independently of their different
+ways of orienting facets with three auxiliary vertices.
+
+\begin{lemma}[Two-coordinate reflection]\label{lem:reflection}
+Let $n\ge3$ and let $S$ be a set of $(n+1)$-vertex types.
+Suppose $B_\ell\leftarrow A\rightarrow B_r$ is a one-point
+diagram of $n$-hypertournaments in $\K^{(n)}_S$ without an ordinary
+amalgam. Let $P$ be a set of auxiliary vertices, ordered before all
+old vertices, such that
+\[
+ |P|>2^{\binom{|A|}{n-1}}.
+\]
+Suppose $C_\ell$ and $C_r$ are $(n+2)$-hypertournaments on
+$P\cup B_\ell$ and $P\cup B_r$, agreeing on $P\cup A$,
+whose signs satisfy
+\begin{equation}\label{eq:two-pad-recovery}
+ s_{C_i}(\{p,q\}\cup F)=s_{B_i}(F)
+ \qquad(p<q\in P,\ F\in\tbinom{B_i}n,\ i\in\{\ell,r\}).
+\end{equation}
+Let
+\[
+ S^+=\{T_{n+2,d+1}:T_{n,d}\in S\}.
+\]
+If both $C_i$ belong to
+$\K^{(n+2)}_{S^+\cup\{T_{n+2,0}\}}$, then they have no ordinary
+amalgam in that class. The same conclusion holds, in particular,
+when both belong to $\K^{(n+2)}_{S^+}$ and the target is that smaller class.
+\end{lemma}
+\begin{proof}
+Suppose there is an ordinary amalgam. Restrict it to the union of
+the two images and retain one common auxiliary order with $P$
+first. If the new vertices are identified, fix any $p<q$ in $P$.
+The recovered orientations on the $n$-sets $\{p,q\}\cup F$ give
+an ordinary amalgam of the original diagram, by
+\eqref{eq:two-pad-recovery}. Thus the new vertices are distinct.
+
+For each $p\in P$, record its \emph{one-pad mixed profile}
+\[
+ \chi(p)=\bigl(s_C(\{p,\ell,r\}\cup U)\bigr)_
+ {U\in\binom A{n-1}}\in\{\pm1\}^{\binom{|A|}{n-1}}.
+\]
+By pigeonhole, there are $p<q$ with $\chi(p)=\chi(q)$.
+Define an $n$-hypertournament $D$ on $A\cup\{\ell,r\}$ by
+$s_D(F)=s_C(\{p,q\}\cup F)$. The recovery condition implies
+that $D$ extends both old sides. For each mixed old
+$(n+1)$-set $Y=\{\ell,r\}\cup U$ with
+$U\in\binom A{n-1}$, form $X=\{p,q\}\cup Y$.
+Its first two normalized facet signs are opposite because the
+one-pad profiles agree; its other normalized facet signs are
+exactly those of $D[Y]$, with indices shifted by two. Hence
+\[
+ d_{n+2}(X)=1+d_n(D[Y]).
+\]
+As $X$ is admissible and its type cannot be $T_{n+2,0}$,
+we have $d_n(D[Y])\in S$. Every other $(n+1)$-set of $D$
+lies in an old side, so $D\in\K^{(n)}_S$, a contradiction.
+The same argument applies to the smaller target class.
+\end{proof}
+
+\section{The two-coordinate suspension in even arity}\label{sec:even-lift}
+\begin{lemma}[Local type map]\label{lem:even-types}
+Let $n=2k\ge4$ and let $B$ be an $n$-hypertournament.  Take a disjoint
+linearly ordered set $P$, put all vertices of $P$ before $B$, and define an
+$(n+2)$-hypertournament $B^{\uparrow P}$ on $P\cup B$ as follows:
+\begin{itemize}
+\item If an $(n+2)$-set $F$ contains exactly two vertices of $P$, give
+  it the sign of the $n$-set $F\setminus P$ in $B$.
+\item Otherwise give $F$ positive sign (increasing orientation).
+\end{itemize}
+Every $(n+3)$-set $X$ in $B^{\uparrow P}$ has central type
+$T_{n+2,k+1}$, except possibly if $|X\cap P|=2$.  In that case
+\[
+  d_{n+2}(X)=d_n(X\setminus P)+1.
+\]
+Consequently, if $B\in\K^{(n)}_S$ and $T_{n,k}\in S$, then
+\[
+ B^{\uparrow P}\in\K^{(n+2)}_{S^+},\qquad
+ S^+=\{T_{n+2,d+1}:T_{n,d}\in S\}.
+\]
+\end{lemma}
+\begin{proof}
+Write $h=|X\cap P|$.  If $h=0,1$ or $h\ge4$, every $(n+2)$-facet
+of $X$ has positive sign, and the alternating normalized vector on the
+odd number $n+3=2k+3$ of facets has $k+1$ or $k+2$ positive coordinates.
+Hence $X$ is central.
+
+If $h=3$, write the three auxiliary vertices first.  The normalized
+coordinates arising by deletion of an auxiliary vertex are
+$(s,-s,s)$, where $s$ is the sign of the common $n$-set of old vertices.
+Exactly one or two of these coordinates are positive.  The remaining
+$n=2k$ facets have positive raw signs and positions $3,\ldots,n+2$;
+exactly $k$ of their normalized signs are positive.  Again the total
+number of positive normalized signs is $k+1$ or $k+2$.
+
+Finally, if $h=2$, the two auxiliary vertices are first.  Their
+deletions produce normalized signs $(+,-)$, while deletion of any old
+vertex produces precisely the corresponding normalized sign of the
+old $(n+1)$-set (the index is shifted by two).  Hence the new positive
+count is exactly one more than the old positive count.  Since the total
+numbers of facets are $n+3$ and $n+1$, respectively, the defect increases
+by one.
+\end{proof}
+
+\begin{proposition}[Lifting one-point non-amalgamation]\label{prop:even-lift}
+Let $n=2k\ge4$ and let $T_{n,k}\in S$.
+Suppose that a one-point diagram
+\[
+ B_\ell=A\cup\{\ell\}\longleftarrow A
+ \longrightarrow B_r=A\cup\{r\}
+\]
+in $\K^{(n)}_S$ has no \emph{ordinary} amalgam.  Then the same is true
+in arity $n+2$ for each of
+\[
+ \K^{(n+2)}_{S^+}
+ \qquad\text{and}\qquad
+ \K^{(n+2)}_{S^+\cup\{T_{n+2,0}\}}.
+\]
+In both classes the obstruction is again a one-point diagram.
+\end{proposition}
+\begin{proof}
+Take the same ordered auxiliary set $P$ on both sides, with
+$|P|>2^{\binom{|A|}{n-1}}$, and apply
+Lemma~\ref{lem:even-types}.
+The two constructions agree on the lifted common base $P\cup A$
+and belong to $\K^{(n+2)}_{S^+}$; they satisfy the exact
+recovery rule~\eqref{eq:two-pad-recovery} by definition.
+Apply Lemma~\ref{lem:reflection}, first with target $S^+$ and
+then with target $S^+\cup\{T_{n+2,0}\}$.
+\end{proof}
+
+\begin{remark}[A smaller auxiliary set from an unsatisfiable core]
+\label{rem:core}
+The profile need only record those $(n-1)$-sets $U$ for which the
+corresponding mixed $(n+1)$-set is used in an unsatisfiability certificate
+for the original one-point diagram.  If an unsatisfiable subsystem uses
+$h$ such sets, then $|P|=2^h+1$ already suffices.
+\end{remark}
+
+
+
+\section{The rooted two-coordinate suspension in odd arity}\label{sec:odd-lift}
+For odd $n=2q-1\ge3$, let $S$ contain $T_{n,q}$ and define
+\[
+ S^+=\{T_{n+2,d+1}:T_{n,d}\in S\}.
+\]
+Let $B\in\K^{(n)}_S$ contain a distinguished vertex $a$.
+Choose a linear order on $B$ with $a$ first. Define on its $(n-1)$-sets
+\[
+ y_B(F)=
+ \begin{cases}
+ +1,&a\in F,\\
+ s_B(\{a\}\cup F),&a\notin F.
+ \end{cases}
+ \tag{2.1}\label{eq:root-potential}
+\]
+This is well-defined because $|\{a\}\cup F|=n$ in the second case.
+
+\begin{lemma}[Root identity]\label{lem:odd-root}
+For each $F\in\binom Bn$,
+\[
+ s_B(F)-\partial y_B(F)=
+ \begin{cases}
+ 0,&a\in F,\\
+ \partial s_B(\{a\}\cup F),&a\notin F.
+ \end{cases}
+ \tag{2.2}\label{eq:root-identity}
+\]
+\end{lemma}
+\begin{proof}
+If $a\notin F$, expand $\partial s_B(\{a\}\cup F)$ along its
+first vertex $a$; the remaining terms are exactly $-\partial y_B(F)$.
+If $F=\{a\}\cup G$ then deleting $a$ contributes $s_B(F)$ to
+$\partial y_B(F)$, while the remaining $n-1$ facets have $y_B=+1$.
+Since $n-1$ is even, their alternating signed sum is zero.
+\end{proof}
+
+Fix an ordered auxiliary set $P$ disjoint from $B$ with $P<a$.
+Define the sign of every $(n+2)$-set $Z\subseteq P\cup B$ by
+\[
+ s_{B^{\uparrow P}}(Z)=
+ \begin{cases}
+ s_B(Z\setminus P),& |Z\cap P|=2,\\
+ y_B(Z\setminus P),& |Z\cap P|=3,\\
+ +1,& |Z\cap P|\notin\{2,3\}.
+ \end{cases}
+ \tag{2.3}\label{eq:padding}
+\]
+Here $Z\setminus P$ has size $n$ or $n-1$ in the first two cases.
+
+\begin{lemma}[Local type control]\label{lem:odd-types}
+Let $X$ be an $(n+3)$-set in $B^{\uparrow P}$, and put
+$h=|X\cap P|$. Every local type of $B^{\uparrow P}$ belongs to $S^+$.
+More precisely,
+\begin{enumerate}
+\item If $h\in\{0,1\}$ or $h\ge4$, the type is central $T_{n+2,q+1}$.
+\item If $h=2$, the type is $T_{n+2,d+1}$, where the old
+$(n+1)$-set $X\setminus P$ has type $T_{n,d}$.
+\item If $h=3$ and $a\notin X\setminus P$, the type is $T_{n+2,d+1}$,
+where $\{a\}\cup(X\setminus P)$ has old type $T_{n,d}$.
+If $h=3$ and $a\in X\setminus P$, the new type is central.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+The new normalized sign vector has length $n+3=2q+2$, and its
+type is determined by the absolute value of the alternating sum of its
+raw facet signs. We check the number $h$.
+
+For $h=0,1$ or $h\ge5$, all facet signs are $+1$, so the alternating
+sum is zero. If $h=2$, the two auxiliary deletions have raw sign $+1$
+and cancel in the alternating sum. The remaining $n+1$ terms are the
+old facet signs of $Y=X\setminus P$, with the same alternating
+coefficients, so the sum is $\partial s_B(Y)$.
+
+If $h=3$, the three auxiliary deletions have identical raw sign
+$s_B(F)$, for $F=X\setminus P$, and their alternating sum is $s_B(F)$.
+The remaining old deletions, whose positions begin at $3$, contribute
+$-\partial y_B(F)$. Thus the total is
+$s_B(F)-\partial y_B(F)$, described by Lemma~\ref{lem:odd-root}.
+
+If $h=4$, the four auxiliary deletions contribute four alternating
+copies of $y_B(F)$ and cancel. The remaining $n-1$ old deletions
+have raw sign $+1$ and contribute zero because $n-1$ is even.
+
+Consequently the absolute alternating sum is either zero or the
+absolute alternating sum of an old $(n+1)$-set. Since the number of
+normalized facets has increased by two, the local type index
+increases by exactly one in the latter case. Central $T_{n+2,q+1}$
+corresponds to old central $T_{n,q}$, which belongs to $S$.
+\end{proof}
+
+\begin{theorem}[Odd-arity obstruction transfer]\label{thm:odd-lift}
+Let $n\ge3$ be odd, let $T_{n,q}\in S$, and suppose
+$\K^{(n)}_S$ contains a one-point-versus-one-point diagram
+\[
+ B_\ell=A\cup\{\ell\}\longleftarrow A
+ \longrightarrow B_r=A\cup\{r\}
+\]
+without any ordinary amalgam. Then both
+\[
+ \K^{(n+2)}_{S^+}
+ \quad\text{and}\quad
+ \K^{(n+2)}_{S^+\cup\{T_{n+2,0}\}}
+\]
+lack ordinary AP, witnessed by one-point diagrams.
+\end{theorem}
+\begin{proof}
+The base $A$ can be taken nonempty (a one-point diagram with empty
+base already has an amalgam in any unbounded hypertournament class
+of arity at least three). Choose $a\in A$ and one order on $A$
+with $a$ first; extend it to compatible orders on both old sides.
+The rooted functions~\eqref{eq:root-potential} agree on every
+$(n-1)$-subset of $A$, since the sides agree on $A$.
+Choose an auxiliary $P$ with $|P|>2^{\binom{|A|}{n-1}}$.
+The constructions~\eqref{eq:padding} therefore agree on $P\cup A$,
+are members of $\K^{(n+2)}_{S^+}$ by
+Lemma~\ref{lem:odd-types}, and satisfy the two-pad recovery
+rule~\eqref{eq:two-pad-recovery}. Apply
+Lemma~\ref{lem:reflection} to either target class.
+\end{proof}
+
+\begin{remark}[Unified arity raising]
+The preceding theorem covers \emph{odd} arities. The unrooted padding of Lemma~\ref{lem:even-types}
+covers even arities, while the rooted padding here covers odd ones.
+Both transfer statements are instances of Lemma~\ref{lem:reflection}. The two constructions
+are genuinely different: the root potential in \eqref{eq:root-potential}
+compensates for the middle (three-pad) case that is problematic for odd $n$.
+\end{remark}
+
+
+
+\section{The homogeneous-free switching class in arities $3\pmod4$}\label{sec:three-four}
+An $n$-hypertournament assigns an orientation to each $n$-subset.
+For an auxiliary order, encode orientations by bits
+$e:\binom Vn\to\F$. On an ordered $(n+1)$-set $X$, its facet packet is
+$\bigl(e(X\setminus\{x_i\})\bigr)_{i=0}^{n}$.
+The homogeneous type $T_{n,0}=H_{n+1}$ is exactly either of the two
+alternating packets $(i\bmod2)_i$ or $(1+i\bmod2)_i$.
+For $n\equiv3\pmod4$, the switching class is precisely
+\[
+\E_n=\left\{e:\sum_{x\in X}e(X\setminus\{x\})=0
+\quad(X\in\tbinom V{n+1})\right\},
+\]
+whose permitted isomorphism types are $T_{n,0},T_{n,2},\ldots,
+T_{n,(n+1)/2}$. The latter follows by comparing the parity of raw
+facet bits with the parity of normalized orientations.
+Write $\delta$ for the unsigned simplicial coboundary over $\F$:
+\[
+ (\delta z)(Y)=\sum_{Z\in\binom Y{|Y|-1}}z(Z).
+\]
+The equality $\E_n=\{\delta z:z:\binom V{n-1}\to\F\}$
+follows from Lemma~\ref{lem:exactness}; it uses no external
+cohomological input.
+
+\begin{theorem}\label{thm:p3}
+For every $n\ge7$ with $n\equiv3\pmod4$,
+\[
+ \boxed{\K^{(n)}_{\{T_{n,2},T_{n,4},\ldots,T_{n,(n+1)/2}\}}
+ \text{ does not have the amalgamation property.}}
+\]
+In particular, $\K^{(7)}_{\{T_{7,2},T_{7,4}\}}$ does not
+have ordinary amalgamation.
+\end{theorem}
+
+\subsection{An admissible random one-point diagram}
+Put $m=n-1$, so $m\ge6$ and $m\equiv2\pmod4$. Choose $t\ge2$ and a
+linearly ordered set
+\[
+ A=V_0< V_1<\cdots<V_{m-1},\qquad |V_i|=t.
+\]
+Adjoin $\ell<A<r$. Split the block indices into consecutive halves
+\[
+ I=\{0,\ldots,m/2-1\},\qquad
+ J=\{m/2,\ldots,m-1\}.
+\]
+We prescribe an $(n-1)=m$-ary potential $z_A$ on $A$ and two
+extensions of it, $z_\ell$ on $A\cup\{\ell\}$ and
+$z_r$ on $A\cup\{r\}$:
+\begin{itemize}
+\item On $m$-sets of $A$ meeting every block exactly once, set
+$z_A(Q)=W(Q)$, independently and uniformly in $\F$; on all other
+$m$-sets put $z_A=0$.
+\item On $m$-sets containing $\ell$, set
+$z_\ell(\{\ell\}\cup U)=L_i(U)$ if $U$ is transversal to precisely
+those blocks other than $V_i$, with $i\in I$. All variables $L_i(U)$
+are independent uniform bits; set all remaining such potential values
+to zero. The restriction of $z_\ell$ to $A$ equals $z_A$.
+\item On $m$-sets containing $r$, analogously set
+$z_r(U\cup\{r\})=R_j(U)$ when $U$ is transversal to exactly the
+blocks other than $V_j$, for $j\in J$. These are fresh independent
+uniform bits; put zero elsewhere, and keep $z_A$ on $A$.
+\end{itemize}
+All families $W,L,R$ are mutually independent. Orient the $n$-sets of
+the two sides using
+$e_\ell=\delta z_\ell$ and $e_r=\delta z_r$.
+The structures agree on the common induced substructure $A$.
+
+\begin{lemma}[Protected zero facets]\label{lem:p3-admissible}
+For \emph{every} assignment of all the random potential bits, neither
+$e_\ell$ nor $e_r$ has a homogeneous $(n+1)$-set.
+Thus these are members of the class in Theorem~\ref{thm:p3}.
+\end{lemma}
+\begin{proof}
+Each side belongs to $\E_n$, so it suffices to exclude the two
+alternating facet packets. We show that every $(m+2)$-set in either
+side has two facets with bit zero at indices of opposite parity.
+
+First take $X\subseteq A$ with $|X|=m+2$. If it occupies fewer than
+$m$ blocks, every facet bit is zero: no potential value supported on
+$A$ is available. If $X$ meets all $m$ blocks, there are only two
+extra points beyond a transversal. Hence at most two blocks are
+non-singleton. Every non-singleton block contributes either an
+adjacent pair, or one block contributes an adjacent triple. In either
+case these points occupy at most two positions of each parity in
+$X$. There are $m/2+1\ge4$ positions of each parity, so at least
+one singleton-block vertex occurs in each parity. Deleting such a
+vertex removes its entire block and forces its facet bit to be zero.
+
+Next take $X=\{\ell\}\cup Y$, $|Y|=m+1$. If $Y$ meets at most
+$m-2$ blocks, all relevant potentials are zero. If $Y$ meets exactly
+$m-1$ blocks, there are two extra points, distributed as either two
+adjacent pairs or one adjacent triple. As $m\ge6$, among the
+singleton-block vertices of $Y$ are positions of both parities.
+Deleting any such vertex removes a block, leaving at most $m-2$
+distinct base blocks; neither a base potential supported on all $m$
+blocks nor a left potential supported on $m-1$ blocks can survive.
+
+Finally suppose $Y$ meets all $m$ blocks. Exactly one block is
+represented twice, and its vertices are adjacent in the order.
+Among the last $m/2\ge3$ blocks (the set $J$), at least two
+singleton blocks occur in positions of opposite parity: if the
+doubled block lies outside $J$, all $J$ positions are consecutive;
+if it lies inside $J$, deleting the adjacent doubled pair still leaves
+singleton positions of both parities. Deleting either protected
+singleton loses a block of $J$, so every permitted left potential
+(which uses all blocks in $J$) and every base potential vanish on
+that facet.
+
+The case $X=Y\cup\{r\}$ is symmetric, using singleton blocks from
+$I$. Thus every possible packet has two fixed zero coordinates of
+opposite parity, excluding both alternating patterns.
+\end{proof}
+
+\subsection{All possible mixed completions}
+Put $h(U)=z_\ell(\{\ell\}\cup U)+z_r(U\cup\{r\})$ for
+$U\in\binom A{m-1}$. Let
+$\alpha(Q)=e_\ell(\{\ell\}\cup Q)$ and
+$\beta(Q)=e_r(Q\cup\{r\})$ for $Q\in\binom Am$.
+Directly from the potential formula,
+\begin{equation}\label{eq:links}
+ \alpha(Q)+\beta(Q)=(\delta h)(Q).
+\end{equation}
+Suppose an $n$-hypertournament on
+$A\cup\{\ell,r\}$ extends both sides and satisfies the switching
+parity constraints. Encode its mixed $n$-sets by
+\[
+ x(U)=e(\{\ell,r\}\cup U),\qquad U\in\tbinom A{m-1}.
+\]
+On each mixed $(n+1)$-set the parity constraint gives
+$\delta x=\alpha+\beta=\delta h$.
+By Lemma~\ref{lem:exactness}, applied to the cocycle $x+h$,
+there is a cochain $u:\binom A{m-2}\to\F$ such that
+\begin{equation}\label{eq:gauge}
+ \boxed{x=h+\delta u.}
+\end{equation}
+This covers \emph{all} possible mixed completions satisfying parity,
+not just completions arising from a preferred potential.
+
+A \emph{transversal} $Q=(v_0,\ldots,v_{m-1})$, $v_i\in V_i$, has
+$m$ mixed facet bits
+\[
+ x_i(Q)=x(Q\setminus\{v_i\}),\qquad 0\le i<m.
+\]
+For fixed $u$, these are independent unbiased bits, since
+\[
+ h(Q\setminus\{v_i\})=
+ \begin{cases}
+ L_i(Q\setminus\{v_i\}),&i\in I,\\
+ R_i(Q\setminus\{v_i\}),&i\in J,
+ \end{cases}
+\]
+and $\delta u$ is fixed.
+Call a transversal $Q$ \emph{alternating for $u$} if
+$(x_i(Q))_{i<m}$ is either alternating vector of length $m$.
+Let $M_u$ count such transversals. There are $t^m$ transversals, and
+\begin{equation}\label{eq:mean}
+ \mathbb E[M_u]=p t^m,\qquad p=\frac{2}{2^m}=2^{1-m}.
+\end{equation}
+
+\begin{lemma}[Independent mixed polarity]\label{lem:p3-polarity}
+Condition on all the variables $L,R$ and on a fixed gauge $u$.
+For each transversal $Q$ alternating for $u$, exactly one of the two
+values of the still-independent bit $W(Q)$ makes
+$\{\ell,r\}\cup Q$ a forbidden homogeneous $(n+1)$-set.
+Consequently the conditional probability that all transversal mixed
+$(n+1)$-sets are admissible is at most $2^{-M_u}$.
+\end{lemma}
+\begin{proof}
+The facet packet on $\{\ell,r\}\cup Q$ is
+\[
+ \bigl(\beta(Q),x_0(Q),\ldots,x_{m-1}(Q),\alpha(Q)\bigr).
+\]
+As $m\equiv2\pmod4$, any alternating interior $m$-vector has odd
+parity. Thus $\alpha(Q)+\beta(Q)=\sum_i x_i(Q)=1$.
+If the interior is alternating and the two endpoints are opposite,
+there are exactly two possible endpoint pairs, one of which produces
+an alternating packet of length $m+2$ and one which does not.
+But
+\[
+ \alpha(Q)=W(Q)+\sum_{i\in I}L_i(Q\setminus\{v_i\}),
+ \qquad
+ \beta(Q)=W(Q)+\sum_{j\in J}R_j(Q\setminus\{v_j\}).
+\]
+Toggling $W(Q)$ toggles both endpoints, so one choice is forbidden.
+The $W(Q)$ for different transversals are independent, which proves
+the bound.
+\end{proof}
+
+\subsection{Independent transversals and the union bound}
+Identify each block $V_i$ with the cyclic group $\mathbb Z/t\mathbb Z$.
+Let $\mathcal Q$ consist of those transversals
+$Q=(v_0,\ldots,v_{m-1})$ whose block coordinates sum to zero:
+\[
+ \mathcal Q=\{Q: v_i\in\mathbb Z/t\mathbb Z,\quad
+                  v_0+\cdots+v_{m-1}=0\}.
+\]
+There are $t^{m-1}$ such transversals. No two distinct members
+of $\mathcal Q$ agree in $m-1$ coordinates, since the missing coordinate
+is determined by the sum condition. Consequently their
+$(m-1)$-facets are all distinct.
+
+Fix a gauge $u$. For every $Q\in\mathcal Q$, the $m$ values
+$h(Q\setminus\{v_i\})$ are independent uniform bits. Moreover, by
+the distance-two property, the sets of random source bits used by
+different members of $\mathcal Q$ are disjoint. Since $\delta u$
+is fixed, the $m$ interior bits $x_i(Q)$ are independent and uniform,
+independently for all $Q\in\mathcal Q$.
+Thus the probability that the interior $m$-vector is alternating is
+$2/2^m=2^{1-m}$. Conditional on that event, Lemma~\ref{lem:p3-polarity}
+says that the independent base bit $W(Q)$ makes the whole mixed packet
+forbidden with probability $1/2$. The events of getting a forbidden
+homogeneous $(n+1)$-set on $\{\ell,r\}\cup Q$ are therefore
+\emph{independent}, each with probability $2^{-m}$. In particular,
+\begin{equation}\label{eq:fixed}
+ \Pr[\text{all selected mixed packets are admissible for a fixed }u]
+ = (1-2^{-m})^{t^{m-1}}.
+\end{equation}
+There are $2^{\binom{mt}{m-2}}$ possible cochains $u$. Any strong
+amalgam in the desired class would give one of these gauges and would
+avoid every selected forbidden packet. Therefore the union bound gives
+\begin{equation}\label{eq:total}
+ \Pr[\text{some parity-respecting strong amalgam exists}]
+ \le 2^{\binom{mt}{m-2}}(1-2^{-m})^{t^{m-1}}.
+\end{equation}
+We can choose $t$ explicitly, avoiding any asymptotic or
+analytic estimate. Put $M=2^m$ and
+\[
+ t=2^{m+1}m^{m-2},\qquad
+ K=\frac{t^{m-1}}M=2(mt)^{m-2}.
+\]
+The elementary Bernoulli inequality yields
+\[
+ (1-1/M)^M=(1+1/(M-1))^{-M}
+ \le (1+M/(M-1))^{-1}<\tfrac12.
+\]
+Partition the $t^{m-1}=MK$ selected transversals into $K$
+blocks of size $M$. Since
+$\binom{mt}{m-2}\le(mt)^{m-2}$, the right-hand side of
+\eqref{eq:total} is at most
+\[
+ 2^{\binom{mt}{m-2}-K}
+ \le2^{-(mt)^{m-2}}<\tfrac12.
+\]
+This is a completely finite inequality suitable for a counting
+formalisation. (The displayed $t$ is a generous bound, not an
+attempt to minimise the witness size.)
+
+To also exclude identification of $\ell$ and $r$, fix one transversal
+$Q_0$. The event $\alpha(Q_0)\ne\beta(Q_0)$ has probability
+$1/2$, independently of the base potential $W$. Since the
+probability on the left of \eqref{eq:total} is less than $1/2$,
+some assignments simultaneously satisfy $\alpha(Q_0)\ne\beta(Q_0)$
+and admit no strong amalgam. If $\ell,r$ were identified in an
+ordinary amalgam, their orientations on the $n$-sets extending
+$Q_0$ would coincide; there is no sign discrepancy on moving the
+extra vertex across $m=n-1$ base vertices because $m$ is even.
+This contradicts $\alpha(Q_0)\ne\beta(Q_0)$ and completes the
+proof of Theorem~\ref{thm:p3}.
+
+
+
+\section{The critical classes in arities $1\pmod4$}\label{sec:one-four}
+
+Fix an auxiliary linear order. We encode an oriented $n$-set $F$ by
+$e(F)\in\F$, where $e(F)=0$ means its increasing enumeration represents
+the chosen orientation. For an ordered $(n+1)$-set
+$X=\{x_0<\cdots<x_n\}$, its \emph{raw facet packet} is
+\[
+ \bigl(e(X\setminus\{x_i\})\bigr)_{i=0}^{n}.
+\]
+The homogeneous type $T_{n,0}=H_{n+1}$ has precisely the two packets
+$(i\bmod2)_{i=0}^{n}$ and $(1+i\bmod2)_{i=0}^{n}$. Write
+$T_{n,d}$ for the type with $d$ minority normalized signs. Let
+$N=n+1=4k+6$, so $N/2=2k+3$ is odd. The parity of the raw packet equals
+$d+N/2\pmod2$; in particular, the condition
+\[
+  T_{n,d}(X)\in\{T_{n,0},T_{n,1},T_{n,3},\ldots,T_{n,N/2}\}
+\]
+is equivalent to
+\begin{equation}\label{eq:admissible}
+ \sum_{F\in\binom{X}{n}}e(F)=0
+ \quad\text{or}\quad
+ \bigl(e(X\setminus\{x_i\})\bigr)_{i=0}^{N-1}
+ \text{ is alternating}.
+\end{equation}
+Denote this class by $\mathcal P_n$. Its homogeneous-set indicator is
+\[
+ D(X)=\sum_{F\in\binom Xn}e(F)\in\F,
+ \qquad X\in\binom V N.
+\]
+By~\eqref{eq:admissible}, $D(X)=1$ exactly when $X$ is homogeneous.
+
+\subsection{A uniform one-point diagram}
+
+Let $m=4k$, and take the ordered common base
+\[
+ A=P\cup U,\qquad
+ P=\{p_0<\cdots<p_{m-1}\}<
+ U=\{a_0<\cdots<a_5\}.
+\]
+Thus $|A|=m+6=N$. For $k=0$, $P$ is empty. Put the new vertices in
+one auxiliary order as
+\[
+ P<\ell<U<r.
+\]
+We prescribe two $n$-hypertournaments on $A\cup\{\ell\}$ and
+$A\cup\{r\}$, agreeing on $A$. Since $n=N-1$, every $n$-set in
+$A$ is $A\setminus\{v\}$ for some $v\in A$; every $n$-set
+containing either new vertex is indexed by a pair of omitted base
+vertices.
+
+\paragraph{The common base.}
+Set
+\begin{equation}\label{eq:base}
+ b_v:=e(A\setminus\{v\})=
+ \begin{cases}
+   1,&v\in P,\\
+   (1,1,0,1,0,1)_j,&v=a_j.
+ \end{cases}
+\end{equation}
+The raw packet on $A$ has parity $m+4=0\pmod2$ and is admissible.
+
+\paragraph{The two link graphs.}
+For $v,w\in A$, $v<w$, set
+\[
+ \alpha_{vw}=e(\{\ell\}\cup(A\setminus\{v,w\})),
+ \qquad
+ \beta_{vw}=e(\{r\}\cup(A\setminus\{v,w\})).
+\]
+The following data give every link bit:
+\begin{enumerate}
+\item For $v=a_i,w=a_j$ in $U$ ($i<j$), let the zero sets be
+\begin{align}\label{eq:oldedges}
+  \alpha_{a_i a_j}=0&\iff ij\in\{14,15,24,34,35\},\\
+  \beta_{a_i a_j}=0&\iff ij\in\{01,03,05,14,25,34\}.
+\end{align}
+All unlisted core--core bits are $1$. Here $ij$ abbreviates the
+unordered pair $\{i,j\}$.
+\item For $p_s\in P$ and $a_j\in U$, put
+\begin{equation}\label{eq:paddededges}
+ \beta_{p_s a_j}=
+ \begin{cases}
+  s\bmod2,&j=0,\\
+  1+s\bmod2,&j=4,\\
+  1,&j\in\{1,2,3,5\},
+ \end{cases}
+ \qquad
+ \alpha_{p_s a_j}=1+\beta_{p_s a_j}\pmod2.
+\end{equation}
+\item For two distinct pads $p_s,p_t\in P$, put
+$\alpha_{p_sp_t}=\beta_{p_sp_t}=0$.
+\end{enumerate}
+
+\begin{lemma}[Admissibility of both sides]\label{lem:p1-sides}
+The preceding prescriptions define members of $\mathcal P_n$.
+Among their $N$-vertex substructures, the left side has no
+homogeneous one; the right side has precisely the two homogeneous
+sets
+\[
+ (A\setminus\{a_0\})\cup\{r\},\qquad
+ (A\setminus\{a_4\})\cup\{r\}.
+\]
+\end{lemma}
+\begin{proof}
+The base $A$ is already admissible by~\eqref{eq:base}.
+Fix a base vertex $v$. On the $N$-set
+$(A\setminus\{v\})\cup\{\ell\}$, the raw packet consists of
+$b_v$ and the link bits $\alpha_{vw}$ with $w\in A\setminus\{v\}$;
+the corresponding right-side packet uses $\beta$. Hence their
+parities are
+\[
+ b_v+\sum_{w\ne v}\alpha_{vw},\qquad
+ b_v+\sum_{w\ne v}\beta_{vw}.
+\]
+For the six core vertices, the data~\eqref{eq:base} and
+\eqref{eq:oldedges} give
+\[
+ \sum_{\substack{w\in U\\w\ne a_j}}\alpha_{a_jw}=b_{a_j},
+ \qquad
+ \sum_{\substack{w\in U\\w\ne a_j}}\beta_{a_jw}
+ =b_{a_j}+\mathbf1_{j\in\{0,4\}}
+ \quad(\bmod2).
+\]
+All pad contributions to these sums vanish: for each core vertex,
+its prescribed pad row contains either $m$ identical bits or $m/2$
+ones, both even since $m=4k$.
+
+For a pad vertex $p_s$, the other-pad entries are zero; the six
+pad--core link bits have parity $1$ on each side, because the $j=0$
+and $j=4$ bits have opposite values, and the other four contribute
+an even number. This equals $b_{p_s}$.
+
+Therefore all left packets have even parity, and all right packets
+except the two indexed by $a_0,a_4$ have even parity. For those
+remaining two right packets, the full raw vectors, including their
+$m$ pad-deletion coordinates, are respectively
+\[
+ \underbrace{0101\cdots01}_{m\text{ bits}},\ 010101,
+ \qquad
+ \underbrace{1010\cdots10}_{m\text{ bits}},\ 101010
+\]
+(where for $m=0$ the initial strings are empty). Both are
+alternating, as required by~\eqref{eq:admissible}.
+\end{proof}
+
+\subsection{The forced contradiction}
+
+\begin{theorem}\label{thm:p1}
+For every $n\geq5$ satisfying $n\equiv1\pmod4$, the class
+\[
+ \boxed{\mathcal P_n
+ =\K^{(n)}_{\{T_{n,0},T_{n,1},T_{n,3},\ldots,T_{n,(n+1)/2}\}}}
+\]
+does not have the ordinary amalgamation property.
+\end{theorem}
+\begin{proof}
+Use the one-point diagram from Lemma~\ref{lem:p1-sides}.
+Suppose first that it had a strong amalgam on
+$V=A\cup\{\ell,r\}$, with $|V|=N+2$.
+
+Form a graph $G$ on $V$ by declaring $vw$ an edge if and only if
+$V\setminus\{v,w\}$ is a homogeneous $N$-set. By
+Lemma~\ref{lem:zero-two}, every vertex of $G$ has degree either $0$ or $2$.
+Lemma~\ref{lem:p1-sides} gives the fixed edges
+\begin{equation}\label{eq:fixed-edges}
+ \ell a_0,\qquad \ell a_4,
+\end{equation}
+no edges incident with $r$, and no edge $\ell r$.
+
+Consider a potential edge $vw$ with $v,w\in A$. The associated
+mixed $N$-set $X=V\setminus\{v,w\}$ contains both $\ell$ and $r$.
+In the increasing facet packet of $X$, deleting $\ell$ gives the
+right link bit $\beta_{vw}$, while deleting $r$ gives the left link
+bit $\alpha_{vw}$. The position of $r$ is $N-1=m+5$, which is odd;
+the position of $\ell$ is the number of pads retained in $X$.
+Consequently, alternating packets are possible only in the cases
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Types of $v,w$ & Position of $\ell$ & Necessary endpoint relation\\
+\midrule
+both pads & $m-2$ (even) & $\alpha_{vw}\ne\beta_{vw}$\\
+one pad, one core vertex & $m-1$ (odd) & $\alpha_{vw}=\beta_{vw}$\\
+both core vertices & $m$ (even) & $\alpha_{vw}\ne\beta_{vw}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+By construction, neither of the first two cases can be homogeneous:
+both-pad links agree, and pad--core links disagree. For two core
+vertices, $\alpha_{a_i a_j}\ne\beta_{a_i a_j}$ exactly on
+\begin{equation}\label{eq:eligible}
+ 01,\ 03,\ 05,\ 15,\ 24,\ 25,\ 35.
+\end{equation}
+Thus these seven core pairs are the \emph{only} possible mixed edges of $G$.
+
+The fixed edge $\ell a_4$ means $a_4$ already has degree at least one.
+By the zero-or-two lemma its degree must be exactly two, and by
+\eqref{eq:eligible} its only possible second neighbor is $a_2$.
+So $a_2a_4\in G$. The vertex $a_2$ has no fixed edge to a new
+vertex, and its only two eligible mixed neighbors are $a_4,a_5$.
+Its degree must likewise be two, forcing $a_2a_5\in G$.
+
+Now examine the common $n$-set
+\[
+ F=\{\ell,r\}\cup\bigl(A\setminus\{a_2,a_4,a_5\}\bigr).
+\]
+The homogeneous set $X_{24}=V\setminus\{a_2,a_4\}$ has right
+endpoint bit $\beta_{a_2a_4}=1$ at the even packet position $m$.
+Its facet obtained by deleting $a_5$ is exactly $F$, at packet
+position $m+4$ (also even), so homogeneity forces
+\[
+ e(F)=1.
+\]
+On the other hand, the homogeneous set
+$X_{25}=V\setminus\{a_2,a_5\}$ has right endpoint bit
+$\beta_{a_2a_5}=0$ at position $m$, and its facet obtained by
+deleting $a_4$ is again $F$ at position $m+4$. Thus homogeneity
+forces $e(F)=0$, a contradiction.
+
+Finally, the new vertices cannot be identified in an ordinary
+amalgam: on the core pair $24$ the two link bits are
+$\alpha_{a_2a_4}=0$ and $\beta_{a_2a_4}=1$. Identifying
+$\ell$ with $r$ would move that vertex past the four retained
+core vertices, an even permutation, so these bits would have to
+agree. Hence there is no ordinary amalgam either.
+\end{proof}
+
+\begin{remark}[What has become of the old arity-five SAT seed?]
+For $k=0$ the diagram is precisely the known six-vertex-base
+arity-five obstruction for $\operatorname{Forb}(T_{5,2})$.
+The present argument proves its non-amalgamability without SAT or
+exhaustive enumeration. In its old coordinates, the contradictory
+common mixed facet is the one labelled $x_{013}$.
+The graph of homogeneous defects reveals the short reason why that
+facet is forced to have both signs.
+\end{remark}
+
+
+\section{Deduction of the general-arity negative implications}\label{sec:conclusion}
+\begin{proof}[Proof of Theorem~\ref{thm:classification}: negative direction]
+We work only with unbounded classes, so the central type is present.
+The separate positive constructions are not used as proof premises;
+we now establish non-amalgamation for every unbounded set of types
+excluded by Theorem~\ref{thm:classification}.
+
+\emph{Even arities.}  The base arity $n=4$ is given by
+Lemmas~\ref{lem:4-central} and~\ref{lem:4-forb}.
+For $n=2k\ge4$, assume that every unbounded $n$-ary class missing
+$T_{n,k-1}$ has a one-point diagram with no ordinary amalgam.
+Consider $S'\subseteq\{T_{n+2,0},\ldots,T_{n+2,k+1}\}$
+containing the central type but omitting $T_{n+2,k}$, and set
+\[
+ S=\{T_{n,d}:T_{n+2,d+1}\in S'\}.
+\]
+Then $S$ contains $T_{n,k}$ but omits $T_{n,k-1}$.
+Proposition~\ref{prop:even-lift} transfers the negative diagram to
+$S^+$ with or without the homogeneous type $T_{n+2,0}$,
+which is exactly the class specified by $S'$.
+This proves the theorem in every even arity.
+
+\emph{Odd arities.}  At $n=5$ the three unbounded classes not
+covered by a positive construction are
+\[
+ \{T_{5,3}\},\qquad \{T_{5,0},T_{5,3}\},\qquad
+ \{T_{5,0},T_{5,1},T_{5,3}\}.
+\]
+They fail ordinary AP by Proposition~\ref{prop:cone} applied to the
+arity-four central-only seed, by Lemma~\ref{lem:5-two}, and by
+Theorem~\ref{thm:p1}, respectively.  Thus all three negative
+arity-five cases are proved mathematically.
+
+Now let $n\ge7$ be odd and put $q=(n+1)/2$.
+Take an unbounded class $\K^{(n)}_{S'}$ which omits $T_{n,q-1}$,
+and define $S=\{T_{n-2,d}:T_{n,d+1}\in S'\}$.
+This is an unbounded set of types in arity $n-2$, missing
+$T_{n-2,q-2}$.  If $S$ is not the switching set $E_{n-2}$,
+the odd-arity induction hypothesis says that $\K^{(n-2)}_S$
+fails ordinary AP.  The rooted transfer
+Theorem~\ref{thm:odd-lift} then implies the same for the target
+$S'$, independently of whether $T_{n,0}$ is included.
+
+It remains to examine $S=E_{n-2}$.  Shifting its type indices up by
+one gives all positive-index types of $E_n$; the parity calculation
+shows the following:
+\[
+\begin{array}{c|c|c}
+ n\bmod4&\text{switching set }E_n&\text{other set with the same positive indices}\\\hline
+ 3&\{T_{n,0},T_{n,2},\ldots,T_{n,q}\}&
+ E_n\setminus\{T_{n,0}\}\\
+ 1&\{T_{n,1},T_{n,3},\ldots,T_{n,q}\}&
+ E_n\cup\{T_{n,0}\}.
+\end{array}
+\]
+The switching case is outside the scope of this negative implication.
+The other case fails ordinary AP by Theorem~\ref{thm:p3} when
+$n\equiv3\pmod4$ and by Theorem~\ref{thm:p1} when
+$n\equiv1\pmod4$.
+This closes the induction for every odd arity at least five.
+\end{proof}
+
+\begin{remark}[Scope and proof status]
+The general-arity argument in Sections~\ref{sec:arity4}--
+\ref{sec:conclusion} is mathematical: it does not take a solver output,
+an exhaustive electronic certificate, or a finite sample of larger
+arities as a premise.  Two short finite tables below
+make all seed calculations reproducible by direct substitutions and
+implications.  The probabilistic proof is an existence argument and
+may produce an enormous finite obstruction, but is not
+computer-assisted.  That general-arity proof is adapted from the source manuscript and
+has not yet received line-by-line independent mathematical review.
+The separate five-constrained ternary classification is
+computer-assisted and intentionally omitted from this note.
+Nothing here has been formalised in Lean.
+\end{remark}
+
+
+
+\appendix
+
+\clearpage
+\section{Hand-checkable finite tables for the arity-four seed}
+\label{app:four-tables}
+For Table~\ref{tab:n4extend}, the six-bit word is written in the order
+\[
+ (v_{12},v_{13},v_{14},v_{23},v_{24},v_{34}),
+\]
+and the four-bit extensions in the order
+$(v_{15},v_{25},v_{35},v_{45})$.  The six constraints involving
+vertex $5$ are checked using the triple types $(*)$ above.
+The elementary three-variable forbidden-pattern rule gives the
+initial six assignments on $\{1,2,3\}$; extending to $4$
+leaves precisely the sixteen rows listed here.
+
+\begin{table}[htbp]\centering\small
+\begin{tabular}{@{}cc|cc@{}}\toprule
+Four-vertex word&Allowed four new bits&Four-vertex word&Allowed four new bits\\\midrule
+\texttt{000000}&\texttt{1101}&\texttt{011110}&\texttt{--}\\
+\texttt{100000}&\texttt{1101}&\texttt{111110}&\texttt{1011}\\
+\texttt{101000}&\texttt{1100, 1101}&\texttt{110001}&\texttt{0010}\\
+\texttt{111000}&\texttt{--}&\texttt{101001}&\texttt{1100, 0010}\\
+\texttt{000100}&\texttt{0111}&\texttt{001011}&\texttt{1100}\\
+\texttt{111100}&\texttt{0000, 1111}&\texttt{101011}&\texttt{1100}\\
+\texttt{000110}&\texttt{0011}&\texttt{010111}&\texttt{0110, 0011}\\
+\texttt{001110}&\texttt{--}&\texttt{001111}&\texttt{0110}\\
+\bottomrule\end{tabular}
+\caption{All admissible restrictions to vertices $1,2,3,4$ and all extensions to vertex $5$.  A dash means that no extension is allowed.}\label{tab:n4extend}
+\end{table}
+
+In Table~\ref{tab:n4paths}, the ten-bit word records, in order,
+\[
+ (v_{12},v_{13},v_{14},v_{15},v_{23},v_{24},v_{25},v_{34},v_{35},v_{45}).
+\]
+In an implication path, $i$ denotes $y_i=1$ and $\bar\imath$
+denotes $y_i=0$.  Adjacent literals in a path have distinct indices;
+the step is the elementary implication supplied by that pair in $(**)$.
+Each row exhibits implications both ways between opposite literals,
+so is unsatisfiable without any further assumptions.
+
+{\small
+\begin{longtable}{@{}cll@{}}
+\caption{Explicit $2$-SAT contradictions for every possible restriction to $1,2,3,4,5$.\label{tab:n4paths}}\\
+\toprule
+Ten-bit word&Path $\neg y_i\Rightarrow y_i$&Path $y_i\Rightarrow\neg y_i$\\\midrule
+\endfirsthead
+\toprule Ten-bit word&Path $\neg y_i\Rightarrow y_i$&Path $y_i\Rightarrow\neg y_i$\\\midrule
+\endhead
+\texttt{1110100000}&$\bar{1}\Rightarrow2\Rightarrow3\Rightarrow4\Rightarrow5\Rightarrow1$&$1\Rightarrow\bar{2}\Rightarrow\bar{4}\Rightarrow\bar{1}$\\
+\texttt{1011001000}&$\bar{1}\Rightarrow2\Rightarrow5\Rightarrow3\Rightarrow1$&$1\Rightarrow\bar{2}\Rightarrow\bar{4}\Rightarrow\bar{1}$\\
+\texttt{1011001100}&$\bar{3}\Rightarrow4\Rightarrow5\Rightarrow3$&$3\Rightarrow1\Rightarrow\bar{2}\Rightarrow\bar{3}$\\
+\texttt{0011011100}&$\bar{3}\Rightarrow4\Rightarrow5\Rightarrow3$&$3\Rightarrow1\Rightarrow4\Rightarrow\bar{3}$\\
+\texttt{1011011100}&$\bar{3}\Rightarrow4\Rightarrow5\Rightarrow3$&$3\Rightarrow1\Rightarrow\bar{2}\Rightarrow\bar{3}$\\
+\texttt{1100000110}&$\bar{5}\Rightarrow\bar{3}\Rightarrow4\Rightarrow5$&$5\Rightarrow1\Rightarrow\bar{2}\Rightarrow\bar{5}$\\
+\texttt{1010000110}&$\bar{5}\Rightarrow\bar{3}\Rightarrow4\Rightarrow5$&$5\Rightarrow1\Rightarrow\bar{2}\Rightarrow\bar{5}$\\
+\texttt{0100111110}&$\bar{1}\Rightarrow\bar{4}\Rightarrow3\Rightarrow5\Rightarrow1$&$1\Rightarrow2\Rightarrow4\Rightarrow\bar{3}\Rightarrow\bar{1}$\\
+\texttt{0010111110}&$\bar{1}\Rightarrow\bar{3}\Rightarrow4\Rightarrow5\Rightarrow1$&$1\Rightarrow2\Rightarrow3\Rightarrow\bar{4}\Rightarrow\bar{1}$\\
+\texttt{0001001001}&$\bar{4}\Rightarrow\bar{3}\Rightarrow\bar{5}\Rightarrow4$&$4\Rightarrow1\Rightarrow5\Rightarrow\bar{4}$\\
+\texttt{1001001001}&$\bar{4}\Rightarrow\bar{3}\Rightarrow\bar{5}\Rightarrow4$&$4\Rightarrow1\Rightarrow\bar{2}\Rightarrow\bar{4}$\\
+\texttt{1011001001}&$\bar{4}\Rightarrow\bar{3}\Rightarrow\bar{5}\Rightarrow4$&$4\Rightarrow2\Rightarrow5\Rightarrow\bar{4}$\\
+\texttt{0000110011}&$\bar{2}\Rightarrow\bar{1}\Rightarrow\bar{4}\Rightarrow5\Rightarrow2$&$2\Rightarrow3\Rightarrow5\Rightarrow\bar{4}\Rightarrow\bar{2}$\\
+\texttt{1111110011}&$\bar{3}\Rightarrow\bar{1}\Rightarrow2\Rightarrow3$&$3\Rightarrow4\Rightarrow\bar{5}\Rightarrow\bar{3}$\\
+\texttt{0000101011}&$\bar{2}\Rightarrow\bar{1}\Rightarrow\bar{5}\Rightarrow4\Rightarrow2$&$2\Rightarrow3\Rightarrow4\Rightarrow\bar{5}\Rightarrow\bar{2}$\\
+\texttt{1111101011}&$\bar{3}\Rightarrow\bar{1}\Rightarrow2\Rightarrow3$&$3\Rightarrow4\Rightarrow\bar{5}\Rightarrow\bar{3}$\\
+\texttt{0100110111}&$\bar{4}\Rightarrow\bar{2}\Rightarrow\bar{5}\Rightarrow4$&$4\Rightarrow1\Rightarrow3\Rightarrow\bar{4}$\\
+\bottomrule
+\end{longtable}
+}
+
+\clearpage
+\section{The sixteen homogeneous-defect supports in arity five}
+\label{app:five-tables}
+The $19$ possible missing triples are listed in~\eqref{eq:eligible5}.
+Every solution of the pair-parity equations is uniquely described by
+$S_*\triangle aU_a\triangle bU_b\triangle cU_c\triangle dU_d$
+as in~\eqref{eq:four-free5}.  Table~\ref{tab:n5supports}
+checks the \emph{integer} pair-degree upper bound in all sixteen
+cases.  A violating pair has degree four (including the fixed
+right-side contribution).  Thus only the five rows marked A--E survive.
+
+\begin{table}[htbp]\centering\small
+\begin{tabular}{@{}cccc|cccc@{}}\toprule
+$(d,c,b,a)$&Status&&&$(d,c,b,a)$&Status&&\\\midrule
+\texttt{0000}&OK (E)&&&\texttt{1000}&OK (C)&&\\
+\texttt{0001}&$d(45)=4$&&&\texttt{1001}&OK (D)&&\\
+\texttt{0010}&OK (B)&&&\texttt{1010}&$d(23)=4$&&\\
+\texttt{0011}&$d(04)=4$&&&\texttt{1011}&$d(04)=4$&&\\
+\texttt{0100}&$d(26)=4$&&&\texttt{1100}&OK (A)&&\\
+\texttt{0101}&$d(14)=4$&&&\texttt{1101}&$d(14)=4$&&\\
+\texttt{0110}&$d(36)=4$&&&\texttt{1110}&$d(23)=4$&&\\
+\texttt{0111}&$d(04)=4$&&&\texttt{1111}&$d(04)=4$&&\\
+\bottomrule
+\end{tabular}
+\caption{Complete degree test for the four free homogeneous-defect bits.}\label{tab:n5supports}
+\end{table}
+
+
+\section{Lean-oriented proof interfaces and dependency ledger}
+\label{app:lean}
+\paragraph{Definitions to formalise.}
+An alternating orientation on finite $n$-subsets, induced structures,
+embeddings, ordinary AP, normalized facet packets, and the invariant
+$d_n$. The elementary signed-permutation observation in
+Section~\ref{sec:statement} establishes the intended relation
+between $d_n$ and the intrinsic isomorphism type.
+
+\paragraph{Reusable logical lemmas.}
+The one-point identification-or-strong dichotomy;
+Lemma~\ref{lem:exactness} for unsigned cochains;
+the parity count in Lemma~\ref{lem:zero-two};
+and, crucially, the two-coordinate reflection
+Lemma~\ref{lem:reflection}. The latter is common to both parity
+branches and should be formalised only once.
+
+\paragraph{Individual mathematical blocks.}
+The two explicit arity-four witnesses (one implication chain and
+one seventeen-row table); the arity-five defect support calculation
+(including its sixteen-row incidence table); the one-point cone;
+the even and rooted odd padding type maps;
+the uniform defect-graph witness in arities $1\pmod4$;
+and the disjoint-transversal counting proof in arities $3\pmod4$.
+The closing induction should be formalised only after these pieces.
+
+\paragraph{Genuine external mathematical dependencies.}
+\begin{itemize}
+\item \emph{No non-elementary external theorem is required by the
+negative implication itself.} In particular, simplex cochain
+exactness and the alternating-boundary identity are proved here.
+\item The finite $n$-uniform Ramsey theorem is used only to explain
+the equivalence between unboundedness and the presence of the central
+local type. It can be omitted entirely from the Lean theorem by
+taking $T_{n,q}\in S$ as an explicit hypothesis.
+\item The probabilistic branch uses independence, finite counting,
+the union bound and the elementary Bernoulli inequality. The
+explicit choice of $t$ above avoids limits, exponential estimates
+and other analytic prerequisites.
+\item The positive AP/SAP constructions, the complete ternary census,
+and any structural classification of homogeneous structures are
+\emph{not} inputs to this proof.
+\end{itemize}
+
+\paragraph{Audit status and remaining checks.}
+Independent finite enumeration confirms membership of both sides in
+the intended classes for all three small seed diagrams. It verifies
+all seventeen rows and thirty-four implication paths in the second
+arity-four seed, all sixteen parity-support cases and five final
+contradictions in the arity-five seed, and the uniform
+$1\pmod4$ side diagrams for $n=5,9,13,17,21$.
+Random-input checks confirm both local suspension type formulas at
+several small arities. These finite checks complement the written
+mathematical proofs, but do \emph{not} verify the infinite-family
+lemmas or the counting argument mechanically. The full text remains
+unaudited by a separate human referee and is not a Lean proof.
+
+\begin{thebibliography}{9}
+\bibitem{catalogue}
+\emph{Local Types and Unbounded Amalgamation Classes for Constrained
+Hypertournaments}, companion working classification manuscript,
+2026 (nomenclature and context only; not a proof premise).
+\bibitem{source-negative}
+M.~Kone\v cn\'y,
+\emph{Amalgamation of locally constrained hypertournaments:
+a complete proof of the negative classification}, original
+unpublished working note, 5 November 2026. Source text audited and
+refactored in the present AI-written note.
+\end{thebibliography}
+\end{document}
