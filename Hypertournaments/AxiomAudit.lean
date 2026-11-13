@@ -750,3 +750,15 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3LowerProtectedTriple
 #print axioms Hypertournaments.p3UpperProtectedTriple
 #print axioms Hypertournaments.p3CanonicalSide_allowed_qAll_fresh_packet
+#print axioms Hypertournaments.p3CanonicalSide_admissible_of_ordered_fresh_packets
+#print axioms Hypertournaments.p3CanonicalFresh_zero_occupancy_is_missing
+#print axioms Hypertournaments.p3CanonicalFresh_positive_occupancy_witness
+#print axioms Hypertournaments.p3CanonicalSide_admissible_of_protectedTriple
+#print axioms Hypertournaments.p3CanonicalSide_lowerHalf_admissible
+#print axioms Hypertournaments.p3CanonicalSide_upperHalf_admissible
+#print axioms Hypertournaments.p3CanonicalComplementarySpan_admissible
+#print axioms Hypertournaments.Hyper.localIndex_zero_of_raw_alternating
+#print axioms Hypertournaments.Hyper.raw_alternating_not_p3ToggleAllowed
+#print axioms Hypertournaments.p3RightJointOrderEmb_toEmbedding
+#print axioms Hypertournaments.p3CanonicalJoint_old_coincidence
+#print axioms Hypertournaments.p3CanonicalJoint_old_set_images_agree
