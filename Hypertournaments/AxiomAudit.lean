@@ -828,3 +828,4 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3ActualSelectedParent_erase_old_vertex
 #print axioms Hypertournaments.p3ActualSelectedParent_erase_right
 #print axioms Hypertournaments.p3ActualSelectedParent_erase_left
+#print axioms Hypertournaments.p3RealOddLink_forces_side_tuple_disagreement
