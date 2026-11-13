@@ -14,3 +14,24 @@ rev = "v4.34.1"
 
 [[lean_lib]]
 name = "Hypertournaments"
+
+# Immutable HN/Ramsey proof closure; provenance is in vendor/ramsey-transfer.
+[[lean_lib]]
+name = "CCO"
+srcDir = "vendor/ramsey-transfer"
+roots = ["CCO.UnaryHN.IteratedTransfer", "CCO.UnaryHN.OrderedAmbient"]
+globs = ["CCO.UnaryHN.+"]
+
+[[lean_lib]]
+name = "PartiteConstruction"
+srcDir = "vendor/ramsey-transfer"
+roots = ["PartiteConstruction.Structure.Basic"]
+globs = ["PartiteConstruction.+"]
+leanOptions = {autoImplicit = true, relaxedAutoImplicit = true}
+
+[[lean_lib]]
+name = "SuccessorTree"
+srcDir = "vendor/ramsey-transfer"
+roots = ["SuccessorTree.HalesJewett.Forcing"]
+globs = ["SuccessorTree.+"]
+leanOptions = {autoImplicit = true, relaxedAutoImplicit = true}

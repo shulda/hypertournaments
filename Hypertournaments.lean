@@ -337,3 +337,5 @@ import Hypertournaments.NegativeClassification
 
 import Hypertournaments.PairAmalgamation
 import Hypertournaments.RelationalEncoding
+
+import Hypertournaments.PairRamsey
