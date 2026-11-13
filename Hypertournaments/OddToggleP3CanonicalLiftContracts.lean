@@ -18,6 +18,8 @@ joint inclusions from OnePointJoint.
 
 namespace Hypertournaments
 
+open scoped Classical
+
 /-- The contraction of a finite potential lifted along an
 injective vertex map, at the image of a fresh point outside U,
 recovers exactly the original potential on insert fresh U. -/
