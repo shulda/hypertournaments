@@ -836,3 +836,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3ActualSelectedRightEndpoint_badPattern_iff
 #print axioms Hypertournaments.p3ActualSelectedGaugeShift_complete
 #print axioms Hypertournaments.Hyper.p3Switching_alternating_prefix_right_forbidden
+#print axioms Hypertournaments.p3StrictMono_snoc
+#print axioms Hypertournaments.p3ActualSelectedParent_increasing_tuple
+#print axioms Hypertournaments.Hyper.p3ActualSelectedParent_has_raw_facet_dictionary
