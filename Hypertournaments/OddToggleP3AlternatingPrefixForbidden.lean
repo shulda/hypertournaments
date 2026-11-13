@@ -71,7 +71,6 @@ theorem Hyper.p3Switching_alternating_prefix_right_forbidden
       p1BitToZMod (raw ((Fin.last (4*k+2)).castSucc)) +
       p1BitToZMod (raw (Fin.last ((4*k+2)+1))) := by
     rw [Fin.sum_univ_castSucc, Fin.sum_univ_castSucc]
-    ring
   have hSum :
       (1 : ZMod 2) +
       p1BitToZMod (raw ((Fin.last (4*k+2)).castSucc)) +
@@ -83,10 +82,14 @@ theorem Hyper.p3Switching_alternating_prefix_right_forbidden
     have hAlgebra : ∀ b c : Bool,
         ((1 : ZMod 2) + p1BitToZMod b +
           p1BitToZMod c = 0) ↔ c = !b := by decide
+    have hBetaRaw :
+        raw ((Fin.last (4*k+2)).castSucc) = phase := hBeta
+    have hSum' :
+        (1 : ZMod 2) + p1BitToZMod phase +
+          p1BitToZMod (raw (Fin.last ((4*k+2)+1))) = 0 := by
+      simpa only [hBetaRaw] using hSum
     exact (hAlgebra phase
-      (raw (Fin.last ((4*k+2)+1)))).mp (by
-      rw [hBeta] at hSum
-      exact hSum)
+      (raw (Fin.last ((4*k+2)+1)))).mp hSum'
   have hRaw : ∀ i : Fin (4*k+4),
       E.orient (facet f.toEmbedding i) =
         p3AlternatingWord (4*k+4) phase i := by
