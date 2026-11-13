@@ -839,3 +839,4 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3ActualSelectedCanonicalSide_endpointBool_eq_W_xor_linkParity
 #print axioms Hypertournaments.p3ActualSelectedRightEndpoint_badPattern_iff
 #print axioms Hypertournaments.p3ActualSelectedGaugeShift_complete
+#print axioms Hypertournaments.Hyper.p3ActualShiftedBadTrial_impossible
