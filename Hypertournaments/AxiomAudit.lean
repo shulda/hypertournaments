@@ -828,3 +828,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3ActualSelectedParent_erase_old_vertex
 #print axioms Hypertournaments.p3ActualSelectedParent_erase_right
 #print axioms Hypertournaments.p3ActualSelectedParent_erase_left
+#print axioms Hypertournaments.p3CanonicalJoint_left_endpointBool_of_preserves
+#print axioms Hypertournaments.p3CanonicalJoint_right_endpointBool_of_preserves
+#print axioms Hypertournaments.p3ActualSelectedCanonicalSide_endpointBool_eq_W_xor_linkParity
