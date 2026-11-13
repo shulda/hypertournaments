@@ -818,3 +818,4 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3BoolPacketPositiveCount_not
 #print axioms Hypertournaments.p3AlternatingInterior_positiveCount
 #print axioms Hypertournaments.p3AlternatingInterior_ZModSum_one
+#print axioms Hypertournaments.Hyper.p3Switching_alternating_prefix_right_forbidden
