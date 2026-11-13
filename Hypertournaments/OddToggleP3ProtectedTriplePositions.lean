@@ -90,8 +90,10 @@ theorem p3Monotone_protectedTriple_oppositeParity_singletons
       intro heq
       exact hpar (congrArg (fun z : ℕ => decide (z=1)) heq)
     refine ⟨x,y,hmod,Or.inl hx,Or.inr (Or.inl hy),?_,?_⟩
-    · exact p3SingletonFiber_global_unique block u hA1 x hx
-    · exact p3SingletonFiber_global_unique block (u+1) hB1 y hy
+    · rw [hx]
+      exact p3SingletonFiber_global_unique block u hA1 x hx
+    · rw [hy]
+      exact p3SingletonFiber_global_unique block (u+1) hB1 y hy
   · obtain ⟨x,y,hx,hy,_,hpar⟩ :=
       p3ConsecutiveSingletonFibers_oppositeParity
         N block hmono (u+1) hB1 (by simpa only [show (u+1)+1=u+2 by omega] using hC1)
@@ -100,16 +102,22 @@ theorem p3Monotone_protectedTriple_oppositeParity_singletons
       intro heq
       exact hpar (congrArg (fun z : ℕ => decide (z=1)) heq)
     refine ⟨x,y,hmod,Or.inr (Or.inl hx),Or.inr (Or.inr hy'),?_,?_⟩
-    · exact p3SingletonFiber_global_unique block (u+1) hB1 x hx
-    · exact p3SingletonFiber_global_unique block (u+2) hC1 y hy'
+    · rw [hx]
+      exact p3SingletonFiber_global_unique block (u+1) hB1 x hx
+    · rw [hy']
+      exact p3SingletonFiber_global_unique block (u+2) hC1 y hy'
   · obtain ⟨x,hAx⟩ := Finset.card_eq_one.mp hA1
     obtain ⟨y,hCy⟩ := Finset.card_eq_one.mp hC1
     have hxmem : x ∈ A := by rw [hAx]; simp
     have hymem : y ∈ C := by rw [hCy]; simp
     have hx : block x = u := (Finset.mem_filter.mp hxmem).2
     have hy : block y = u+2 := (Finset.mem_filter.mp hymem).2
-    have huniqueX := p3SingletonFiber_global_unique block u hA1 x hx
-    have huniqueY := p3SingletonFiber_global_unique block (u+2) hC1 y hy
+    have huniqueX : ∀ z : Fin N, block z = block x → z = x := by
+      rw [hx]
+      exact p3SingletonFiber_global_unique block u hA1 x hx
+    have huniqueY : ∀ z : Fin N, block z = block y → z = y := by
+      rw [hy]
+      exact p3SingletonFiber_global_unique block (u+2) hC1 y hy
     have hmid :
         (Finset.univ.filter
           (fun z : Fin N => block z = block x+1)).card = 2 := by
