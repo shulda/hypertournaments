@@ -724,3 +724,7 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3CanonicalFresh_old_enumeration
 #print axioms Hypertournaments.p3CanonicalFresh_old_enumeration_membership
 #print axioms Hypertournaments.p3CanonicalFresh_qMinusOne_singleton_positions
+#print axioms Hypertournaments.p3GoodSelectedTrialSet_card
+#print axioms Hypertournaments.p3AllGlobalGoodTrialAssignments_exact_ratio
+#print axioms Hypertournaments.p3Witness_fullSourceGauge_strict_half
+#print axioms Hypertournaments.p3Witness_globalGoodGauge_strict_half
