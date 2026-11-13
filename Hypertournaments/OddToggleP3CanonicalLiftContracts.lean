@@ -126,6 +126,8 @@ theorem p3CanonicalRightLift_contractAt_old
         (U.image jointOld) =
       if p3IsEligibleMissingTransversal m t eligible U
       then R U else 0 := hLift.trans hvalue
-  simpa only [g, rightJointInclusion_new] using hresult
+  dsimp only [g, fresh, jointOld, old, z] at hresult
+  rw [rightJointInclusion_new a] at hresult
+  exact hresult
 
 end Hypertournaments
