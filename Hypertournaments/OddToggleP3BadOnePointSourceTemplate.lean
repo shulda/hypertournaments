@@ -73,8 +73,7 @@ theorem p3BadOnePoint_of_global_shifted_source_witness
   have hComplement : eligibleR = p3EligibleUpperHalf m := by
     dsimp only [eligibleR, eligibleL]
     ext i
-    simp [p3EligibleLowerHalf, p3EligibleUpperHalf]
-    omega
+    simp [p3EligibleLowerHalf, p3EligibleUpperHalf] <;> omega
   have hL : Admissible
       (toggleZero (switchingAllowed (4*k+3))) L :=
     p3CanonicalSide_lowerHalf_admissible k t hk ht W Link
