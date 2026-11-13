@@ -817,3 +817,7 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3ActualSelectedParent_erase_old_vertex
 #print axioms Hypertournaments.p3ActualSelectedParent_erase_right
 #print axioms Hypertournaments.p3ActualSelectedParent_erase_left
+#print axioms Hypertournaments.p3BlockCoordinateVertex_strictMono
+#print axioms Hypertournaments.p3CoordinateTransversal_orderEmbOfFin
+#print axioms Hypertournaments.p3StrictMono_snoc
+#print axioms Hypertournaments.p3ActualSelectedParent_increasing_tuple
