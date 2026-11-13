@@ -47,7 +47,7 @@ theorem p3CoordinateTransversal_block_fiber
       simpa only [p3BlockCoordinateVertex_blockNumber] using heq
     have hji : j = i := Fin.ext hjblock
     subst j
-    exact Finset.mem_singleton.mpr hj
+    exact Finset.mem_singleton.mpr hj.symm
   · intro hv
     have hvEq : v = p3BlockCoordinateVertex m t ht i (q i) :=
       Finset.mem_singleton.mp hv
