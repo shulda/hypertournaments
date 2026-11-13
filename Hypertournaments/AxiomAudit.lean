@@ -771,3 +771,12 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3OtherSelectedLinkParity_flip_invariant
 #print axioms Hypertournaments.p3SelectedLinkParity_half
 #print axioms Hypertournaments.p3ZeroSumFullSource_fixedTrial_linkParity_half
+#print axioms Hypertournaments.p3CanonicalSide_oldPlusNew_card
+#print axioms Hypertournaments.p3CanonicalSide_packet_image
+#print axioms Hypertournaments.p3CanonicalJoint_left_packet_image
+#print axioms Hypertournaments.p3CanonicalJoint_right_packet_image
+#print axioms Hypertournaments.p3CanonicalJoint_left_link_via_lift
+#print axioms Hypertournaments.p3CanonicalJoint_right_link_via_lift
+#print axioms Hypertournaments.Hyper.p3CanonicalPreservedJoint_has_mixed_gauge
+#print axioms Hypertournaments.p3CanonicalSidePotential_fresh_old_image
+#print axioms Hypertournaments.p3CanonicalSide_link_on_full_transversal
