@@ -44,7 +44,7 @@ theorem p3CanonicalFresh_zero_occupancy_is_missing
       v ∈ U.filter (fun z => p3BlockNumber t z = i.val) :=
     Finset.mem_filter.mpr ⟨hvU,hblock⟩
   rw [hFilterZero] at hvFilter
-  exact Finset.not_mem_empty v hvFilter
+  simp at hvFilter
 
 /-- Every positively occupied block fiber is represented by a
 real old packet vertex with the corresponding exact block label. -/
