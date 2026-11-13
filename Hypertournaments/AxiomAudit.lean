@@ -792,3 +792,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3ActualPunctureSourceIndex_injective
 #print axioms Hypertournaments.p3ActualPunctureSubset_occupancies
 #print axioms Hypertournaments.p3ActualPunctureSubsetIndex_injective
+#print axioms Hypertournaments.p3ExtendByIndex_at
+#print axioms Hypertournaments.p3RealWFromSources_selected
+#print axioms Hypertournaments.p3RealLinkFromSources_selected
