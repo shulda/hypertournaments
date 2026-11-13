@@ -18,6 +18,8 @@ half. No artificial independent-link assumption is introduced.
 
 namespace Hypertournaments
 
+open scoped Classical
+
 /-- The true missing-block facet selected by deleting block i
 is eligible exactly when i lies in the designated eligible set. -/
 theorem p3ActualSelectedPuncture_eligible_iff
