@@ -28,7 +28,7 @@ theorem p3ActualOneFresh_gap_sum_eq_one
   classical
   let occ : Fin m → ℕ := p3BlockOccupancy m t U
   have hpoint (i : Fin m) : (occ i - 1) + 1 = occ i := by
-    have hp := hall i
+    have hp : 0 < occ i := hall i
     omega
   have hsum :
       (∑ i : Fin m, (occ i - 1)) + m =
@@ -65,8 +65,11 @@ theorem p3ActualOneFresh_occ_le_two
   have hsingle :
       p3BlockOccupancy m t U i - 1 ≤
         (∑ j : Fin m, (p3BlockOccupancy m t U j - 1)) := by
+    let f : Fin m → ℕ :=
+      fun j => p3BlockOccupancy m t U j - 1
+    change f i ≤ ∑ j : Fin m, f j
     exact Finset.single_le_sum
-      (fun _ _ => Nat.zero_le _) (Finset.mem_univ i)
+      (fun j _ => Nat.zero_le (f j)) (Finset.mem_univ i)
   have hpos := hall i
   omega
 
