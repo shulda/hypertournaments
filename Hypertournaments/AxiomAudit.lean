@@ -728,3 +728,4 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3AllGlobalGoodTrialAssignments_exact_ratio
 #print axioms Hypertournaments.p3Witness_fullSourceGauge_strict_half
 #print axioms Hypertournaments.p3Witness_globalGoodGauge_strict_half
+#print axioms Hypertournaments.p3CanonicalSide_allowed_qMinusOne_fresh_packet
