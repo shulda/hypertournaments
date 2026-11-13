@@ -71,8 +71,11 @@ theorem p3CanonicalMixedRawWord_alternating_endpoints
     omega
   constructor
   · rw [p3CanonicalMixedRawWord_beta] at hb
-    simpa [p3AlternatingWord, hEven] using hb
+    change beta = (if m % 2 = 0 then phase else !phase) at hb
+    simpa [hm] using hb
   · rw [p3CanonicalMixedRawWord_alpha] at ha
-    simpa [p3AlternatingWord, hOdd] using ha
+    change alpha = (if (m+1) % 2 = 0 then phase else !phase) at ha
+    have hOddNotZero : (m+1) % 2 ≠ 0 := by omega
+    simpa [hOddNotZero] using ha
 
 end Hypertournaments
