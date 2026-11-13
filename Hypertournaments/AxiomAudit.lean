@@ -873,3 +873,23 @@ they are not a substitute for it.
 #print axioms Hypertournaments.Ramsey.orderedOmissionClass_locallyFinite
 #print axioms Hypertournaments.Ramsey.pair_cancelling_ordered_ramsey
 #print axioms Hypertournaments.Ramsey.exists_ordered_ramsey_witness
+
+#print axioms Hypertournaments.Ramsey.pair_cancelling_ordering_property
+#print axioms Hypertournaments.Ramsey.unrestricted_ordered_ramsey
+#print axioms Hypertournaments.Ramsey.unrestricted_ordering_property
+#print axioms Hypertournaments.tupleCoboundary_tupleCoboundary_zero
+#print axioms Hypertournaments.Hyper.coboundary
+#print axioms Hypertournaments.Hyper.coboundary_preserves
+#print axioms Hypertournaments.Hyper.exists_potential
+#print axioms Hypertournaments.Hyper.isEven_iff_exists_potential
+#print axioms Hypertournaments.IsPotential.intrinsic_gauge
+#print axioms Hypertournaments.IsPotential.exists_aligned
+#print axioms Hypertournaments.Hyper.admissible_switching_iff_isEven
+#print axioms Hypertournaments.potential_ordered_strong_span
+#print axioms Hypertournaments.even_strong_span
+#print axioms Hypertournaments.even_ordered_strong_span
+#print axioms Hypertournaments.switching_strong_span
+#print axioms Hypertournaments.switching_hasAP
+#print axioms Hypertournaments.Ramsey.exists_potential_ramsey_witness
+#print axioms Hypertournaments.Ramsey.potential_expansions_ramsey
+#print axioms Hypertournaments.Ramsey.potential_expansion_property
