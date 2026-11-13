@@ -807,3 +807,9 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3CanonicalLeftLift_contractAt_old
 #print axioms Hypertournaments.p3CanonicalRightLift_contractAt_old
 #print axioms Hypertournaments.Hyper.p3ActualSelectedJoint_has_independent_source_gauge
+#print axioms Hypertournaments.p3Bool_of_bitToZMod
+#print axioms Hypertournaments.p3Bool_of_ZMod_add
+#print axioms Hypertournaments.p3Bool_of_source_plus_gauge
+#print axioms Hypertournaments.p3DoubleContractAt_eq_mixedSet
+#print axioms Hypertournaments.p3ActualSelectedMixedCanonicalBit_trueSign
+#print axioms Hypertournaments.Hyper.p3ActualSelectedJoint_has_boolean_source_shift
