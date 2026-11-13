@@ -88,6 +88,10 @@ theorem p3CoordinateTransversal_injective
   have hlabel := congrArg (p3BlockNumber t) hj
   have hji : j = i := by
     apply Fin.ext
+    change p3BlockNumber t
+        (p3BlockCoordinateVertex m t ht j (r j)) =
+      p3BlockNumber t
+        (p3BlockCoordinateVertex m t ht i (q i)) at hlabel
     simpa only [p3BlockCoordinateVertex_blockNumber] using hlabel
   subst j
   have heq :
