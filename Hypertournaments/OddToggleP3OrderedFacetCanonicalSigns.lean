@@ -44,7 +44,13 @@ theorem Hyper.orderedFacet_orient_eq_canonical_erase
     E.orient (facet f.toEmbedding i) =
       E.canonicalSignTable
         ((tupleVertices f.toEmbedding).erase (f i)) := by
-  rw [← tupleVertices_facet_eq_erase f.toEmbedding i]
-  exact E.orderedFacet_orient_eq_canonicalSign f i
+  calc
+    E.orient (facet f.toEmbedding i) =
+        E.canonicalSignTable (tupleVertices (facet f.toEmbedding i)) :=
+      E.orderedFacet_orient_eq_canonicalSign f i
+    _ = E.canonicalSignTable
+          ((tupleVertices f.toEmbedding).erase (f i)) := by
+      exact congrArg E.canonicalSignTable
+        (tupleVertices_facet_eq_erase f.toEmbedding i)
 
 end Hypertournaments
