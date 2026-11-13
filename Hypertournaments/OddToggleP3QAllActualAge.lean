@@ -8,14 +8,14 @@ import Hypertournaments.OddToggleP3CanonicalSides
 We now have exact actual one-fresh packet geometry: whenever every
 old block is occupied, any chosen triple of consecutive old block
 labels provides two old singleton vertices on opposite deletion
-parities. If this triple belongs to a protected block family
+parities. If this triple belongs to a protectedBlocks block family
 disjoint from the eligible missing-half support of the side's
 new-point potential, deleting either singleton kills its entire
-protected block and forces a genuine raw-zero orientation facet.
+protectedBlocks block and forces a genuine raw-zero orientation facet.
 
-The already certified actual protected-packet criterion therefore
+The already certified actual protectedBlocks-packet criterion therefore
 places every such packet in toggleZero(switchingAllowed), for ALL
-base and link coefficient assignments W,L. The protected triple
+base and link coefficient assignments W,L. The protectedBlocks triple
 and disjointness hypotheses are explicit; the canonical left/right
 half choices are separate final instantiations.
 
@@ -26,15 +26,15 @@ and does not assert ordinary non-amalgamation.
 namespace Hypertournaments
 
 /-- Every actual canonical one-fresh packet meeting ALL m old blocks
-is admitted in the exceptional p3 age if some protected consecutive
+is admitted in the exceptional p3 age if some protectedBlocks consecutive
 triple lies outside the eligible new-link support. -/
 theorem p3CanonicalSide_allowed_qAll_fresh_packet
     (k m t : ℕ) (hk : 1 ≤ k) (hm : m = 4*k+2) (ht : 0 < t)
-    (eligible protected : Finset (Fin m))
-    (hDisjoint : Disjoint eligible protected)
+    (eligible protectedBlocks : Finset (Fin m))
+    (hDisjoint : Disjoint eligible protectedBlocks)
     (start : ℕ) (hstart : start+2 < m)
     (hProtected : ∀ b : Fin m,
-      start ≤ b.val → b.val ≤ start+2 → b ∈ protected)
+      start ≤ b.val → b.val ≤ start+2 → b ∈ protectedBlocks)
     (W L : Finset (Fin (m*t)) → ZMod 2)
     (f : Fin ((m+1)+1) ↪o Fin (m*t+1))
     (hFresh : Fin.last (m*t) ∈ tupleVertices f.toEmbedding)
@@ -49,11 +49,11 @@ theorem p3CanonicalSide_allowed_qAll_fresh_packet
       m t ht f hFresh hAll start hstart
   let i : Fin m := p3BlockLabel m t ht v
   let j : Fin m := p3BlockLabel m t ht w
-  have hi : i ∈ protected := by
+  have hi : i ∈ protectedBlocks := by
     apply hProtected i
     · exact hRangeV.1
     · exact hRangeV.2
-  have hj : j ∈ protected := by
+  have hj : j ∈ protectedBlocks := by
     apply hProtected j
     · exact hRangeW.1
     · exact hRangeW.2
@@ -92,7 +92,7 @@ theorem p3CanonicalSide_allowed_qAll_fresh_packet
     (Fin.castSuccOrderEmb : Fin ((4*k+2)*t) ↪o
       Fin ((4*k+2)*t+1)).toEmbedding
     (Fin.last ((4*k+2)*t))
-    eligible protected hDisjoint W L f
+    eligible protectedBlocks hDisjoint W L f
     x.castSucc y.castSucc hParity
     i j hi hj v w hV hW hVI hWJ hUniqueVI hUniqueWJ
 
