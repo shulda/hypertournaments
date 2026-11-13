@@ -805,3 +805,7 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3RealSelectedTwoSideFacet_eq_linkSource
 #print axioms Hypertournaments.Hyper.orient_disagree_of_canonicalSignTable_disagree
 #print axioms Hypertournaments.p3RealSelectedCanonicalLinks_mismatch_half
+#print axioms Hypertournaments.p3LiftFinPotential_contractAt_image
+#print axioms Hypertournaments.p3CanonicalLeftLift_contractAt_old
+#print axioms Hypertournaments.p3CanonicalRightLift_contractAt_old
+#print axioms Hypertournaments.Hyper.p3ActualSelectedJoint_has_independent_source_gauge
