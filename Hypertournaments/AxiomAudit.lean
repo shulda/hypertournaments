@@ -780,3 +780,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.Hyper.p3CanonicalPreservedJoint_has_mixed_gauge
 #print axioms Hypertournaments.p3CanonicalSidePotential_fresh_old_image
 #print axioms Hypertournaments.p3CanonicalSide_link_on_full_transversal
+#print axioms Hypertournaments.p3SelectedLinkSum_one_iff_xor_true
+#print axioms Hypertournaments.p3ZeroSumFullSource_fixedTrial_linkSum_half
