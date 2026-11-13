@@ -806,3 +806,12 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.Hyper.orient_disagree_of_canonicalSignTable_disagree
 #print axioms Hypertournaments.p3RealSelectedCanonicalLinks_mismatch_half
 #print axioms Hypertournaments.p3FullSource_exists_oddLink_and_badTrial_for_all_gauges
+#print axioms Hypertournaments.p3LiftFinPotential_contractAt_image
+#print axioms Hypertournaments.p3CanonicalLeftLift_contractAt_old
+#print axioms Hypertournaments.p3CanonicalRightLift_contractAt_old
+#print axioms Hypertournaments.Hyper.p3ActualSelectedJoint_has_independent_source_gauge
+#print axioms Hypertournaments.p3ActualSelectedPuncture_card
+#print axioms Hypertournaments.p3ActualSelectedGauge_has_finite_support
+#print axioms Hypertournaments.p3ActualSelectedBoolGauge_count
+#print axioms Hypertournaments.p3BlockCoordinateVertex_strictMono
+#print axioms Hypertournaments.p3CoordinateTransversal_orderEmbOfFin
