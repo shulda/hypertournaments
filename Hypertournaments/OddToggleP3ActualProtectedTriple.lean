@@ -52,6 +52,7 @@ theorem p3ActualOneFresh_three_blocks_le_four
     rintro ⟨ha,hb⟩
     exact p3ActualOneFresh_no_two_double_blocks
       m t ht U hsize hall j l hjl ha hb
+  change occ i + occ j + occ l ≤ 4
   by_cases hBigI : 1 < occ i
   · have hSmallJ : occ j ≤ 1 := by
       by_contra hnot
