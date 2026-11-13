@@ -762,3 +762,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3RightJointOrderEmb_toEmbedding
 #print axioms Hypertournaments.p3CanonicalJoint_old_coincidence
 #print axioms Hypertournaments.p3CanonicalJoint_old_set_images_agree
+#print axioms Hypertournaments.p3ToggleZero_subset_switchingAllowed
+#print axioms Hypertournaments.Hyper.p3ToggleAdmissible_switchingAllowed
