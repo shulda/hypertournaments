@@ -741,3 +741,4 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3Monotone_protectedTriple_oppositeParity_singletons
 #print axioms Hypertournaments.p3ActualOneFresh_sorted_protectedTriple_singletons
 #print axioms Hypertournaments.p3CanonicalFresh_qAll_protected_singleton_positions
+#print axioms Hypertournaments.p3CanonicalSide_allowed_qAll_fresh_packet
