@@ -803,3 +803,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3RealSelectedCanonicalSide_link_eq_globalSources
 #print axioms Hypertournaments.p3RealSelectedCanonicalLinks_sum_eq_allLinkSources
 #print axioms Hypertournaments.p3RealSelectedTwoSideFacet_eq_linkSource
+#print axioms Hypertournaments.Hyper.orient_disagree_of_canonicalSignTable_disagree
+#print axioms Hypertournaments.p3RealSelectedCanonicalLinks_mismatch_half
