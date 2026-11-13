@@ -1,3 +1,4 @@
+import Lean.Elab.Tactic.Omega
 import Hypertournaments.OddToggleP1ActualNonmixedJointEdges
 import Hypertournaments.OddToggleP1ActualCoreNeighborSupport
 import Hypertournaments.OddToggleP1ActualForcedFacetContradiction

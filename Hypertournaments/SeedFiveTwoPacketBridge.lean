@@ -1,3 +1,7 @@
+import Mathlib.Data.Fin.VecNotation
+import Mathlib.Tactic.Ext
+import Mathlib.Tactic.FinCases
+import Mathlib.Tactic.NormNum
 import Hypertournaments.SeedFiveTwoBoolean
 import Hypertournaments.OnePointJoint
 

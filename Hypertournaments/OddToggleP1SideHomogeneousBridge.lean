@@ -1,3 +1,5 @@
+import Lean.Elab.Tactic.Omega
+import Mathlib.Tactic.Ext
 import Hypertournaments.OddToggleP1SidePacketIndex
 import Hypertournaments.OddToggleP1OmissionAllLinks
 import Hypertournaments.OddToggleP1RawAlternating

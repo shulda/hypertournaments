@@ -1,3 +1,4 @@
+import Lean.Elab.Tactic.Omega
 import Hypertournaments.OddToggleP3ActualProtectedTriple
 import Hypertournaments.OddToggleP3ProtectedTriplePositions
 import Hypertournaments.OddToggleP3SortedBlockFibers

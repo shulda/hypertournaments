@@ -1,3 +1,4 @@
+import Lean.Elab.Tactic.Omega
 import Hypertournaments.OddToggleP3ActualMixedBooleanSource
 import Hypertournaments.OddToggleP3BasePreservation
 

@@ -1,3 +1,6 @@
+import Mathlib.Data.Nat.Choose.Bounds
+import Lean.Elab.Tactic.Omega
+import Mathlib.Tactic.Positivity
 import Hypertournaments.OddToggleP3FiniteBernoulliBound
 import Hypertournaments.OddToggleP3WitnessParameters
 

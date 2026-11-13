@@ -1,3 +1,4 @@
+import Lean.Elab.Tactic.Omega
 import Hypertournaments.OddToggleP1JointEndpointSigns
 import Hypertournaments.OddToggleP1MixedPacketOrder
 import Hypertournaments.OddToggleP1LinkDisagreementSupport

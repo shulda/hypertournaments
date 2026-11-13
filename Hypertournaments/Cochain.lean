@@ -1,4 +1,6 @@
-import Mathlib
+import Mathlib.Data.ZMod.Basic
+import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+import Mathlib.Tactic.Ring
 
 /-!
 # The simplex cochain contraction in characteristic two

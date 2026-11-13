@@ -1,3 +1,4 @@
+import Lean.Elab.Tactic.Omega
 import Hypertournaments.OddToggleP3CanonicalFreshQMinusOne
 import Hypertournaments.OddToggleP3MissingSingletonPacket
 import Hypertournaments.OddToggleP3CanonicalSides

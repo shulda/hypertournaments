@@ -1,3 +1,6 @@
+import Mathlib.SetTheory.Cardinal.Finite
+import Lean.Elab.Tactic.Omega
+import Mathlib.Tactic.Ext
 import Hypertournaments.OddToggleP3ShiftedBadTrialPatterns
 import Hypertournaments.OddToggleP3GlobalAllTrialsExact
 

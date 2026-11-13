@@ -1,3 +1,6 @@
+import Lean.Elab.Tactic.Omega
+import Mathlib.Tactic.Ext
+import Mathlib.Tactic.Tauto
 import Hypertournaments.OddToggleP1OmissionFacets
 import Hypertournaments.OddToggleP1CanonicalLinkSymmetry
 

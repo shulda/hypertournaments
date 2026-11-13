@@ -1,3 +1,5 @@
+import Mathlib.Algebra.Order.BigOperators.Group.Finset
+import Lean.Elab.Tactic.Omega
 import Hypertournaments.OddToggleP3SixBlockGeometry
 
 /-!

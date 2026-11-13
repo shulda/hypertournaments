@@ -1,3 +1,6 @@
+import Lean.Elab.Tactic.Omega
+import Mathlib.Tactic.Positivity
+import Mathlib.Tactic.Ring
 import Hypertournaments.Basic
 
 /-!

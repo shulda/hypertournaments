@@ -1,3 +1,6 @@
+import Mathlib.Tactic.Ext
+import Mathlib.Tactic.Ring
+import Mathlib.Tactic.Tauto
 import Hypertournaments.Cochain
 
 /-!

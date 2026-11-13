@@ -1,3 +1,4 @@
+import Lean.Elab.Tactic.Omega
 import Hypertournaments.OddToggleP3ActualJointParity
 import Hypertournaments.OddToggleP3MixedGaugeAssembly
 

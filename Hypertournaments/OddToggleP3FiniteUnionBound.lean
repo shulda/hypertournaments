@@ -1,3 +1,4 @@
+import Mathlib.Algebra.Order.BigOperators.Group.Finset
 import Hypertournaments.Basic
 
 /-!

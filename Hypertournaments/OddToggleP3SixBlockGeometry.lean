@@ -1,3 +1,5 @@
+import Mathlib.Data.Fintype.Pi
+import Lean.Elab.Tactic.Omega
 import Hypertournaments.Basic
 
 /-!

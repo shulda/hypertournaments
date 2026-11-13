@@ -1,3 +1,5 @@
+import Lean.Elab.Tactic.Omega
+import Mathlib.Tactic.Ring
 import Hypertournaments.OddToggleP3WitnessHalfBound
 
 /-!

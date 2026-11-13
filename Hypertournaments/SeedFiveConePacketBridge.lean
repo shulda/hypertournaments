@@ -1,3 +1,8 @@
+import Mathlib.Data.Fin.VecNotation
+import Lean.Elab.Tactic.Omega
+import Mathlib.Tactic.Ext
+import Mathlib.Tactic.FinCases
+import Mathlib.Tactic.NormNum
 import Hypertournaments.SeedFiveConeData
 import Hypertournaments.SeedFiveTwoPacketBridge
 import Hypertournaments.SeedFourPacket

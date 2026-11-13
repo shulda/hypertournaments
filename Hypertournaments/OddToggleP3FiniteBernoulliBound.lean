@@ -1,3 +1,9 @@
+import Mathlib.Basic.Real.Basic
+import Mathlib.Algebra.Order.Ring.Pow
+import Lean.Elab.Tactic.Omega
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Positivity
 import Hypertournaments.Basic
 
 /-!

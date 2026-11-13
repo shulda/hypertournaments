@@ -1,3 +1,4 @@
+import Lean.Elab.Tactic.Omega
 import Hypertournaments.NegativeReduction
 import Hypertournaments.SeedFourNoAmalgam
 import Hypertournaments.SeedFourForbidOneNoAmalgam

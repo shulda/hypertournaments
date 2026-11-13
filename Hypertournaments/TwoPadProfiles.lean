@@ -1,3 +1,6 @@
+import Mathlib.Data.Fintype.BigOperators
+import Mathlib.Data.Fintype.Pi
+import Lean.Elab.Tactic.Omega
 import Hypertournaments.NegativeReduction
 
 /-!

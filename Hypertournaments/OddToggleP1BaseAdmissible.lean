@@ -1,3 +1,5 @@
+import Lean.Elab.Tactic.Omega
+import Mathlib.Tactic.Ext
 import Hypertournaments.OddToggleP1BaseParity
 import Hypertournaments.OddToggleP1MissingSets
 import Hypertournaments.OddToggleP1EvenRawAllowed

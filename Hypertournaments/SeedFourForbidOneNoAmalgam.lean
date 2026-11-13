@@ -1,3 +1,6 @@
+import Mathlib.Data.Fin.VecNotation
+import Mathlib.Tactic.Ext
+import Mathlib.Tactic.FinCases
 import Hypertournaments.OnePointJoint
 import Hypertournaments.SeedFourForbidOneData
 import Hypertournaments.SeedFourForbidOnePacket
@@ -115,7 +118,7 @@ private theorem frontShift4Forbid_odd :
     Equiv.Perm.sign_swap (by decide)
   have h : frontShift4Forbid.sign = (-1 : ℤˣ) := by
     simp [frontShift4Forbid, Equiv.Perm.sign_mul, h23, h12, h01]
-  simp [h]
+  simp [h, Units.ext_iff]
 
 private theorem forbidOne_left_rotated
     (l r : Fin 4 ↪ Fin 7)

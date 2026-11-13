@@ -1,3 +1,5 @@
+import Mathlib.SetTheory.Cardinal.Finite
+import Mathlib.Tactic.Ext
 import Hypertournaments.OddToggleP3SourceAssignments
 import Hypertournaments.OddToggleP3BoolPhases
 

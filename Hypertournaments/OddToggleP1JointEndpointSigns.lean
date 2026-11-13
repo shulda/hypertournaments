@@ -1,3 +1,4 @@
+import Mathlib.Tactic.Ext
 import Hypertournaments.OddToggleP1JointFacetImages
 import Hypertournaments.OddToggleP1TwoOldCanonicalSign
 import Hypertournaments.CanonicalSignTableNaturality

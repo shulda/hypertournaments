@@ -1,3 +1,5 @@
+import Lean.Elab.Tactic.Omega
+import Mathlib.Tactic.Ext
 import Hypertournaments.OddToggleP3ActualOccupancies
 import Hypertournaments.OddToggleP3SixBlockGeometry
 

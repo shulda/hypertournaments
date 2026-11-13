@@ -1,3 +1,4 @@
+import Mathlib.Algebra.BigOperators.Ring.Finset
 import Hypertournaments.OddToggleP3FiniteUnionBound
 
 /-!

@@ -1,3 +1,4 @@
+import Lean.Elab.Tactic.Omega
 import Hypertournaments.OddToggleP3ProtectedCoverage
 import Hypertournaments.OddToggleP3ProtectedFacets
 import Hypertournaments.OddToggleP3AgeSplit

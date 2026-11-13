@@ -1,3 +1,4 @@
+import Lean.Elab.Tactic.Omega
 import Hypertournaments.OddToggleP3CanonicalLiftContracts
 import Hypertournaments.OddToggleP3RealSelectedMixedSource
 import Hypertournaments.OddToggleP3ToggleToSwitching

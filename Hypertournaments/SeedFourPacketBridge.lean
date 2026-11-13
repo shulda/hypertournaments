@@ -1,3 +1,6 @@
+import Lean.Elab.Tactic.Omega
+import Mathlib.Tactic.Ext
+import Mathlib.Tactic.FinCases
 import Hypertournaments.SeedFourPacket
 
 /-!

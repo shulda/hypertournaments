@@ -1,3 +1,4 @@
+import Lean.Elab.Tactic.Omega
 import Hypertournaments.OddToggleP3DoubleConeParity
 import Hypertournaments.OddToggleP3SwitchingParity
 import Hypertournaments.OddToggleP3BasePreservation

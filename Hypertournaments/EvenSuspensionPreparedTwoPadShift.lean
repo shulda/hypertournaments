@@ -1,3 +1,4 @@
+import Mathlib.Tactic.Ext
 import Hypertournaments.EvenTwoPadLocalIndexRecovery
 import Hypertournaments.EvenSuspensionOrderedFacets
 

@@ -1,3 +1,4 @@
+import Lean.Elab.Tactic.Omega
 import Hypertournaments.RootedOddThreePadAbsentLocalIndex
 import Hypertournaments.RootedOddThreePadRootZero
 import Hypertournaments.RootedOddFarCentral

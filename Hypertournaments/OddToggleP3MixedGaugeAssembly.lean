@@ -1,3 +1,4 @@
+import Lean.Elab.Tactic.Omega
 import Hypertournaments.CoboundaryGauge
 import Hypertournaments.OddToggleP3CochainSideLinks
 

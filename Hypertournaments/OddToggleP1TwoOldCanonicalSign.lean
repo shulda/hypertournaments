@@ -1,3 +1,4 @@
+import Lean.Elab.Tactic.Omega
 import Hypertournaments.OddToggleP1OmissionAllLinks
 import Hypertournaments.OddToggleP1ActualRawCount
 import Hypertournaments.CanonicalSignPresentation

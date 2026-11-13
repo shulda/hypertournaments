@@ -1,3 +1,5 @@
+import Mathlib.Data.Fin.Tuple.Embedding
+import Mathlib.Tactic.Ext
 import Hypertournaments.Identification
 
 /-!

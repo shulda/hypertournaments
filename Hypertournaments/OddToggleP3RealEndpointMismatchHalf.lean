@@ -1,3 +1,5 @@
+import Mathlib.SetTheory.Cardinal.Finite
+import Mathlib.Tactic.Ext
 import Hypertournaments.OddToggleP3RealTwoSideLinkParity
 import Hypertournaments.OddToggleP3SelectedLinkSumHalf
 

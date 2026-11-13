@@ -1,3 +1,4 @@
+import Mathlib.Tactic.Ring
 import Hypertournaments.OddToggleP3FractionUnionBound
 
 /-!

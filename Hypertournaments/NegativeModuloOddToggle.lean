@@ -1,3 +1,4 @@
+import Lean.Elab.Tactic.Omega
 import Hypertournaments.OddNonExceptionalNegativeStep
 import Hypertournaments.NegativeEvenAll
 import Hypertournaments.SeedFiveBadOnePoint

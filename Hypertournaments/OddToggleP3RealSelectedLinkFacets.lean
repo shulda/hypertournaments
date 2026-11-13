@@ -1,3 +1,4 @@
+import Lean.Elab.Tactic.Omega
 import Hypertournaments.OddToggleP3RealSourcePotentials
 import Hypertournaments.OddToggleP3CochainSideLinks
 

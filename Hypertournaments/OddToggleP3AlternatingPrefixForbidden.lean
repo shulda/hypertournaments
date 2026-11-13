@@ -1,3 +1,4 @@
+import Lean.Elab.Tactic.Omega
 import Hypertournaments.OddToggleP3AlternatingInteriorOdd
 import Hypertournaments.OddToggleP3RawAlternatingObstruction
 import Hypertournaments.OddToggleP3SwitchingParity

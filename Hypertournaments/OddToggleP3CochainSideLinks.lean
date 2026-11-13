@@ -1,3 +1,5 @@
+import Mathlib.Tactic.Abel
+import Mathlib.Tactic.Ring
 import Hypertournaments.Cochain
 
 /-!

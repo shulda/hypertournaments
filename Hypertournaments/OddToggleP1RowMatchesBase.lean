@@ -1,3 +1,5 @@
+import Lean.Elab.Tactic.Omega
+import Mathlib.Tactic.FinCases
 import Hypertournaments.OddToggleP1CoreRowParity
 import Hypertournaments.OddToggleP1ExplicitSides
 import Hypertournaments.OddToggleP1PadRowFromSplit

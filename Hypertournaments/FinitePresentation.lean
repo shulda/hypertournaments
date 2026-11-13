@@ -1,4 +1,6 @@
+import Mathlib.Tactic.Ext
 import Hypertournaments.Basic
+import Mathlib.Data.Fin.Tuple.Sort
 
 /-!
 # Ordered sign presentations of intrinsic hypertournaments
@@ -95,8 +97,8 @@ def Hyper.fromOrderedSigns {n : ℕ} {V : Type*} [LinearOrder V]
           !(signs (tupleVertices f)))
     rw [sort_swap_sign f i j hij, tupleVertices_swap]
     rcases Int.units_eq_one_or (Tuple.sort (f : Fin n → V)).sign with h | h
-    · simp [h]
-    · simp [h]
+    · simp [h, Units.ext_iff]
+    · simp [h, Units.ext_iff]
 
 /-- Strictly increasing embeddings do not change the sorting
 permutation of an injective tuple. -/

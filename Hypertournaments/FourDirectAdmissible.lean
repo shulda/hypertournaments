@@ -1,3 +1,4 @@
+import Mathlib.Tactic.Ext
 import Hypertournaments.SeedFourAdmissible
 import Hypertournaments.DirectCertificateBridge
 

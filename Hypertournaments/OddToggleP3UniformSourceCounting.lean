@@ -1,3 +1,4 @@
+import Mathlib.SetTheory.Cardinal.Finite
 import Hypertournaments.OddToggleP3UniformSourceFibers
 
 /-!

@@ -1,3 +1,6 @@
+import Mathlib.Order.Fin.Tuple
+import Lean.Elab.Tactic.Omega
+import Mathlib.Tactic.Ext
 import Hypertournaments.CanonicalPacket
 
 /-!

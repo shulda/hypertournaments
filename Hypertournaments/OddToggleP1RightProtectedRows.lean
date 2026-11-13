@@ -1,3 +1,4 @@
+import Lean.Elab.Tactic.Omega
 import Hypertournaments.OddToggleP1CoreRows
 import Hypertournaments.OddToggleP1PadParity
 

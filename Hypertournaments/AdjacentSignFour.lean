@@ -1,3 +1,5 @@
+import Mathlib.Tactic.Ext
+import Mathlib.Tactic.FinCases
 import Hypertournaments.AdjacentPacketFour
 import Hypertournaments.LocalTypes
 

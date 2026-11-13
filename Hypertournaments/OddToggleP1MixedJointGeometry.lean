@@ -1,3 +1,6 @@
+import Lean.Elab.Tactic.Omega
+import Mathlib.Tactic.Ext
+import Mathlib.Tactic.Tauto
 import Hypertournaments.OnePointJoint
 import Hypertournaments.OddToggleP1Homogeneous
 

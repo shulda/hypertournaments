@@ -1,3 +1,4 @@
+import Lean.Elab.Tactic.Omega
 import Hypertournaments.OddToggleP3BaseFullPacketAge
 import Hypertournaments.OddToggleP3AllZeroRawType
 import Hypertournaments.AllArityCanonicalAdmissibility

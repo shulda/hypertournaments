@@ -1,3 +1,6 @@
+import Mathlib.Data.Fintype.Pi
+import Mathlib.Tactic.Ext
+import Mathlib.Tactic.FinCases
 import Hypertournaments.Basic
 
 /-!

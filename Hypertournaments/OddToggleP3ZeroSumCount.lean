@@ -1,3 +1,7 @@
+import Mathlib.Data.Fintype.Pi
+import Mathlib.Algebra.BigOperators.Fin
+import Mathlib.Tactic.Abel
+import Mathlib.Tactic.Ext
 import Hypertournaments.OddToggleP3ZeroSumCode
 
 /-!

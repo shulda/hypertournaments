@@ -1,3 +1,4 @@
+import Lean.Elab.Tactic.Omega
 import Hypertournaments.OddToggleP1CompleteNoJoint
 import Hypertournaments.NegativeModuloOddToggle
 

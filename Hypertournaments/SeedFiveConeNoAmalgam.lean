@@ -1,3 +1,6 @@
+import Mathlib.Data.Fin.VecNotation
+import Mathlib.Tactic.Ext
+import Mathlib.Tactic.FinCases
 import Hypertournaments.SeedFiveConePacketBridge
 import Hypertournaments.OnePointJoint
 import Hypertournaments.SeedFourLogic
@@ -77,7 +80,7 @@ private theorem middleShift5_odd :
     Equiv.Perm.sign_swap (by decide)
   have h : middleShift5.sign = (-1 : ℤˣ) := by
     simp [middleShift5, Equiv.Perm.sign_mul, h34, h23, h12]
-  simp [h]
+  simp [h, Units.ext_iff]
 
 /-- Evaluate a left source link with its new vertex in second position,
 without constructing an expensive sorting permutation. -/

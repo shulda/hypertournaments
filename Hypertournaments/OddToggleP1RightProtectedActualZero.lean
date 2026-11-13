@@ -1,3 +1,4 @@
+import Lean.Elab.Tactic.Omega
 import Hypertournaments.OddToggleP1SideHomogeneousBridge
 import Hypertournaments.OddToggleP1RightProtectedPositions
 import Hypertournaments.OddToggleP1RowMatchesBase

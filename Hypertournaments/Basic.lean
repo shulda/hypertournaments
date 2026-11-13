@@ -1,4 +1,5 @@
-import Mathlib
+import Mathlib.GroupTheory.Perm.Sign
+import Mathlib.Tactic.Ext
 
 /-!
 # Finite arity hypertournaments: an order-free encoding
@@ -64,6 +65,6 @@ theorem Hyper.orient_perm {n : ℕ} {V : Type u}
       rfl
     rw [hcomp, hswap, ih, Equiv.Perm.sign_mul,
         Equiv.Perm.sign_swap hij]
-    rcases Int.units_eq_one_or τ.sign with h | h <;> simp [h]
+    rcases Int.units_eq_one_or τ.sign with h | h <;> simp [h, Units.ext_iff]
 
 end Hypertournaments

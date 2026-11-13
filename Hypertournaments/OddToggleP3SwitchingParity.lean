@@ -1,3 +1,6 @@
+import Lean.Elab.Tactic.Omega
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Ring
 import Hypertournaments.OddToggleP1ActualCoboundary
 import Hypertournaments.OddToggleP1RawCountParity
 import Hypertournaments.EvenAlternatingBalance

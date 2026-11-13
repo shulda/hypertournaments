@@ -1,3 +1,5 @@
+import Lean.Elab.Tactic.Omega
+import Mathlib.Tactic.Ext
 import Hypertournaments.OnePointNonmixedAdmissible
 import Hypertournaments.OddToggleP1BaseAdmissible
 import Hypertournaments.OddToggleP1SideEvenRows

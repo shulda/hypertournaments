@@ -1,3 +1,7 @@
+import Mathlib.SetTheory.Cardinal.Finite
+import Lean.Elab.Tactic.Omega
+import Mathlib.Tactic.Positivity
+import Mathlib.Tactic.Ring
 import Hypertournaments.OddToggleP3GlobalAllTrialsExact
 import Hypertournaments.OddToggleP3FullSourceWitnessHalf
 

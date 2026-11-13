@@ -1,3 +1,4 @@
+import Lean.Elab.Tactic.Omega
 import Hypertournaments.OddToggleP1ActualCoboundary
 import Hypertournaments.OddToggleP1BooleanParity
 import Hypertournaments.DoubleCoboundary

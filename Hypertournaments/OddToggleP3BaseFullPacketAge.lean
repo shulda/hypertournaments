@@ -1,3 +1,4 @@
+import Lean.Elab.Tactic.Omega
 import Hypertournaments.OddToggleP3AllOldFullBlockPair
 import Hypertournaments.OddToggleP3SingletonErasure
 import Hypertournaments.OddToggleP3AllOldMissingBlock

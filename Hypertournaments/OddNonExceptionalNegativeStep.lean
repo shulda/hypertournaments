@@ -1,3 +1,4 @@
+import Lean.Elab.Tactic.Omega
 import Hypertournaments.RootedOddOnePointWitness
 import Hypertournaments.NegativeReduction
 import Hypertournaments.SeedFourBadOnePoint

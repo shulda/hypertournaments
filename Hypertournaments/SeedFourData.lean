@@ -1,3 +1,4 @@
+import Mathlib.Data.Fintype.Powerset
 import Hypertournaments.FinitePresentation
 import Hypertournaments.Obstruction
 

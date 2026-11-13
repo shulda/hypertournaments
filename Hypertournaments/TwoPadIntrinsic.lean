@@ -1,3 +1,5 @@
+import Mathlib.Data.Fin.Tuple.Embedding
+import Mathlib.GroupTheory.Perm.Fin
 import Hypertournaments.TwoPadProfiles
 
 /-!

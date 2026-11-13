@@ -1,3 +1,5 @@
+import Lean.Elab.Tactic.Omega
+import Mathlib.Tactic.Ext
 import Hypertournaments.RootedOddSuspensionSigns
 import Hypertournaments.EvenSuspensionAllTwoPadPackets
 import Hypertournaments.EvenSuspensionOrderedFacets

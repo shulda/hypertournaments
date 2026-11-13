@@ -1,3 +1,4 @@
+import Mathlib.Data.Fintype.Pi
 import Hypertournaments.Basic
 
 /-!

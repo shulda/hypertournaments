@@ -1,3 +1,5 @@
+import Mathlib.Tactic.Ext
+import Mathlib.Tactic.Tauto
 import Hypertournaments.OddToggleP1ActualJointDegrees
 import Hypertournaments.IncreasingTupleUniqueness
 

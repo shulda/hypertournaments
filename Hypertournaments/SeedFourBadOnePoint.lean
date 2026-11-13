@@ -1,3 +1,4 @@
+import Lean.Elab.Tactic.Omega
 import Hypertournaments.EvenOnePointWitness
 import Hypertournaments.SeedFourClassification
 

@@ -1,3 +1,5 @@
+import Mathlib.Data.Fintype.BigOperators
+import Mathlib.Data.Fintype.Pi
 import Hypertournaments.OddToggleP3BoolPhases
 
 /-!

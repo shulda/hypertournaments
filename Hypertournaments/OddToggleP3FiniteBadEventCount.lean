@@ -1,3 +1,6 @@
+import Mathlib.SetTheory.Cardinal.Finite
+import Mathlib.Tactic.Ext
+import Mathlib.Tactic.Ring
 import Hypertournaments.OddToggleP3UniformSourceCounting
 
 /-!

@@ -1,3 +1,4 @@
+import Lean.Elab.Tactic.Omega
 import Hypertournaments.OddToggleP3OneFreshActualExcess
 import Hypertournaments.OddToggleP3OneFreshGap
 import Hypertournaments.OddToggleP3ProtectedTriple

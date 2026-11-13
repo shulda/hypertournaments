@@ -1,3 +1,5 @@
+import Mathlib.Tactic.Ext
+import Mathlib.Tactic.Tauto
 import Hypertournaments.LocalIndexCanonicalImage
 import Hypertournaments.OddToggleP1JointEndpointSigns
 import Hypertournaments.OddToggleP1OmissionFacets

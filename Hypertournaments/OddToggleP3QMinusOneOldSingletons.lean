@@ -1,3 +1,4 @@
+import Lean.Elab.Tactic.Omega
 import Hypertournaments.OddToggleP3SixRepeatCardinal
 import Hypertournaments.OddToggleP3SortedImageCard
 

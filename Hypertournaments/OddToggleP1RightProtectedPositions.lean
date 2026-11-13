@@ -1,3 +1,5 @@
+import Lean.Elab.Tactic.Omega
+import Mathlib.Tactic.Ext
 import Hypertournaments.OddToggleP1CoreRowParity
 import Hypertournaments.OddToggleP1RightProtectedRows
 import Hypertournaments.OddToggleP1PadCorePartition

@@ -1,3 +1,5 @@
+import Lean.Elab.Tactic.Omega
+import Mathlib.Tactic.Ext
 import Hypertournaments.OddToggleP1ZeroTwoAbstract
 import Hypertournaments.CanonicalPacket
 import Hypertournaments.GeneralAdjacentFacet

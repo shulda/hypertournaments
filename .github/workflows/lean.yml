@@ -16,16 +16,19 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Check complete source coverage and specific imports
+        run: python3 tools/project_sources.py
       - name: Restore pinned Mathlib source and build cache
         id: mathlib-package-cache
         uses: actions/cache/restore@v5
         with:
-          path: |
-            .lake/packages
-            lake-manifest.json
-          key: mathlib-packages-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain', 'lakefile.toml') }}
+          path: .lake/packages
+          key: mathlib-packages-v2-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain', 'lakefile.toml', 'lake-manifest.json') }}
       - name: Cache Lean toolchain
         uses: actions/cache@v5
         with:
@@ -88,27 +91,58 @@ jobs:
       - name: Resolve pinned Mathlib dependencies
         shell: bash
         run: |
-          if [ ! -f lake-manifest.json ]; then
-            lake update
-          else
-            echo "Using cached Lake manifest and pinned packages"
-          fi
+          set -euo pipefail
+          test -f lake-manifest.json
+          lake env true
+          git diff --exit-code -- lake-manifest.json
       - name: Download precompiled Mathlib cache
-        run: lake exe cache get
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t roots < <(python3 tools/project_sources.py --mathlib-roots)
+          lake exe cache get "${roots[@]}"
       - name: Cache verified Mathlib packages before proof checking
         if: steps.mathlib-package-cache.outputs.cache-hit != 'true'
         uses: actions/cache/save@v5
         with:
-          path: |
-            .lake/packages
-            lake-manifest.json
-          key: mathlib-packages-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain', 'lakefile.toml') }}
+          path: .lake/packages
+          key: mathlib-packages-v2-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain', 'lakefile.toml', 'lake-manifest.json') }}
       - name: Kernel-check all Lean modules
-        run: lake build
+        run: lake --rehash build
       - name: Audit exported declarations
+        shell: bash
         run: |
+          set -euo pipefail
           lake env lean Hypertournaments/AxiomAudit.lean | tee /tmp/axioms.log
           if grep -E 'sorryAx|unknown axiom|unexpected axiom' /tmp/axioms.log; then
             echo "Unexpected axiom in proof output"
             exit 1
           fi
+      - name: Audit every project declaration against the standard axiom allowlist
+        shell: bash
+        run: |
+          set -euo pipefail
+          audit_dir="$(mktemp -d "$RUNNER_TEMP/hypertournaments-axiom-audit.XXXXXX")"
+          trap 'rm -rf "$audit_dir"' EXIT
+          git clone --depth 1 --branch v0.1.2 https://github.com/leanprover-community/axiom-audit.git "$audit_dir"
+          test "$(git -C "$audit_dir" rev-parse HEAD)" = 46024e005996495c65ef609368e11ab39c4222e3
+          cp lean-toolchain "$audit_dir/"
+          (cd "$audit_dir" && lake build)
+          lake env "$audit_dir/.lake/build/bin/axiom-audit" \
+            --root Hypertournaments --modules Hypertournaments \
+            --allow propext,Classical.choice,Quot.sound --json > axiom-audit.json
+          python3 - <<'PY'
+          import json
+          with open('axiom-audit.json') as source:
+              report = json.load(source)
+          assert report['ok'] is True
+          assert report['audited'] > 0
+          assert report['violations'] == []
+          assert set(report['axiomsUsed']) <= {'propext', 'Classical.choice', 'Quot.sound'}
+          print(json.dumps(report))
+          PY
+      - name: Preserve the exact-head axiom audit
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: axiom-audit-${{ github.sha }}
+          path: axiom-audit.json
