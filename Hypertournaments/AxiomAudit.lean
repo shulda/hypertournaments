@@ -813,3 +813,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3ActualSelectedPuncture_card
 #print axioms Hypertournaments.p3ActualSelectedGauge_has_finite_support
 #print axioms Hypertournaments.p3ActualSelectedBoolGauge_count
+#print axioms Hypertournaments.p3BlockCoordinateVertex_strictMono
+#print axioms Hypertournaments.p3CoordinateTransversal_orderEmbOfFin
