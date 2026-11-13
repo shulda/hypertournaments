@@ -100,6 +100,22 @@ theorem p3CanonicalMixedEndpointFacet_sets
       (f (Fin.last (m+1))) = insert l S
     rw [hright, hvertices]
     ext z
-    simp [hlr, hrS]
+    simp only [Finset.mem_erase, Finset.mem_insert]
+    constructor
+    · rintro ⟨hzr, hzl | hrz | hzS⟩
+      · exact Or.inl hzl
+      · exact False.elim (hzr hrz)
+      · exact Or.inr hzS
+    · intro hz
+      constructor
+      · rcases hz with hzl | hzS
+        · intro heq
+          exact hlr (hzl.symm.trans heq)
+        · intro heq
+          apply hrS
+          simpa only [heq] using hzS
+      · rcases hz with hzl | hzS
+        · exact Or.inl hzl
+        · exact Or.inr (Or.inr hzS)
 
 end Hypertournaments
