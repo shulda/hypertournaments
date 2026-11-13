@@ -754,3 +754,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3BlockCoordinateVertex_injective_coordinate
 #print axioms Hypertournaments.p3CoordinateTransversal_vertex_injective
 #print axioms Hypertournaments.p3CoordinateTransversal_card
+#print axioms Hypertournaments.p3CoordinateTransversal_block_fiber
+#print axioms Hypertournaments.p3CoordinateTransversal_isBlockTransversal
+#print axioms Hypertournaments.p3CoordinateTransversal_injective
