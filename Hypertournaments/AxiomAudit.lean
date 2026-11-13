@@ -730,3 +730,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3Witness_globalGoodGauge_strict_half
 #print axioms Hypertournaments.p3CanonicalSide_allowed_qMinusOne_fresh_packet
 #print axioms Hypertournaments.p3FiniteHalfSample_avoids_all_gauges
+#print axioms Hypertournaments.p3FlipSelectedBit_involutive
+#print axioms Hypertournaments.p3HalfEvent_of_flip
+#print axioms Hypertournaments.p3HalfXorEvent_of_flipInvariant
