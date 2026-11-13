@@ -815,3 +815,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3ActualSelectedBoolGauge_count
 #print axioms Hypertournaments.p3BlockCoordinateVertex_strictMono
 #print axioms Hypertournaments.p3CoordinateTransversal_orderEmbOfFin
+#print axioms Hypertournaments.Hyper.orderedFacet_orient_eq_canonicalSign
+#print axioms Hypertournaments.Hyper.orderedFacet_orient_eq_canonical_erase
