@@ -92,11 +92,16 @@ theorem p3ActualSelectedParent_increasing_tuple
       (Fin.snoc fOld l : Fin (m+1) → Fin (a+2)) j < r := by
     intro j
     rcases j.eq_castSucc_or_eq_last with ⟨i,rfl⟩ | rfl
-    · simpa only [Fin.snoc_castSucc] using
-        (Fin.castSucc_lt_last
-          ((p3BlockCoordinateVertex m t ht i (q.1 i)).castSucc))
-    · simpa only [Fin.snoc_last] using
-        (Fin.castSucc_lt_last (Fin.last a))
+    · have hi : fOld i < r := by
+        change
+          (p3BlockCoordinateVertex m t ht i (q.1 i)).castSucc.castSucc <
+            Fin.last (a+1)
+        exact Fin.castSucc_lt_last _
+      simpa only [Fin.snoc_castSucc] using hi
+    · have hl : l < r := by
+        change (Fin.last a).castSucc < Fin.last (a+1)
+        exact Fin.castSucc_lt_last _
+      simpa only [Fin.snoc_last] using hl
   let F : Fin ((m+1)+1) → Fin (a+2) :=
     Fin.snoc (Fin.snoc fOld l) r
   have hMono : StrictMono F :=
@@ -104,7 +109,8 @@ theorem p3ActualSelectedParent_increasing_tuple
   have hMem (j : Fin ((m+1)+1)) : F j ∈ P := by
     rcases j.eq_castSucc_or_eq_last with ⟨j,rfl⟩ | rfl
     · rcases j.eq_castSucc_or_eq_last with ⟨i,rfl⟩ | rfl
-      · change fOld i ∈ insert l (insert r (Q.image old))
+      · simp only [F, Fin.snoc_castSucc]
+        change fOld i ∈ insert l (insert r (Q.image old))
         apply Finset.mem_insert_of_mem
         apply Finset.mem_insert_of_mem
         apply Finset.mem_image.mpr
@@ -113,9 +119,11 @@ theorem p3ActualSelectedParent_increasing_tuple
           (Finset.univ : Finset (Fin m)).image
             (fun j => p3BlockCoordinateVertex m t ht j (q.1 j))
         exact Finset.mem_image.mpr ⟨i,Finset.mem_univ _,rfl⟩
-      · change l ∈ insert l (insert r (Q.image old))
+      · simp only [F, Fin.snoc_castSucc, Fin.snoc_last]
+        change l ∈ insert l (insert r (Q.image old))
         exact Finset.mem_insert_self _ _
-    · change r ∈ insert l (insert r (Q.image old))
+    · simp only [F, Fin.snoc_last]
+      change r ∈ insert l (insert r (Q.image old))
       exact Finset.mem_insert_of_mem (Finset.mem_insert_self _ _)
   let f : Fin ((m+1)+1) ↪o Fin (a+2) :=
     OrderEmbedding.ofStrictMono F hMono
