@@ -730,3 +730,10 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3Witness_globalGoodGauge_strict_half
 #print axioms Hypertournaments.p3CanonicalSide_allowed_qMinusOne_fresh_packet
 #print axioms Hypertournaments.p3FiniteHalfSample_avoids_all_gauges
+#print axioms Hypertournaments.p3CanonicalMixedRawWord_interior
+#print axioms Hypertournaments.p3CanonicalMixedRawWord_beta
+#print axioms Hypertournaments.p3CanonicalMixedRawWord_alpha
+#print axioms Hypertournaments.p3CanonicalMixedRawWord_alternating_endpoints
+#print axioms Hypertournaments.Hyper.p3ActualMixedRawWord_eq
+#print axioms Hypertournaments.Hyper.p3ActualMixedRawWord_alternating_endpoints
+#print axioms Hypertournaments.p3CanonicalMixedEndpointFacet_sets
