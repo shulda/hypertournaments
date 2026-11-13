@@ -34,7 +34,7 @@ selected odd-link event and the all-gauge SHIFTED bad-trial
 event produces a genuine ordinary bad one-point span of
 the p3 homogeneous-free switching age. -/
 theorem p3BadOnePoint_of_global_shifted_source_witness
-    (k t : ℕ) (hk : 1 ≤ k) (ht : 0 < t)
+    (k t : ℕ) (hk : 1 ≤ k) [NeZero t] (ht : 0 < t)
     (root : Fin ((4*k+2)*t))
     (bits : p3FullSourceSpace (ZMod t) (4*k+1) → Bool)
     (q0 : p3SelectedTrials (ZMod t) (4*k+1))
