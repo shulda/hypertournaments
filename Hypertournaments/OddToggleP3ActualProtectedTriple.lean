@@ -52,7 +52,23 @@ theorem p3ActualOneFresh_three_blocks_le_four
     rintro ⟨ha,hb⟩
     exact p3ActualOneFresh_no_two_double_blocks
       m t ht U hsize hall j l hjl ha hb
-  omega
+  by_cases hBigI : 1 < occ i
+  · have hSmallJ : occ j ≤ 1 := by
+      by_contra hnot
+      have hBigJ : 1 < occ j := by omega
+      exact hIJ ⟨hBigI, hBigJ⟩
+    have hSmallL : occ l ≤ 1 := by
+      by_contra hnot
+      have hBigL : 1 < occ l := by omega
+      exact hIL ⟨hBigI, hBigL⟩
+    omega
+  · by_cases hBigJ : 1 < occ j
+    · have hSmallL : occ l ≤ 1 := by
+        by_contra hnot
+        have hBigL : 1 < occ l := by omega
+        exact hJL ⟨hBigJ, hBigL⟩
+      omega
+    · omega
 
 /-- Actual protected labels have the exact arithmetic
 singleton/phase alternatives used in the one-fresh side proof,
