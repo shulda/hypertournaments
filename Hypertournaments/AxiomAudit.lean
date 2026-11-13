@@ -764,3 +764,10 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3CanonicalJoint_old_set_images_agree
 #print axioms Hypertournaments.p3ToggleZero_subset_switchingAllowed
 #print axioms Hypertournaments.Hyper.p3ToggleAdmissible_switchingAllowed
+#print axioms Hypertournaments.p3Links_forced_by_alternating_interior
+#print axioms Hypertournaments.p3RightEndpoint_badW_iff
+#print axioms Hypertournaments.p3TrialPacketBits_mem_badPattern_iff
+#print axioms Hypertournaments.p3RightEndpoint_badEvent_iff_badPatterns
+#print axioms Hypertournaments.p3OtherSelectedLinkParity_flip_invariant
+#print axioms Hypertournaments.p3SelectedLinkParity_half
+#print axioms Hypertournaments.p3ZeroSumFullSource_fixedTrial_linkParity_half
