@@ -739,3 +739,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3ActualOneFresh_occ_le_two
 #print axioms Hypertournaments.p3ActualOneFresh_three_blocks_le_four
 #print axioms Hypertournaments.p3ActualOneFresh_protectedTriple_numeric_parity
+#print axioms Hypertournaments.Hyper.localIndex_zero_of_raw_alternating
+#print axioms Hypertournaments.Hyper.raw_alternating_not_p3ToggleAllowed
