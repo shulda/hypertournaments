@@ -729,3 +729,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3Witness_fullSourceGauge_strict_half
 #print axioms Hypertournaments.p3Witness_globalGoodGauge_strict_half
 #print axioms Hypertournaments.p3CanonicalSide_allowed_qMinusOne_fresh_packet
+#print axioms Hypertournaments.p3Monotone_singletonDoubleSingleton_oppositeParity
+#print axioms Hypertournaments.p3SingletonFiber_global_unique
+#print axioms Hypertournaments.p3Monotone_protectedTriple_oppositeParity_singletons
