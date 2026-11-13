@@ -272,3 +272,4 @@ import Hypertournaments.OddToggleP3GlobalGaugeHalf
 import Hypertournaments.OddToggleP3QMinusOneActualAge
 import Hypertournaments.OddToggleP3HalfEventAndGauges
 import Hypertournaments.OddToggleP3SourceFlipHalf
+import Hypertournaments.OddToggleP3FreshOccupancyBridge

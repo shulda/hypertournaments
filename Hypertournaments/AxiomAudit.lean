@@ -733,3 +733,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3FlipSelectedBit_involutive
 #print axioms Hypertournaments.p3HalfEvent_of_flip
 #print axioms Hypertournaments.p3HalfXorEvent_of_flipInvariant
+#print axioms Hypertournaments.p3CanonicalFresh_zero_occupancy_is_missing
+#print axioms Hypertournaments.p3CanonicalFresh_positive_occupancy_witness
