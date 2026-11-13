@@ -815,3 +815,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3ActualSelectedBoolGauge_count
 #print axioms Hypertournaments.p3BlockCoordinateVertex_strictMono
 #print axioms Hypertournaments.p3CoordinateTransversal_orderEmbOfFin
+#print axioms Hypertournaments.p3BoolPacketPositiveCount_not
+#print axioms Hypertournaments.p3AlternatingInterior_positiveCount
+#print axioms Hypertournaments.p3AlternatingInterior_ZModSum_one
