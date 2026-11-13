@@ -828,3 +828,7 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3ActualSelectedParent_erase_old_vertex
 #print axioms Hypertournaments.p3ActualSelectedParent_erase_right
 #print axioms Hypertournaments.p3ActualSelectedParent_erase_left
+#print axioms Hypertournaments.p3ShiftTrialWord_involutive
+#print axioms Hypertournaments.p3ShiftedBadTrialPattern_injective
+#print axioms Hypertournaments.p3ShiftedBadTrialPatternSet_card
+#print axioms Hypertournaments.p3ShiftedGoodTrialPatterns_card
