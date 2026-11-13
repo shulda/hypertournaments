@@ -23,6 +23,8 @@ identification events.
 
 namespace Hypertournaments
 
+open scoped Classical
+
 /-- The actual canonical one-fresh potential, on a set with new
 vertex and an old-only embedded set U, is the eligible missing-
 block L coefficient and never a W coefficient. -/
@@ -46,8 +48,8 @@ theorem p3CanonicalSidePotential_fresh_old_image
       p3SideOldPart old (insert fresh (U.image old)) =
           p3SideOldPart old (U.image old) := by
             ext v
-            change (old v ∈ insert fresh (U.image old)) ↔
-              (old v ∈ U.image old)
+            simp only [p3SideOldPart, Finset.mem_filter,
+              Finset.mem_univ, true_and]
             have hn : old v ≠ fresh := Fin.castSucc_ne_last v
             simp [hn]
       _ = U := p3SideOldPart_image m t old U
@@ -104,7 +106,8 @@ theorem p3CanonicalSide_link_on_full_transversal
     have hbase := p3SidePotential_image_old_base
       m t old fresh (by intro v; exact Fin.castSucc_ne_last v)
       eligible W L Q
-    change z (Q.image old) = W Q
+    change p3SidePotential m t old fresh eligible W L
+      (Q.image old) = W Q
     rw [hbase]
     simp [p3BasePotential, hQ]
   have hContract : ∀ U : Finset (Fin a),
