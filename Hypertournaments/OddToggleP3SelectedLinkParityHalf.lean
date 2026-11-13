@@ -1,5 +1,6 @@
 import Hypertournaments.OddToggleP3SourceFlipHalf
 import Hypertournaments.OddToggleP3FullSourceUniform
+import Hypertournaments.OddToggleP3GlobalAllTrialsExact
 import Hypertournaments.OddToggleP3PotentialPresentation
 
 /-!
@@ -87,6 +88,8 @@ theorem p3ZeroSumFullSource_fixedTrial_linkParity_half
   intro source
   have hsource : Function.Injective source := by
     intro i j heq
+    change p3FullTrialSourceIndex (G:=G) s (q, Sum.inl i) =
+      p3FullTrialSourceIndex (G:=G) s (q, Sum.inl j) at heq
     have hprod :
         (q, (Sum.inl i : Fin (s+1) ⊕ Unit)) =
           (q, (Sum.inl j : Fin (s+1) ⊕ Unit)) :=
