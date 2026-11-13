@@ -816,3 +816,4 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3BlockCoordinateVertex_strictMono
 #print axioms Hypertournaments.p3CoordinateTransversal_orderEmbOfFin
 #print axioms Hypertournaments.p3ActualSelectedCanonicalSide_endpointBool_eq_W_xor_linkParity
+#print axioms Hypertournaments.p3ActualSelectedRightEndpoint_badPattern_iff
