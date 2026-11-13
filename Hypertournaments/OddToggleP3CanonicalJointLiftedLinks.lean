@@ -63,6 +63,7 @@ theorem p3CanonicalJoint_left_link_via_lift
       (Fin.castSuccOrderEmb : Fin (A+1) ↪o Fin (A+2))
       hPres SQ hSQ
   have hImage := p3CanonicalJoint_left_packet_image A Q
+  dsimp only [SQ] at hLink
   rw [hImage] at hLink
   exact hLink
 
@@ -107,6 +108,7 @@ theorem p3CanonicalJoint_right_link_via_lift
       eligible W R E
       (p3RightJointOrderEmb A) hPres SQ hSQ
   have hImage := p3CanonicalJoint_right_packet_image A Q
+  dsimp only [SQ] at hLink
   rw [hImage] at hLink
   exact hLink
 
