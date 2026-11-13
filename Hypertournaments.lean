@@ -339,3 +339,9 @@ import Hypertournaments.PairAmalgamation
 import Hypertournaments.RelationalEncoding
 
 import Hypertournaments.PairRamsey
+
+import Hypertournaments.PairOrdering
+import Hypertournaments.BinaryOrdering
+import Hypertournaments.EvenAmalgamation
+import Hypertournaments.PotentialRamsey
+import Hypertournaments.PotentialExpansionProperty

@@ -5,7 +5,9 @@ The negative necessary condition for ordinary amalgamation of `(n+1)`-constraine
 classes is proved in every arity `n >= 4`, without an exceptional-family premise.
 The main-paper development now also proves strong amalgamation for omission
 classes of any family of finite pair-cancelling structures. Their free
-linear-order expansions are also proved Ramsey in every arity `n >= 3`.
+linear-order expansions are proved Ramsey and have the ordering property in
+every arity `n >= 3`. The development also covers intrinsic even orientations,
+their potentials and switching amalgamation.
 
 For `q = (n+1)/2`, a well-formed allowed set `S` containing the central type
 can have ordinary AP only if the next-to-central type belongs to `S`, or
@@ -68,6 +70,39 @@ The existing ambient Ramsey theorem and HN transfer are used from an exact
 All source bytes and receiving compiler options are checked. See the
 [source/review note](notes/PAIR_CANCELLING_RAMSEY_2026-11-13.md).
 
+## Ordering property and potentials
+
+[`Hypertournaments/PairOrdering.lean`](Hypertournaments/PairOrdering.lean)
+proves the full ordering property for pair-cancelling omission classes. The
+finite target is chosen before both free orders. The unrestricted binary
+case is proved separately in
+[`Hypertournaments/BinaryOrdering.lean`](Hypertournaments/BinaryOrdering.lean):
+two ordered edge types are homogenized separately, and a directed triangle
+rules out opposite comparison colours. Unrestricted ordered Ramsey and strong
+amalgamation are available uniformly for every arity at least two.
+
+[`Hypertournaments/EvenPotential.lean`](Hypertournaments/EvenPotential.lean)
+proves that a finite orientation in odd arity is even exactly when it has an
+alternating potential in the preceding even arity. Coboundaries are intrinsic
+functions on injective tuples; naturality and `δ² = 0` are proved directly.
+The empty carrier is included. Gauge alignment extends a chosen base potential
+along an arbitrary vertex embedding while retaining the upper orientation.
+
+[`Hypertournaments/EvenAmalgamation.lean`](Hypertournaments/EvenAmalgamation.lean)
+proves strong amalgamation for finite even hypertournaments, with compatible
+orders as well. The equivalence with the existing `switchingAllowed` palette
+holds for **every odd arity**, and `switching_hasAP` supplies its positive
+ordinary-AP theorem in arities at least three.
+
+[`Hypertournaments/PotentialRamsey.lean`](Hypertournaments/PotentialRamsey.lean)
+proves Ramsey for the full potential expansions, including the ternary case.
+Their native language names the upper orientation, lower potential and free
+linear order; all embeddings preserve and reflect all three relations.
+[`Hypertournaments/PotentialExpansionProperty.lean`](Hypertournaments/PotentialExpansionProperty.lean)
+proves the full expansion property relative to finite even reducts: the
+upper witness is fixed before both potentials and both orders are chosen.
+See the [source and verification note](notes/ORDERING_AND_POTENTIALS_2026-11-13.md).
+
 ## Build and validation
 
 Use the committed `lean-toolchain` (Lean 4.34.1) and `lake-manifest.json`.
@@ -94,9 +129,9 @@ The source negative argument is the AI-written Lean-oriented
 [`negative_general_arity_audit_v4.tex`](notes/negative_general_arity_audit_v4.tex).
 Source text and kernel-checked Lean statements are distinct artifacts.
 
-The next main-paper work is the ordering property, followed by potentials
-and non-EPPA results. Instantiating
-the positive constrained classification still requires the local-type
-pair-cancellation cutoff and the switching/potential SAP construction.
-Arity-two/three side results remain separate tasks. The five-constrained
+Remaining main-paper work includes the finite-group/EPPA arguments and
+related consequences. The
+positive constrained classification still requires the local-type
+pair-cancellation cutoff; switching amalgamation is proved. Other arity-two/three
+side results remain separate tasks. The five-constrained
 ternary classification is postponed.
