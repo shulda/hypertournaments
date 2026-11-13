@@ -759,3 +759,4 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3CoordinateTransversal_injective
 #print axioms Hypertournaments.p3CoordinateTransversal_erase_vertex
 #print axioms Hypertournaments.p3CoordinatePuncture_isEligibleMissing
+#print axioms Hypertournaments.p3ActualPunctureSourceIndex_injective
