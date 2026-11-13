@@ -759,3 +759,4 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3CanonicalJoint_right_packet_image
 #print axioms Hypertournaments.p3CanonicalJoint_left_link_via_lift
 #print axioms Hypertournaments.p3CanonicalJoint_right_link_via_lift
+#print axioms Hypertournaments.Hyper.p3CanonicalPreservedJoint_has_mixed_gauge
