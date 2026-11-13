@@ -813,3 +813,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3DoubleContractAt_eq_mixedSet
 #print axioms Hypertournaments.p3ActualSelectedMixedCanonicalBit_trueSign
 #print axioms Hypertournaments.Hyper.p3ActualSelectedJoint_has_boolean_source_shift
+#print axioms Hypertournaments.p3ActualSelectedParentSet_card
+#print axioms Hypertournaments.p3ActualSelectedParent_erase_old_vertex
