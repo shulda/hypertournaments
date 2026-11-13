@@ -270,3 +270,4 @@ import Hypertournaments.OddToggleP3GlobalAllTrialsExact
 import Hypertournaments.OddToggleP3FullSourceWitnessHalf
 import Hypertournaments.OddToggleP3GlobalGaugeHalf
 import Hypertournaments.OddToggleP3QMinusOneActualAge
+import Hypertournaments.OddToggleP3HalfEventAndGauges
