@@ -30,10 +30,10 @@ jobs:
           path: .lake/packages
           key: mathlib-packages-v2-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain', 'lakefile.toml', 'lake-manifest.json') }}
       - name: Cache Lean toolchain
-        uses: actions/cache@v5
+        id: lean-cache
+        uses: actions/cache/restore@v5
         with:
           path: ~/.elan/toolchains
-          save-always: true
           key: lean-toolchain-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain') }}
       - name: Install elan from Ubuntu packages
         shell: bash
@@ -80,6 +80,7 @@ jobs:
           elan which lean
           elan which lake
       - name: Persist verified Lean toolchain
+        if: steps.lean-cache.outputs.cache-hit != 'true'
         uses: actions/cache/save@v5
         with:
           path: ~/.elan/toolchains
@@ -144,5 +145,5 @@ jobs:
       - name: Preserve the exact-head axiom audit
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: axiom-audit-${{ github.sha }}
+          name: axiom-audit-${{ github.event.pull_request.head.sha || github.sha }}
           path: axiom-audit.json

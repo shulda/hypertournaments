@@ -26,7 +26,7 @@ def main() -> None:
         imports[module] = modules
     external = sorted({m for modules in imports.values() for m in modules if m.startswith('Mathlib.')})
     if args.mathlib_roots:
-        print('\n'.join(m.replace('.', '/') + '.lean' for m in external))
+        print('\n'.join(external))
         return
     seen = set()
     todo = ['Hypertournaments']
