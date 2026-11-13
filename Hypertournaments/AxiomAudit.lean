@@ -815,3 +815,13 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3ActualSelectedBoolGauge_count
 #print axioms Hypertournaments.p3BlockCoordinateVertex_strictMono
 #print axioms Hypertournaments.p3CoordinateTransversal_orderEmbOfFin
+#print axioms Hypertournaments.p3Bool_of_bitToZMod
+#print axioms Hypertournaments.p3Bool_of_ZMod_add
+#print axioms Hypertournaments.p3Bool_of_source_plus_gauge
+#print axioms Hypertournaments.p3DoubleContractAt_eq_mixedSet
+#print axioms Hypertournaments.p3ActualSelectedMixedCanonicalBit_trueSign
+#print axioms Hypertournaments.Hyper.p3ActualSelectedJoint_has_boolean_source_shift
+#print axioms Hypertournaments.p3ActualSelectedParentSet_card
+#print axioms Hypertournaments.p3ActualSelectedParent_erase_old_vertex
+#print axioms Hypertournaments.p3ActualSelectedParent_erase_right
+#print axioms Hypertournaments.p3ActualSelectedParent_erase_left
