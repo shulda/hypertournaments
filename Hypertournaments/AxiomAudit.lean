@@ -841,3 +841,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3ActualSelectedGaugeShift_complete
 #print axioms Hypertournaments.Hyper.p3ActualShiftedBadTrial_impossible
 #print axioms Hypertournaments.p3AllShiftedBad_no_canonical_joint
+#print axioms Hypertournaments.p3RealOddLink_forces_side_tuple_disagreement
+#print axioms Hypertournaments.p3BadOnePoint_of_global_shifted_source_witness
