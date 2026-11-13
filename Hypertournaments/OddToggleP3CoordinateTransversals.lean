@@ -56,11 +56,12 @@ cyclic source coordinate. -/
 theorem p3BlockCoordinateVertex_injective_coordinate
     (m t : ℕ) (ht : 0 < t) (i : Fin m) :
     Function.Injective (p3BlockCoordinateVertex m t ht i) := by
+  letI : NeZero t := ⟨by omega⟩
   intro u v h
   have hv := congrArg Fin.val h
   change i.val*t+u.val = i.val*t+v.val at hv
   have heq : u.val = v.val := by omega
-  exact ZMod.val_injective heq
+  exact (ZMod.val_injective t) heq
 
 /-- A concrete old finite set selected by one cyclic coordinate
 in every consecutive old block. -/
