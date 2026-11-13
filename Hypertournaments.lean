@@ -266,3 +266,4 @@ import Hypertournaments.OddToggleP3FractionUnionBound
 import Hypertournaments.OddToggleP3FreshOldEnum
 import Hypertournaments.OddToggleP3FreshOldMembership
 import Hypertournaments.OddToggleP3CanonicalFreshQMinusOne
+import Hypertournaments.OddToggleP3CanonicalMixedFacetOrder

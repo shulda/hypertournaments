@@ -724,3 +724,7 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3CanonicalFresh_old_enumeration
 #print axioms Hypertournaments.p3CanonicalFresh_old_enumeration_membership
 #print axioms Hypertournaments.p3CanonicalFresh_qMinusOne_singleton_positions
+#print axioms Hypertournaments.p3CanonicalMixedRawWord_interior
+#print axioms Hypertournaments.p3CanonicalMixedRawWord_beta
+#print axioms Hypertournaments.p3CanonicalMixedRawWord_alpha
+#print axioms Hypertournaments.p3CanonicalMixedRawWord_alternating_endpoints
