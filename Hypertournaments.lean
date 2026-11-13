@@ -334,3 +334,6 @@ import Hypertournaments.OddToggleP3RealOddLinkSideDisagreement
 import Hypertournaments.OddToggleP3BadOnePointSourceTemplate
 import Hypertournaments.OddToggleP3AllBadOnePoint
 import Hypertournaments.NegativeClassification
+
+import Hypertournaments.PairAmalgamation
+import Hypertournaments.RelationalEncoding

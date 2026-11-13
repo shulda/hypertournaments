@@ -858,3 +858,10 @@ they are not a substitute for it.
 #print axioms Hypertournaments.negative_classification_all_unconditional
 #print axioms Hypertournaments.negative_classification
 #print axioms Hypertournaments.not_hasAP_of_excluded_types
+
+#print axioms Hypertournaments.pairConstantTemplate_orient
+#print axioms Hypertournaments.exists_pair_cancelling_completion
+#print axioms Hypertournaments.pair_cancelling_strong_span
+#print axioms Hypertournaments.pair_cancelling_hasStrongAmalgamation
+#print axioms Hypertournaments.pair_cancelling_ordered_strong_span
+#print axioms Hypertournaments.preserves_iff_relation

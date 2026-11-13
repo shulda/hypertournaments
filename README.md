@@ -1,9 +1,11 @@
 # Formalization of constrained hypertournaments
 
 Lean 4 / Mathlib proofs for finite alternating-orientation hypertournaments.
-The current milestone is the negative necessary condition for ordinary
-amalgamation of `(n+1)`-constrained classes in every arity `n >= 4`.
-The public theorem has no remaining exceptional-family premise.
+The negative necessary condition for ordinary amalgamation of `(n+1)`-constrained
+classes is proved in every arity `n >= 4`, without an exceptional-family premise.
+The main-paper development now also proves strong amalgamation for omission
+classes of any family of finite pair-cancelling structures, including their
+expansions by free linear orders.
 
 For `q = (n+1)/2`, a well-formed allowed set `S` containing the central type
 can have ordinary AP only if the next-to-central type belongs to `S`, or
@@ -31,6 +33,22 @@ both fresh-vertex identification and distinct-vertex amalgamation.
 Central membership is an explicit premise; the separate equivalence with
 unboundedness is not supplied through an unformalized Ramsey assumption.
 
+## Main-paper positive amalgamation
+
+[`Hypertournaments/PairAmalgamation.lean`](Hypertournaments/PairAmalgamation.lean)
+exports `pair_cancelling_hasStrongAmalgamation`, the arbitrary-finite-carrier
+`pair_cancelling_strong_span`, and `pair_cancelling_ordered_strong_span`.
+The two carrier injections identify exactly the original base. Empty bases
+are allowed; arbitrary source embeddings are retained.
+
+`exists_pair_cancelling_completion` completes a consistent partial orientation
+on the same carrier by its last missing pair and proves forbidden-freeness.
+The full arbitrary-relational completion adapter for Ramsey transfer remains
+separate. `preserves_iff_relation` supplies the induced relational encoding,
+with relation truth corresponding to orientation `false`.
+See the [source and review note](notes/PAIR_CANCELLING_AMALGAMATION_2026-11-13.md)
+for precise scope and remaining links to the classification.
+
 ## Build and validation
 
 Use the committed `lean-toolchain` (Lean 4.34.1) and `lake-manifest.json`.
@@ -57,8 +75,9 @@ The source negative argument is the AI-written Lean-oriented
 [`negative_general_arity_audit_v4.tex`](notes/negative_general_arity_audit_v4.tex).
 Source text and kernel-checked Lean statements are distinct artifacts.
 
-The main-paper formalization will extend the shared orientation, embedding,
-local-type and cochain APIs with positive amalgamation, Ramsey expansions,
-potentials and non-EPPA results. The positive classification direction and
-arity-two/three side results are separate tasks. The five-constrained
+The next main-paper work is the arbitrary-relational completion adapter and
+Ramsey transfer, followed by potentials and non-EPPA results. Instantiating
+the positive constrained classification still requires the local-type
+pair-cancellation cutoff and the switching/potential SAP construction.
+Arity-two/three side results remain separate tasks. The five-constrained
 ternary classification is postponed.
