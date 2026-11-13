@@ -815,3 +815,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.Hyper.p3ActualSelectedJoint_has_boolean_source_shift
 #print axioms Hypertournaments.p3ActualSelectedParentSet_card
 #print axioms Hypertournaments.p3ActualSelectedParent_erase_old_vertex
+#print axioms Hypertournaments.p3ActualSelectedParent_erase_right
+#print axioms Hypertournaments.p3ActualSelectedParent_erase_left
