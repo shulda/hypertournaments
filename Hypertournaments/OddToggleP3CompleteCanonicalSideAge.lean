@@ -12,12 +12,12 @@ Fix m=4k+2 (k≥1) and positive block size t. Let a one-point side
 have arbitrary W potential on full old transversals and arbitrary
 L link potential supported on transversals missing an eligible block.
 
-If the complement of eligible contains three consecutive protected
+If the complement of eligible contains three consecutive protectedBlocks
 blocks, EVERY actual fresh-containing increasing (m+2)-packet is
 admissible, independently of W and L:
 * q≤m−2 occupied old blocks: two missing blocks kill all raw facets;
 * q=m−1: the certified true missing-singleton packet age theorem;
-* q=m: two protected singleton facets of opposite parity.
+* q=m: two protectedBlocks singleton facets of opposite parity.
 
 The true old base is already admissible for arbitrary W and the
 local index is intrinsic under arbitrary packet permutations, so
@@ -32,11 +32,11 @@ namespace Hypertournaments
 
 theorem p3CanonicalSide_admissible_of_protectedTriple
     (k t : ℕ) (hk : 1 ≤ k) (ht : 0 < t)
-    (eligible protected : Finset (Fin (4*k+2)))
-    (hdisjoint : Disjoint eligible protected)
+    (eligible protectedBlocks : Finset (Fin (4*k+2)))
+    (hdisjoint : Disjoint eligible protectedBlocks)
     (start : ℕ) (hstart : start+2 < 4*k+2)
     (hprotected : ∀ b : Fin (4*k+2),
-      start ≤ b.val → b.val ≤ start+2 → b ∈ protected)
+      start ≤ b.val → b.val ≤ start+2 → b ∈ protectedBlocks)
     (W L : Finset (Fin ((4*k+2)*t)) → ZMod 2) :
     Admissible (toggleZero (switchingAllowed (4*k+3)))
       (p3CanonicalSide (4*k+2) t eligible W L) := by
@@ -65,7 +65,7 @@ theorem p3CanonicalSide_admissible_of_protectedTriple
     hall | ⟨missing,hzero,hrest⟩ | ⟨i,j,hij,hi,hj⟩
   · exact p3CanonicalSide_allowed_qAll_fresh_packet
       k (4*k+2) t hk rfl ht
-      eligible protected hdisjoint start hstart hprotected
+      eligible protectedBlocks hdisjoint start hstart hprotected
       W L f hfresh
       (fun i => hPos i (hall i))
   · exact p3CanonicalSide_allowed_qMinusOne_fresh_packet
@@ -88,7 +88,7 @@ theorem p3CanonicalSide_admissible_of_protectedTriple
       eligible W L f i j hij (hMiss i hi) (hMiss j hj)
 
 /-- Side supported on lower-half missing blocks is admitted for
-all potential coefficients, since the upper half is protected. -/
+all potential coefficients, since the upper half is protectedBlocks. -/
 theorem p3CanonicalSide_lowerHalf_admissible
     (k t : ℕ) (hk : 1 ≤ k) (ht : 0 < t)
     (W L : Finset (Fin ((4*k+2)*t)) → ZMod 2) :
@@ -104,7 +104,7 @@ theorem p3CanonicalSide_lowerHalf_admissible
     ((4*k+2)/2) hstart hprotected W L
 
 /-- Side supported on upper-half missing blocks is admitted for
-all potential coefficients, since the lower half is protected. -/
+all potential coefficients, since the lower half is protectedBlocks. -/
 theorem p3CanonicalSide_upperHalf_admissible
     (k t : ℕ) (hk : 1 ≤ k) (ht : 0 < t)
     (W R : Finset (Fin ((4*k+2)*t)) → ZMod 2) :
