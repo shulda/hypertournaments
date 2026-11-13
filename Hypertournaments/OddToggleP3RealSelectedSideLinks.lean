@@ -19,6 +19,8 @@ for the already formalized global finite probability count.
 
 namespace Hypertournaments
 
+open scoped Classical
+
 /-- For an actual selected zero-sum transversal, the coboundary
 of the side's eligible missing-block link potential is precisely
 the sum of the selected independent global link bits in that
