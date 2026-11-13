@@ -795,3 +795,7 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3ExtendByIndex_at
 #print axioms Hypertournaments.p3RealWFromSources_selected
 #print axioms Hypertournaments.p3RealLinkFromSources_selected
+#print axioms Hypertournaments.p3ActualSelectedPuncture_eligible_iff
+#print axioms Hypertournaments.p3RealSelectedPuncture_linkValue
+#print axioms Hypertournaments.p3SelectedLinkSum_one_iff_xor_true
+#print axioms Hypertournaments.p3ZeroSumFullSource_fixedTrial_linkSum_half
