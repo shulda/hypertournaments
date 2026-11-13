@@ -865,3 +865,11 @@ they are not a substitute for it.
 #print axioms Hypertournaments.pair_cancelling_hasStrongAmalgamation
 #print axioms Hypertournaments.pair_cancelling_ordered_strong_span
 #print axioms Hypertournaments.preserves_iff_relation
+
+#print axioms Hypertournaments.Ramsey.irreducible_iff_pair_coverage
+#print axioms Hypertournaments.Ramsey.relationalIrreduciblesIn_iff_native
+#print axioms Hypertournaments.Ramsey.exists_relational_completion
+#print axioms Hypertournaments.Ramsey.orderedOmissionClass_finiteHereditarySAP
+#print axioms Hypertournaments.Ramsey.orderedOmissionClass_locallyFinite
+#print axioms Hypertournaments.Ramsey.pair_cancelling_ordered_ramsey
+#print axioms Hypertournaments.Ramsey.exists_ordered_ramsey_witness
