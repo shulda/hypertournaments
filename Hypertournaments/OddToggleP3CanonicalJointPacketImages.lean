@@ -30,9 +30,12 @@ theorem p3CanonicalSide_oldPlusNew_card
     intro hmem
     obtain ⟨v,_,heq⟩ := Finset.mem_image.mp hmem
     exact Fin.castSucc_ne_last v heq
-  rw [Finset.card_insert_of_not_mem hn]
-  rw [Finset.card_image_of_injective _ (onePointBaseEmbedding a).injective]
-  omega
+  have hcard :
+      (insert (Fin.last a) (Q.image (onePointBaseEmbedding a))).card =
+        (Q.image (onePointBaseEmbedding a)).card+1 := by
+    simp [hn]
+  rw [hcard, Finset.card_image_of_injective _
+    (onePointBaseEmbedding a).injective, hQ]
 
 /-- A genuine increasing embedding of a canonical one-fresh
 side maps the packet literally onto the old joint image plus
@@ -53,8 +56,10 @@ theorem p3CanonicalSide_packet_image
   rw [Finset.image_insert]
   have himage := p3Finset_image_commutes
     (onePointBaseEmbedding a) g.toEmbedding oldJoint hold Q
-  rw [hnew]
-  exact congrArg (insert freshJoint) himage
+  change insert (g (Fin.last a))
+    ((Q.image (onePointBaseEmbedding a)).image g.toEmbedding) =
+      insert freshJoint (Q.image oldJoint)
+  rw [hnew, himage]
 
 /-- Actual left one-point image: the left endpoint l lies
 immediately after the a old vertices in the joint. -/
