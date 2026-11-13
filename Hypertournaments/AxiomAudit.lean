@@ -739,3 +739,8 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3ActualOneFresh_occ_le_two
 #print axioms Hypertournaments.p3ActualOneFresh_three_blocks_le_four
 #print axioms Hypertournaments.p3ActualOneFresh_protectedTriple_numeric_parity
+#print axioms Hypertournaments.p3OtherSelectedLinkParity_flip_invariant
+#print axioms Hypertournaments.p3SelectedLinkParity_half
+#print axioms Hypertournaments.p3ZeroSumFullSource_fixedTrial_linkParity_half
+#print axioms Hypertournaments.p3CanonicalFresh_zero_occupancy_is_missing
+#print axioms Hypertournaments.p3CanonicalFresh_positive_occupancy_witness
