@@ -771,3 +771,13 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3OtherSelectedLinkParity_flip_invariant
 #print axioms Hypertournaments.p3SelectedLinkParity_half
 #print axioms Hypertournaments.p3ZeroSumFullSource_fixedTrial_linkParity_half
+#print axioms Hypertournaments.p3BlockCoordinateVertex_blockNumber
+#print axioms Hypertournaments.p3BlockCoordinateVertex_injective_coordinate
+#print axioms Hypertournaments.p3CoordinateTransversal_vertex_injective
+#print axioms Hypertournaments.p3CoordinateTransversal_card
+#print axioms Hypertournaments.p3CoordinateTransversal_block_fiber
+#print axioms Hypertournaments.p3CoordinateTransversal_isBlockTransversal
+#print axioms Hypertournaments.p3CoordinateTransversal_injective
+#print axioms Hypertournaments.p3CoordinateTransversal_erase_vertex
+#print axioms Hypertournaments.p3CoordinatePuncture_isEligibleMissing
+#print axioms Hypertournaments.p3ActualPunctureSourceIndex_injective
