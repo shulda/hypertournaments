@@ -821,3 +821,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3CoordinateTransversal_orderEmbOfFin
 #print axioms Hypertournaments.p3StrictMono_snoc
 #print axioms Hypertournaments.p3ActualSelectedParent_increasing_tuple
+#print axioms Hypertournaments.Hyper.orderedFacet_orient_eq_canonicalSign
+#print axioms Hypertournaments.Hyper.orderedFacet_orient_eq_canonical_erase
+#print axioms Hypertournaments.Hyper.p3ActualSelectedParent_has_raw_facet_dictionary
