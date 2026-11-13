@@ -739,3 +739,13 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3ActualOneFresh_occ_le_two
 #print axioms Hypertournaments.p3ActualOneFresh_three_blocks_le_four
 #print axioms Hypertournaments.p3ActualOneFresh_protectedTriple_numeric_parity
+#print axioms Hypertournaments.p3Monotone_singletonDoubleSingleton_oppositeParity
+#print axioms Hypertournaments.p3SingletonFiber_global_unique
+#print axioms Hypertournaments.p3Monotone_protectedTriple_oppositeParity_singletons
+#print axioms Hypertournaments.p3ActualOneFresh_sorted_protectedTriple_singletons
+#print axioms Hypertournaments.p3CanonicalFresh_qAll_protected_singleton_positions
+#print axioms Hypertournaments.p3FiniteFamily_occupancy_trichotomy
+#print axioms Hypertournaments.p3ActualPacket_block_occupancy_trichotomy
+#print axioms Hypertournaments.p3EligibleHalves_disjoint
+#print axioms Hypertournaments.p3LowerProtectedTriple
+#print axioms Hypertournaments.p3UpperProtectedTriple
