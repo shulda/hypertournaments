@@ -832,3 +832,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3ShiftedBadTrialPattern_injective
 #print axioms Hypertournaments.p3ShiftedBadTrialPatternSet_card
 #print axioms Hypertournaments.p3ShiftedGoodTrialPatterns_card
+#print axioms Hypertournaments.p3ShiftedGoodTrials_product_card
+#print axioms Hypertournaments.p3ShiftedGoodSelectedTrialSet_card
+#print axioms Hypertournaments.p3ShiftedAllGlobalGoodTrialAssignments_exact_ratio
