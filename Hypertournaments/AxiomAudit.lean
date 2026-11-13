@@ -733,3 +733,9 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3FlipSelectedBit_involutive
 #print axioms Hypertournaments.p3HalfEvent_of_flip
 #print axioms Hypertournaments.p3HalfXorEvent_of_flipInvariant
+#print axioms Hypertournaments.p3ActualOneFresh_nonSingleton_le_one
+#print axioms Hypertournaments.p3ActualOneFresh_no_two_double_blocks
+#print axioms Hypertournaments.p3ActualOneFresh_gap_sum_eq_one
+#print axioms Hypertournaments.p3ActualOneFresh_occ_le_two
+#print axioms Hypertournaments.p3ActualOneFresh_three_blocks_le_four
+#print axioms Hypertournaments.p3ActualOneFresh_protectedTriple_numeric_parity
