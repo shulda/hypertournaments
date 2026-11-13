@@ -835,3 +835,4 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3ShiftedGoodTrials_product_card
 #print axioms Hypertournaments.p3ShiftedGoodSelectedTrialSet_card
 #print axioms Hypertournaments.p3ShiftedAllGlobalGoodTrialAssignments_exact_ratio
+#print axioms Hypertournaments.p3FullSource_exists_oddLink_and_shifted_badTrial_for_all_gauges
