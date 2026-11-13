@@ -29,7 +29,7 @@ bad trial for every supported Boolean gauge admits NO
 toggleZero-admissible actual canonical joint preserving both
 corresponding real one-point sides. -/
 theorem p3AllShiftedBad_no_canonical_joint
-    (k t : ℕ) (ht : 0 < t)
+    (k t : ℕ) [NeZero t] (ht : 0 < t)
     (root : Fin ((4*k+2)*t))
     (eligibleL : Finset (Fin (4*k+2)))
     (bits : p3FullSourceSpace (ZMod t) (4*k+1) → Bool)
