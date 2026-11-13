@@ -749,3 +749,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3EligibleHalves_disjoint
 #print axioms Hypertournaments.p3LowerProtectedTriple
 #print axioms Hypertournaments.p3UpperProtectedTriple
+#print axioms Hypertournaments.p3RightJointOrderEmb_toEmbedding
+#print axioms Hypertournaments.p3CanonicalJoint_old_coincidence
+#print axioms Hypertournaments.p3CanonicalJoint_old_set_images_agree
