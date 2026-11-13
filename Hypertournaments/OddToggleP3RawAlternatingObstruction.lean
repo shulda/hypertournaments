@@ -1,4 +1,5 @@
 import Hypertournaments.OddToggleP3BoolPhases
+import Hypertournaments.OddToggleP3AgeSplit
 import Hypertournaments.LocalTypes
 
 /-!
@@ -80,9 +81,9 @@ theorem Hyper.raw_alternating_not_p3ToggleAllowed
     localIndex A f ∉ toggleZero (switchingAllowed (4*k+3)) := by
   have hzero : localIndex A f = 0 :=
     A.localIndex_zero_of_raw_alternating f phase hraw
-  change (if localIndex A f = 0
+  change ¬(if localIndex A f = 0
     then localIndex A f ∉ switchingAllowed (4*k+3)
-    else localIndex A f ∈ switchingAllowed (4*k+3)) = false
-  simp [hzero, p3Zero_mem_switchingAllowed]
+    else localIndex A f ∈ switchingAllowed (4*k+3))
+  simp [hzero, p3Zero_mem_switchingAllowed k]
 
 end Hypertournaments
