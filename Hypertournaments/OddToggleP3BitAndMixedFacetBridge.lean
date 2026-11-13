@@ -37,7 +37,13 @@ fixed lower gauge cochain is exactly a Boolean XOR-shift. -/
 theorem p3Bool_of_source_plus_gauge (b : Bool) (u : ZMod 2) :
     p3ZMod2ToBool (p1BitToZMod b + u) =
       b ^^ p3ZMod2ToBool u := by
-  rw [p3Bool_of_ZMod_add, p3Bool_of_bitToZMod]
+  calc
+    p3ZMod2ToBool (p1BitToZMod b + u) =
+        p3ZMod2ToBool (p1BitToZMod b) ^^
+          p3ZMod2ToBool u :=
+      p3Bool_of_ZMod_add (p1BitToZMod b) u
+    _ = b ^^ p3ZMod2ToBool u := by
+      rw [p3Bool_of_bitToZMod]
 
 /-- For two distinct points outside an old subset, the nested
 contraction is exactly the cochain's value on the literal
