@@ -799,3 +799,7 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3RealSelectedPuncture_linkValue
 #print axioms Hypertournaments.p3SelectedLinkSum_one_iff_xor_true
 #print axioms Hypertournaments.p3ZeroSumFullSource_fixedTrial_linkSum_half
+#print axioms Hypertournaments.p3Bool_of_bitToZMod
+#print axioms Hypertournaments.p3Bool_of_ZMod_add
+#print axioms Hypertournaments.p3Bool_of_source_plus_gauge
+#print axioms Hypertournaments.p3DoubleContractAt_eq_mixedSet
