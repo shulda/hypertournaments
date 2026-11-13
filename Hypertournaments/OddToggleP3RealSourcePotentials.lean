@@ -25,8 +25,9 @@ namespace Hypertournaments
 /-- Extend a ZMod 2-valued function along an injective source
 index map by assigning zero outside its image. -/
 noncomputable def p3ExtendByIndex
-    {A B : Type*} (f : A → B) (g : A → ZMod 2) (y : B) : ZMod 2 :=
-  if h : ∃ x : A, f x = y then g (Classical.choose h) else 0
+    {A B : Type*} (f : A → B) (g : A → ZMod 2) (y : B) : ZMod 2 := by
+  classical
+  exact if h : ∃ x : A, f x = y then g (Classical.choose h) else 0
 
 /-- Exact evaluation on the image of an injective source map.
 No choice of inverse or proof witness affects the value. -/
