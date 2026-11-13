@@ -780,3 +780,6 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.Hyper.p3CanonicalPreservedJoint_has_mixed_gauge
 #print axioms Hypertournaments.p3CanonicalSidePotential_fresh_old_image
 #print axioms Hypertournaments.p3CanonicalSide_link_on_full_transversal
+#print axioms Hypertournaments.p3LiftFinPotential_contractAt_image
+#print axioms Hypertournaments.p3CanonicalLeftLift_contractAt_old
+#print axioms Hypertournaments.p3CanonicalRightLift_contractAt_old
