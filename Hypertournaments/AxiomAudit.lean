@@ -831,3 +831,5 @@ theorem is NOT a declaration in the environment yet.
 #print axioms Hypertournaments.p3CanonicalJoint_left_endpointBool_of_preserves
 #print axioms Hypertournaments.p3CanonicalJoint_right_endpointBool_of_preserves
 #print axioms Hypertournaments.p3ActualSelectedCanonicalSide_endpointBool_eq_W_xor_linkParity
+#print axioms Hypertournaments.Hyper.orderedFacet_orient_eq_canonicalSign
+#print axioms Hypertournaments.Hyper.orderedFacet_orient_eq_canonical_erase
