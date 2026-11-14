@@ -140,6 +140,28 @@ obstruction to class-level non-EPPA.
 See the [classification and group source/review note](notes/CLASSIFICATION_AND_GROUPS_2026-11-14.md)
 for exact scope, independent reviews and remaining obligations.
 
+## EPPA obstructions and transfer
+
+[`LocalEPPAObstruction`](Hypertournaments/LocalEPPAObstruction.lean) proves the
+actual four-equal-facets local obstruction to every unrestricted finite
+EPPA witness. The Klein action is constructed on the full packet and lifted
+from ordinary separate EPPA extensions by Sylow; coherence is not assumed.
+
+[`EPPAConsequences`](Hypertournaments/EPPAConsequences.lean) proves:
+
+- every unbounded hereditary SAP class in arity `n≥6` fails EPPA;
+- in arity `n≥4`, a hereditary SAP class containing a packet of index
+  `d≤n-3` fails EPPA;
+- one `n+2`-vertex obstruction works simultaneously for every PC omission
+  class in each arity `n≥4`, even against unrestricted finite targets.
+
+[`EPPATransfer`](Hypertournaments/EPPATransfer.lean) proves the one-arity-down
+implication for every odd upper arity at least three, using actual rooted
+cones and witness links. The upper witness need not be even.
+[`EvenNoEPPA`](Hypertournaments/EvenNoEPPA.lean) consequently proves non-EPPA
+for even hypertournaments in every odd arity at least five, with the explicit
+arity-five corollary. See the [source and review note](notes/HIGH_ARITY_EPPA_2026-11-14.md).
+
 ## Build and validation
 
 Use the committed `lean-toolchain` (Lean 4.34.1) and `lake-manifest.json`.
@@ -166,9 +188,7 @@ The source negative argument is the AI-written Lean-oriented
 [`negative_general_arity_audit_v4.tex`](notes/negative_general_arity_audit_v4.tex).
 Source text and kernel-checked Lean statements are distinct artifacts.
 
-Remaining main-paper work includes the local high-arity EPPA obstruction,
-its class-level consequences and the one-arity-lower EPPA transfer. The
-required finite-group generation and lifting inputs are proved. Infinite
-antichain/Fraisse consequences have their own additional dependencies.
-Other arity-two/three side results remain separate tasks. The five-constrained
-ternary classification is postponed.
+Remaining article work includes the finite cyclic-order encoding and its
+small-arity SAP/non-EPPA consequences. The infinite pair-cancelling antichain
+and Fraisse consequences require their own additional infrastructure.
+Five-constrained ternary classification remains postponed.
