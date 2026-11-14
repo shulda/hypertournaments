@@ -7,10 +7,12 @@ import json
 
 ROOT = Path(__file__).resolve().parents[2]
 ORIGINAL = ROOT / 'notes/independent_intro/original/independent_hypertournament_statements.lean.txt'
+HANDOFF = ROOT / 'notes/independent_intro/original/independent_hypertournament_handoff.md.txt'
 STATEMENTS = ROOT / 'Hypertournaments/Independent/Statements.lean'
 PATCH = ROOT / 'notes/independent_intro/statements.patch'
 ORIGINAL_SHA256 = 'c8c94e105065623be472cf0c1f4bc06225d87a324bf360bcebb483f0e32006b2'
 COMPILED_SHA256 = 'cb03f5d89c63d400637efda49db18d56aa4e2e5a400edfd8a2492182f9b148fa'
+HANDOFF_SHA256 = '4ce3989621a4add0b374071da1f856e787728eb58d4e19ef49ae1635cac5bea4'
 
 
 def require(condition, message):
@@ -22,6 +24,8 @@ def main():
     original = ORIGINAL.read_bytes()
     require(hashlib.sha256(original).hexdigest() == ORIGINAL_SHA256,
             'Uploaded statements changed')
+    require(hashlib.sha256(HANDOFF.read_bytes()).hexdigest() == HANDOFF_SHA256,
+            'Uploaded handoff changed')
     old = b'import Mathlib\n'
     new = (b'import Mathlib.Data.ZMod.Basic\n'
            b'import Mathlib.Algebra.BigOperators.Group.Finset.Defs\n')

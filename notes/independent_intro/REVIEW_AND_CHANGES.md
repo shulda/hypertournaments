@@ -9,12 +9,13 @@ Pracovní větev: `verification/independent-intro-20261114`.
 1. Významová kontrola: **HOTOVO, všechny tři cíle odpovídají článku.**
 2. Kompilace a mechanické opravy: **HOTOVO. Původní upload se zkompiloval
    bez chyby; jediná změna je zúžení importů.**
-3. Propojení se stávajícími důkazy: **NEDOKONČENO.** Pracovní prostředí
-   při zahájení implementace přestalo být dostupné. Žádná ze tří hlavních
-   vět zatím není dokázána v nezávislém API.
+3. Propojení se stávajícími důkazy: **HOTOVO.** Všechny tři přesné cíle
+   mají důkazy v nezávislém API a prošly místním Leanem i nezávislou recenzí
+   převodů. Celý projekt prošel buildem a úplným axiomovým auditem.
 
-Tento checkpoint neprohlašuje definice výroků za dokázané věty.
-Původní dokončená formalizace zůstává na main beze změny.
+Definice výroků zůstávají v samostatném modulu; jejich důkazy jsou oddělené.
+Původní dokončená formalizace zůstává na main beze změny, tato práce je
+v samostatné ověřovací větvi.
 
 ## 1. Významová kontrola
 
@@ -89,7 +90,8 @@ výpadkem prostředí.
 Přesný unified diff je [statements.patch](statements.patch). Původní Lean
 upload je uchován beze změny v [original/independent_hypertournament_statements.lean.txt](original/independent_hypertournament_statements.lean.txt).
 Přípona .txt zabraňuje jeho záměně za další produkční Lean modul se širokým
-importem. Předávací zpráva zůstává jako původní příloha u uživatele.
+importem. Původní předávací zpráva je rovněž uchována beze změny jako
+[original/independent_hypertournament_handoff.md.txt](original/independent_hypertournament_handoff.md.txt).
 
 | Soubor | SHA-256 |
 | --- | --- |
@@ -98,42 +100,121 @@ importem. Předávací zpráva zůstává jako původní příloha u uživatele.
 | Kompilovaná kopie | `cb03f5d89c63d400637efda49db18d56aa4e2e5a400edfd8a2492182f9b148fa` |
 
 Kontrola `python3 tools/independent_intro/check_statements.py` ověřuje
-neměnnost originálu, přesný povolený rozdíl importů a přesnost diffu.
-Bude součástí CI. Po obnovení práce tak nelze nepozorovaně změnit
+neměnnost obou originálů, přesný povolený rozdíl importů a přesnost diffu.
+Je součástí CI. Při doplňování důkazů tak nelze nepozorovaně změnit
 nezávislé cíle při doplňování důkazů.
 
-## 3. Připravené propojení s důkazy a blokující výpadek
+## 3. Dokázané věty a zachování nezávislosti
 
-Jména cílových vět zůstávají `IndependentHypertournaments.intro_link`,
-`IndependentHypertournaments.potential` a
-`IndependentHypertournaments.intro_eppa`. Zatím nebyla přidána.
+Produkční vstupní modul je `Hypertournaments/Independent/Theorems.lean`:
 
-Připravený důkazový postup:
+```lean
+IndependentHypertournaments.intro_link : IntroLinkStatement
+IndependentHypertournaments.potential : IntroPotentialStatement
+IndependentHypertournaments.intro_eppa : IntroEPPAStatement
+```
 
-- Základní obousměrný převod mezi nezávislou úplnou ZMod-orientací a
-  projektovým Bool-orientovaným `Hyper` na injektivních n-ticích, s důkazem
-  obou roundtripů, přesné ekvivalence vnoření, řádů, evenness a potenciálu.
-- Převod libovolné nezávislé rodiny zákazů na `ForbiddenFamily`; přesná
-  ekvivalence `Forb`/ `Omits` a obou definic pair-cancelling.
-- `intro_link`: `Ramsey.exists_ordered_ramsey_witness` a
-  `Ramsey.pair_cancelling_ordering_property`, s přeznačením konečného
-  witnessu na Fin a převodem monochromatičnosti na explicitní barvu.
-- `potential`: `Hyper.exists_potential_fin`, `IsPotential.isEven`,
-  `Ramsey.exists_potential_ramsey_witness` a
-  `Ramsey.potential_expansion_property`. Přenést libovolné potenciály a
-  řády zpět na nativní nosič až po výběru společného witnessu.
-- `intro_eppa`: převod parciálních automorfismů mezi totálními mapami
-  a bijekcemi podmnožin, převod tříd a jejich SAP/heredity/neomezenosti,
-  potom `unbounded_hereditary_SAP_not_EPPA`,
-  `pair_cancelling_not_EPPA` a `even_five_not_hasEPPA`.
+Současně exportuje `all_intro_statements`, konjunkci těchto tří přesných
+výroků bez dalších předpokladů. Není zde žádný nedokázaný provider nebo
+podmíněná redukce nahrazující původní větu.
 
-Výpadek nastal během prvních zápisů převodních modulů. Jejich úspěšný zápis
-a kompilace nebyly potvrzeny, proto nejsou zařazeny mezi ověřené produkční
-soubory tohoto checkpointu. Shell následně hlásil
-`No usable execution environment is available`; dostupný stav prostředí
-je výslovně `unavailable`. Části 1 a 2 byly dokončeny před výpadkem.
+| Přidaný modul | Úloha a důvod |
+| --- | --- |
+| `Statements.lean` | Samostatné nezávislé definice a cíle. Neimportuje žádnou definici ani větu formalizačního projektu. Přesný rozdíl vůči uploadu jsou pouze dva specifické importy. |
+| `BasicBridge.lean` | Oba převody orientací na stejném nosiči, obě skutečné strukturální inverze, ekvivalence vnoření, evenness, potenciálové rovnice a volných striktních řádů. |
+| `ClassBridge.lean` | Přesné ekvivalence `Forb`/`Omits`, obou linkových definic a pair-cancelling včetně velikostí, pořadí dvojice a libovolných řádů. |
+| `LinkBridge.lean` | Důkaz `intro_link`, obousměrný převod uspořádaných vnoření a explicitní přeznačení konečných witnessů. |
+| `PotentialBridge.lean` | Důkaz `potential`: přesná reduktová třída, Ramsey i expansion property pro libovolné potenciály a řády. |
+| `EPPABridge.lean` | Převod parciálních automorfismů a EPPA, libovolných tříd a jejich heredity/SAP/neomezenosti; důkazy všech tří EPPA položek. |
+| `Theorems.lean` | Společný vstupní modul a konjunkce tří nezávislých cílů. |
 
-Před označením části 3 za hotovou je nutné dopsat a zkompilovat převody,
-dokázat přesné tři cíle, získat nezávislou recenzi převodů a provést úplný
-build a axiomový audit včetně namespace `IndependentHypertournaments`.
-Větev zůstává oddělená od main.
+### Reprezentace, libovolné rodiny a třídy
+
+`toHyper` a `ofHyper` zachovávají nosič. Jsou dokázány obě rovnosti
+`toHyper (ofHyper A) = A` a `ofHyper (toHyper A) = A`, nikoli jen podobnost
+výstupů nebo existence abstraktního izomorfismu. To je podstatné pro libovolné
+predikáty F a K, které samy nemusí být předem uzavřené na izomorfismy.
+Zvlášť se dokazuje, že rovnost orientací všech totálních n-tic je ekvivalentní
+projektovému `Preserves` na injektivních n-ticích; degenerované n-tice se
+zpracují pomocí předepsané nulové hodnoty.
+
+### Použité existující výsledky
+
+| Nezávislý cíl | Existující dokázané výsledky |
+| --- | --- |
+| `intro_link` | `Ramsey.exists_ordered_ramsey_witness`, `Ramsey.pair_cancelling_ordering_property` |
+| `potential`, přesná reduktová třída | `Hyper.exists_potential_fin`, `IsPotential.isEven` |
+| `potential`, Ramsey | `Ramsey.exists_potential_ramsey_witness` |
+| `potential`, expansion property | `Ramsey.potential_expansion_property`, `IsPotential.of_equiv_pullback` |
+| `intro_eppa`, (i) | `unbounded_hereditary_SAP_not_EPPA` |
+| `intro_eppa`, (ii) | `pair_cancelling_not_EPPA` |
+| `intro_eppa`, (iii) | `even_five_not_hasEPPA`, skutečná ekvivalence switching admissibility a evenness |
+
+Převody jsou součástí důkazů: žádná ekvivalence mezi nezávislou a projektovou
+definicí není předpoklad. Samotné původní matematické moduly se nemění.
+
+### Citlivé kvantifikátory a hraniční případy
+
+- Ramseyův witness se volí před obarvením. Převod nativní párové
+  monochromatičnosti na explicitní společnou barvu zvlášť řeší prázdnou
+  množinu vnoření zdroje do prostředního objektu.
+- Ordering witness se volí před oběma řády. Přeznačení přes `Fin` nemění
+  redukt witnessu při následné volbě libovolného cílového řádu.
+- Expanční witness se volí před oběma potenciály i řády. Po aplikaci nativní
+  věty je dokázaná rovnost návratové expanze s přesně danou cílovou expanzí:
+  redukt, pojmenovaný potenciál i striktní řád.
+- EPPA převod zpracuje každý nativní izomorfismus podmnožin pomocí totálního
+  zobrazení s identitou mimo doménu. Jeden witness a jedno vnoření se volí
+  před všemi parciálními automorfismy. Výsledná prodloužení jsou bijektivní
+  automorfismy. Prázdné nosiče a degenerované n-tice jsou zahrnuté.
+- SAP se přenáší pro libovolná dvě vnoření a se stejnou podmínkou přesného
+  průniku. U even arity pět se členství cílového witnessu přenáší zpět do
+  celé původní třídy, ne jen do vybrané podtřídy.
+
+## 4. Další integrační změny
+
+Vedle import-only diffu samotných statementů vznikly převodní moduly,
+recenze a ověřovací záznam. Projektový facade nyní importuje společný modul
+`Independent.Theorems`; čitelné axiomové kontroly zahrnují nové cíle a
+klíčové převody. README uvádí nezávislé rozhraní a AGENTS zachovává pravidlo
+neměnnosti statementů a oddělené pracovní větve.
+
+Ve třech nových převodních souborech byla po recenzi odstraněna jediná
+nadbytečná prázdná koncová řádka. Dodatek nezávislé recenze ověřuje přesnou
+rovnost původních a výsledných bajtů až na tento jeden LF a uvádí konečné
+hashe. Následný úplný build a audity proběhly na těchto konečných verzích.
+
+CI navíc spouští kontrolu původních hashů a přesného diffu. Axiomový nástroj
+vybírá deklarace podle **definičních modulů**, nikoli podle jejich jmenných
+prostorů. Původní checkpoint měl pro dodatečnou kontrolu nesprávný kořen
+`IndependentHypertournaments`; dokončená větev jej opravuje na
+`Hypertournaments.Independent`. Celkový kořen `Hypertournaments` nové moduly
+již zahrnuje, včetně soukromých pomocných deklarací. Doplňkových 191 deklarací
+se proto do celkového počtu nezapočítává podruhé.
+
+## 5. Ověření
+
+Po obnovení místního prostředí byly všechny důkazy vyvíjeny a kontrolovány
+místním Leanem. Actions slouží jen k závěrečné kontrole publikovaného commitu.
+
+- Lean 4.34.1; beze změny pinu Mathlib a neměnného převzatého Ramsey kódu.
+- Úplný `lake --rehash build`: **2230 úloh, úspěch**.
+- Source guard: **519 projektových modulů**, 518 v importním facade a
+  samostatný `AxiomAudit`; všech 119 převzatých modulů; 96 specifických
+  externích kořenů Mathlib. Žádné placeholdery nebo vlastní axiomy.
+- Samostatné kompilace nových převodních modulů prošly bez diagnostiky.
+- Všech deset regresních testů source guardu i oba generátory konečné
+  klasifikace s `--check` prošly.
+- Čitelné axiomové kontroly přesných tří vět i jejich společné konjunkce
+  prošly.
+- Úplný audit: **5436 Hypertournaments + 117 CCO + 1700 PartiteConstruction
+  + 805 SuccessorTree = 8058 deklarací**, pouze `propext`, `Classical.choice`
+  a `Quot.sound`, bez porušení allowlistu.
+- Doplňkový audit nových modulů `Hypertournaments.Independent`: **191**
+  deklarací, zahrnutých již v celkovém auditu výše.
+
+Nezávislé recenze s přesnými zdrojovými hashi jsou `BRIDGE_REVIEW.md` a
+`EPPA_BRIDGE_REVIEW.md`. Hashové vazby a výsledky kontrol jsou ve
+`verification.json`. Přesný publikovaný commit a výsledek jeho CI patří do
+PR #418, aby nevznikala kruhová závislost mezi hashem commitu a jeho obsahem.
+Větev zůstává oddělená od main podle zadání uživatele.

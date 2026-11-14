@@ -18,6 +18,15 @@ is part of a `Hyper` structure or its embeddings.
 
 ## Public interface
 
+[`Hypertournaments/Independent/Theorems.lean`](Hypertournaments/Independent/Theorems.lean)
+independently checks the article's three introductory targets:
+`IndependentHypertournaments.intro_link`, `potential`, and `intro_eppa`.
+The independently authored definitions are preserved byte-for-byte apart from
+specific Mathlib imports. Explicit representation equivalences connect them to
+the existing results; no extra hypotheses are added. The original upload,
+exact import-only diff, semantic review and proof-transfer report are retained
+in [`notes/independent_intro/`](notes/independent_intro/REVIEW_AND_CHANGES.md).
+
 [`Hypertournaments/PositiveClassification.lean`](Hypertournaments/PositiveClassification.lean)
 exports:
 

@@ -374,4 +374,4 @@ import Hypertournaments.Affine.EvenSpecialization
 
 import Hypertournaments.FiveConstrained.Classification
 
-import Hypertournaments.Independent.Statements
+import Hypertournaments.Independent.Theorems
