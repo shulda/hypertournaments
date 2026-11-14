@@ -624,9 +624,21 @@
     "lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
     "lakefile.toml": "74fecd28546ba97bb18e2daab36df153b571384c5b3126394aed9c9699f28bfb",
     "lake-manifest.json": "d1eeaa2b5bfe9b6b3b886c20ae5cdb2253fed0fc67d73edb499ecf002280fb17",
-    "tools/project_sources.py": "fa83b0d0d071d17c721b3e06b6cc9a1e56ab771bc34337f423acc17a4ffccc7c",
-    ".github/workflows/lean.yml": "e4382a4d216336a0a2aeeff167c2e06c529dfaf7b1398f8040c9cf5416fcf1d6",
-    "vendor/ramsey-transfer/SOURCE_MANIFEST.json": "7b41970469e3fc632a2e5cd3bdb2bb8cbd9e92a2666b2f588f96ddb075fe43b2"
+    "tools/project_sources.py": "499060830180c7a6c6984415ac4deff294bb70e7745db086996ed4adacd1e1f4",
+    ".github/workflows/lean.yml": "76669a91890019e0647e70098431fb2fb4a19df9b3b2b25e775841da54bbfc26",
+    "vendor/ramsey-transfer/SOURCE_MANIFEST.json": "7b41970469e3fc632a2e5cd3bdb2bb8cbd9e92a2666b2f588f96ddb075fe43b2",
+    "tools/test_project_sources.py": "a147cd1fce8c981befe0c8fa5a9fb457feedc437923b127b13e65840069d4d98",
+    ".gitignore": "601d1c1aba3e127e29b73f3264f351d45234a01b8da009431fd5d623f1833e99"
   },
-  "scope": "Complete local-type realization and isomorphism for n>=2; exact local PC cutoff for n>=3; actual local forbidden-family adapter; positive and negative ordinary-AP iff and strong spans for n>=4; all-arity central iff unbounded and unbounded classification; central/next class Ramsey/ordering witnesses; elementary Klein centralizer saturation/generation with all subgroup/quotient actions discharged, invariant Sylow and odd-kernel quotient lift; actual automorphisms, odd pointwise stabilizers, and finite EPPA witness interfaces. Concrete local EPPA obstruction, consequences and lower-arity transfer remain separate."
+  "scope": "Complete local-type realization and isomorphism for n>=2; exact local PC cutoff for n>=3; actual local forbidden-family adapter; positive and negative ordinary-AP iff and strong spans for n>=4; all-arity central iff unbounded and unbounded classification; central/next class Ramsey/ordering witnesses; elementary Klein centralizer saturation/generation with all subgroup/quotient actions discharged, invariant Sylow and odd-kernel quotient lift; actual automorphisms, odd pointwise stabilizers, and finite EPPA witness interfaces. Concrete local EPPA obstruction, consequences and lower-arity transfer remain separate.",
+  "proof_prefilter": {
+    "command": "python3 tools/project_sources.py --proofs-only",
+    "modules": 404,
+    "forbidden_proof_tokens": [],
+    "regressions": {
+      "command": "python3 -m unittest discover -s tools -p 'test_*.py'",
+      "passed": 10
+    },
+    "scope": "early source diagnostic; complete kernel and defining-module axiom audits are authoritative"
+  }
 }

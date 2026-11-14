@@ -15,14 +15,17 @@ VENDOR_SOURCE_DIGEST = 'ae194b3154e25d52e71523b0b8eae966acb6f5c851dc94e2aed9c52e
 VENDOR_PREFIXES = ('CCO.', 'PartiteConstruction.', 'SuccessorTree.')
 VENDOR_ENTRYPOINTS = ('CCO.UnaryHN.IteratedTransfer', 'CCO.UnaryHN.OrderedAmbient')
 IMPORT_LINE = re.compile(r'^\s*(?:public\s+)?import\s+([A-Za-z0-9_.]+)\s*$', re.M)
+RAW_STRING_START = re.compile(r'r(#{0,})"')
+CHAR_LITERAL = re.compile(r"'(?:[^'\\\n]|\\(?:u\{[0-9a-fA-F]+\}|u[0-9a-fA-F]{4}|x[0-9a-fA-F]{2}|.))'")
 
 
-def source_imports(text: str) -> list[str]:
+def lean_code(text: str) -> str:
     # Ignore nested Lean comments and string contents, including import examples
     # in documentation; retain newlines so actual header commands stay anchored.
     code = []
     depth = 0
     quoted = False
+    raw_end = None
     index = 0
     while index < len(text):
         char = text[index]
@@ -30,16 +33,27 @@ def source_imports(text: str) -> list[str]:
         if depth:
             if pair == '/-':
                 depth += 1
+                code.append('  ')
                 index += 2
                 continue
             if pair == '-/':
                 depth -= 1
+                code.append('  ')
                 index += 2
+                continue
+            code.append('\n' if char == '\n' else ' ')
+        elif raw_end is not None:
+            if text.startswith(raw_end, index):
+                code.append(' ' * len(raw_end))
+                index += len(raw_end)
+                raw_end = None
                 continue
             code.append('\n' if char == '\n' else ' ')
         elif quoted:
             if char == '\\':
-                code.append('  ')
+                code.append(' ')
+                if index + 1 < len(text):
+                    code.append('\n' if text[index + 1] == '\n' else ' ')
                 index += 2
                 continue
             if char == '"':
@@ -47,13 +61,24 @@ def source_imports(text: str) -> list[str]:
             code.append('\n' if char == '\n' else ' ')
         elif pair == '/-':
             depth = 1
+            code.append('  ')
             index += 2
             continue
         elif pair == '--':
             newline = text.find('\n', index)
             if newline == -1:
                 break
+            code.append(' ' * (newline - index))
             index = newline
+            continue
+        elif char == 'r' and (index == 0 or not re.match(r"[\w']", text[index - 1])) and (match := RAW_STRING_START.match(text, index)):
+            raw_end = '"' + match.group(1)
+            code.append(' ' * (match.end() - index))
+            index = match.end()
+            continue
+        elif char == "'" and (index == 0 or not re.match(r"[\w']", text[index - 1])) and (match := CHAR_LITERAL.match(text, index)):
+            code.append(' ' * (match.end() - index))
+            index = match.end()
             continue
         elif char == '"':
             quoted = True
@@ -61,7 +86,25 @@ def source_imports(text: str) -> list[str]:
         else:
             code.append(char)
         index += 1
-    clean = ''.join(code)
+    return ''.join(code)
+
+
+def proof_placeholders(text: str) -> list[tuple[int, str]]:
+    """Find forbidden code tokens, ignoring prose and quoted examples."""
+    clean = lean_code(text)
+    return [(clean.count('\n', 0, match.start()) + 1, match.group())
+            for match in re.finditer(r"(?<![\w'])(?:sorry|admit|axiom)(?![\w'])", clean)]
+
+
+def check_proofs(path: Path) -> None:
+    findings = proof_placeholders(path.read_text())
+    if findings:
+        raise SystemExit('\n'.join(f'{path}:{line}: forbidden proof token {token}'
+                                   for line, token in findings))
+
+
+def source_imports(text: str) -> list[str]:
+    clean = lean_code(text)
     modules = IMPORT_LINE.findall(clean)
     import_commands = re.findall(r'^\s*(?:public\s+)?import\b[^\n]*', clean, re.M)
     if len(modules) != len(import_commands):
@@ -70,6 +113,8 @@ def source_imports(text: str) -> list[str]:
 
 
 def checked_imports(module: str, path: Path) -> list[str]:
+    if module == 'Hypertournaments' or module.startswith('Hypertournaments.'):
+        check_proofs(path)
     modules = source_imports(path.read_text())
     if any(m in {'Mathlib', 'Mathlib.Tactic'} for m in modules):
         raise SystemExit(f'Broad Mathlib import in {path}')
@@ -164,8 +209,15 @@ def main() -> None:
     mode.add_argument('--mathlib-roots', action='store_true')
     mode.add_argument('--vendor-mathlib-roots', action='store_true')
     mode.add_argument('--vendor-only', action='store_true')
+    mode.add_argument('--proofs-only', action='store_true')
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[1]
+    paths = [root / 'Hypertournaments.lean', *sorted((root / 'Hypertournaments').rglob('*.lean'))]
+    if args.proofs_only:
+        for path in paths:
+            check_proofs(path)
+        print(json.dumps({'modules': len(paths), 'forbidden_proof_tokens': []}))
+        return
     vendor_imports, vendor_report = vendor_snapshot(root)
     if args.vendor_only:
         print(json.dumps(vendor_report, indent=2))
@@ -176,7 +228,6 @@ def main() -> None:
                            if dep.startswith('Mathlib.')})
         print('\n'.join(external))
         return
-    paths = [root / 'Hypertournaments.lean', *sorted((root / 'Hypertournaments').rglob('*.lean'))]
     imports = {}
     for path in paths:
         module = '.'.join(path.relative_to(root).with_suffix('').parts)

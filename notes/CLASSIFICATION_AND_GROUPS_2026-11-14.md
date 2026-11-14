@@ -162,7 +162,8 @@ Independent source-linked mathematical and API reviews are in:
 - `CENTRALIZER_SATURATION_REVIEW_2026-11-14.md`;
 - `ODD_STABILIZER_REVIEW_2026-11-14.md`;
 - `EPPA_FOUNDATIONS_REVIEW_2026-11-14.md`;
-- `SOURCE_INSTANCES_REVIEW_2026-11-14.md`.
+- `SOURCE_INSTANCES_REVIEW_2026-11-14.md`;
+- `CI_SOURCE_CHECK_REVIEW_2026-11-14.md` (operational checks).
 
 The machine-readable receipt is
 `verification/classification_groups_2026-11-14.json`. It pins the full Lean
@@ -170,3 +171,12 @@ source/configuration inputs and records complete defining-module audits for
 Hypertournaments, CCO, PartiteConstruction and SuccessorTree. The only allowed
 axioms are `propext`, `Classical.choice` and `Quot.sound`. CI checks the exact
 proposed head; PR metadata records both pre- and post-merge CI evidence.
+
+The initial CI source grep falsely classified the English word `admit` in
+a mathematical doc comment as a tactic. The early check now uses the shared
+comment/string masking scanner, retaining rejection of actual code tokens
+and custom axiom commands. Ten regression cases cover mathematical prose, ordinary/raw strings,
+character literals, real holes, nested comments, token boundaries and imports.
+The early scan is a source diagnostic rather than a complete Lean parser.
+The complete kernel build and four-prefix axiom audit remain authoritative
+and unchanged; no Lean proof source was modified to fix this workflow issue.
