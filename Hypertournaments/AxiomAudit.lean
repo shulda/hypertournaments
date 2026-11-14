@@ -994,3 +994,20 @@ they are not a substitute for it.
 #print axioms Hypertournaments.Affine.evenData_isPotential_iff
 #print axioms Hypertournaments.Hyper.coboundary_toGroupAffine
 #print axioms Hypertournaments.Hyper.isEven_iff_exists_potential_via_affine
+
+#print axioms Hypertournaments.FiniteClass.HasAP.hasJEP
+#print axioms Hypertournaments.FiniteClass.not_hasAP_of_no_joint
+#print axioms Hypertournaments.FiveConstrained.representative_iso_iff_type5
+#print axioms Hypertournaments.FiveConstrained.certificate_profiles
+#print axioms Hypertournaments.FiveConstrained.certificate_coverage
+#print axioms Hypertournaments.FiveConstrained.certificateCheck_not_hasAP_of_bounded
+#print axioms Hypertournaments.FiveConstrained.normalization_of_hasAP
+#print axioms Hypertournaments.FiveConstrained.normalizedClass_unbounded_iff
+#print axioms Hypertournaments.FiveConstrained.normalized_positive_hasSAP
+#print axioms Hypertournaments.FiveConstrained.normalized_unbounded_amalgamation_classification
+#print axioms Hypertournaments.FiveConstrained.constrained_amalgamation_classification
+#print axioms Hypertournaments.FiveConstrained.constrained_hasAP_iff_hasSAP
+#print axioms Hypertournaments.FiveConstrained.five_only_negative_classification
+#print axioms Hypertournaments.FiveConstrained.p9_pairCancelling
+#print axioms Hypertournaments.FiveConstrained.p9_ordered_ramsey
+#print axioms Hypertournaments.FiveConstrained.p9_ordering_property

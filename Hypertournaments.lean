@@ -371,3 +371,5 @@ import Hypertournaments.Affine.ExpansionRamsey
 import Hypertournaments.Affine.ExpansionProperty
 import Hypertournaments.Affine.Precompactness
 import Hypertournaments.Affine.EvenSpecialization
+
+import Hypertournaments.FiveConstrained.Classification

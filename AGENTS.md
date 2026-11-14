@@ -4,7 +4,20 @@ The user has transferred ownership from the former Chat project to this Work
 project. Preserve its source branches and commit history. No multi-project
 claim queue is needed. The current scope is the main hypertournament article
 and the negative (n+1)-constrained classification for n >= 4. The separate
-five-constrained ternary census is postponed.
+five-constrained ternary census was initially postponed.
+
+Scope update, 2026-11-14 (five-constrained ternary): the user authorized the
+complete classification after source/certificate review. Use the uploaded
+`hypertournament_negative_ap_v2_final.tex` (SHA-256
+`a06eb1ae0377e798491354faa95357501046f79c5eaa2d482adcfeef02d412d7`)
+and the original July classification supplement (SHA-256
+`d15fbb89b7e22c1cde1402e1ce417fd74566dd10d38d145b355d6ec9cf9bbcb3`).
+Distinguish exact five-vertex constraints from normalized four/five-vertex
+constraints. The original July masks use bit one for the positive canonical
+sign; the November note reverses that sign convention. Its 42-diagram/JEP
+argument may be replaced by the independently replayed 37-diagram proof,
+including the genuine base-three obstruction for both masks 1025 and 2049.
+The excluded continuum/Fraisse scope remains excluded.
 
 Scope update, 2026-11-14: the user excluded `cor:sullivan-ramsey` and its
 infinite antichain/Fraisse infrastructure from the formalization. The final

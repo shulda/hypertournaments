@@ -25,6 +25,8 @@ jobs:
         run: |
           python3 -m unittest discover -s tools -p 'test_*.py'
           python3 tools/project_sources.py
+          python3 tools/five_constrained/generate_catalogue.py --check
+          python3 tools/five_constrained/generate_certificates.py --check
       - name: Restore pinned Mathlib source and build cache
         id: mathlib-package-cache
         uses: actions/cache/restore@v5
