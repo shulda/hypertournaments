@@ -345,3 +345,15 @@ import Hypertournaments.BinaryOrdering
 import Hypertournaments.EvenAmalgamation
 import Hypertournaments.PotentialRamsey
 import Hypertournaments.PotentialExpansionProperty
+
+import Hypertournaments.LocalPairCancellationConverse
+import Hypertournaments.PositiveClassification
+import Hypertournaments.LocalClassRamsey
+import Hypertournaments.CentralizerSaturation
+import Hypertournaments.KleinQuotientLift
+import Hypertournaments.OddStabilizer
+import Hypertournaments.EPPA
+import Hypertournaments.KleinCentralizerGeneration
+import Hypertournaments.UnboundedClassification
+import Hypertournaments.LocalTypeIsomorphism
+import Hypertournaments.LocalTypeRealization
