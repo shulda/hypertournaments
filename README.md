@@ -2,7 +2,7 @@
 
 Lean 4 / Mathlib proofs for finite alternating-orientation hypertournaments.
 Ordinary amalgamation of unbounded `(n+1)`-constrained classes is classified
-in every arity `n >= 4`: both the positive and negative directions are proved.
+in every arity `n >= 2`. Every such amalgamation class has strong amalgamation.
 The main-paper development now also proves strong amalgamation for omission
 classes of any family of finite pair-cancelling structures. Their free
 linear-order expansions are proved Ramsey and have the ordering property in
@@ -50,6 +50,12 @@ on `n+1` vertices, `PairCancelling A` iff its index is at most `q-2` for `n≥3`
 The omission-class bridge uses actual forbidden packets on arbitrary carriers.
 [`LocalClassRamsey`](Hypertournaments/LocalClassRamsey.lean) supplies actual
 admissible Ramsey and ordering witnesses for the central/next-central branch.
+
+[`SmallArityClassification`](Hypertournaments/SmallArityClassification.lean)
+extends the criterion to all arities at least two: every central-type palette
+in arity two or three has strong amalgamation. For every unbounded palette,
+`unbounded_hasAP_iff_hasStrongAmalgamation` identifies ordinary AP with SAP;
+it also allows impossible indices in the original palette.
 
 ## Main-paper positive amalgamation
 
@@ -162,6 +168,38 @@ cones and witness links. The upper witness need not be even.
 for even hypertournaments in every odd arity at least five, with the explicit
 arity-five corollary. See the [source and review note](notes/HIGH_ARITY_EPPA_2026-11-14.md).
 
+## Cyclic orders and small arities
+
+[`BinaryOrder`](Hypertournaments/BinaryOrder.lean) proves that the binary
+palette `{1}` is precisely transitivity. It reconstructs a linear order on
+any carrier, and preserving injections are exactly increasing injections.
+[`BinaryAmalgamation`](Hypertournaments/BinaryAmalgamation.lean) supplies
+their actual strong amalgams, including empty bases and empty sides.
+
+[`CircularHyper`](Hypertournaments/CircularHyper.lean) encodes Mathlib circular
+orders as the original intrinsic ternary `Hyper` structures.
+[`CyclicLocalType`](Hypertournaments/CyclicLocalType.lean) proves
+`Admissible {2} A ↔ A.IsCyclicOrder` on every carrier. The full cut order in
+[`CircularCut`](Hypertournaments/CircularCut.lean) reconstructs every circular
+triple. [`CyclicAmalgamation`](Hypertournaments/CyclicAmalgamation.lean)
+uses compatible cuts and the existing finite-order shuffle to produce a
+strong amalgam on exactly the original union carrier.
+
+[`CyclicEPPA`](Hypertournaments/CyclicEPPA.lean) proves finite cyclic-order
+automorphisms fixing a point are trivial. A two-point partial isomorphism
+fixing one point and moving another therefore rules out cyclic EPPA targets
+for every source containing three points. The conclusion is also exported
+for the actual local forbidden family by
+[`CyclicLocalEPPA`](Hypertournaments/CyclicLocalEPPA.lean).
+
+[`CyclicRamsey`](Hypertournaments/CyclicRamsey.lean) proves the full native
+Ramsey theorem for compatible linear-order expansions, directly from the
+pinned theorem for finite linear orders.
+[`CyclicExpansionProperty`](Hypertournaments/CyclicExpansionProperty.lean)
+proves their expansion property with the original finite reduct as witness.
+Both the orientation and the compatible order are named and reflected by
+the actual embeddings. See the [source and review note](notes/CYCLIC_AND_SMALL_ARITY_2026-11-14.md).
+
 ## Build and validation
 
 Use the committed `lean-toolchain` (Lean 4.34.1) and `lake-manifest.json`.
@@ -188,7 +226,6 @@ The source negative argument is the AI-written Lean-oriented
 [`negative_general_arity_audit_v4.tex`](notes/negative_general_arity_audit_v4.tex).
 Source text and kernel-checked Lean statements are distinct artifacts.
 
-Remaining article work includes the finite cyclic-order encoding and its
-small-arity SAP/non-EPPA consequences. The infinite pair-cancelling antichain
-and Fraisse consequences require their own additional infrastructure.
+The infinite pair-cancelling antichain and Fraisse consequences require
+their own additional infrastructure.
 Five-constrained ternary classification remains postponed.
