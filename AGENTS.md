@@ -6,6 +6,13 @@ claim queue is needed. The current scope is the main hypertournament article
 and the negative (n+1)-constrained classification for n >= 4. The separate
 five-constrained ternary census is postponed.
 
+Scope update, 2026-11-14: the user excluded `cor:sullivan-ramsey` and its
+infinite antichain/Fraisse infrastructure from the formalization. The final
+`Further potential constructions` section is now included: arbitrary finite
+involutive palettes and finite abelian effective groups, with actual SAP,
+Ramsey, precompactness and expansion properties. Duplicate fiber codes must
+retain one fixed target code across every later potential and vertex order.
+
 Keep `Hyper`, `Preserves`, `HasAP`, the local-index palette, and the cochain
 API shared. Read the actual theorem signatures and mathematical source before
 using a result. A conditional reduction is unfinished until every source
