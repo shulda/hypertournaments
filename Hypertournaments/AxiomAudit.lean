@@ -920,3 +920,25 @@ they are not a substitute for it.
 #print axioms Hypertournaments.localIndex_eq_iff_exists_preserving_perm
 #print axioms Hypertournaments.normalizedFacet_fromNormalizedPacket
 #print axioms Hypertournaments.exists_localIndex_eq
+
+#print axioms Hypertournaments.Hyper.IsEPPAWitness.extend_isomorphism
+#print axioms Hypertournaments.packetKleinAutomorphisms
+#print axioms Hypertournaments.packetKleinAutomorphisms_injective
+#print axioms Hypertournaments.Hyper.IsEPPAWitness.lift_packet_action
+#print axioms Hypertournaments.klein_pointwiseStabilizer_fixes
+#print axioms Hypertournaments.local_eppa_obstruction
+#print axioms Hypertournaments.local_eppa_obstruction_no_witness
+#print axioms Hypertournaments.exists_class_EPPA_obstruction_of_four_equal
+#print axioms Hypertournaments.exists_class_EPPA_obstruction_of_unbounded
+#print axioms Hypertournaments.unbounded_hereditary_SAP_not_EPPA
+#print axioms Hypertournaments.hereditary_SAP_not_EPPA_of_localIndex
+#print axioms Hypertournaments.exists_common_pair_cancelling_EPPA_obstruction
+#print axioms Hypertournaments.pair_cancelling_not_EPPA
+#print axioms Hypertournaments.Hyper.evenCone_isEven
+#print axioms Hypertournaments.Hyper.evenCone_root_orient
+#print axioms Hypertournaments.Hyper.evenCone_preserves
+#print axioms Hypertournaments.Hyper.HasFiniteEPPAWitness.of_preserves
+#print axioms Hypertournaments.evenCone_witness_link
+#print axioms Hypertournaments.eppa_one_arity_down
+#print axioms Hypertournaments.even_not_hasEPPA
+#print axioms Hypertournaments.even_five_not_hasEPPA

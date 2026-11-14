@@ -357,3 +357,6 @@ import Hypertournaments.KleinCentralizerGeneration
 import Hypertournaments.UnboundedClassification
 import Hypertournaments.LocalTypeIsomorphism
 import Hypertournaments.LocalTypeRealization
+
+import Hypertournaments.EPPAConsequences
+import Hypertournaments.EvenNoEPPA
