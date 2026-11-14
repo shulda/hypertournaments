@@ -373,3 +373,5 @@ import Hypertournaments.Affine.Precompactness
 import Hypertournaments.Affine.EvenSpecialization
 
 import Hypertournaments.FiveConstrained.Classification
+
+import Hypertournaments.Independent.Theorems

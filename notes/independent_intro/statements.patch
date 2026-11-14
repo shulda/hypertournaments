@@ -1,0 +1,9 @@
+--- uploaded/independent_hypertournament_statements.lean
++++ Hypertournaments/Independent/Statements.lean
+@@ -1,4 +1,5 @@
+-import Mathlib
++import Mathlib.Data.ZMod.Basic
++import Mathlib.Algebra.BigOperators.Group.Finset.Defs
+ 
+ /-!
+ # Independent Lean statements for three theorems in

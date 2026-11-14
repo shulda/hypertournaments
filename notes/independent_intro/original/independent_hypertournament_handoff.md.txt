@@ -1,0 +1,64 @@
+# Nezávislé Lean statementy: hypertournamenty
+
+**Zdroj:** výhradně přiložený `on_homogeneous_hypertournaments (3).tex`.
+**Výstup:** [`independent_hypertournament_statements.lean`](independent_hypertournament_statements.lean).
+**Stav:** definice a tři proposition targets; bez důkazů, bez `sorry`, bez převzetí definic z existujícího formalizačního projektu. V tomto prostředí není dostupný Lean ani Mathlib toolchain, takže **syntaktická/typecheck kontrola neproběhla**.
+
+## Co má formalizační projekt dokázat
+
+```lean
+open IndependentHypertournaments
+
+theorem intro_link : IntroLinkStatement := by
+  -- proof
+  ...
+
+theorem potential : IntroPotentialStatement := by
+  -- proof
+  ...
+
+theorem intro_eppa : IntroEPPAStatement := by
+  -- proof
+  ...
+```
+
+V souboru jsou tato tři jména **definice výroků typu `Prop`**, nikoli axiomy nebo již dokázané věty. Výše uvedené fragmenty jsou záměrně pouze návod na budoucí důkazy.
+
+## Překlad matematiky do Leanu
+
+1. **Hypertournament:** orientace n-tic je kódována jako `orientation : (Fin n → V) → ZMod 2`. Střídavost je explicitní pro transpozice různých souřadnic injektivních n-tic; na neinjektivních n-ticích je orientace standardizována na nulu. Toto konvenční rozšíření nemění žádnou orientaci definovanou v článku. Žádná globální lineární orientace vrcholů není součástí nestrukturovaného hypertournamentu.
+2. **Konečné objekty:** místo obecných konečných typů používáme `Σ k : ℕ, Hypertournament n (Fin k)`. To je reprezentace všech izomorfních konečných struktur s přeznačenými vrcholy. Každé `F : FiniteHT n → Prop` je libovolná (i nekonečná či prázdná) rodina zákazů.
+3. **Pair-cancelling:** vyžadujeme `n ≥ 3`, `|X| ≥ n+1` a pro každou dvojici různých vrcholů a každý lineární řád existenci dvou vzestupných linkových n-tic s různou orientací. Lineární řády jsou kvantifikovány na všech vrcholech; to je ekvivalentní řádům na komplementu dvojice, protože každý takový řád lze rozšířit.
+4. **Forb:** zakázaná struktura nesmí mít žádné *indukované vnoření*. `Embeds` požaduje injektivitu a rovnost orientací všech n-tic (nikoli pouze jednostrannou implikaci pro jednu hodnotu).
+5. **Ramsey:** všechny členy uspořádané třídy jsou struktury s *libovolným* lineárním řádem. Barvy jsou formálně definovány na všech zobrazeních vrcholových množin, nikoli jen na vnořeních; to je ekvivalentní, protože každé obarvení vnoření lze rozšířit na všechna zobrazení a monochromatičnost se testuje pouze na složeních vnoření.
+6. **Ordering property:** `∀ A ∃ B ∀ <_A ∀ <_B ∃ f`, přičemž `f` zachovává hypertournament i oba řády. Zvlášť důležité je, že **B nezávisí na žádném ze dvou řádů**.
+7. **Even:** `IsEven A` znamená nulový součet orientací všech n-stěn každé injektivní (n+1)-tice. `coboundary` používá součet přes všechny vynechané souřadnice v `ZMod 2`.
+8. **Potential:** `PotentialExpansion k` má redukt arity `k+1`, potenciál arity `k`, rovnost `ω = δφ` na injektivních n-ticích a libovolný volný řád. Index `k=n−1` je záměrný (vyhýbá se v Lean zbytečným castům); `k ≥ 2` a `k % 2 = 0` přesně znamená, že `n ≥ 3` je liché. Vnoření zachovává redukt, potenciál i řád.
+9. **E* je opravdu expanze E:** `PotentialExpandsEven` zvlášť požaduje ekvivalenci „A je even“ ↔ „A má potenciálovou expanzi“. Je to součást definice pojmu *expanze* v preliminářích článku, nikoliv nový matematický předpoklad. Díky tomu nemůže být hlavní tvrzení vakuózní.
+10. **Expansion property:** `∀ A∈E_n ∃ B∈E_n ∀ A* ∀ B* ∃ f:A*↪B*`; expanze odpovídají **témuž podkladovému hypertournamentu**, nikoli jen libovolnému potenciálu.
+11. **EPPA:** částečný automorfismus je bijekce mezi dvěma podmnožinami vrcholů zachovávající orientace všech n-tic ležících v definiční množině. Formalizuje se úplným zobrazením `p`, jehož hodnoty *mimo* definiční množinu jsou ignorovány. Jeden konečný witness B a jedno vnoření A↪B musí fungovat pro **všechny** parciální automorfismy A. Každý se může prodloužit do jiného automorfismu B.
+12. **Strong amalgamation:** kvantifikace přes libovolné dvě vnoření společné A, nikoli jen přes inkluze. Poslední podmínka zaručuje, že obrazy B₁ a B₂ se protínají právě ve společné A. `Unbounded` znamená libovolně velké konečné členy; `Hereditary` zajišťuje uzavřenost na indukované podstruktury a přeznačení.
+
+## Při porovnání se současným API hlídat
+
+- **`IntroLinkStatement` (`thm:intro-link`):** jak Ramseyovu vlastnost, tak ordering property; volný řád; rodina F nemusí být konečná; zákaz musí být definován vnořením (ne surjektivním homomorfismem či pouhým výskytem homomorfního obrazu).
+- **`IntroPotentialStatement` (`thm:potential`):** potenciál je skutečná střídavá orientace arity `n−1`, nikoliv volná symetrická funkce; navíc se zachovává jako pojmenovaná relace při vnořeních. Expansion property má správné pořadí kvantifikátorů.
+- **`IntroEPPAStatement` (`thm:intro-eppa`):** (i) každá unbounded hereditary SAP třída pro `n≥6`; (ii) všechny `Forb(F)` pro `n≥4`, včetně `F=∅`; (iii) třída všech even **5**-hypertournamentů. EPPA se vztahuje na celé dané třídy konečných struktur, nikoliv jen k pevnému Fraïssého limitu.
+
+## Samostatné pomocné ověření (doporučené, není to změna statementu)
+
+V článku před `thm:potential` stojí lemma, že **každý even n-hypertournament má potenciál** a že dva potenciály se liší coboundary symetrické funkce. První důsledek spolu s tvrzením `δ²=0` je nyní explicitně součástí hlavního cíle pod jménem `PotentialExpandsEven`; tím se odstraňuje potenciální vakuozita. Následující fragment proto odpovídá **povinné části** `IntroPotentialStatement`:
+
+```lean
+-- Pouze další doporučený cíl (v hlavním souboru se nepostuluje):
+-- ∀ k ≥ 2, k % 2 = 0 →
+--   ∀ A : FiniteHT (k+1), IsEven A.2 →
+--     ∃ Astar : PotentialExpansion k (Fin A.1),
+--       Astar.reduct = A.2
+```
+
+Rovněž je tak povinné ověřit, že každý `PotentialExpansion k` má pro sudé `k` even redukt (plyne z `δ²=0`). Žádná z těchto vlastností není „skrytým axiomem“; obě tvoří ekvivalenci `PotentialExpandsEven`. Zbývající část lemma o rozdílu dvou potenciálů lze formálně využít v důkazu expanzní vlastnosti, ale nepřidává se mezi předpoklady.
+
+## Omezení
+
+Neměl jsem k dispozici instalaci `lean`/`lake` ani lokální Mathlib, takže jsem soubor nemohl zkompilovat. Vzhledem k tomu, že definice stojí převážně na stabilních konstrukcích (`Fin`, `ZMod`, `Σ`, `Equiv.swap`, `Fin.succAbove`), předpokládám, že případné změny při kompilaci budou spíše syntaktické/elaborační; bez skutečného typechecku to ale nelze garantovat. Matematické definice jsem připravil nezávisle na jakékoli existující formalizaci.

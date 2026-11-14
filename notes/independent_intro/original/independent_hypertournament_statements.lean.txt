@@ -1,0 +1,331 @@
+import Mathlib
+
+/-!
+# Independent Lean statements for three theorems in
+  "On homogeneous hypertournaments"
+
+Source: the supplied draft only; no formalisation repository was consulted.
+
+This file *defines the propositions to be proved*. It deliberately does not
+postulate the three theorems as axioms and contains no `sorry` proofs.
+
+We work with labelled finite structures on `Fin k`. Every finite structure
+has such a presentation, and all structural notions below quantify over
+embeddings, so no generality is lost.
+-/
+
+namespace IndependentHypertournaments
+
+universe u v
+
+/-- An alternating {0,1}-orientation on injective n-tuples.
+    Values on noninjective tuples are fixed to zero solely to make the
+    orientation a total function without introducing spurious data. -/
+structure Hypertournament (n : ℕ) (V : Type u) where
+  orientation : (Fin n → V) → ZMod 2
+  degenerate : ∀ (t : Fin n → V), ¬ Function.Injective t → orientation t = 0
+  alternating : ∀ (t : Fin n → V) (i j : Fin n),
+    Function.Injective t → i ≠ j →
+      orientation (fun k => t ((Equiv.swap i j) k)) = orientation t + 1
+
+/-- A strict linear order, with no arbitrary decidability requirement. -/
+structure LinearOrderData (V : Type u) where
+  lt : V → V → Prop
+  irrefl : ∀ a, ¬ lt a a
+  trans : ∀ a b c, lt a b → lt b c → lt a c
+  total : ∀ a b, a ≠ b → lt a b ∨ lt b a
+
+/-- An n-hypertournament with one freely chosen linear order. -/
+structure OrderedHypertournament (n : ℕ) (V : Type u) where
+  reduct : Hypertournament n V
+  order : LinearOrderData V
+
+/-- An arbitrary finite n-hypertournament, presented on `Fin k`. -/
+abbrev FiniteHT (n : ℕ) := Σ k : ℕ, Hypertournament n (Fin k)
+
+/-- An arbitrary finite ordered n-hypertournament. -/
+abbrev FiniteOrderedHT (n : ℕ) := Σ k : ℕ, OrderedHypertournament n (Fin k)
+
+/-- Isomorphism onto an induced substructure: injective and preserves
+    orientations. Equality of orientations encodes both directions of
+    preservation of the original n-ary relation. -/
+def Embeds {n : ℕ} {V : Type u} {W : Type v}
+    (A : Hypertournament n V) (B : Hypertournament n W)
+    (f : V → W) : Prop :=
+  Function.Injective f ∧
+    ∀ t : Fin n → V,
+      B.orientation (fun i => f (t i)) = A.orientation t
+
+/-- Embedding respecting the orientation and the added order. -/
+def OrderedEmbeds {n : ℕ} {V : Type u} {W : Type v}
+    (A : OrderedHypertournament n V) (B : OrderedHypertournament n W)
+    (f : V → W) : Prop :=
+  Embeds A.reduct B.reduct f ∧
+    ∀ a b, A.order.lt a b ↔ B.order.lt (f a) (f b)
+
+/-- An injective n-tuple whose first two coordinates are u,v and whose
+    remaining n-2 coordinates increase according to the chosen order.
+    The existential indices explicitly express positions 0 and 1, avoiding
+    a cast between `Fin (n-2+2)` and `Fin n`. -/
+def IncreasingLinkTuple {n k : ℕ}
+    (order : LinearOrderData (Fin k)) (u v : Fin k)
+    (t : Fin n → Fin k) : Prop :=
+  Function.Injective t ∧
+    (∃ (i0 i1 : Fin n),
+      i0.val = 0 ∧ i1.val = 1 ∧ t i0 = u ∧ t i1 = v) ∧
+    (∀ (i j : Fin n), 2 ≤ i.val → i < j → order.lt (t i) (t j))
+
+/-- Sullivan's "pair-cancelling" property as defined in the supplied
+    manuscript. The order is quantified on *all* vertices, which is
+    equivalent to quantifying orders on the complement of {u,v}.
+
+    `∃ t0 t1, ... orientation t0 ≠ orientation t1` is exactly the
+    negation of "all increasing link tuples have the same value". -/
+def PairCancelling {n : ℕ} (A : FiniteHT n) : Prop :=
+  3 ≤ n ∧ n + 1 ≤ A.1 ∧
+    ∀ (u v : Fin A.1), u ≠ v →
+      ∀ order : LinearOrderData (Fin A.1),
+        ∃ (t0 t1 : Fin n → Fin A.1),
+          IncreasingLinkTuple order u v t0 ∧
+          IncreasingLinkTuple order u v t1 ∧
+          A.2.orientation t0 ≠ A.2.orientation t1
+
+/-- The class Forb(F) of all finite n-hypertournaments omitting every
+    forbidden member *as an embedded induced substructure*.
+    The forbidden family F may be infinite or empty. -/
+def Forb {n : ℕ} (F : FiniteHT n → Prop) (A : FiniteHT n) : Prop :=
+  ∀ (D : FiniteHT n), F D →
+    ¬ ∃ f : Fin D.1 → Fin A.1, Embeds D.2 A.2 f
+
+/-- The Ramsey arrow, with colors assigned to all vertex maps.
+    This is equivalent to the usual coloring of embeddings only:
+    every coloring of embeddings extends to all maps, and the conclusion
+    only evaluates colors of compositions of embeddings. -/
+def RamseyOrdered {n : ℕ} (F : FiniteHT n → Prop) : Prop :=
+  ∀ (A B : FiniteOrderedHT n) (r : ℕ),
+    Forb F ⟨A.1, A.2.reduct⟩ →
+    Forb F ⟨B.1, B.2.reduct⟩ →
+    2 ≤ r →
+      ∃ C : FiniteOrderedHT n,
+        Forb F ⟨C.1, C.2.reduct⟩ ∧
+          ∀ (color : (Fin A.1 → Fin C.1) → Fin r),
+            ∃ f : Fin B.1 → Fin C.1,
+              OrderedEmbeds B.2 C.2 f ∧
+                ∃ c : Fin r,
+                  ∀ (e : Fin A.1 → Fin B.1),
+                    OrderedEmbeds A.2 B.2 e →
+                      color (fun a => f (e a)) = c
+
+/-- Ordering (= expansion) property for *free* linear orders.
+    The witness B depends on A, not on the linear orders chosen on A or B. -/
+def OrderingProperty {n : ℕ} (F : FiniteHT n → Prop) : Prop :=
+  ∀ A : FiniteHT n,
+    Forb F A →
+      ∃ B : FiniteHT n,
+        Forb F B ∧
+          ∀ (oa : LinearOrderData (Fin A.1))
+            (ob : LinearOrderData (Fin B.1)),
+            ∃ f : Fin A.1 → Fin B.1,
+              Embeds A.2 B.2 f ∧
+                ∀ a b, oa.lt a b ↔ ob.lt (f a) (f b)
+
+/-- Target for {thm:intro-link}.
+    Covers every arity n >= 3 and *every* family F of finite
+    pair-cancelling n-hypertournaments. -/
+def IntroLinkStatement : Prop :=
+  ∀ (n : ℕ), 3 ≤ n →
+    ∀ (F : FiniteHT n → Prop),
+      (∀ D : FiniteHT n, F D → PairCancelling D) →
+        RamseyOrdered F ∧ OrderingProperty F
+
+
+/-! ## Even hypertournaments and their potential expansions -/
+
+/-- The unsigned simplicial coboundary, in characteristic two:
+    (δf)(x_0,...,x_k) = ∑_i f(x_0,...,omit x_i,...,x_k). -/
+def coboundary {k : ℕ} {V : Type u}
+    (f : (Fin k → V) → ZMod 2)
+    (t : Fin (k + 1) → V) : ZMod 2 :=
+  ∑ i : Fin (k + 1), f (fun j => t (i.succAbove j))
+
+/-- The evenness condition δω = 0 on each injective (n+1)-tuple. -/
+def IsEven {n : ℕ} {V : Type u}
+    (A : Hypertournament n V) : Prop :=
+  ∀ (t : Fin (n + 1) → V),
+    Function.Injective t → coboundary A.orientation t = 0
+
+/-- A potential expansion with n = k+1.
+
+    Its reduct is an (k+1)-hypertournament; the named potential is a
+    k-hypertournament; the equation ω = δφ is part of the structure;
+    and the order is entirely free. We use k rather than n-1 so the
+    domains of δφ and ω match definitionally. -/
+structure PotentialExpansion (k : ℕ) (V : Type u) where
+  reduct : Hypertournament (k + 1) V
+  potential : Hypertournament k V
+  order : LinearOrderData V
+  compatibility : ∀ (t : Fin (k + 1) → V),
+    Function.Injective t →
+      reduct.orientation t = coboundary potential.orientation t
+
+abbrev FinitePotentialExpansion (k : ℕ) :=
+  Σ m : ℕ, PotentialExpansion k (Fin m)
+
+/-- An embedding in the expanded language: preserves ω, φ, and <. -/
+def PotentialEmbeds {k : ℕ} {V : Type u} {W : Type v}
+    (A : PotentialExpansion k V) (B : PotentialExpansion k W)
+    (f : V → W) : Prop :=
+  Embeds A.reduct B.reduct f ∧
+    Embeds A.potential B.potential f ∧
+    (∀ a b, A.order.lt a b ↔ B.order.lt (f a) (f b))
+
+/-- Ramsey property for E_(k+1)^*. -/
+def PotentialRamsey (k : ℕ) : Prop :=
+  ∀ (A B : FinitePotentialExpansion k) (r : ℕ),
+    2 ≤ r →
+      ∃ C : FinitePotentialExpansion k,
+        ∀ (color : (Fin A.1 → Fin C.1) → Fin r),
+          ∃ f : Fin B.1 → Fin C.1,
+            PotentialEmbeds B.2 C.2 f ∧
+              ∃ c : Fin r,
+                ∀ (e : Fin A.1 → Fin B.1),
+                  PotentialEmbeds A.2 B.2 e →
+                    color (fun a => f (e a)) = c
+
+/-- Expansion property of E_(k+1)^* relative to E_(k+1).
+
+    For every even A there is one even B such that *every* expansion
+    of A embeds in *every* expansion of B. Equalities here mean that
+    the reduct is precisely the indicated labelled hypertournament. -/
+def PotentialExpansionProperty (k : ℕ) : Prop :=
+  ∀ A : FiniteHT (k + 1),
+    IsEven A.2 →
+      ∃ B : FiniteHT (k + 1),
+        IsEven B.2 ∧
+          ∀ (Astar : PotentialExpansion k (Fin A.1))
+            (Bstar : PotentialExpansion k (Fin B.1)),
+            Astar.reduct = A.2 →
+              Bstar.reduct = B.2 →
+                ∃ f : Fin A.1 → Fin B.1,
+                  PotentialEmbeds Astar Bstar f
+
+/-- The assertion that E_(k+1)^* really is an *expansion of*
+    E_(k+1): its reducts are exactly the even hypertournaments.
+    This is part of the manuscript's definition of "expansion" and
+    prevents a vacuous expansion-property claim for objects having
+    no potential expansion. -/
+def PotentialExpandsEven (k : ℕ) : Prop :=
+  ∀ A : FiniteHT (k + 1),
+    IsEven A.2 ↔
+      ∃ Astar : PotentialExpansion k (Fin A.1), Astar.reduct = A.2
+
+/-- Target for {thm:potential}.
+    Original arity n = k+1. The conditions k >= 2 and k even are
+    equivalent to n >= 3 and n odd. In addition to Ramsey and the
+    expansion property, the "is an expansion" prerequisite is explicit. -/
+def IntroPotentialStatement : Prop :=
+  ∀ (k : ℕ), 2 ≤ k → k % 2 = 0 →
+    PotentialExpandsEven k ∧
+      PotentialRamsey k ∧ PotentialExpansionProperty k
+
+
+/-! ## EPPA -/
+
+/-- A partial automorphism of A represented by a total function p,
+    but used only on its specified domain D.
+
+    The first three conditions say p|D is a bijection D -> R; the last
+    says that bijection is an isomorphism of induced substructures.
+    Values of p outside D have no significance. -/
+def PartialAutomorphism {n : ℕ} {V : Type u}
+    (A : Hypertournament n V) (D R : V → Prop) (p : V → V) : Prop :=
+  (∀ a, D a → R (p a)) ∧
+    (∀ a b, D a → D b → p a = p b → a = b) ∧
+    (∀ b, R b → ∃ a, D a ∧ p a = b) ∧
+    (∀ t : Fin n → V, (∀ i, D (t i)) →
+      A.orientation (fun i => p (t i)) = A.orientation t)
+
+/-- A bijective automorphism (not merely an injective endomorphism). -/
+def Automorphism {n : ℕ} {V : Type u}
+    (A : Hypertournament n V) (g : V → V) : Prop :=
+  Function.Bijective g ∧
+    ∀ t : Fin n → V,
+      A.orientation (fun i => g (t i)) = A.orientation t
+
+/-- EPPA of a class K: every A in K admits a finite B in K containing
+    an embedded copy of A, in which *all* partial automorphisms of A
+    extend to (possibly different) automorphisms of the *same* B. -/
+def HasEPPA {n : ℕ} (K : FiniteHT n → Prop) : Prop :=
+  ∀ A : FiniteHT n, K A →
+    ∃ B : FiniteHT n, K B ∧
+      ∃ inclusion : Fin A.1 → Fin B.1,
+        Embeds A.2 B.2 inclusion ∧
+          ∀ (D R : Fin A.1 → Prop) (p : Fin A.1 → Fin A.1),
+            PartialAutomorphism A.2 D R p →
+              ∃ g : Fin B.1 → Fin B.1,
+                Automorphism B.2 g ∧
+                  ∀ a, D a → g (inclusion a) = inclusion (p a)
+
+/-- Closed under all induced substructures, including re-labellings. -/
+def Hereditary {n : ℕ} (K : FiniteHT n → Prop) : Prop :=
+  ∀ (A B : FiniteHT n), K B →
+    (∃ f : Fin A.1 → Fin B.1, Embeds A.2 B.2 f) → K A
+
+/-- Arbitrarily large finite members. -/
+def Unbounded {n : ℕ} (K : FiniteHT n → Prop) : Prop :=
+  ∀ N : ℕ, ∃ A : FiniteHT n, K A ∧ N ≤ A.1
+
+/-- Strong amalgamation for arbitrary embedding diagrams; the last
+    conjunct rules out any additional identification between the sides. -/
+def StrongAmalgamation {n : ℕ} (K : FiniteHT n → Prop) : Prop :=
+  ∀ (A B1 B2 : FiniteHT n),
+    K A → K B1 → K B2 →
+      ∀ (f1 : Fin A.1 → Fin B1.1) (f2 : Fin A.1 → Fin B2.1),
+        Embeds A.2 B1.2 f1 → Embeds A.2 B2.2 f2 →
+          ∃ C : FiniteHT n, K C ∧
+            ∃ (g1 : Fin B1.1 → Fin C.1)
+              (g2 : Fin B2.1 → Fin C.1),
+              Embeds B1.2 C.2 g1 ∧
+                Embeds B2.2 C.2 g2 ∧
+                (∀ a, g1 (f1 a) = g2 (f2 a)) ∧
+                (∀ b1 b2, g1 b1 = g2 b2 →
+                  ∃ a, f1 a = b1 ∧ f2 a = b2)
+
+/-- {thm:intro-eppa}, item (i). -/
+def IntroEPPAPartI : Prop :=
+  ∀ (n : ℕ), 6 ≤ n →
+    ∀ (K : FiniteHT n → Prop),
+      Unbounded K → Hereditary K → StrongAmalgamation K →
+        ¬ HasEPPA K
+
+/-- {thm:intro-eppa}, item (ii). In particular F may be empty. -/
+def IntroEPPAPartII : Prop :=
+  ∀ (n : ℕ), 4 ≤ n →
+    ∀ (F : FiniteHT n → Prop),
+      (∀ D : FiniteHT n, F D → PairCancelling D) →
+        ¬ HasEPPA (Forb F)
+
+/-- {thm:intro-eppa}, item (iii): the even 5-hypertournaments. -/
+def IntroEPPAPartIII : Prop :=
+  ¬ HasEPPA (fun A : FiniteHT 5 => IsEven A.2)
+
+/-- The complete target for {thm:intro-eppa}; no parts omitted. -/
+def IntroEPPAStatement : Prop :=
+  IntroEPPAPartI ∧ IntroEPPAPartII ∧ IntroEPPAPartIII
+
+/-
+The proving project can start from precisely these goals:
+
+  theorem intro_link : IntroLinkStatement := by
+    ...
+
+  theorem potential : IntroPotentialStatement := by
+    ...
+
+  theorem intro_eppa : IntroEPPAStatement := by
+    ...
+
+No theorem, lemma, or axiom from an existing formalisation is assumed.
+-/
+
+end IndependentHypertournaments

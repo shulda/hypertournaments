@@ -1011,3 +1011,19 @@ they are not a substitute for it.
 #print axioms Hypertournaments.FiveConstrained.p9_pairCancelling
 #print axioms Hypertournaments.FiveConstrained.p9_ordered_ramsey
 #print axioms Hypertournaments.FiveConstrained.p9_ordering_property
+
+#print axioms IndependentHypertournaments.IntroLinkStatement
+#print axioms IndependentHypertournaments.IntroPotentialStatement
+#print axioms IndependentHypertournaments.IntroEPPAStatement
+#print axioms IndependentHypertournaments.Bridge.toHyper_ofHyper
+#print axioms IndependentHypertournaments.Bridge.ofHyper_toHyper
+#print axioms IndependentHypertournaments.Bridge.embeds_iff_preserves
+#print axioms IndependentHypertournaments.Bridge.pairCancelling_iff
+#print axioms IndependentHypertournaments.Bridge.omits_iff
+#print axioms IndependentHypertournaments.Bridge.isEven_iff
+#print axioms IndependentHypertournaments.Bridge.isPotential_iff
+#print axioms IndependentHypertournaments.Bridge.hasEPPA_to_nativeClass
+#print axioms IndependentHypertournaments.intro_link
+#print axioms IndependentHypertournaments.potential
+#print axioms IndependentHypertournaments.intro_eppa
+#print axioms IndependentHypertournaments.all_intro_statements

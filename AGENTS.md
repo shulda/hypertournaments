@@ -6,6 +6,19 @@ claim queue is needed. The current scope is the main hypertournament article
 and the negative (n+1)-constrained classification for n >= 4. The separate
 five-constrained ternary census was initially postponed.
 
+Independent statement verification, 2026-11-14: work on
+`verification/independent-intro-20261114` / PR #418. Preserve the uploaded
+definitions and proposition targets byte-for-byte apart from the recorded
+specific-import substitution. `tools/independent_intro/check_statements.py`
+enforces this. Prove the three introduction targets in separate bridge
+modules, and audit their defining-module prefix `Hypertournaments.Independent`
+as well as the whole project. Their declaration namespace is
+`IndependentHypertournaments`. Compare against article source commit
+`a732651c134c099ed9de16f49f6aeb0368696678`. Keep this verification branch
+separate from main. Develop and check proofs with the local Lean runtime;
+the user explicitly declined using Actions as a replacement development
+environment during an outage. Standard final CI remains part of validation.
+
 Scope update, 2026-11-14 (five-constrained ternary): the user authorized the
 complete classification after source/certificate review. Use the uploaded
 `hypertournament_negative_ap_v2_final.tex` (SHA-256
