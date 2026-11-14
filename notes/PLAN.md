@@ -1,5 +1,13 @@
 # Formalization plan and proof status
 
+Current status, 2026-11-14: the original negative queue, the agreed finite
+article, the small-arity cases and the general affine potential construction
+are complete. The user subsequently authorized the five-constrained ternary
+classification; its source map and exact formulation boundaries are in
+[`FIVE_CONSTRAINED_2026-11-14.md`](FIVE_CONSTRAINED_2026-11-14.md).
+The continuum/Fraisse corollary remains excluded. The dated plan below is
+retained as historical provenance rather than the current work queue.
+
 Date: 2026-11-08.
 
 ## Public theorem-level API

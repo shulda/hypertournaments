@@ -262,6 +262,14 @@ Source text and kernel-checked Lean statements are distinct artifacts.
 
 The continuum-many homogeneous-structures corollary `cor:sullivan-ramsey`
 and its infinite antichain/Fraisse infrastructure are excluded by the user's
-2026-11-14 scope decision. Five-constrained ternary classification remains
-postponed. Final source-coverage and presentation audits are separate from
+2026-11-14 scope decision. The complete five-constrained ternary classification
+is implemented in `Hypertournaments/FiveConstrained`: twelve actual finite
+isomorphism types, a kernel-checked 37-diagram negative cover, normalization
+of separate four/five constraints, and AP iff SAP with exactly five unbounded
+normalized classes. The concrete P9 omission class also has actual native
+ordered Ramsey and ordering theorems. The five-only negative statement of
+the later technical note is exported separately; five-only restrictions are
+vacuous on smaller carriers. See
+[`FIVE_CONSTRAINED_2026-11-14.md`](notes/FIVE_CONSTRAINED_2026-11-14.md).
+Final source-coverage and presentation audits are separate from
 the mathematical results recorded above.
