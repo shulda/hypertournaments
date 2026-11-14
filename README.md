@@ -125,6 +125,40 @@ proves the full expansion property relative to finite even reducts: the
 upper witness is fixed before both potentials and both orders are chosen.
 See the [source and verification note](notes/ORDERING_AND_POTENTIALS_2026-11-13.md).
 
+## General affine potential constructions
+
+The article's final generalization is formalized under
+[`Hypertournaments/Affine`](Hypertournaments/Affine). `Data Q G` consists of
+an involutive raw palette, an abelian effective group, an offset, and an
+equivariant surjection. In upper arity `n`, the source condition is exactly
+`Even n → offset = 0`.
+
+The signed simplex algebra proves `Delta squared = 0`, exactness, affine
+potential existence, and signed gauge alignment. Both closed reducts and
+actual potential expansions have strong amalgams on the original exact-overlap
+carrier. No order preservation is assumed of the source injections.
+
+[`Affine/ExpansionRamsey`](Hypertournaments/Affine/ExpansionRamsey.lean)
+proves the full native Ramsey property naming every raw and potential label
+and a free order. Independent lower and upper labels have actual Ramsey
+witnesses, which decode equivariantly to the original expanded language.
+[`Affine/ExpansionProperty`](Hypertournaments/Affine/ExpansionProperty.lean)
+proves the full expansion property for finite palettes and effective groups,
+with one target fixed before every potential and order. Its intrinsic
+oriented fiber code stays fixed throughout, including when decoding is
+noninjective or the original involution has fixed labels. The signed
+homogeneous drift is absorbed for both arity parities.
+
+[`Affine/Precompactness`](Hypertournaments/Affine/Precompactness.lean) proves
+the language is finite relational and that each finite reduct has finitely
+many actual potential-and-order expansions.
+[`Affine/EvenSpecialization`](Hypertournaments/Affine/EvenSpecialization.lean)
+gives two-way equivalences with the original `Hyper` construction over
+`ZMod 2`, preserving the original equations and embeddings. The old API
+and proof modules are retained.
+
+See the [source, proof and review map](notes/AFFINE_POTENTIALS_2026-11-14.md).
+
 ## Elementary group theory and EPPA foundations
 
 [`Hypertournaments/KleinCentralizerGeneration.lean`](Hypertournaments/KleinCentralizerGeneration.lean)
@@ -226,6 +260,8 @@ The source negative argument is the AI-written Lean-oriented
 [`negative_general_arity_audit_v4.tex`](notes/negative_general_arity_audit_v4.tex).
 Source text and kernel-checked Lean statements are distinct artifacts.
 
-The infinite pair-cancelling antichain and Fraisse consequences require
-their own additional infrastructure.
-Five-constrained ternary classification remains postponed.
+The continuum-many homogeneous-structures corollary `cor:sullivan-ramsey`
+and its infinite antichain/Fraisse infrastructure are excluded by the user's
+2026-11-14 scope decision. Five-constrained ternary classification remains
+postponed. Final source-coverage and presentation audits are separate from
+the mathematical results recorded above.

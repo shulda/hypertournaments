@@ -365,3 +365,9 @@ import Hypertournaments.SmallArityClassification
 import Hypertournaments.CyclicLocalEPPA
 import Hypertournaments.CyclicRamsey
 import Hypertournaments.CyclicExpansionProperty
+
+import Hypertournaments.Affine.Amalgamation
+import Hypertournaments.Affine.ExpansionRamsey
+import Hypertournaments.Affine.ExpansionProperty
+import Hypertournaments.Affine.Precompactness
+import Hypertournaments.Affine.EvenSpecialization
