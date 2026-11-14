@@ -942,3 +942,26 @@ they are not a substitute for it.
 #print axioms Hypertournaments.eppa_one_arity_down
 #print axioms Hypertournaments.even_not_hasEPPA
 #print axioms Hypertournaments.even_five_not_hasEPPA
+
+#print axioms Hypertournaments.admissible_one_iff_binaryLT_trans
+#print axioms Hypertournaments.preserves_iff_binaryLinearOrder_strictMono
+#print axioms Hypertournaments.binary_transitive_strong_span
+#print axioms Hypertournaments.Hyper.ofCircularOrder
+#print axioms Hypertournaments.preserves_iff_sbtw
+#print axioms CircularOrder.cut_sbtw_iff
+#print axioms Hypertournaments.Hyper.admissible_two_iff_isCyclicOrder
+#print axioms Hypertournaments.cyclic_strong_span
+#print axioms Hypertournaments.Hyper.Aut.eq_one_of_isCyclicOrder
+#print axioms Hypertournaments.Hyper.not_isEPPAWitness_cyclic_of_three
+#print axioms Hypertournaments.cyclicOrderClass_not_hasEPPA
+#print axioms Hypertournaments.cyclic_local_not_hasEPPA
+#print axioms Hypertournaments.Ramsey.exists_cyclic_ramsey_witness
+#print axioms Hypertournaments.Ramsey.cyclic_expansions_ramsey
+#print axioms Hypertournaments.Ramsey.cyclic_expansion_property
+#print axioms Hypertournaments.binary_central_palette_cases
+#print axioms Hypertournaments.ternary_central_palette_cases
+#print axioms Hypertournaments.local_hasStrongAmalgamation_of_strong_span
+#print axioms Hypertournaments.small_arity_unbounded_hasStrongAmalgamation
+#print axioms Hypertournaments.strong_span_of_hasAP_all_arities
+#print axioms Hypertournaments.unbounded_hasAP_iff_hasStrongAmalgamation
+#print axioms Hypertournaments.unbounded_amalgamation_classification_all_arities

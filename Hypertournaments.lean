@@ -360,3 +360,8 @@ import Hypertournaments.LocalTypeRealization
 
 import Hypertournaments.EPPAConsequences
 import Hypertournaments.EvenNoEPPA
+
+import Hypertournaments.SmallArityClassification
+import Hypertournaments.CyclicLocalEPPA
+import Hypertournaments.CyclicRamsey
+import Hypertournaments.CyclicExpansionProperty
