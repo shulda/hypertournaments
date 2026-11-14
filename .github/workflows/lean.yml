@@ -25,6 +25,7 @@ jobs:
         run: |
           python3 -m unittest discover -s tools -p 'test_*.py'
           python3 tools/project_sources.py
+          python3 tools/independent_intro/check_statements.py
           python3 tools/five_constrained/generate_catalogue.py --check
           python3 tools/five_constrained/generate_certificates.py --check
       - name: Restore pinned Mathlib source and build cache
@@ -128,7 +129,7 @@ jobs:
           test "$(git -C "$audit_dir" rev-parse HEAD)" = 46024e005996495c65ef609368e11ab39c4222e3
           cp lean-toolchain "$audit_dir/"
           (cd "$audit_dir" && lake build)
-          for root in Hypertournaments CCO PartiteConstruction SuccessorTree; do
+          for root in Hypertournaments IndependentHypertournaments CCO PartiteConstruction SuccessorTree; do
             report="axiom-audit-$root.json"
             if [ "$root" = Hypertournaments ]; then report=axiom-audit.json; fi
             lake env "$audit_dir/.lake/build/bin/axiom-audit" \
@@ -137,7 +138,7 @@ jobs:
           done
           python3 - <<'PY'
           import json
-          for root in ['Hypertournaments', 'CCO', 'PartiteConstruction', 'SuccessorTree']:
+          for root in ['Hypertournaments', 'IndependentHypertournaments', 'CCO', 'PartiteConstruction', 'SuccessorTree']:
               path = 'axiom-audit.json' if root == 'Hypertournaments' else f'axiom-audit-{root}.json'
               with open(path) as source:
                   report = json.load(source)

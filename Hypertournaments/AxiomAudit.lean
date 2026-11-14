@@ -1011,3 +1011,7 @@ they are not a substitute for it.
 #print axioms Hypertournaments.FiveConstrained.p9_pairCancelling
 #print axioms Hypertournaments.FiveConstrained.p9_ordered_ramsey
 #print axioms Hypertournaments.FiveConstrained.p9_ordering_property
+
+#print axioms IndependentHypertournaments.IntroLinkStatement
+#print axioms IndependentHypertournaments.IntroPotentialStatement
+#print axioms IndependentHypertournaments.IntroEPPAStatement
