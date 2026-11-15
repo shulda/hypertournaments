@@ -34,7 +34,7 @@ CI also runs the pinned complete defining-module axiom audit over every
 project and vendored declaration reachable through the library. Its
 allowlist is Lean's standard `propext`, `Classical.choice` and `Quot.sound`.
 Source checks reject proof placeholders and custom axioms. The readable
-[`Hypertournaments/AxiomAudit.lean`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/AxiomAudit.lean) supplies selected endpoint prints
+[`Hypertournaments/AxiomAudit.lean`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/AxiomAudit.lean) supplies selected endpoint prints
 in addition to the complete audit.
 
 When citing a result, retain a checked release tag or commit together with
@@ -45,8 +45,8 @@ revision.
 
 ## Dependencies and attribution
 
-The Lean and Mathlib versions are fixed by [`lean-toolchain`](https://github.com/shulda/hypertournaments/blob/main/lean-toolchain),
-[`lakefile.toml`](https://github.com/shulda/hypertournaments/blob/main/lakefile.toml) and [`lake-manifest.json`](https://github.com/shulda/hypertournaments/blob/main/lake-manifest.json). The project also
+The Lean and Mathlib versions are fixed by [`lean-toolchain`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/lean-toolchain),
+[`lakefile.toml`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/lakefile.toml) and [`lake-manifest.json`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/lake-manifest.json). The project also
 retains the required partite/Ramsey proof sources, including Jan Hubička's
 [PartiteConstruction](https://github.com/janhubicka/partite-construction)
 and [SuccessorTree](https://github.com/janhubicka/lean-successors) libraries.

@@ -1,5 +1,7 @@
 # On homogeneous hypertournaments
 
+Manuscript: {{pdf:main}}.
+
 This chapter matches the main results of Matěj Konečný's *On homogeneous
 hypertournaments* with their Lean statements. The numbering is that of the
 source revision recorded in the [statement catalogue]({{repo}}/blob/main/docs/catalogue/papers.json).

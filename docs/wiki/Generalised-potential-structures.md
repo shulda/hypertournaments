@@ -2,6 +2,8 @@
 
 # Generalised potential structures
 
+Supplement: [PDF](https://github.com/shulda/hypertournaments/blob/main/papers/generalised_potential_structures_proof.pdf).
+
 This page connects *Generalised potential structures* to the affine-labelled
 development. The supplement proves the generalised-potential theorem stated
 in the [main article](Main-article), including strong amalgamation and a
@@ -13,39 +15,39 @@ The paper's raw arity is `n ≥ 3`. Lean writes `r` for the potential arity,
 so **`n = r + 1`**. The fixed data are an involutive palette `Q`, an
 additive commutative group `G`, an offset `a`, and a surjective map
 `η : Q → G` satisfying `η(q*) = a − η(q)`. In even raw arity the offset
-is zero. These are packaged by [`Hypertournaments.Affine.Data`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Data.lean#L18).
+is zero. These are packaged by [`Hypertournaments.Affine.Data`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Data.lean#L18).
 
 The paper assumes that `Q` and `G` are finite. Several individual Lean
 results need less: signed exactness and strong amalgamation do not require
 finite palettes. The finite-palette assumptions remain present where they
 are used for precompactness and the full expansion-property theorem.
 
-[`Hypertournaments.Affine.Labelled`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Basic.lean#L54) assigns labels to injective
+[`Hypertournaments.Affine.Labelled`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Basic.lean#L54) assigns labels to injective
 ordered tuples. Odd coordinate permutations apply the chosen involution.
 The raw structure is closed when `δ(η ∘ ω) = 0`, as expressed by
-[`Hypertournaments.Affine.Closed`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Data.lean#L26). A chosen potential satisfies
+[`Hypertournaments.Affine.Closed`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Data.lean#L26). A chosen potential satisfies
 `δp = η ∘ ω`, as expressed by
-[`Hypertournaments.Affine.IsPotential`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Data.lean#L33). It has the affine permutation
+[`Hypertournaments.Affine.IsPotential`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Data.lean#L33). It has the affine permutation
 rule with offset `a`; the lower switching gauge instead has offset zero.
 
 Embeddings preserve **all raw labels**. Two different raw labels with the
 same effective value are still distinguished. An
-[`Hypertournaments.Affine.Expansion`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Data.lean#L41) additionally names one compatible
-potential, and [`Hypertournaments.Affine.toOrderedExpansion`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/ExpansionLanguage.lean#L39) adds an
+[`Hypertournaments.Affine.Expansion`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Data.lean#L41) additionally names one compatible
+potential, and [`Hypertournaments.Affine.toOrderedExpansion`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/ExpansionLanguage.lean#L39) adds an
 arbitrary linear order. Expanded embeddings preserve all three parts.
 
 ## Main interfaces
 
-- [`Hypertournaments.Affine.closed_iff_exists_potential`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Potential.lean#L64) gives the
+- [`Hypertournaments.Affine.closed_iff_exists_potential`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Potential.lean#L64) gives the
   exact existence criterion for a potential.
-- [`Hypertournaments.Affine.expanded_ordered_strong_span`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/OrderedAmalgamation.lean#L18) constructs
+- [`Hypertournaments.Affine.expanded_ordered_strong_span`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/OrderedAmalgamation.lean#L18) constructs
   an actual strong amalgam retaining both side orders.
-- [`Hypertournaments.Affine.expansion_ordered_ramsey`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/ExpansionRamsey.lean#L62) proves the
+- [`Hypertournaments.Affine.expansion_ordered_ramsey`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/ExpansionRamsey.lean#L62) proves the
   Ramsey property in the language of the actual raw labels, potential
   labels and order.
-- [`Hypertournaments.Affine.ordered_expansions_finite`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Precompactness.lean#L67) proves
+- [`Hypertournaments.Affine.ordered_expansions_finite`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Precompactness.lean#L67) proves
   precompactness on each fixed finite raw reduct.
-- [`Hypertournaments.Affine.expansion_property`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/ExpansionProperty.lean#L153) fixes one finite raw
+- [`Hypertournaments.Affine.expansion_property`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/ExpansionProperty.lean#L153) fixes one finite raw
   target before both source and target potentials and both orders are
   chosen.
 
@@ -57,25 +59,25 @@ reduct and must work for every compatible potential on it.
 
 1. Signed coboundaries and cone contraction give exactness and the switching
    description of differences between potentials. Start with
-   [`Hypertournaments/Affine/SignedExactness.lean`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/SignedExactness.lean) and
-   [`Hypertournaments/Affine/Potential.lean`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Potential.lean).
+   [`Hypertournaments/Affine/SignedExactness.lean`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/SignedExactness.lean) and
+   [`Hypertournaments/Affine/Potential.lean`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Potential.lean).
 2. Potentials are aligned on the common base before the raw structures are
    strongly amalgamated. The actual exact-overlap carrier is used in
-   [`Hypertournaments/Affine/Amalgamation.lean`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Amalgamation.lean). The chosen source
+   [`Hypertournaments/Affine/Amalgamation.lean`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Amalgamation.lean). The chosen source
    potential and order can also be extended along a fixed raw embedding by
-   [`Hypertournaments.Affine.expansion_reasonable`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Reasonableness.lean#L51).
+   [`Hypertournaments.Affine.expansion_reasonable`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Reasonableness.lean#L51).
 3. The Ramsey construction temporarily separates the potential labels from
    oriented upper codes and decodes its witness back to the original raw
-   language. [`Hypertournaments/Affine/ExpansionCoding.lean`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/ExpansionCoding.lean) records
+   language. [`Hypertournaments/Affine/ExpansionCoding.lean`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/ExpansionCoding.lean) records
    this bridge. Noninjective `η` is allowed: the proof retains one fixed
    target code when the compatible potential changes.
 4. The expansion-property proof homogenizes a signed gauge. Its constant
    drift depends on the potential arity; the correction for odd potential
-   arity is included in [`Hypertournaments/Affine/ExpansionProperty.lean`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/ExpansionProperty.lean).
+   arity is included in [`Hypertournaments/Affine/ExpansionProperty.lean`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/ExpansionProperty.lean).
 
 For `Q = G = ZMod 2`, complementary raw labels, offset `1`, and odd raw
 arity, the original even-hypertournament construction is recovered by
-[`Hypertournaments/Affine/EvenSpecialization.lean`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/EvenSpecialization.lean).
+[`Hypertournaments/Affine/EvenSpecialization.lean`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/EvenSpecialization.lean).
 
 ## Paper-to-Lean correspondence
 
@@ -91,8 +93,8 @@ from the articles.
 | --- | --- |
 | Source | Definition |
 | Scope | An involutive raw palette Q, an additive commutative group G, an offset a, and a surjective equivariant map Q → G. |
-| Lean | [`Hypertournaments.Affine.Palette`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Basic.lean#L19)<br>[`Hypertournaments.Affine.Palette.affine`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Basic.lean#L30)<br>[`Hypertournaments.Affine.Data`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Data.lean#L18) |
-| Defining module | [`Hypertournaments.Affine.Basic`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Basic.lean)<br>[`Hypertournaments.Affine.Data`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Data.lean) |
+| Lean | [`Hypertournaments.Affine.Palette`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Basic.lean#L19)<br>[`Hypertournaments.Affine.Palette.affine`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Basic.lean#L30)<br>[`Hypertournaments.Affine.Data`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Data.lean#L18) |
+| Defining module | [`Hypertournaments.Affine.Basic`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Basic.lean)<br>[`Hypertournaments.Affine.Data`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Data.lean) |
 | Correspondence | Definition / encoding |
 
 The paper assumes finite Q and G. The data structures themselves do not impose finiteness or exclude involution-fixed labels. For upper arity n the parity condition is a = 0 when n is even.
@@ -105,8 +107,8 @@ The paper assumes finite Q and G. The data structures themselves do not impose f
 | --- | --- |
 | Source | Definition |
 | Scope | Labels are assigned to injective ordered tuples; odd coordinate permutations apply the palette involution. |
-| Lean | [`Hypertournaments.Affine.Labelled`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Basic.lean#L54)<br>[`Hypertournaments.Affine.Labelled.Preserves`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Basic.lean#L70)<br>[`Hypertournaments.Affine.Labelled.label_perm`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Basic.lean#L94) |
-| Defining module | [`Hypertournaments.Affine.Basic`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Basic.lean) |
+| Lean | [`Hypertournaments.Affine.Labelled`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Basic.lean#L54)<br>[`Hypertournaments.Affine.Labelled.Preserves`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Basic.lean#L70)<br>[`Hypertournaments.Affine.Labelled.label_perm`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Basic.lean#L94) |
+| Defining module | [`Hypertournaments.Affine.Basic`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Basic.lean) |
 | Correspondence | Definition / encoding |
 
 An embedding preserves every original Q-label. Equality of effective group labels alone is not the embedding condition.
@@ -119,8 +121,8 @@ An embedding preserves every original Q-label. Equality of effective group label
 | --- | --- |
 | Source | Definition 1.1 · `def:potential-structures` |
 | Scope | For raw arity n = r+1, Closed means δ(η∘ω)=0, and IsPotential means δp=η∘ω for an affine alternating r-ary p. |
-| Lean | [`Hypertournaments.Affine.Closed`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Data.lean#L26)<br>[`Hypertournaments.Affine.IsPotential`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Data.lean#L33)<br>[`Hypertournaments.Affine.AlternatingCochain`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/SignedPermutation.lean#L25) |
-| Defining module | [`Hypertournaments.Affine.Data`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Data.lean)<br>[`Hypertournaments.Affine.SignedPermutation`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/SignedPermutation.lean) |
+| Lean | [`Hypertournaments.Affine.Closed`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Data.lean#L26)<br>[`Hypertournaments.Affine.IsPotential`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Data.lean#L33)<br>[`Hypertournaments.Affine.AlternatingCochain`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/SignedPermutation.lean#L25) |
+| Defining module | [`Hypertournaments.Affine.Data`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Data.lean)<br>[`Hypertournaments.Affine.SignedPermutation`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/SignedPermutation.lean) |
 | Correspondence | Definition / encoding |
 
 The paper's n is one more than the potential arity r used by Expansion. Ordinary signed gauges use offset zero; they are not affine gauges with offset a.
@@ -133,8 +135,8 @@ The paper's n is one more than the potential arity r used by Expansion. Ordinary
 | --- | --- |
 | Source | Definition |
 | Scope | An expansion names the raw Q-labels and one compatible potential; a free linear order is added in the native relational language. |
-| Lean | [`Hypertournaments.Affine.Expansion`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Data.lean#L41)<br>[`Hypertournaments.Affine.Expansion.Preserves`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Data.lean#L65)<br>[`Hypertournaments.Affine.toOrderedExpansion`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/ExpansionLanguage.lean#L39)<br>[`Hypertournaments.Affine.orderedExpansionClass`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/ExpansionLanguage.lean#L81) |
-| Defining module | [`Hypertournaments.Affine.Data`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Data.lean)<br>[`Hypertournaments.Affine.ExpansionLanguage`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/ExpansionLanguage.lean) |
+| Lean | [`Hypertournaments.Affine.Expansion`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Data.lean#L41)<br>[`Hypertournaments.Affine.Expansion.Preserves`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Data.lean#L65)<br>[`Hypertournaments.Affine.toOrderedExpansion`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/ExpansionLanguage.lean#L39)<br>[`Hypertournaments.Affine.orderedExpansionClass`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/ExpansionLanguage.lean#L81) |
+| Defining module | [`Hypertournaments.Affine.Data`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Data.lean)<br>[`Hypertournaments.Affine.ExpansionLanguage`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/ExpansionLanguage.lean) |
 | Correspondence | Definition / encoding |
 
 Expansion.Preserves retains both raw and potential labels. Native ordered embeddings additionally preserve the named order.
@@ -147,8 +149,8 @@ Expansion.Preserves retains both raw and potential labels. Native ordered embedd
 | --- | --- |
 | Source | Lemma |
 | Scope | Cochains take values in an arbitrary additive commutative group. Under the zero-offset condition in even upper arity, an affine coboundary has the required affine permutation law. |
-| Lean | [`Hypertournaments.Affine.signedCoboundary`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/SignedCoboundary.lean#L22)<br>[`Hypertournaments.Affine.signedCoboundary_signedCoboundary_zero`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/SignedCoboundary.lean#L78)<br>[`Hypertournaments.Affine.signedCoboundary_label_perm`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/SignedPermutation.lean#L115)<br>[`Hypertournaments.Affine.Labelled.coboundary`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/SignedPermutation.lean#L176) |
-| Defining module | [`Hypertournaments.Affine.SignedCoboundary`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/SignedCoboundary.lean)<br>[`Hypertournaments.Affine.SignedPermutation`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/SignedPermutation.lean) |
+| Lean | [`Hypertournaments.Affine.signedCoboundary`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/SignedCoboundary.lean#L22)<br>[`Hypertournaments.Affine.signedCoboundary_signedCoboundary_zero`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/SignedCoboundary.lean#L78)<br>[`Hypertournaments.Affine.signedCoboundary_label_perm`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/SignedPermutation.lean#L115)<br>[`Hypertournaments.Affine.Labelled.coboundary`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/SignedPermutation.lean#L176) |
+| Defining module | [`Hypertournaments.Affine.SignedCoboundary`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/SignedCoboundary.lean)<br>[`Hypertournaments.Affine.SignedPermutation`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/SignedPermutation.lean) |
 | Correspondence | Proved |
 
 This covers equation (1), δ²=0, and the symmetry calculation preceding the cone lemma. The signs are integral ±1 coefficients; characteristic two is not assumed.
@@ -161,8 +163,8 @@ This covers equation (1), δ²=0, and the symmetry calculation preceding the con
 | --- | --- |
 | Source | Theorem 1.2 · `thm:main` |
 | Scope | Upper arity n≥3; fixed finite Q and finite abelian G; η is equivariant and surjective, with a=0 when n is even; all vertex carriers in the classes are finite. |
-| Lean | [`Hypertournaments.Affine.closed_iff_exists_potential`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Potential.lean#L64)<br>[`Hypertournaments.Affine.closed_strong_span`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Amalgamation.lean#L73)<br>[`Hypertournaments.Affine.expanded_ordered_strong_span`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/OrderedAmalgamation.lean#L18)<br>[`Hypertournaments.Affine.expansion_ordered_ramsey`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/ExpansionRamsey.lean#L62)<br>[`Hypertournaments.Affine.ordered_expansions_finite`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Precompactness.lean#L67)<br>[`Hypertournaments.Affine.expansion_property`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/ExpansionProperty.lean#L153) |
-| Defining module | [`Hypertournaments.Affine.Potential`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Potential.lean)<br>[`Hypertournaments.Affine.Amalgamation`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Amalgamation.lean)<br>[`Hypertournaments.Affine.OrderedAmalgamation`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/OrderedAmalgamation.lean)<br>[`Hypertournaments.Affine.ExpansionRamsey`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/ExpansionRamsey.lean)<br>[`Hypertournaments.Affine.Precompactness`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Precompactness.lean)<br>[`Hypertournaments.Affine.ExpansionProperty`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/ExpansionProperty.lean) |
+| Lean | [`Hypertournaments.Affine.closed_iff_exists_potential`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Potential.lean#L64)<br>[`Hypertournaments.Affine.closed_strong_span`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Amalgamation.lean#L73)<br>[`Hypertournaments.Affine.expanded_ordered_strong_span`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/OrderedAmalgamation.lean#L18)<br>[`Hypertournaments.Affine.expansion_ordered_ramsey`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/ExpansionRamsey.lean#L62)<br>[`Hypertournaments.Affine.ordered_expansions_finite`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Precompactness.lean#L67)<br>[`Hypertournaments.Affine.expansion_property`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/ExpansionProperty.lean#L153) |
+| Defining module | [`Hypertournaments.Affine.Potential`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Potential.lean)<br>[`Hypertournaments.Affine.Amalgamation`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Amalgamation.lean)<br>[`Hypertournaments.Affine.OrderedAmalgamation`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/OrderedAmalgamation.lean)<br>[`Hypertournaments.Affine.ExpansionRamsey`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/ExpansionRamsey.lean)<br>[`Hypertournaments.Affine.Precompactness`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Precompactness.lean)<br>[`Hypertournaments.Affine.ExpansionProperty`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/ExpansionProperty.lean) |
 | Correspondence | Proved |
 
 The six declarations prove the theorem's components for actual raw structures and actual expansions. Set Lean r=n−1; the hypothesis Even (r+1) → d.offset=0 is exactly the paper's parity condition.
@@ -175,8 +177,8 @@ The six declarations prove the theorem's components for actual raw structures an
 | --- | --- |
 | Source | Lemma 2.1 · `lem:cone` |
 | Scope | An ordinary alternating closed cochain in arity k≥2 over an additive commutative group is a signed coboundary. |
-| Lean | [`Hypertournaments.Affine.exists_signed_potential`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/SignedExactness.lean#L81)<br>[`Hypertournaments.Affine.signedCoboundary_contractAt_of_closed`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/SignedExactness.lean#L55) |
-| Defining module | [`Hypertournaments.Affine.SignedExactness`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/SignedExactness.lean) |
+| Lean | [`Hypertournaments.Affine.exists_signed_potential`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/SignedExactness.lean#L81)<br>[`Hypertournaments.Affine.signedCoboundary_contractAt_of_closed`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/SignedExactness.lean#L55) |
+| Defining module | [`Hypertournaments.Affine.SignedExactness`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/SignedExactness.lean) |
 | Correspondence | Proved |
 
 The existential theorem works in every positive degree, without a finite-carrier or carrier-order assumption. The second declaration identifies the explicit contraction when a root is chosen.
@@ -189,8 +191,8 @@ The existential theorem works in every positive degree, without a finite-carrier
 | --- | --- |
 | Source | Lemma 2.2 · `lem:potentials` |
 | Scope | Finite closed raw structures have affine potentials. Two potentials of the same structure differ by the signed coboundary of an ordinary alternating lower cochain. |
-| Lean | [`Hypertournaments.Affine.closed_iff_exists_potential`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Potential.lean#L64)<br>[`Hypertournaments.Affine.IsPotential.exists_gauge`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Potential.lean#L76)<br>[`Hypertournaments.Affine.IsPotential.affineAddLinear_coboundary`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/GaugeAlignment.lean#L108) |
-| Defining module | [`Hypertournaments.Affine.Potential`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Potential.lean)<br>[`Hypertournaments.Affine.GaugeAlignment`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/GaugeAlignment.lean) |
+| Lean | [`Hypertournaments.Affine.closed_iff_exists_potential`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Potential.lean#L64)<br>[`Hypertournaments.Affine.IsPotential.exists_gauge`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Potential.lean#L76)<br>[`Hypertournaments.Affine.IsPotential.affineAddLinear_coboundary`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/GaugeAlignment.lean#L108) |
+| Defining module | [`Hypertournaments.Affine.Potential`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Potential.lean)<br>[`Hypertournaments.Affine.GaugeAlignment`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/GaugeAlignment.lean) |
 | Correspondence | Proved |
 
 The first result is an iff. The gauge theorem and its converse retain the same raw structure, including noninjective effective maps and raw-label fibres.
@@ -203,8 +205,8 @@ The first result is an iff. The gauge theorem and its converse retain the same r
 | --- | --- |
 | Source | Proposition 3.1 · `prop:sap` |
 | Scope | Fixed affine data and the arity parity condition; finite side carriers; raw arity at least three for the reduct theorem. |
-| Lean | [`Hypertournaments.Affine.closed_strong_span`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Amalgamation.lean#L73)<br>[`Hypertournaments.Affine.expanded_strong_span`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Amalgamation.lean#L24)<br>[`Hypertournaments.Affine.expanded_ordered_strong_span`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/OrderedAmalgamation.lean#L18) |
-| Defining module | [`Hypertournaments.Affine.Amalgamation`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Amalgamation.lean)<br>[`Hypertournaments.Affine.OrderedAmalgamation`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/OrderedAmalgamation.lean) |
+| Lean | [`Hypertournaments.Affine.closed_strong_span`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Amalgamation.lean#L73)<br>[`Hypertournaments.Affine.expanded_strong_span`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Amalgamation.lean#L24)<br>[`Hypertournaments.Affine.expanded_ordered_strong_span`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/OrderedAmalgamation.lean#L18) |
+| Defining module | [`Hypertournaments.Affine.Amalgamation`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Amalgamation.lean)<br>[`Hypertournaments.Affine.OrderedAmalgamation`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/OrderedAmalgamation.lean) |
 | Correspondence | Proved |
 
 The witnesses live on the explicit exact-overlap carrier. The ordered theorem retains both given side orders. These amalgamation results do not require finiteness of Q or G.
@@ -217,8 +219,8 @@ The witnesses live on the explicit exact-overlap carrier. The ordered theorem re
 | --- | --- |
 | Source | Lemma |
 | Scope | A potential and order on a finite source extend along a prescribed raw embedding into a fixed larger finite closed raw structure. |
-| Lean | [`Hypertournaments.Affine.expansion_reasonable`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Reasonableness.lean#L51)<br>[`Hypertournaments.Affine.IsPotential.exists_aligned`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/GaugeAlignment.lean#L140) |
-| Defining module | [`Hypertournaments.Affine.Reasonableness`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Reasonableness.lean)<br>[`Hypertournaments.Affine.GaugeAlignment`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/GaugeAlignment.lean) |
+| Lean | [`Hypertournaments.Affine.expansion_reasonable`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Reasonableness.lean#L51)<br>[`Hypertournaments.Affine.IsPotential.exists_aligned`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/GaugeAlignment.lean#L140) |
+| Defining module | [`Hypertournaments.Affine.Reasonableness`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Reasonableness.lean)<br>[`Hypertournaments.Affine.GaugeAlignment`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/GaugeAlignment.lean) |
 | Correspondence | Proved |
 
 This is the reasonableness paragraph after Proposition 3.1. The target raw structure and the original vertex injection stay fixed while its potential and order are chosen.
@@ -231,8 +233,8 @@ This is the reasonableness paragraph after Proposition 3.1. The target raw struc
 | --- | --- |
 | Source | Proposition 4.1 · `prop:ramsey` |
 | Scope | Fixed affine data satisfying the arity parity condition; finite ordered inputs and any finite nonempty colour palette. |
-| Lean | [`Hypertournaments.Affine.expansion_ordered_ramsey`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/ExpansionRamsey.lean#L62)<br>[`Hypertournaments.Affine.exists_expansion_ordered_ramsey_witness`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/ExpansionRamsey.lean#L26) |
-| Defining module | [`Hypertournaments.Affine.ExpansionRamsey`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/ExpansionRamsey.lean) |
+| Lean | [`Hypertournaments.Affine.expansion_ordered_ramsey`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/ExpansionRamsey.lean#L62)<br>[`Hypertournaments.Affine.exists_expansion_ordered_ramsey_witness`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/ExpansionRamsey.lean#L26) |
+| Defining module | [`Hypertournaments.Affine.ExpansionRamsey`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/ExpansionRamsey.lean) |
 | Correspondence | Proved |
 
 The Ramsey witness names the original raw labels, a compatible potential and a free order. The arrow itself works without finiteness of Q or G; those hypotheses are used elsewhere for precompactness and the full expansion-property argument.
@@ -245,8 +247,8 @@ The Ramsey witness names the original raw labels, a compatible potential and a f
 | --- | --- |
 | Source | Lemma 4.2 · `lem:ordering` |
 | Scope | Potential arity r≥2 and a finite actual expansion (raw,p). |
-| Lean | [`Hypertournaments.Affine.expansion_ordering_property`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/OrderingProperty.lean#L21) |
-| Defining module | [`Hypertournaments.Affine.OrderingProperty`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/OrderingProperty.lean) |
+| Lean | [`Hypertournaments.Affine.expansion_ordering_property`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/OrderingProperty.lean#L21) |
+| Defining module | [`Hypertournaments.Affine.OrderingProperty`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/OrderingProperty.lean) |
 | Correspondence | Proved |
 
 The finite target raw/potential expansion is chosen before both the source order and target order. Thus every order of the fixed target contains every ordered expansion of the source.
@@ -259,8 +261,8 @@ The finite target raw/potential expansion is chosen before both the source order
 | --- | --- |
 | Source | Proposition 4.3 · `prop:expansion` |
 | Scope | Potential arity r≥2, finite Q and G, fixed affine data, and a finite closed raw source. |
-| Lean | [`Hypertournaments.Affine.expansion_property`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/ExpansionProperty.lean#L153) |
-| Defining module | [`Hypertournaments.Affine.ExpansionProperty`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/ExpansionProperty.lean) |
+| Lean | [`Hypertournaments.Affine.expansion_property`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/ExpansionProperty.lean#L153) |
+| Defining module | [`Hypertournaments.Affine.ExpansionProperty`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/ExpansionProperty.lean) |
 | Correspondence | Proved |
 
 One finite closed raw target is fixed before both potentials and both orders are quantified. The embeddings preserve raw labels as well as the chosen potentials and orders.
@@ -273,8 +275,8 @@ One finite closed raw target is fixed before both potentials and both orders are
 | --- | --- |
 | Source | Lemma |
 | Scope | A finite effective group and finite vertex carrier give finitely many potential-and-order expansions of a fixed raw structure; finite Q also gives a finite signature. |
-| Lean | [`Hypertournaments.Affine.FixedExpansion`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Precompactness.lean#L45)<br>[`Hypertournaments.Affine.finite_fixed_expansions`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Precompactness.lean#L51)<br>[`Hypertournaments.Affine.ordered_expansions_finite`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Precompactness.lean#L67)<br>[`Hypertournaments.Affine.expansion_language_rel_finite`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Precompactness.lean#L19)<br>[`Hypertournaments.Affine.expansion_language_func_empty`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Precompactness.lean#L26) |
-| Defining module | [`Hypertournaments.Affine.Precompactness`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Precompactness.lean) |
+| Lean | [`Hypertournaments.Affine.FixedExpansion`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Precompactness.lean#L45)<br>[`Hypertournaments.Affine.finite_fixed_expansions`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Precompactness.lean#L51)<br>[`Hypertournaments.Affine.ordered_expansions_finite`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Precompactness.lean#L67)<br>[`Hypertournaments.Affine.expansion_language_rel_finite`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Precompactness.lean#L19)<br>[`Hypertournaments.Affine.expansion_language_func_empty`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Precompactness.lean#L26) |
+| Defining module | [`Hypertournaments.Affine.Precompactness`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Precompactness.lean) |
 | Correspondence | Proved |
 
 Finiteness is proved on the fixed carrier before quotienting by isomorphism. The expanded language introduces relations, not function symbols.
@@ -287,8 +289,8 @@ Finiteness is proved on the fixed carrier before quotienting by isomorphism. The
 | --- | --- |
 | Source | Lemma |
 | Scope | Arbitrary surjective effective maps, including fibres with several raw labels. |
-| Lean | [`Hypertournaments.Affine.Data.decode_surjective_fiber`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/FiberCoding.lean#L62)<br>[`Hypertournaments.Affine.Data.decode_encode`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/FiberCoding.lean#L138)<br>[`Hypertournaments.Affine.Data.decode_fixed_code`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/ExpansionCoding.lean#L66)<br>[`Hypertournaments.Affine.Expansion.decode_toCodePair`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/ExpansionCoding.lean#L45) |
-| Defining module | [`Hypertournaments.Affine.FiberCoding`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/FiberCoding.lean)<br>[`Hypertournaments.Affine.ExpansionCoding`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/ExpansionCoding.lean) |
+| Lean | [`Hypertournaments.Affine.Data.decode_surjective_fiber`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/FiberCoding.lean#L62)<br>[`Hypertournaments.Affine.Data.decode_encode`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/FiberCoding.lean#L138)<br>[`Hypertournaments.Affine.Data.decode_fixed_code`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/ExpansionCoding.lean#L66)<br>[`Hypertournaments.Affine.Expansion.decode_toCodePair`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/ExpansionCoding.lean#L45) |
+| Defining module | [`Hypertournaments.Affine.FiberCoding`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/FiberCoding.lean)<br>[`Hypertournaments.Affine.ExpansionCoding`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/ExpansionCoding.lean) |
 | Correspondence | Proved |
 
 This is the implementation bridge used in the Ramsey and expansion-property proofs. A fixed upper code still decodes to the same raw target after its compatible potential changes; unique codes are not assumed.
@@ -301,8 +303,8 @@ This is the implementation bridge used in the Ramsey and expansion-property proo
 | --- | --- |
 | Source | Lemma |
 | Scope | Ordinary signed lower gauges over an additive commutative group, homogeneous on increasing tuples. |
-| Lean | [`Hypertournaments.Affine.constantLinear_coboundary`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/ConstantShift.lean#L55)<br>[`Hypertournaments.Affine.signedCoboundary_constantLinear_of_odd`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/ConstantShift.lean#L67)<br>[`Hypertournaments.Affine.homogeneous_coboundary_pullback`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/HomogeneousGauge.lean#L32) |
-| Defining module | [`Hypertournaments.Affine.ConstantShift`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/ConstantShift.lean)<br>[`Hypertournaments.Affine.HomogeneousGauge`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/HomogeneousGauge.lean) |
+| Lean | [`Hypertournaments.Affine.constantLinear_coboundary`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/ConstantShift.lean#L55)<br>[`Hypertournaments.Affine.signedCoboundary_constantLinear_of_odd`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/ConstantShift.lean#L67)<br>[`Hypertournaments.Affine.homogeneous_coboundary_pullback`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/HomogeneousGauge.lean#L32) |
+| Defining module | [`Hypertournaments.Affine.ConstantShift`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/ConstantShift.lean)<br>[`Hypertournaments.Affine.HomogeneousGauge`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/HomogeneousGauge.lean) |
 | Correspondence | Proved |
 
 These are the drift calculations in equations (5), (6) and (11). The drift vanishes in even potential arity and may be nonzero in odd potential arity, which is why even upper arity needs the additional correction.
@@ -315,8 +317,8 @@ These are the drift calculations in equations (5), (6) and (11). The drift vanis
 | --- | --- |
 | Source | Lemma |
 | Scope | Q=G=ZMod 2 with complementary raw labels, offset 1, identity effective map and odd upper arity. |
-| Lean | [`Hypertournaments.Affine.evenData`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/EvenSpecialization.lean#L32)<br>[`Hypertournaments.Affine.evenData_closed_iff_isEven`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/EvenSpecialization.lean#L114)<br>[`Hypertournaments.Affine.evenData_isPotential_iff`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/EvenSpecialization.lean#L120)<br>[`Hypertournaments.Hyper.isEven_iff_exists_potential_via_affine`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/EvenSpecialization.lean#L221) |
-| Defining module | [`Hypertournaments.Affine.EvenSpecialization`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/EvenSpecialization.lean) |
+| Lean | [`Hypertournaments.Affine.evenData`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/EvenSpecialization.lean#L32)<br>[`Hypertournaments.Affine.evenData_closed_iff_isEven`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/EvenSpecialization.lean#L114)<br>[`Hypertournaments.Affine.evenData_isPotential_iff`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/EvenSpecialization.lean#L120)<br>[`Hypertournaments.Hyper.isEven_iff_exists_potential_via_affine`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/EvenSpecialization.lean#L221) |
+| Defining module | [`Hypertournaments.Affine.EvenSpecialization`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/EvenSpecialization.lean) |
 | Correspondence | Proved |
 
 Signed and unsigned coboundaries coincide over ZMod 2. The bridge identifies the original evenness and potential equations, and preserves the original intrinsic embeddings.

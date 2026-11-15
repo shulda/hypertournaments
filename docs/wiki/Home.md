@@ -9,11 +9,11 @@ homogeneous limits used by the continuum corollary.
 
 The documentation follows three companion texts:
 
-| Text | Lean reference |
-| --- | --- |
-| *On homogeneous hypertournaments* | [Main article](Main-article) |
-| *Generalised potential structures* | [Generalised potential structures](Generalised-potential-structures) |
-| *Classification of (n+1)-constrained n-hypertournaments* | [Classification](Classification) |
+| Text | PDF | Lean reference |
+| --- | --- | --- |
+| *On homogeneous hypertournaments* | [PDF](https://github.com/shulda/hypertournaments/blob/main/papers/on_homogeneous_hypertournaments.pdf) | [Main article](Main-article) |
+| *Generalised potential structures* | [PDF](https://github.com/shulda/hypertournaments/blob/main/papers/generalised_potential_structures_proof.pdf) | [Generalised potential structures](Generalised-potential-structures) |
+| *Classification of (n+1)-constrained n-hypertournaments* | [PDF](https://github.com/shulda/hypertournaments/blob/main/papers/hypertournaments_classification_supplement.pdf) | [Classification](Classification) |
 
 Each reference chapter connects the text's stable labels and displayed
 statement numbers to complete Lean names, defining files and source lines.

@@ -9,21 +9,21 @@ the exported endpoint for each paper statement.
 
 ## Pair-cancelling omission classes
 
-1. [`Hypertournaments/PairCompletion.lean`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/PairCompletion.lean) completes a partially
+1. [`Hypertournaments/PairCompletion.lean`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/PairCompletion.lean) completes a partially
    prescribed orientation by treating a missing pair at a time. A constant
    link at that pair prevents a new forbidden pair-cancelling copy.
-2. [`Hypertournaments/PairAmalgamation.lean`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/PairAmalgamation.lean) applies this completion
+2. [`Hypertournaments/PairAmalgamation.lean`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/PairAmalgamation.lean) applies this completion
    to an exact-overlap span and obtains strong amalgamation. Compatible
    free orders are preserved on the same carrier.
-3. [`Hypertournaments/PairRamsey.lean`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/PairRamsey.lean) converts the completion result
+3. [`Hypertournaments/PairRamsey.lean`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/PairRamsey.lean) converts the completion result
    into the relational Ramsey interface and supplies the finite witnesses.
-4. [`Hypertournaments/PairOrdering.lean`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/PairOrdering.lean) uses an all-orders host and a
+4. [`Hypertournaments/PairOrdering.lean`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/PairOrdering.lean) uses an all-orders host and a
    pair-colouring argument. The target is fixed before either later order
    is selected.
 
 ## Potentials and their expansions
 
-[`Hypertournaments/EvenPotential.lean`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/EvenPotential.lean) proves the potential equation,
+[`Hypertournaments/EvenPotential.lean`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/EvenPotential.lean) proves the potential equation,
 existence and gauge control on injective tuples. Aligned potentials give
 strong amalgams. The expansion adds the lower-arity potential and a free
 vertex order; Ramsey witnesses and the expansion property are established
@@ -52,14 +52,14 @@ four- and five-vertex conditions and the literal five-only convention.
 
 ## Countable limits and strict local levels
 
-[`Hypertournaments/Antichain/Construction.lean`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Antichain/Construction.lean) constructs the finite
+[`Hypertournaments/Antichain/Construction.lean`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Antichain/Construction.lean) constructs the finite
 cycle-based embedding antichain. Selecting its forbidden members gives
-distinct omission classes. [`Hypertournaments/Fraisse/CountableAge.lean`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Fraisse/CountableAge.lean)
+distinct omission classes. [`Hypertournaments/Fraisse/CountableAge.lean`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Fraisse/CountableAge.lean)
 builds a fair chain of finite embedding-extension requests and its direct
-limit. [`Hypertournaments/Fraisse/OmissionLimit.lean`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Fraisse/OmissionLimit.lean) proves the limit's
+limit. [`Hypertournaments/Fraisse/OmissionLimit.lean`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Fraisse/OmissionLimit.lean) proves the limit's
 homogeneity and exact age. These ingredients yield the continuum theorem.
 
-[`Hypertournaments/StrictConstraint/Hierarchy.lean`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/StrictConstraint/Hierarchy.lean) uses a different
+[`Hypertournaments/StrictConstraint/Hierarchy.lean`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/StrictConstraint/Hierarchy.lean) uses a different
 finite construction to reach **every** size `k > n`. A new vertex is given
 a link covered by homogeneous packets, retaining pair cancellation. The
 single forbidden object then gives the strict local-constraint level.

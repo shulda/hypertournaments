@@ -1,5 +1,5 @@
 {
-  "source_revision": "be17a37d26230fb5473aae160575578c3f960780",
+  "source_revision": "b0bf85030f91b5bc08f7a2cf008ba4bdd811a065",
   "method": "Theorem-environment counters read from the pinned source, including unlabelled environments and shared counters. Nested equation and item labels are excluded. Display numbers are revision-specific.",
   "papers": {
     "main": {

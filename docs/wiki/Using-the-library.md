@@ -4,8 +4,8 @@
 
 ## Build a checkout
 
-Install Lean's toolchain manager. The committed [`lean-toolchain`](https://github.com/shulda/hypertournaments/blob/main/lean-toolchain)
-selects Lean 4.34.1, and [`lake-manifest.json`](https://github.com/shulda/hypertournaments/blob/main/lake-manifest.json) fixes the dependency
+Install Lean's toolchain manager. The committed [`lean-toolchain`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/lean-toolchain)
+selects Lean 4.34.1, and [`lake-manifest.json`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/lake-manifest.json) fixes the dependency
 revisions:
 
 ```sh
@@ -37,7 +37,7 @@ example {n : ℕ} (hn : 3 ≤ n)
   pair_cancelling_hasStrongAmalgamation hn family hpc
 ```
 
-This example is compiled in [`docs/Examples.lean`](https://github.com/shulda/hypertournaments/blob/main/docs/Examples.lean). Its conclusion is
+This example is compiled in [`docs/Examples.lean`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/docs/Examples.lean). Its conclusion is
 ordinary finite strong amalgamation of the omission class, with arbitrary
 orientation-preserving source injections and exact overlap of the two sides.
 The forbidden family may be infinite.

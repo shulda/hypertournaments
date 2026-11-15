@@ -2,6 +2,8 @@
 
 # On homogeneous hypertournaments
 
+Manuscript: [PDF](https://github.com/shulda/hypertournaments/blob/main/papers/on_homogeneous_hypertournaments.pdf).
+
 This chapter matches the main results of Matěj Konečný's *On homogeneous
 hypertournaments* with their Lean statements. The numbering is that of the
 source revision recorded in the [statement catalogue](https://github.com/shulda/hypertournaments/blob/main/docs/catalogue/papers.json).
@@ -55,8 +57,8 @@ objects rather than asserting an additional theorem.
 | --- | --- |
 | Source | Definition |
 | Scope | An orientation on injective n-tuples, with reversal under every transposition. |
-| Lean | [`Hypertournaments.Hyper`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Basic.lean#L20) |
-| Defining module | [`Hypertournaments.Basic`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Basic.lean) |
+| Lean | [`Hypertournaments.Hyper`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Basic.lean#L20) |
+| Defining module | [`Hypertournaments.Basic`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Basic.lean) |
 | Correspondence | Definition / encoding |
 
 The auxiliary linear order is not part of a Hyper structure. The structure is defined in all arities; the paper considers n >= 2.
@@ -69,8 +71,8 @@ The auxiliary linear order is not part of a Hyper structure. The structure is de
 | --- | --- |
 | Source | Definition |
 | Scope | Arbitrary vertex injections preserve the orientation of every ordered injective tuple. |
-| Lean | [`Hypertournaments.Preserves`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Basic.lean#L26)<br>[`Hypertournaments.Hyper.pullback`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Basic.lean#L31) |
-| Defining module | [`Hypertournaments.Basic`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Basic.lean) |
+| Lean | [`Hypertournaments.Preserves`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Basic.lean#L26)<br>[`Hypertournaments.Hyper.pullback`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Basic.lean#L31) |
+| Defining module | [`Hypertournaments.Basic`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Basic.lean) |
 | Correspondence | Definition / encoding |
 
 No vertex-order preservation is imposed. Pullback is the actual induced sub-hypertournament.
@@ -83,8 +85,8 @@ No vertex-order preservation is imposed. Pullback is the actual induced sub-hype
 | --- | --- |
 | Source | Definition |
 | Scope | A family of finite forbidden hypertournaments is represented on each Fin m; omission excludes every intrinsic induced copy. |
-| Lean | [`Hypertournaments.ForbiddenFamily`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/PartialHyper.lean#L25)<br>[`Hypertournaments.Omits`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/PartialHyper.lean#L28) |
-| Defining module | [`Hypertournaments.PartialHyper`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/PartialHyper.lean) |
+| Lean | [`Hypertournaments.ForbiddenFamily`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/PartialHyper.lean#L25)<br>[`Hypertournaments.Omits`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/PartialHyper.lean#L28) |
+| Defining module | [`Hypertournaments.PartialHyper`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/PartialHyper.lean) |
 | Correspondence | Definition / encoding |
 
 The family can be infinite. A displayed representative excludes all of its isomorphic copies through arbitrary embeddings.
@@ -97,8 +99,8 @@ The family can be infinite. A displayed representative excludes all of its isomo
 | --- | --- |
 | Source | Definition |
 | Scope | On an (n+1)-tuple, normalize the facet orientations by deletion parity and take the minority count. |
-| Lean | [`Hypertournaments.normalizedFacet`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/LocalTypes.lean#L38)<br>[`Hypertournaments.localIndex`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/LocalTypes.lean#L51)<br>[`Hypertournaments.Admissible`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/LocalTypes.lean#L74)<br>[`Hypertournaments.centralIndex`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/LocalTypes.lean#L16)<br>[`Hypertournaments.switchingAllowed`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/LocalTypes.lean#L21) |
-| Defining module | [`Hypertournaments.LocalTypes`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/LocalTypes.lean) |
+| Lean | [`Hypertournaments.normalizedFacet`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/LocalTypes.lean#L38)<br>[`Hypertournaments.localIndex`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/LocalTypes.lean#L51)<br>[`Hypertournaments.Admissible`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/LocalTypes.lean#L74)<br>[`Hypertournaments.centralIndex`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/LocalTypes.lean#L16)<br>[`Hypertournaments.switchingAllowed`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/LocalTypes.lean#L21) |
+| Defining module | [`Hypertournaments.LocalTypes`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/LocalTypes.lean) |
 | Correspondence | Definition / encoding |
 
 The allowed-index predicate is on actual local orbit indices. The central index is floor((n+1)/2).
@@ -111,8 +113,8 @@ The allowed-index predicate is on actual local orbit indices. The central index 
 | --- | --- |
 | Source | Definition |
 | Scope | The class of finite hypertournaments with all local indices in S has ordinary AP. |
-| Lean | [`Hypertournaments.HasAP`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Amalgamation.lean#L16)<br>[`Hypertournaments.ClassHasStrongAmalgamation`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/FiniteHyperClass.lean#L20) |
-| Defining module | [`Hypertournaments.Amalgamation`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Amalgamation.lean)<br>[`Hypertournaments.FiniteHyperClass`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/FiniteHyperClass.lean) |
+| Lean | [`Hypertournaments.HasAP`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Amalgamation.lean#L16)<br>[`Hypertournaments.ClassHasStrongAmalgamation`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/FiniteHyperClass.lean#L20) |
+| Defining module | [`Hypertournaments.Amalgamation`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Amalgamation.lean)<br>[`Hypertournaments.FiniteHyperClass`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/FiniteHyperClass.lean) |
 | Correspondence | Definition / encoding |
 
 Ordinary AP permits extra identifications. Strong AP additionally requires exactly the original overlap. The second declaration is the arbitrary-class strong-AP interface.
@@ -125,8 +127,8 @@ Ordinary AP permits extra identifications. Strong AP additionally requires exact
 | --- | --- |
 | Source | Definition |
 | Scope | Finite presentations carry an arbitrary class predicate, including heredity, unboundedness and class-level ordinary EPPA. |
-| Lean | [`Hypertournaments.FiniteHyperClass`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/FiniteHyperClass.lean#L14)<br>[`Hypertournaments.ClassHereditary`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/FiniteHyperClass.lean#L16)<br>[`Hypertournaments.ClassUnbounded`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/FiniteHyperClass.lean#L29)<br>[`Hypertournaments.ClassHasEPPA`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/FiniteHyperClass.lean#L32) |
-| Defining module | [`Hypertournaments.FiniteHyperClass`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/FiniteHyperClass.lean) |
+| Lean | [`Hypertournaments.FiniteHyperClass`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/FiniteHyperClass.lean#L14)<br>[`Hypertournaments.ClassHereditary`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/FiniteHyperClass.lean#L16)<br>[`Hypertournaments.ClassUnbounded`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/FiniteHyperClass.lean#L29)<br>[`Hypertournaments.ClassHasEPPA`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/FiniteHyperClass.lean#L32) |
+| Defining module | [`Hypertournaments.FiniteHyperClass`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/FiniteHyperClass.lean) |
 | Correspondence | Definition / encoding |
 
 These interfaces are used by the EPPA theorems for classes beyond the local-palette classes.
@@ -139,8 +141,8 @@ These interfaces are used by the EPPA theorems for classes beyond the local-pale
 | --- | --- |
 | Source | Definition |
 | Scope | Every injective (n+1)-tuple has zero sum of its raw facet orientations in ZMod 2. |
-| Lean | [`Hypertournaments.Hyper.IsEven`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/HyperCoboundary.lean#L33)<br>[`Hypertournaments.Hyper.coboundary`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/HyperCoboundary.lean#L141) |
-| Defining module | [`Hypertournaments.HyperCoboundary`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/HyperCoboundary.lean) |
+| Lean | [`Hypertournaments.Hyper.IsEven`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/HyperCoboundary.lean#L33)<br>[`Hypertournaments.Hyper.coboundary`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/HyperCoboundary.lean#L141) |
+| Defining module | [`Hypertournaments.HyperCoboundary`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/HyperCoboundary.lean) |
 | Correspondence | Definition / encoding |
 
 For the potential construction, the upper arity is odd n = r+1 and r is even.
@@ -153,8 +155,8 @@ For the potential construction, the upper arity is odd n = r+1 and r is even.
 | --- | --- |
 | Source | Definition |
 | Scope | The coboundary of the lower-arity hypertournament equals the upper orientation on every tuple. |
-| Lean | [`Hypertournaments.IsPotential`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/EvenPotential.lean#L19) |
-| Defining module | [`Hypertournaments.EvenPotential`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/EvenPotential.lean) |
+| Lean | [`Hypertournaments.IsPotential`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/EvenPotential.lean#L19) |
+| Defining module | [`Hypertournaments.EvenPotential`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/EvenPotential.lean) |
 | Correspondence | Definition / encoding |
 
 Lean uses r for the potential arity and r+1 for the original hypertournament arity.
@@ -167,8 +169,8 @@ Lean uses r for the potential arity and r+1 for the original hypertournament ari
 | --- | --- |
 | Source | Definition |
 | Scope | Every actual partial automorphism of the source extends to an automorphism of one finite target containing it. |
-| Lean | [`Hypertournaments.Hyper.PartialAutomorphism`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/EPPA.lean#L22)<br>[`Hypertournaments.Hyper.IsEPPAWitness`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/EPPA.lean#L38)<br>[`Hypertournaments.Hyper.HasFiniteEPPAWitness`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/EPPA.lean#L87)<br>[`Hypertournaments.HasEPPA`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/EPPA.lean#L101) |
-| Defining module | [`Hypertournaments.EPPA`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/EPPA.lean) |
+| Lean | [`Hypertournaments.Hyper.PartialAutomorphism`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/EPPA.lean#L22)<br>[`Hypertournaments.Hyper.IsEPPAWitness`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/EPPA.lean#L38)<br>[`Hypertournaments.Hyper.HasFiniteEPPAWitness`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/EPPA.lean#L87)<br>[`Hypertournaments.HasEPPA`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/EPPA.lean#L101) |
+| Defining module | [`Hypertournaments.EPPA`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/EPPA.lean) |
 | Correspondence | Definition / encoding |
 
 This is ordinary EPPA: extensions of different partial automorphisms are not required to be coherent.
@@ -181,8 +183,8 @@ This is ordinary EPPA: extensions of different partial automorphisms are not req
 | --- | --- |
 | Source | Definition |
 | Scope | Any two embeddings of the same finite hypertournament into the structure differ by an actual automorphism. |
-| Lean | [`Hypertournaments.Hyper.Homogeneous`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/FirstOrderEncoding.lean#L106)<br>[`Hypertournaments.Hyper.Isomorphic`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/FirstOrderEncoding.lean#L24) |
-| Defining module | [`Hypertournaments.FirstOrderEncoding`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/FirstOrderEncoding.lean) |
+| Lean | [`Hypertournaments.Hyper.Homogeneous`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/FirstOrderEncoding.lean#L106)<br>[`Hypertournaments.Hyper.Isomorphic`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/FirstOrderEncoding.lean#L24) |
+| Defining module | [`Hypertournaments.FirstOrderEncoding`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/FirstOrderEncoding.lean) |
 | Correspondence | Definition / encoding |
 
 Quantification over Fin m presentations represents arbitrary finite partial isomorphisms by reindexing.
@@ -195,8 +197,8 @@ Quantification over Fin m presentations represents arbitrary finite partial isom
 | --- | --- |
 | Source | Definition |
 | Scope | KConstrained K k permits any defining forbidden family whose structures all have at most k vertices. |
-| Lean | [`Hypertournaments.FiniteClass.KConstrained`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/StrictConstraint/Classes.lean#L18) |
-| Defining module | [`Hypertournaments.StrictConstraint.Classes`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/StrictConstraint/Classes.lean) |
+| Lean | [`Hypertournaments.FiniteClass.KConstrained`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/StrictConstraint/Classes.lean#L18) |
+| Defining module | [`Hypertournaments.StrictConstraint.Classes`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/StrictConstraint/Classes.lean) |
 | Correspondence | Definition / encoding |
 
 The strict hierarchy excludes every smaller alternative forbidden-family presentation.
@@ -209,8 +211,8 @@ The strict hierarchy excludes every smaller alternative forbidden-family present
 | --- | --- |
 | Source | Theorem 1.1 · `thm:intro-link` |
 | Scope | For n >= 3, omit any family of finite pair-cancelling n-hypertournaments and add arbitrary vertex orders. |
-| Lean | [`Hypertournaments.Ramsey.pair_cancelling_ordered_ramsey`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/PairRamsey.lean#L42)<br>[`Hypertournaments.Ramsey.pair_cancelling_ordering_property`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/PairOrdering.lean#L34)<br>[`Hypertournaments.Ramsey.exists_ordered_ramsey_witness`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/PairRamsey.lean#L57) |
-| Defining module | [`Hypertournaments.PairRamsey`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/PairRamsey.lean)<br>[`Hypertournaments.PairOrdering`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/PairOrdering.lean) |
+| Lean | [`Hypertournaments.Ramsey.pair_cancelling_ordered_ramsey`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/PairRamsey.lean#L42)<br>[`Hypertournaments.Ramsey.pair_cancelling_ordering_property`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/PairOrdering.lean#L34)<br>[`Hypertournaments.Ramsey.exists_ordered_ramsey_witness`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/PairRamsey.lean#L57) |
+| Defining module | [`Hypertournaments.PairRamsey`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/PairRamsey.lean)<br>[`Hypertournaments.PairOrdering`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/PairOrdering.lean) |
 | Correspondence | Proved |
 
 The Ramsey witnesses are finite structures in the actual freely ordered omission class. The ordering witness is fixed before both orders are quantified.
@@ -223,8 +225,8 @@ The Ramsey witnesses are finite structures in the actual freely ordered omission
 | --- | --- |
 | Source | Theorem 1.2 · `thm:potential` |
 | Scope | For every odd upper arity n >= 3, name an alternating (n-1)-potential and an arbitrary linear order. |
-| Lean | [`Hypertournaments.Ramsey.potential_expansions_ramsey`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/PotentialRamsey.lean#L66)<br>[`Hypertournaments.Ramsey.potential_expansion_property`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/PotentialExpansionProperty.lean#L66) |
-| Defining module | [`Hypertournaments.PotentialRamsey`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/PotentialRamsey.lean)<br>[`Hypertournaments.PotentialExpansionProperty`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/PotentialExpansionProperty.lean) |
+| Lean | [`Hypertournaments.Ramsey.potential_expansions_ramsey`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/PotentialRamsey.lean#L66)<br>[`Hypertournaments.Ramsey.potential_expansion_property`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/PotentialExpansionProperty.lean#L66) |
+| Defining module | [`Hypertournaments.PotentialRamsey`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/PotentialRamsey.lean)<br>[`Hypertournaments.PotentialExpansionProperty`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/PotentialExpansionProperty.lean) |
 | Correspondence | Proved |
 
 Use Lean r = n-1, with Even r and 2 <= r. The expansion-property target is fixed before all source and target potentials and orders.
@@ -237,8 +239,8 @@ Use Lean r = n-1, with Even r and 2 <= r. The expansion-property target is fixed
 | --- | --- |
 | Source | Theorem 1.3 · `thm:intro-eppa` |
 | Scope | Unbounded hereditary SAP classes fail EPPA for n >= 6; pair-cancelling omission classes fail EPPA for n >= 4; the class of even 5-hypertournaments fails EPPA. |
-| Lean | [`Hypertournaments.unbounded_hereditary_SAP_not_EPPA`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/EPPAConsequences.lean#L66)<br>[`Hypertournaments.pair_cancelling_not_EPPA`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/EPPAConsequences.lean#L110)<br>[`Hypertournaments.even_five_not_hasEPPA`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/EvenNoEPPA.lean#L24) |
-| Defining module | [`Hypertournaments.EPPAConsequences`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/EPPAConsequences.lean)<br>[`Hypertournaments.EvenNoEPPA`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/EvenNoEPPA.lean) |
+| Lean | [`Hypertournaments.unbounded_hereditary_SAP_not_EPPA`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/EPPAConsequences.lean#L66)<br>[`Hypertournaments.pair_cancelling_not_EPPA`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/EPPAConsequences.lean#L110)<br>[`Hypertournaments.even_five_not_hasEPPA`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/EvenNoEPPA.lean#L24) |
+| Defining module | [`Hypertournaments.EPPAConsequences`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/EPPAConsequences.lean)<br>[`Hypertournaments.EvenNoEPPA`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/EvenNoEPPA.lean) |
 | Correspondence | Proved |
 
 The first two statements concern ordinary EPPA and use unrestricted finite witness obstructions.
@@ -251,8 +253,8 @@ The first two statements concern ordinary EPPA and use unrestricted finite witne
 | --- | --- |
 | Source | Lemma 2.1 · `lem:local-type-isomorphism` |
 | Scope | For n >= 2, two n-hypertournaments on n+1 vertices are isomorphic exactly when their local indices agree. |
-| Lean | [`Hypertournaments.localIndex_eq_iff_exists_preserving_perm`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/LocalTypeIsomorphism.lean#L121)<br>[`Hypertournaments.exists_localIndex_eq`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/LocalTypeRealization.lean#L87) |
-| Defining module | [`Hypertournaments.LocalTypeIsomorphism`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/LocalTypeIsomorphism.lean)<br>[`Hypertournaments.LocalTypeRealization`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/LocalTypeRealization.lean) |
+| Lean | [`Hypertournaments.localIndex_eq_iff_exists_preserving_perm`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/LocalTypeIsomorphism.lean#L121)<br>[`Hypertournaments.exists_localIndex_eq`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/LocalTypeRealization.lean#L87) |
+| Defining module | [`Hypertournaments.LocalTypeIsomorphism`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/LocalTypeIsomorphism.lean)<br>[`Hypertournaments.LocalTypeRealization`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/LocalTypeRealization.lean) |
 | Correspondence | Proved |
 
 The finite-presentation theorem uses an actual orientation-preserving vertex permutation; every real index is also realized.
@@ -265,8 +267,8 @@ The finite-presentation theorem uses an actual orientation-preserving vertex per
 | --- | --- |
 | Source | Definition 2.2 · `def:locally-finite` |
 | Scope | The relational/unary language interface used by the paper checks a completion implication at a fixed local cutoff. |
-| Lean | [`CCO.UnaryHN.Native.LocallyFinite`](https://github.com/shulda/hypertournaments/blob/main/vendor/ramsey-transfer/CCO/UnaryHN/NativeTransferBasis.lean#L75) |
-| Defining module | [`CCO.UnaryHN.NativeTransferBasis`](https://github.com/shulda/hypertournaments/blob/main/vendor/ramsey-transfer/CCO/UnaryHN/NativeTransferBasis.lean) |
+| Lean | [`CCO.UnaryHN.Native.LocallyFinite`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/vendor/ramsey-transfer/CCO/UnaryHN/NativeTransferBasis.lean#L75) |
+| Defining module | [`CCO.UnaryHN.NativeTransferBasis`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/vendor/ramsey-transfer/CCO/UnaryHN/NativeTransferBasis.lean) |
 | Correspondence | Background instance used here |
 
 This is the exact native local-finiteness predicate instantiated by the hypertournament adapter; no function symbols occur in its language.
@@ -279,8 +281,8 @@ This is the exact native local-finiteness predicate instantiated by the hypertou
 | --- | --- |
 | Source | Theorem 2.3 · `thm:HN` |
 | Scope | A finite hereditary strong-amalgamation subclass K, locally finite in a Ramsey ambient class R whose members are irreducible; the application here has a function-free ordered language. |
-| Lean | [`CCO.UnaryHN.Native.original_unary_locally_finite_ramsey`](https://github.com/shulda/hypertournaments/blob/main/vendor/ramsey-transfer/CCO/UnaryHN/IteratedTransfer.lean#L107)<br>[`Hypertournaments.Ramsey.orderedOmissionClass_locallyFinite`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/PairRamsey.lean#L22) |
-| Defining module | [`CCO.UnaryHN.IteratedTransfer`](https://github.com/shulda/hypertournaments/blob/main/vendor/ramsey-transfer/CCO/UnaryHN/IteratedTransfer.lean)<br>[`Hypertournaments.PairRamsey`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/PairRamsey.lean) |
+| Lean | [`CCO.UnaryHN.Native.original_unary_locally_finite_ramsey`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/vendor/ramsey-transfer/CCO/UnaryHN/IteratedTransfer.lean#L107)<br>[`Hypertournaments.Ramsey.orderedOmissionClass_locallyFinite`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/PairRamsey.lean#L22) |
+| Defining module | [`CCO.UnaryHN.IteratedTransfer`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/vendor/ramsey-transfer/CCO/UnaryHN/IteratedTransfer.lean)<br>[`Hypertournaments.PairRamsey`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/PairRamsey.lean) |
 | Correspondence | Background instance used here |
 
 The entry records the proved relational/unary instance needed in this article. The hypertournament language has no functions, and the adapter proves local finiteness with cutoff one.
@@ -293,8 +295,8 @@ The entry records the proved relational/unary instance needed in this article. T
 | --- | --- |
 | Source | Definition 3.1 · `def:pair-cancelling` |
 | Scope | Arity n >= 3, at least n+1 vertices, and a nonconstant pair link for every pair and every auxiliary linear order. |
-| Lean | [`Hypertournaments.PairCancelling`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/PairCancellation.lean#L41)<br>[`Hypertournaments.IsPairLink`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/PairCancellation.lean#L21) |
-| Defining module | [`Hypertournaments.PairCancellation`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/PairCancellation.lean) |
+| Lean | [`Hypertournaments.PairCancelling`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/PairCancellation.lean#L41)<br>[`Hypertournaments.IsPairLink`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/PairCancellation.lean#L21) |
+| Defining module | [`Hypertournaments.PairCancellation`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/PairCancellation.lean) |
 | Correspondence | Definition / encoding |
 
 The quantified auxiliary order only orders the tuple tail after the two distinguished vertices.
@@ -307,8 +309,8 @@ The quantified auxiliary order only orders the tuple tail after the two distingu
 | --- | --- |
 | Source | Lemma 3.2 · `lem:local-types` |
 | Scope | On n+1 vertices with n >= 3, pair cancellation is equivalent to d <= floor((n+1)/2)-2. |
-| Lean | [`Hypertournaments.pairCancelling_iff_localIndex_le`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/LocalPairCancellationConverse.lean#L53) |
-| Defining module | [`Hypertournaments.LocalPairCancellationConverse`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/LocalPairCancellationConverse.lean) |
+| Lean | [`Hypertournaments.pairCancelling_iff_localIndex_le`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/LocalPairCancellationConverse.lean#L53) |
+| Defining module | [`Hypertournaments.LocalPairCancellationConverse`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/LocalPairCancellationConverse.lean) |
 | Correspondence | Proved |
 
 Both directions hold for the full arbitrary-auxiliary-order predicate.
@@ -321,8 +323,8 @@ Both directions hold for the full arbitrary-auxiliary-order predicate.
 | --- | --- |
 | Source | Proposition 3.3 · `prop:link-completion` |
 | Scope | For n >= 3 and a pair-cancelling forbidden family, arbitrary relational input with an extendible order and admitted irreducible pieces has a completion. |
-| Lean | [`Hypertournaments.Ramsey.exists_relational_completion`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/RamseyCompletion.lean#L149)<br>[`Hypertournaments.exists_pair_cancelling_completion`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/PairCompletion.lean#L199) |
-| Defining module | [`Hypertournaments.RamseyCompletion`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/RamseyCompletion.lean)<br>[`Hypertournaments.PairCompletion`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/PairCompletion.lean) |
+| Lean | [`Hypertournaments.Ramsey.exists_relational_completion`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/RamseyCompletion.lean#L149)<br>[`Hypertournaments.exists_pair_cancelling_completion`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/PairCompletion.lean#L199) |
+| Defining module | [`Hypertournaments.RamseyCompletion`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/RamseyCompletion.lean)<br>[`Hypertournaments.PairCompletion`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/PairCompletion.lean) |
 | Correspondence | Proved |
 
 The general conclusion keeps the same carrier and the identity homomorphism-embedding. The intrinsic partial-orientation completion is its core.
@@ -335,8 +337,8 @@ The general conclusion keeps the same carrier and the identity homomorphism-embe
 | --- | --- |
 | Source | Proposition 3.4 · `prop:link-SAP` |
 | Scope | For n >= 3 and any family of finite pair-cancelling forbidden structures, actual finite strong amalgams exist. |
-| Lean | [`Hypertournaments.pair_cancelling_hasStrongAmalgamation`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/PairAmalgamation.lean#L41)<br>[`Hypertournaments.pair_cancelling_strong_span`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/PairAmalgamation.lean#L21)<br>[`Hypertournaments.pair_cancelling_ordered_strong_span`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/PairAmalgamation.lean#L75) |
-| Defining module | [`Hypertournaments.PairAmalgamation`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/PairAmalgamation.lean) |
+| Lean | [`Hypertournaments.pair_cancelling_hasStrongAmalgamation`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/PairAmalgamation.lean#L41)<br>[`Hypertournaments.pair_cancelling_strong_span`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/PairAmalgamation.lean#L21)<br>[`Hypertournaments.pair_cancelling_ordered_strong_span`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/PairAmalgamation.lean#L75) |
+| Defining module | [`Hypertournaments.PairAmalgamation`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/PairAmalgamation.lean) |
 | Correspondence | Proved |
 
 Empty bases and arbitrary source embeddings are included; the ordered form preserves both supplied compatible orders.
@@ -349,8 +351,8 @@ Empty bases and arbitrary source embeddings are included; the ordered form prese
 | --- | --- |
 | Source | Corollary 3.5 · `cor:sullivan-ramsey` |
 | Scope | For each n >= 3, construct continuum many pairwise nonisomorphic countably infinite homogeneous n-hypertournaments whose freely ordered ages are Ramsey with the ordering property. |
-| Lean | [`Hypertournaments.continuum_homogeneous_hypertournaments`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/HomogeneousCorollary.lean#L26)<br>[`Hypertournaments.continuumHomogeneousFamily`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/HomogeneousCorollary.lean#L18) |
-| Defining module | [`Hypertournaments.HomogeneousCorollary`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/HomogeneousCorollary.lean) |
+| Lean | [`Hypertournaments.continuum_homogeneous_hypertournaments`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/HomogeneousCorollary.lean#L26)<br>[`Hypertournaments.continuumHomogeneousFamily`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/HomogeneousCorollary.lean#L18) |
+| Defining module | [`Hypertournaments.HomogeneousCorollary`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/HomogeneousCorollary.lean) |
 | Correspondence | Proved |
 
 The finite antichain and countable limits are constructed. The chosen family additionally has no finitely bounded age.
@@ -363,8 +365,8 @@ The finite antichain and countable limits are constructed. The chosen family add
 | --- | --- |
 | Source | Lemma 4.1 · `lem:alternating-sums` |
 | Scope | Every finite even odd-arity hypertournament has an alternating potential, and any two potentials differ by a symmetric lower gauge coboundary. |
-| Lean | [`Hypertournaments.Hyper.exists_potential`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/EvenPotential.lean#L216)<br>[`Hypertournaments.Hyper.isEven_iff_exists_potential`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/EvenPotential.lean#L228)<br>[`Hypertournaments.IsPotential.intrinsic_gauge`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/EvenPotentialGauge.lean#L171) |
-| Defining module | [`Hypertournaments.EvenPotential`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/EvenPotential.lean)<br>[`Hypertournaments.EvenPotentialGauge`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/EvenPotentialGauge.lean) |
+| Lean | [`Hypertournaments.Hyper.exists_potential`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/EvenPotential.lean#L216)<br>[`Hypertournaments.Hyper.isEven_iff_exists_potential`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/EvenPotential.lean#L228)<br>[`Hypertournaments.IsPotential.intrinsic_gauge`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/EvenPotentialGauge.lean#L171) |
+| Defining module | [`Hypertournaments.EvenPotential`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/EvenPotential.lean)<br>[`Hypertournaments.EvenPotentialGauge`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/EvenPotentialGauge.lean) |
 | Correspondence | Proved |
 
 The source upper arity is n = r+1 with Even r and r >= 2. Finite empty carriers are included in these interfaces.
@@ -377,8 +379,8 @@ The source upper arity is n = r+1 with Even r and r >= 2. Finite empty carriers 
 | --- | --- |
 | Source | Proposition 4.2 · `prop:potential-SAP` |
 | Scope | For odd n >= 3, finite even n-hypertournaments, and their potential-and-order expansions, strongly amalgamate. |
-| Lean | [`Hypertournaments.potential_strong_span`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/PotentialAmalgamation.lean#L20)<br>[`Hypertournaments.potential_ordered_strong_span`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/PotentialAmalgamation.lean#L41)<br>[`Hypertournaments.even_strong_span`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/EvenAmalgamation.lean#L22)<br>[`Hypertournaments.even_ordered_strong_span`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/EvenAmalgamation.lean#L50) |
-| Defining module | [`Hypertournaments.PotentialAmalgamation`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/PotentialAmalgamation.lean)<br>[`Hypertournaments.EvenAmalgamation`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/EvenAmalgamation.lean) |
+| Lean | [`Hypertournaments.potential_strong_span`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/PotentialAmalgamation.lean#L20)<br>[`Hypertournaments.potential_ordered_strong_span`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/PotentialAmalgamation.lean#L41)<br>[`Hypertournaments.even_strong_span`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/EvenAmalgamation.lean#L22)<br>[`Hypertournaments.even_ordered_strong_span`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/EvenAmalgamation.lean#L50) |
+| Defining module | [`Hypertournaments.PotentialAmalgamation`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/PotentialAmalgamation.lean)<br>[`Hypertournaments.EvenAmalgamation`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/EvenAmalgamation.lean) |
 | Correspondence | Proved |
 
 A relative gauge aligns potentials over the shared base; the final carrier has exactly the original overlap.
@@ -391,8 +393,8 @@ A relative gauge aligns potentials over the shared base; the final carrier has e
 | --- | --- |
 | Source | Proposition 5.1 · `prop:higharity-eppa-obstruction` |
 | Scope | For n >= 4, two (n+1)-packets agree on an n-point base, have distinct extra vertices, and admit four equal normalized base facets. |
-| Lean | [`Hypertournaments.local_eppa_obstruction`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/LocalEPPAObstruction.lean#L22)<br>[`Hypertournaments.local_eppa_obstruction_no_witness`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/LocalEPPAObstruction.lean#L93) |
-| Defining module | [`Hypertournaments.LocalEPPAObstruction`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/LocalEPPAObstruction.lean) |
+| Lean | [`Hypertournaments.local_eppa_obstruction`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/LocalEPPAObstruction.lean#L22)<br>[`Hypertournaments.local_eppa_obstruction_no_witness`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/LocalEPPAObstruction.lean#L93) |
+| Defining module | [`Hypertournaments.LocalEPPAObstruction`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/LocalEPPAObstruction.lean) |
 | Correspondence | Proved |
 
 No orientation involving both extra vertices is prescribed. The obstruction excludes every finite target, including unrestricted hypertournaments on arbitrary finite carriers.
@@ -405,8 +407,8 @@ No orientation involving both extra vertices is prescribed. The obstruction excl
 | --- | --- |
 | Source | Lemma 5.2 · `lem:klein-centralizer-generation` |
 | Scope | A Klein four-group acts by automorphisms on a finite odd-order group; elements fixed by nonidentity acting elements generate the whole group. |
-| Lean | [`Hypertournaments.GroupTheory.klein_nonidentity_fixed_elements_generate`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/KleinCentralizerGeneration.lean#L56) |
-| Defining module | [`Hypertournaments.KleinCentralizerGeneration`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/KleinCentralizerGeneration.lean) |
+| Lean | [`Hypertournaments.GroupTheory.klein_nonidentity_fixed_elements_generate`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/KleinCentralizerGeneration.lean#L56) |
+| Defining module | [`Hypertournaments.KleinCentralizerGeneration`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/KleinCentralizerGeneration.lean) |
 | Correspondence | Proved |
 
 The group-theoretic generation assertion itself is proved, with arbitrary Klein-four groups rather than chosen generators.
@@ -419,8 +421,8 @@ The group-theoretic generation assertion itself is proved, with arbitrary Klein-
 | --- | --- |
 | Source | Theorem 5.3 · `thm:higharity-no-eppa` |
 | Scope | For a hereditary strong-amalgamation class: when n >= 6, unboundedness implies failure of EPPA; when n >= 4, it suffices to contain a packet with local index d <= n-3. For n >= 4, every omission class of pair-cancelling structures fails EPPA. |
-| Lean | [`Hypertournaments.unbounded_hereditary_SAP_not_EPPA`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/EPPAConsequences.lean#L66)<br>[`Hypertournaments.hereditary_SAP_not_EPPA_of_localIndex`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/EPPAConsequences.lean#L73)<br>[`Hypertournaments.exists_common_pair_cancelling_EPPA_obstruction`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/EPPAConsequences.lean#L100)<br>[`Hypertournaments.pair_cancelling_not_EPPA`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/EPPAConsequences.lean#L110) |
-| Defining module | [`Hypertournaments.EPPAConsequences`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/EPPAConsequences.lean) |
+| Lean | [`Hypertournaments.unbounded_hereditary_SAP_not_EPPA`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/EPPAConsequences.lean#L66)<br>[`Hypertournaments.hereditary_SAP_not_EPPA_of_localIndex`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/EPPAConsequences.lean#L73)<br>[`Hypertournaments.exists_common_pair_cancelling_EPPA_obstruction`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/EPPAConsequences.lean#L100)<br>[`Hypertournaments.pair_cancelling_not_EPPA`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/EPPAConsequences.lean#L110) |
+| Defining module | [`Hypertournaments.EPPAConsequences`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/EPPAConsequences.lean) |
 | Correspondence | Proved |
 
 The common PC-family obstruction has exactly n+2 vertices and has no finite EPPA witness even in the unrestricted class. The criterion includes d = q-1.
@@ -433,8 +435,8 @@ The common PC-family obstruction has exactly n+2 vertices and has no finite EPPA
 | --- | --- |
 | Source | Proposition 5.4 · `prop:even-eppa-transfer` |
 | Scope | For odd n >= 3, EPPA for the even n-ary class or the unrestricted n-ary class implies EPPA for all (n-1)-hypertournaments. |
-| Lean | [`Hypertournaments.eppa_one_arity_down`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/EPPATransfer.lean#L96) |
-| Defining module | [`Hypertournaments.EPPATransfer`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/EPPATransfer.lean) |
+| Lean | [`Hypertournaments.eppa_one_arity_down`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/EPPATransfer.lean#L96) |
+| Defining module | [`Hypertournaments.EPPATransfer`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/EPPATransfer.lean) |
 | Correspondence | Proved |
 
 The reduction constructs an even one-point cone and recovers the source as the link of the distinguished vertex.
@@ -447,8 +449,8 @@ The reduction constructs an even one-point cone and recovers the source as the l
 | --- | --- |
 | Source | Corollary 5.5 · `cor:even-no-eppa` |
 | Scope | For odd n >= 5, the class of finite even n-hypertournaments fails ordinary EPPA. |
-| Lean | [`Hypertournaments.even_not_hasEPPA`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/EvenNoEPPA.lean#L16)<br>[`Hypertournaments.even_five_not_hasEPPA`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/EvenNoEPPA.lean#L24) |
-| Defining module | [`Hypertournaments.EvenNoEPPA`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/EvenNoEPPA.lean) |
+| Lean | [`Hypertournaments.even_not_hasEPPA`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/EvenNoEPPA.lean#L16)<br>[`Hypertournaments.even_five_not_hasEPPA`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/EvenNoEPPA.lean#L24) |
+| Defining module | [`Hypertournaments.EvenNoEPPA`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/EvenNoEPPA.lean) |
 | Correspondence | Proved |
 
 The arity-five instance is also exported separately.
@@ -461,8 +463,8 @@ The arity-five instance is also exported separately.
 | --- | --- |
 | Source | Definition 6.1 · `def:generalised-potential` |
 | Scope | Fix finite Q with an involution, finite abelian G, a surjective equivariant effective map, and offset a = 0 in even upper arity; effective labels are closed. |
-| Lean | [`Hypertournaments.Affine.Data`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Data.lean#L18)<br>[`Hypertournaments.Affine.Closed`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Data.lean#L26)<br>[`Hypertournaments.Affine.IsPotential`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Data.lean#L33)<br>[`Hypertournaments.Affine.Expansion`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Data.lean#L41) |
-| Defining module | [`Hypertournaments.Affine.Data`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Data.lean) |
+| Lean | [`Hypertournaments.Affine.Data`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Data.lean#L18)<br>[`Hypertournaments.Affine.Closed`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Data.lean#L26)<br>[`Hypertournaments.Affine.IsPotential`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Data.lean#L33)<br>[`Hypertournaments.Affine.Expansion`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Data.lean#L41) |
+| Defining module | [`Hypertournaments.Affine.Data`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Data.lean) |
 | Correspondence | Definition / encoding |
 
 Raw labels, not only effective group values, are preserved. Lean uses potential arity r and upper arity r+1. The full companion crosswalk is on the generalised-potential page.
@@ -475,8 +477,8 @@ Raw labels, not only effective group values, are preserved. Lean uses potential 
 | --- | --- |
 | Source | Theorem 6.2 · `thm:affine-labelled` |
 | Scope | Under Definition 6.1, every finite closed raw structure has a potential, the reduct class has SAP, and naming a potential and free order gives a precompact Ramsey expansion with the expansion property. |
-| Lean | [`Hypertournaments.Affine.closed_iff_exists_potential`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Potential.lean#L64)<br>[`Hypertournaments.Affine.closed_strong_span`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Amalgamation.lean#L73)<br>[`Hypertournaments.Affine.expansion_ordered_ramsey`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/ExpansionRamsey.lean#L62)<br>[`Hypertournaments.Affine.expansion_property`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/ExpansionProperty.lean#L153)<br>[`Hypertournaments.Affine.ordered_expansions_finite`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Precompactness.lean#L67) |
-| Defining module | [`Hypertournaments.Affine.Potential`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Potential.lean)<br>[`Hypertournaments.Affine.Amalgamation`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Amalgamation.lean)<br>[`Hypertournaments.Affine.ExpansionRamsey`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/ExpansionRamsey.lean)<br>[`Hypertournaments.Affine.ExpansionProperty`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/ExpansionProperty.lean)<br>[`Hypertournaments.Affine.Precompactness`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/Affine/Precompactness.lean) |
+| Lean | [`Hypertournaments.Affine.closed_iff_exists_potential`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Potential.lean#L64)<br>[`Hypertournaments.Affine.closed_strong_span`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Amalgamation.lean#L73)<br>[`Hypertournaments.Affine.expansion_ordered_ramsey`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/ExpansionRamsey.lean#L62)<br>[`Hypertournaments.Affine.expansion_property`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/ExpansionProperty.lean#L153)<br>[`Hypertournaments.Affine.ordered_expansions_finite`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Precompactness.lean#L67) |
+| Defining module | [`Hypertournaments.Affine.Potential`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Potential.lean)<br>[`Hypertournaments.Affine.Amalgamation`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Amalgamation.lean)<br>[`Hypertournaments.Affine.ExpansionRamsey`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/ExpansionRamsey.lean)<br>[`Hypertournaments.Affine.ExpansionProperty`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/ExpansionProperty.lean)<br>[`Hypertournaments.Affine.Precompactness`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/Affine/Precompactness.lean) |
 | Correspondence | Proved |
 
 Noninjective effective maps and involution-fixed raw labels are allowed. The expansion-property target is fixed before every later potential and order choice; fixed raw labels survive the decoding.
@@ -489,8 +491,8 @@ Noninjective effective maps and involution-fixed raw labels are allowed. The exp
 | --- | --- |
 | Source | Theorem 6.3 · `thm:constrained-classification` |
 | Scope | For n >= 4, S contains the central type and contains only real local indices; AP holds exactly for the next-central or odd switching alternatives. The low arities n=2,3 also satisfy AP implies SAP for unbounded classes. |
-| Lean | [`Hypertournaments.amalgamation_classification`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/PositiveClassification.lean#L116)<br>[`Hypertournaments.unboundedAdmissible_iff_central`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/CentralUnbounded.lean#L141)<br>[`Hypertournaments.unbounded_amalgamation_classification_all_arities`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/SmallArityClassification.lean#L153)<br>[`Hypertournaments.unbounded_hasAP_iff_hasStrongAmalgamation`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/SmallArityClassification.lean#L126) |
-| Defining module | [`Hypertournaments.PositiveClassification`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/PositiveClassification.lean)<br>[`Hypertournaments.CentralUnbounded`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/CentralUnbounded.lean)<br>[`Hypertournaments.SmallArityClassification`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/SmallArityClassification.lean) |
+| Lean | [`Hypertournaments.amalgamation_classification`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/PositiveClassification.lean#L116)<br>[`Hypertournaments.unboundedAdmissible_iff_central`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/CentralUnbounded.lean#L141)<br>[`Hypertournaments.unbounded_amalgamation_classification_all_arities`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/SmallArityClassification.lean#L153)<br>[`Hypertournaments.unbounded_hasAP_iff_hasStrongAmalgamation`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/SmallArityClassification.lean#L126) |
+| Defining module | [`Hypertournaments.PositiveClassification`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/PositiveClassification.lean)<br>[`Hypertournaments.CentralUnbounded`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/CentralUnbounded.lean)<br>[`Hypertournaments.SmallArityClassification`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/SmallArityClassification.lean) |
 | Correspondence | Proved |
 
 Indices represent the source orbit types T_(n,d). The companion classification supplement gives the negative proof and the separate at-most-five ternary classification.
@@ -503,8 +505,8 @@ Indices represent the source orbit types T_(n,d). The companion classification s
 | --- | --- |
 | Source | Observation 6.4 · `obs:strict-constrained-hierarchy` |
 | Scope | For every k > n >= 3, one actual k-vertex pair-cancelling obstruction defines an unbounded hereditary SAP class that is k-constrained and is not (k-1)-constrained. |
-| Lean | [`Hypertournaments.strict_constrained_hierarchy`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/StrictConstraint/Hierarchy.lean#L41)<br>[`Hypertournaments.exists_pairCancelling_every_size`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/StrictConstraint/Hierarchy.lean#L20)<br>[`Hypertournaments.singleForbiddenClass_not_constrained`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/StrictConstraint/Classes.lean#L78) |
-| Defining module | [`Hypertournaments.StrictConstraint.Hierarchy`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/StrictConstraint/Hierarchy.lean)<br>[`Hypertournaments.StrictConstraint.Classes`](https://github.com/shulda/hypertournaments/blob/main/Hypertournaments/StrictConstraint/Classes.lean) |
+| Lean | [`Hypertournaments.strict_constrained_hierarchy`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/StrictConstraint/Hierarchy.lean#L41)<br>[`Hypertournaments.exists_pairCancelling_every_size`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/StrictConstraint/Hierarchy.lean#L20)<br>[`Hypertournaments.singleForbiddenClass_not_constrained`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/StrictConstraint/Classes.lean#L78) |
+| Defining module | [`Hypertournaments.StrictConstraint.Hierarchy`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/StrictConstraint/Hierarchy.lean)<br>[`Hypertournaments.StrictConstraint.Classes`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/Hypertournaments/StrictConstraint/Classes.lean) |
 | Correspondence | Proved |
 
 Every requested size is realized, including sizes below the cycle-antichain bound. The negation rules out every alternative forbidden-family presentation using smaller structures.

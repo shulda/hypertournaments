@@ -1,5 +1,7 @@
 # Generalised potential structures
 
+Supplement: {{pdf:potentials}}.
+
 This page connects *Generalised potential structures* to the affine-labelled
 development. The supplement proves the generalised-potential theorem stated
 in the [main article](Main-article), including strong amalgamation and a

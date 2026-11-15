@@ -34,7 +34,14 @@ asks Lean to check every registered full declaration name. It does not need
 access to a separate manuscript repository.
 
 The Markdown templates use repository and symbol macros so source links are
-retargeted together. Edit the templates rather than the live generated pages.
+retargeted together. `source_ref` selects the Lean source revision; it can be
+frozen to a verified commit for immutable proof links. The optional `pdf_ref`
+selects the PDF revision independently, for example `main` when manuscript
+snapshots are updated after that commit. Without `pdf_ref`, PDF links follow
+`source_ref`, including a command-line `--ref` override. An explicit `pdf_ref`
+is retained when `--ref` changes the Lean links.
+
+Edit the templates rather than the live generated pages.
 The publisher adds and updates the maintained pages with an ordinary Git
 push. Other manually created Wiki pages are preserved.
 
@@ -67,7 +74,7 @@ not insert links into the LaTeX articles.
 
 The existing Lean CI workflow checks the examples and statement map together
 with the source, kernel and axiom checks. On the main branch, its subsequent
-Wiki publication job uses [`tools/publish_wiki.py`](https://github.com/shulda/hypertournaments/blob/main/tools/publish_wiki.py) to synchronize the
+Wiki publication job uses [`tools/publish_wiki.py`](https://github.com/shulda/hypertournaments/blob/97ece7669d91ffeff83227cc2d2b8cd64f141bfd/tools/publish_wiki.py) to synchronize the
 generated pages. It uses the workflow's repository-scoped token and needs no
 separately stored publishing secret.
 
@@ -103,13 +110,16 @@ destination; update the configuration for a permanent change.
 
 ## Manuscript snapshots
 
-The catalogue records the paper identities and intended PDF filenames in
-its `planned_pdf` fields. PDF snapshots are published separately from the
-initial Lean source snapshot. TeX sources are maintained separately.
+The manuscript and both supplements are published as PDF files under
+`papers/`, separately from the initial Lean source snapshot. Their source
+links refer to the fixed Lean commit
+`97ece7669d91ffeff83227cc2d2b8cd64f141bfd`. TeX sources are maintained
+separately. The catalogue records the manuscript source revision, each PDF
+path as `pdf`, and its SHA-256 digest as `pdf_sha256`.
 
-When adding a manuscript PDF, retain its planned filename under `papers/`,
-record its path as `pdf` and its SHA-256 digest as `pdf_sha256`, and add the
-PDF links to the README and reference chapters. The documentation checker
-verifies the recorded PDF bytes. Update the manuscript source revision and
-check that statement labels and displayed numbers still agree before
-regenerating the Wiki.
+The documentation checker verifies the recorded PDF bytes. When replacing
+a PDF, keep its filename stable, update its digest and manuscript source
+revision, and check that statement labels and displayed numbers still agree.
+The Lean `source_ref` remains fixed unless the proof library itself changes;
+`pdf_ref` allows later PDFs to retain their maintained download URLs.
+Regenerate the Wiki after changing the catalogue or reference pages.

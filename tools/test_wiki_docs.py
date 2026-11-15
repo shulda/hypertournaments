@@ -170,6 +170,31 @@ class WikiDocumentationTests(unittest.TestCase):
         with self.assertRaisesRegex(wiki.WikiError, 'needs a PDF path'):
             wiki.build_outputs(self.root)
 
+    def test_pdf_ref_is_independent_of_lean_source_ref(self):
+        pdf_path = self.root / 'papers/main.pdf'
+        pdf_path.parent.mkdir()
+        pdf_path.write_bytes(b'%PDF-1.4\nTest fixture.\n')
+        config = json.loads((self.root / 'docs/catalogue/papers.json').read_text())
+        proof_sha = '97ece7669d91ffeff83227cc2d2b8cd64f141bfd'
+        config.update(source_ref=proof_sha, pdf_ref='main')
+        config['papers'][0].update(pdf='papers/main.pdf',
+                                    pdf_sha256=hashlib.sha256(pdf_path.read_bytes()).hexdigest())
+        self.write_json('docs/catalogue/papers.json', config)
+        home = self.root / 'docs/wiki-src/Home.md'
+        home.write_text(home.read_text() + '\n{{pdf:main}}\n')
+        page = wiki.build_outputs(self.root)[Path('docs/wiki/Home.md')]
+        self.assertIn(f'/blob/{proof_sha}/Hypertournaments/Core.lean#L5', page)
+        self.assertIn('[PDF](https://github.com/owner/formalization/blob/main/papers/main.pdf)', page)
+        relocated = wiki.build_outputs(self.root, 'another/clean-repo', 'v1.0')
+        page = relocated[Path('docs/wiki/Home.md')]
+        self.assertIn('https://github.com/another/clean-repo/blob/v1.0/Hypertournaments/Core.lean#L5', page)
+        self.assertIn('[PDF](https://github.com/another/clean-repo/blob/main/papers/main.pdf)', page)
+        self.assertNotIn('owner/formalization', page)
+        config['pdf_ref'] = '../unsafe'
+        self.write_json('docs/catalogue/papers.json', config)
+        with self.assertRaisesRegex(wiki.WikiError, 'Invalid PDF ref'):
+            wiki.build_outputs(self.root)
+
     def test_reverse_module_index_deduplicates_statement_per_defining_file(self):
         (self.root / 'Hypertournaments/Core.lean').write_text(
             'namespace Hypertournaments.Native\n'

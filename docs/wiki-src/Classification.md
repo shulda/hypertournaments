@@ -1,5 +1,7 @@
 # Classification of constrained hypertournaments
 
+Supplement: {{pdf:classification}}.
+
 The classification supplement studies two finite local restriction problems. The first fixes an arity $n$ and allows selected isomorphism types on $n+1$ vertices. The second studies ternary hypertournaments with restrictions on four and five vertices. In both problems the classification concerns **unbounded classes**: there are finite members of arbitrarily large size.
 
 Amalgamation uses arbitrary injective maps preserving orientation. The order used to display a sign table is a presentation device. Ordinary AP permits the two sides to acquire additional overlap; SAP requires their intersection to be exactly the image of the base.

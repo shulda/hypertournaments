@@ -3,17 +3,18 @@
 [![Lean CI](https://github.com/shulda/hypertournaments/actions/workflows/lean.yml/badge.svg)](https://github.com/shulda/hypertournaments/actions/workflows/lean.yml)
 
 This repository accompanies *On homogeneous hypertournaments* by Matěj
-Konečný. It contains the Lean 4 formalization of the mathematical results
-and documentation connecting the formalization to the article and its
-two supplementary expositions.
+Konečný. It contains the article, two supplementary expositions, and the
+Lean 4 formalization of the mathematical results.
+
+The manuscripts refer to the [Lean source snapshot `97ece7669d91`](https://github.com/shulda/hypertournaments/tree/97ece7669d91ffeff83227cc2d2b8cd64f141bfd).
 
 ## Papers
 
-| Document | Lean reference |
+| Document | PDF |
 | --- | --- |
-| *On homogeneous hypertournaments* | [Main article](https://github.com/shulda/hypertournaments/wiki/Main-article) |
-| *Generalised potential structures* | [Potential-structure supplement](https://github.com/shulda/hypertournaments/wiki/Generalised-potential-structures) |
-| *Classification of (n+1)-constrained n-hypertournaments* | [Classification supplement](https://github.com/shulda/hypertournaments/wiki/Classification) |
+| *On homogeneous hypertournaments* | [Main article](papers/on_homogeneous_hypertournaments.pdf) |
+| *Generalised potential structures* | [Potential-structure supplement](papers/generalised_potential_structures_proof.pdf) |
+| *Classification of (n+1)-constrained n-hypertournaments* | [Classification supplement](papers/hypertournaments_classification_supplement.pdf) |
 
 ## Documentation and Lean
 

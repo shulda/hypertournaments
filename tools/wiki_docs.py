@@ -189,9 +189,15 @@ def build_outputs(root: Path, repository: str | None = None,
         raise WikiError(f'Invalid GitHub repository: {repository}')
     if not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_./-]*', source_ref) or '..' in source_ref:
         raise WikiError(f'Invalid source ref: {source_ref}')
+    pdf_ref = config.get('pdf_ref', source_ref)
+    if (not isinstance(pdf_ref, str)
+            or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_./-]*', pdf_ref)
+            or '..' in pdf_ref):
+        raise WikiError(f'Invalid PDF ref: {pdf_ref}')
     repo_url = 'https://github.com/' + repository
     wiki_url = repo_url + '/wiki'
     blob_url = repo_url + '/blob/' + quote(source_ref, safe='/')
+    pdf_blob_url = repo_url + '/blob/' + quote(pdf_ref, safe='/')
     templates = {p.stem: p.read_text(encoding='utf-8') for p in sorted((root / 'docs/wiki-src').glob('*.md'))}
     if 'Home' not in templates:
         raise WikiError('The Wiki must have a Home.md source page')
@@ -227,7 +233,7 @@ def build_outputs(root: Path, repository: str | None = None,
             actual_hash = hashlib.sha256(pdf_file.read_bytes()).hexdigest()
             if actual_hash != expected_hash:
                 raise WikiError(f'Paper {doc} PDF SHA-256 mismatch: {pdf_path}')
-            pdf_links[doc] = f'[PDF]({blob_url}/{quote(pdf_path, safe="/")})'
+            pdf_links[doc] = f'[PDF]({pdf_blob_url}/{quote(pdf_path, safe="/")})'
         fragment = read_json(catalogue / f'{doc}.json')
         if fragment.get('document') != doc or not isinstance(fragment.get('entries'), list):
             raise WikiError(f'Incorrect document catalogue: {doc}')
