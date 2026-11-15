@@ -1,0 +1,113 @@
+# Maintaining and publishing the Wiki
+
+The pages have one maintained source in the Lean repository. GitHub stores
+the live Wiki in a separate Git repository; the publishing job copies the
+checked pages there after the main build succeeds.
+
+## Source files and generated files
+
+| Maintained source | Purpose |
+| --- | --- |
+| `docs/wiki-src/*.md` | Explanatory chapters and navigation |
+| `docs/catalogue/main.json` | Main-article correspondence |
+| `docs/catalogue/potentials.json` | Generalised-potential supplement correspondence |
+| `docs/catalogue/classification.json` | Classification supplement correspondence |
+| `docs/catalogue/source-labels.json` | Statement labels and display numbers at the recorded paper revision |
+| `docs/catalogue/papers.json` | Paper identities, repository name and code-link revision |
+
+Run these commands after changing a page, a statement entry or a Lean source
+location:
+
+```sh
+python3 tools/wiki_docs.py render
+python3 tools/wiki_docs.py check
+lake env lean docs/CheckTheoremMap.lean
+lake env lean docs/Examples.lean
+```
+
+The renderer writes `docs/wiki/*.md`, `docs/theorem-map.json` and
+`docs/CheckTheoremMap.lean`. Commit these generated files with their sources.
+CI checks that they agree, resolves the defining files and line anchors, and
+asks Lean to check every registered full declaration name. It does not need
+access to a separate manuscript repository.
+
+The Markdown templates use repository and symbol macros so source links are
+retargeted together. Edit the templates rather than the live generated pages.
+The publisher adds and updates the maintained pages with an ordinary Git
+push. Other manually created Wiki pages are preserved.
+
+## Stable references from the papers
+
+`docs/theorem-map.json` is also the preparation for links from LaTeX. Each
+entry contains:
+
+- the document identity and its stable TeX label;
+- its display number at the recorded source revision;
+- the full Lean declaration names and defining modules;
+- direct source URLs with line anchors;
+- a stable entry anchor in the corresponding Wiki chapter;
+- the exact scope and the kind of correspondence.
+
+Use the TeX label and document identity as the lookup key; theorem numbers
+may change during editing. For a compound theorem, the `wiki_url` shows all
+the relevant declarations. For a particular item, use the URL of its actual
+Lean declaration. `primary_url` is simply the first listed declaration.
+Rows marked as an alternative proof or a background instance retain their
+scope note when cited.
+
+For fixed scholarly links, check out the intended verified release tag or
+commit and render with that same `--ref`. This keeps the file contents and
+the computed line anchors in agreement. Ordinary maintained pages use the
+configured branch. The present task prepares this link catalogue; it does
+not insert links into the LaTeX articles.
+
+## Publishing to GitHub
+
+The existing Lean CI workflow checks the examples and statement map together
+with the source, kernel and axiom checks. On the main branch, its subsequent
+Wiki publication job uses {{file:tools/publish_wiki.py}} to synchronize the
+generated pages. It uses the workflow's repository-scoped token and needs no
+separately stored publishing secret.
+
+The destination must have an initialized Wiki. Creating and saving a Home
+page in the repository's Wiki tab initializes its separate Git storage.
+Then a main-branch push or a manual run of the CI workflow can publish it.
+The publisher records the source commit in the Wiki commit message and
+skips an unchanged page tree.
+
+The catalogue's `repository` field sets the canonical code and Wiki links.
+The publisher normally targets that repository; an explicit `--repository`
+target must match it or an entry in `publication_repositories`. During a
+repository rename, this allowlist can authorize publication to the temporary
+repository name while retaining the intended canonical URLs. The supplied
+target controls which Wiki is cloned and pushed; it does not rewrite links.
+
+## Moving to another repository
+
+1. Copy the maintained documentation, generated files and the required
+   build/check/publishing tools with the Lean project.
+2. Set `repository` in `docs/catalogue/papers.json` to the new GitHub
+   `owner/name`. Select the intended code revision in `source_ref`, and
+   update the root README's live-Wiki link and CI badge for the new repository.
+   Update or remove any temporary `publication_repositories` entries when
+   the rename is complete.
+3. Run the render and check commands above. All code links and Wiki entry
+   links are regenerated for the new destination.
+4. Initialize a Home page in the new Wiki and run the normal main-branch CI.
+
+The old Wiki history is not needed to publish a new Wiki from these sources.
+Command-line `--repository` and `--ref` overrides can preview another
+destination; update the configuration for a permanent change.
+
+## Manuscript snapshots
+
+The catalogue records the paper identities and intended PDF filenames in
+its `planned_pdf` fields. PDF snapshots are published separately from the
+initial Lean source snapshot. TeX sources are maintained separately.
+
+When adding a manuscript PDF, retain its planned filename under `papers/`,
+record its path as `pdf` and its SHA-256 digest as `pdf_sha256`, and add the
+PDF links to the README and reference chapters. The documentation checker
+verifies the recorded PDF bytes. Update the manuscript source revision and
+check that statement labels and displayed numbers still agree before
+regenerating the Wiki.

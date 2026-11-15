@@ -1,0 +1,71 @@
+# Proof architecture
+
+The proof modules share the intrinsic orientation and embedding interfaces
+described in [Mathematical definitions](Mathematical-definitions). The
+[article](Main-article) and [supplement](Classification) crosswalks identify
+the exported endpoint for each paper statement.
+
+## Pair-cancelling omission classes
+
+1. {{file:Hypertournaments/PairCompletion.lean}} completes a partially
+   prescribed orientation by treating a missing pair at a time. A constant
+   link at that pair prevents a new forbidden pair-cancelling copy.
+2. {{file:Hypertournaments/PairAmalgamation.lean}} applies this completion
+   to an exact-overlap span and obtains strong amalgamation. Compatible
+   free orders are preserved on the same carrier.
+3. {{file:Hypertournaments/PairRamsey.lean}} converts the completion result
+   into the relational Ramsey interface and supplies the finite witnesses.
+4. {{file:Hypertournaments/PairOrdering.lean}} uses an all-orders host and a
+   pair-colouring argument. The target is fixed before either later order
+   is selected.
+
+## Potentials and their expansions
+
+{{file:Hypertournaments/EvenPotential.lean}} proves the potential equation,
+existence and gauge control on injective tuples. Aligned potentials give
+strong amalgams. The expansion adds the lower-arity potential and a free
+vertex order; Ramsey witnesses and the expansion property are established
+for that actual expanded language.
+
+The generalized construction in `Hypertournaments/Affine/` develops signed
+coboundaries over abelian groups. It first treats an independent potential
+and upper code, then decodes them into raw labels. The decoding retains the
+chosen code when later potentials and orders vary. See
+[Generalised potential structures](Generalised-potential-structures).
+
+## Local classifications
+
+The positive cases are supplied by the two constructions above, together
+with the low-arity linear- and circular-order cases. Negative proofs begin
+with explicit one-point spans, then lift these obstructions to higher
+arities. The two exceptional odd-arity families have separate constructions.
+Ordinary non-AP excludes possible identifications of the new vertices as
+well as completions on their distinct-point union.
+
+For the five-constrained ternary classification, the finite catalogue and
+retained certificates give 37 actual obstruction diagrams covering the
+2043 negative normalized palettes. The certificate generators are checked
+against the committed Lean data. The exact class interfaces include separate
+four- and five-vertex conditions and the literal five-only convention.
+
+## Countable limits and strict local levels
+
+{{file:Hypertournaments/Antichain/Construction.lean}} constructs the finite
+cycle-based embedding antichain. Selecting its forbidden members gives
+distinct omission classes. {{file:Hypertournaments/Fraisse/CountableAge.lean}}
+builds a fair chain of finite embedding-extension requests and its direct
+limit. {{file:Hypertournaments/Fraisse/OmissionLimit.lean}} proves the limit's
+homogeneity and exact age. These ingredients yield the continuum theorem.
+
+{{file:Hypertournaments/StrictConstraint/Hierarchy.lean}} uses a different
+finite construction to reach **every** size `k > n`. A new vertex is given
+a link covered by homogeneous packets, retaining pair cancellation. The
+single forbidden object then gives the strict local-constraint level.
+
+## EPPA obstructions
+
+The EPPA arguments combine actual finite partial automorphisms with proved
+finite-group generation results. They produce finite obstructions and
+transport them to the relevant hereditary or omission classes. The even-cone
+construction also transfers EPPA one arity downward. The exact arity bounds
+and class hypotheses are listed in [Main article](Main-article).

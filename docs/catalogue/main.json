@@ -1,0 +1,696 @@
+{
+  "document": "main",
+  "entries": [
+    {
+      "id": "main-hyper",
+      "label": null,
+      "kind": "definition",
+      "title": "Intrinsic hypertournaments",
+      "scope": "An orientation on injective n-tuples, with reversal under every transposition.",
+      "status": "definition",
+      "declarations": [
+        {
+          "name": "Hypertournaments.Hyper",
+          "module": "Hypertournaments.Basic"
+        }
+      ],
+      "notes": "The auxiliary linear order is not part of a Hyper structure. The structure is defined in all arities; the paper considers n >= 2."
+    },
+    {
+      "id": "main-embeddings",
+      "label": null,
+      "kind": "definition",
+      "title": "Orientation-preserving embeddings",
+      "scope": "Arbitrary vertex injections preserve the orientation of every ordered injective tuple.",
+      "status": "definition",
+      "declarations": [
+        {
+          "name": "Hypertournaments.Preserves",
+          "module": "Hypertournaments.Basic"
+        },
+        {
+          "name": "Hypertournaments.Hyper.pullback",
+          "module": "Hypertournaments.Basic"
+        }
+      ],
+      "notes": "No vertex-order preservation is imposed. Pullback is the actual induced sub-hypertournament."
+    },
+    {
+      "id": "main-omission-classes",
+      "label": null,
+      "kind": "definition",
+      "title": "Forbidden families and omission classes",
+      "scope": "A family of finite forbidden hypertournaments is represented on each Fin m; omission excludes every intrinsic induced copy.",
+      "status": "definition",
+      "declarations": [
+        {
+          "name": "Hypertournaments.ForbiddenFamily",
+          "module": "Hypertournaments.PartialHyper"
+        },
+        {
+          "name": "Hypertournaments.Omits",
+          "module": "Hypertournaments.PartialHyper"
+        }
+      ],
+      "notes": "The family can be infinite. A displayed representative excludes all of its isomorphic copies through arbitrary embeddings."
+    },
+    {
+      "id": "main-local-index",
+      "label": null,
+      "kind": "definition",
+      "title": "Normalized local index and admissible palettes",
+      "scope": "On an (n+1)-tuple, normalize the facet orientations by deletion parity and take the minority count.",
+      "status": "definition",
+      "declarations": [
+        {
+          "name": "Hypertournaments.normalizedFacet",
+          "module": "Hypertournaments.LocalTypes"
+        },
+        {
+          "name": "Hypertournaments.localIndex",
+          "module": "Hypertournaments.LocalTypes"
+        },
+        {
+          "name": "Hypertournaments.Admissible",
+          "module": "Hypertournaments.LocalTypes"
+        },
+        {
+          "name": "Hypertournaments.centralIndex",
+          "module": "Hypertournaments.LocalTypes"
+        },
+        {
+          "name": "Hypertournaments.switchingAllowed",
+          "module": "Hypertournaments.LocalTypes"
+        }
+      ],
+      "notes": "The allowed-index predicate is on actual local orbit indices. The central index is floor((n+1)/2)."
+    },
+    {
+      "id": "main-ordinary-amalgamation",
+      "label": null,
+      "kind": "definition",
+      "title": "Ordinary amalgamation for local classes",
+      "scope": "The class of finite hypertournaments with all local indices in S has ordinary AP.",
+      "status": "definition",
+      "declarations": [
+        {
+          "name": "Hypertournaments.HasAP",
+          "module": "Hypertournaments.Amalgamation"
+        },
+        {
+          "name": "Hypertournaments.ClassHasStrongAmalgamation",
+          "module": "Hypertournaments.FiniteHyperClass"
+        }
+      ],
+      "notes": "Ordinary AP permits extra identifications. Strong AP additionally requires exactly the original overlap. The second declaration is the arbitrary-class strong-AP interface."
+    },
+    {
+      "id": "main-finite-classes",
+      "label": null,
+      "kind": "definition",
+      "title": "General finite hereditary classes",
+      "scope": "Finite presentations carry an arbitrary class predicate, including heredity, unboundedness and class-level ordinary EPPA.",
+      "status": "definition",
+      "declarations": [
+        {
+          "name": "Hypertournaments.FiniteHyperClass",
+          "module": "Hypertournaments.FiniteHyperClass"
+        },
+        {
+          "name": "Hypertournaments.ClassHereditary",
+          "module": "Hypertournaments.FiniteHyperClass"
+        },
+        {
+          "name": "Hypertournaments.ClassUnbounded",
+          "module": "Hypertournaments.FiniteHyperClass"
+        },
+        {
+          "name": "Hypertournaments.ClassHasEPPA",
+          "module": "Hypertournaments.FiniteHyperClass"
+        }
+      ],
+      "notes": "These interfaces are used by the EPPA theorems for classes beyond the local-palette classes."
+    },
+    {
+      "id": "main-evenness",
+      "label": null,
+      "kind": "definition",
+      "title": "Even hypertournaments",
+      "scope": "Every injective (n+1)-tuple has zero sum of its raw facet orientations in ZMod 2.",
+      "status": "definition",
+      "declarations": [
+        {
+          "name": "Hypertournaments.Hyper.IsEven",
+          "module": "Hypertournaments.HyperCoboundary"
+        },
+        {
+          "name": "Hypertournaments.Hyper.coboundary",
+          "module": "Hypertournaments.HyperCoboundary"
+        }
+      ],
+      "notes": "For the potential construction, the upper arity is odd n = r+1 and r is even."
+    },
+    {
+      "id": "main-potentials",
+      "label": null,
+      "kind": "definition",
+      "title": "An actual alternating potential",
+      "scope": "The coboundary of the lower-arity hypertournament equals the upper orientation on every tuple.",
+      "status": "definition",
+      "declarations": [
+        {
+          "name": "Hypertournaments.IsPotential",
+          "module": "Hypertournaments.EvenPotential"
+        }
+      ],
+      "notes": "Lean uses r for the potential arity and r+1 for the original hypertournament arity."
+    },
+    {
+      "id": "main-eppa-witnesses",
+      "label": null,
+      "kind": "definition",
+      "title": "Finite EPPA witnesses",
+      "scope": "Every actual partial automorphism of the source extends to an automorphism of one finite target containing it.",
+      "status": "definition",
+      "declarations": [
+        {
+          "name": "Hypertournaments.Hyper.PartialAutomorphism",
+          "module": "Hypertournaments.EPPA"
+        },
+        {
+          "name": "Hypertournaments.Hyper.IsEPPAWitness",
+          "module": "Hypertournaments.EPPA"
+        },
+        {
+          "name": "Hypertournaments.Hyper.HasFiniteEPPAWitness",
+          "module": "Hypertournaments.EPPA"
+        },
+        {
+          "name": "Hypertournaments.HasEPPA",
+          "module": "Hypertournaments.EPPA"
+        }
+      ],
+      "notes": "This is ordinary EPPA: extensions of different partial automorphisms are not required to be coherent."
+    },
+    {
+      "id": "main-homogeneity",
+      "label": null,
+      "kind": "definition",
+      "title": "Homogeneous intrinsic structures",
+      "scope": "Any two embeddings of the same finite hypertournament into the structure differ by an actual automorphism.",
+      "status": "definition",
+      "declarations": [
+        {
+          "name": "Hypertournaments.Hyper.Homogeneous",
+          "module": "Hypertournaments.FirstOrderEncoding"
+        },
+        {
+          "name": "Hypertournaments.Hyper.Isomorphic",
+          "module": "Hypertournaments.FirstOrderEncoding"
+        }
+      ],
+      "notes": "Quantification over Fin m presentations represents arbitrary finite partial isomorphisms by reindexing."
+    },
+    {
+      "id": "main-bounded-constraints",
+      "label": null,
+      "kind": "definition",
+      "title": "Classes determined by bounded local constraints",
+      "scope": "KConstrained K k permits any defining forbidden family whose structures all have at most k vertices.",
+      "status": "definition",
+      "declarations": [
+        {
+          "name": "Hypertournaments.FiniteClass.KConstrained",
+          "module": "Hypertournaments.StrictConstraint.Classes"
+        }
+      ],
+      "notes": "The strict hierarchy excludes every smaller alternative forbidden-family presentation."
+    },
+    {
+      "id": "main-intro-link",
+      "label": "thm:intro-link",
+      "kind": "theorem",
+      "title": "Ramsey and ordering properties of pair-cancelling omission classes",
+      "scope": "For n >= 3, omit any family of finite pair-cancelling n-hypertournaments and add arbitrary vertex orders.",
+      "status": "proved",
+      "declarations": [
+        {
+          "name": "Hypertournaments.Ramsey.pair_cancelling_ordered_ramsey",
+          "module": "Hypertournaments.PairRamsey"
+        },
+        {
+          "name": "Hypertournaments.Ramsey.pair_cancelling_ordering_property",
+          "module": "Hypertournaments.PairOrdering"
+        },
+        {
+          "name": "Hypertournaments.Ramsey.exists_ordered_ramsey_witness",
+          "module": "Hypertournaments.PairRamsey"
+        }
+      ],
+      "notes": "The Ramsey witnesses are finite structures in the actual freely ordered omission class. The ordering witness is fixed before both orders are quantified."
+    },
+    {
+      "id": "main-intro-potentials",
+      "label": "thm:potential",
+      "kind": "theorem",
+      "title": "Ramsey potential expansions of even hypertournaments",
+      "scope": "For every odd upper arity n >= 3, name an alternating (n-1)-potential and an arbitrary linear order.",
+      "status": "proved",
+      "declarations": [
+        {
+          "name": "Hypertournaments.Ramsey.potential_expansions_ramsey",
+          "module": "Hypertournaments.PotentialRamsey"
+        },
+        {
+          "name": "Hypertournaments.Ramsey.potential_expansion_property",
+          "module": "Hypertournaments.PotentialExpansionProperty"
+        }
+      ],
+      "notes": "Use Lean r = n-1, with Even r and 2 <= r. The expansion-property target is fixed before all source and target potentials and orders."
+    },
+    {
+      "id": "main-intro-eppa",
+      "label": "thm:intro-eppa",
+      "kind": "theorem",
+      "title": "Three introductory non-EPPA conclusions",
+      "scope": "Unbounded hereditary SAP classes fail EPPA for n >= 6; pair-cancelling omission classes fail EPPA for n >= 4; the class of even 5-hypertournaments fails EPPA.",
+      "status": "proved",
+      "declarations": [
+        {
+          "name": "Hypertournaments.unbounded_hereditary_SAP_not_EPPA",
+          "module": "Hypertournaments.EPPAConsequences"
+        },
+        {
+          "name": "Hypertournaments.pair_cancelling_not_EPPA",
+          "module": "Hypertournaments.EPPAConsequences"
+        },
+        {
+          "name": "Hypertournaments.even_five_not_hasEPPA",
+          "module": "Hypertournaments.EvenNoEPPA"
+        }
+      ],
+      "notes": "The first two statements concern ordinary EPPA and use unrestricted finite witness obstructions."
+    },
+    {
+      "id": "main-local-isomorphism",
+      "label": "lem:local-type-isomorphism",
+      "kind": "lemma",
+      "title": "The local index completely determines the (n+1)-vertex type",
+      "scope": "For n >= 2, two n-hypertournaments on n+1 vertices are isomorphic exactly when their local indices agree.",
+      "status": "proved",
+      "declarations": [
+        {
+          "name": "Hypertournaments.localIndex_eq_iff_exists_preserving_perm",
+          "module": "Hypertournaments.LocalTypeIsomorphism"
+        },
+        {
+          "name": "Hypertournaments.exists_localIndex_eq",
+          "module": "Hypertournaments.LocalTypeRealization"
+        }
+      ],
+      "notes": "The finite-presentation theorem uses an actual orientation-preserving vertex permutation; every real index is also realized."
+    },
+    {
+      "id": "main-local-finiteness",
+      "label": "def:locally-finite",
+      "kind": "definition",
+      "title": "Local finiteness for the relational completion theorem",
+      "scope": "The relational/unary language interface used by the paper checks a completion implication at a fixed local cutoff.",
+      "status": "background-instance",
+      "declarations": [
+        {
+          "name": "CCO.UnaryHN.Native.LocallyFinite",
+          "module": "CCO.UnaryHN.NativeTransferBasis"
+        }
+      ],
+      "notes": "This is the exact native local-finiteness predicate instantiated by the hypertournament adapter; no function symbols occur in its language."
+    },
+    {
+      "id": "main-hn-transfer",
+      "label": "thm:HN",
+      "kind": "theorem",
+      "title": "The locally finite Ramsey-class transfer used here",
+      "scope": "A finite hereditary strong-amalgamation subclass K, locally finite in a Ramsey ambient class R whose members are irreducible; the application here has a function-free ordered language.",
+      "status": "background-instance",
+      "declarations": [
+        {
+          "name": "CCO.UnaryHN.Native.original_unary_locally_finite_ramsey",
+          "module": "CCO.UnaryHN.IteratedTransfer"
+        },
+        {
+          "name": "Hypertournaments.Ramsey.orderedOmissionClass_locallyFinite",
+          "module": "Hypertournaments.PairRamsey"
+        }
+      ],
+      "notes": "The entry records the proved relational/unary instance needed in this article. The hypertournament language has no functions, and the adapter proves local finiteness with cutoff one."
+    },
+    {
+      "id": "main-pair-cancelling",
+      "label": "def:pair-cancelling",
+      "kind": "definition",
+      "title": "Pair cancellation",
+      "scope": "Arity n >= 3, at least n+1 vertices, and a nonconstant pair link for every pair and every auxiliary linear order.",
+      "status": "definition",
+      "declarations": [
+        {
+          "name": "Hypertournaments.PairCancelling",
+          "module": "Hypertournaments.PairCancellation"
+        },
+        {
+          "name": "Hypertournaments.IsPairLink",
+          "module": "Hypertournaments.PairCancellation"
+        }
+      ],
+      "notes": "The quantified auxiliary order only orders the tuple tail after the two distinguished vertices."
+    },
+    {
+      "id": "main-local-pair-cancellation",
+      "label": "lem:local-types",
+      "kind": "lemma",
+      "title": "Exactly which local types are pair-cancelling",
+      "scope": "On n+1 vertices with n >= 3, pair cancellation is equivalent to d <= floor((n+1)/2)-2.",
+      "status": "proved",
+      "declarations": [
+        {
+          "name": "Hypertournaments.pairCancelling_iff_localIndex_le",
+          "module": "Hypertournaments.LocalPairCancellationConverse"
+        }
+      ],
+      "notes": "Both directions hold for the full arbitrary-auxiliary-order predicate."
+    },
+    {
+      "id": "main-completion",
+      "label": "prop:link-completion",
+      "kind": "proposition",
+      "title": "Completion of partially prescribed orientations",
+      "scope": "For n >= 3 and a pair-cancelling forbidden family, arbitrary relational input with an extendible order and admitted irreducible pieces has a completion.",
+      "status": "proved",
+      "declarations": [
+        {
+          "name": "Hypertournaments.Ramsey.exists_relational_completion",
+          "module": "Hypertournaments.RamseyCompletion"
+        },
+        {
+          "name": "Hypertournaments.exists_pair_cancelling_completion",
+          "module": "Hypertournaments.PairCompletion"
+        }
+      ],
+      "notes": "The general conclusion keeps the same carrier and the identity homomorphism-embedding. The intrinsic partial-orientation completion is its core."
+    },
+    {
+      "id": "main-pair-sap",
+      "label": "prop:link-SAP",
+      "kind": "proposition",
+      "title": "Strong amalgamation of pair-cancelling omission classes",
+      "scope": "For n >= 3 and any family of finite pair-cancelling forbidden structures, actual finite strong amalgams exist.",
+      "status": "proved",
+      "declarations": [
+        {
+          "name": "Hypertournaments.pair_cancelling_hasStrongAmalgamation",
+          "module": "Hypertournaments.PairAmalgamation"
+        },
+        {
+          "name": "Hypertournaments.pair_cancelling_strong_span",
+          "module": "Hypertournaments.PairAmalgamation"
+        },
+        {
+          "name": "Hypertournaments.pair_cancelling_ordered_strong_span",
+          "module": "Hypertournaments.PairAmalgamation"
+        }
+      ],
+      "notes": "Empty bases and arbitrary source embeddings are included; the ordered form preserves both supplied compatible orders."
+    },
+    {
+      "id": "main-continuum",
+      "label": "cor:sullivan-ramsey",
+      "kind": "corollary",
+      "title": "Continuum many homogeneous hypertournaments with Ramsey ages",
+      "scope": "For each n >= 3, construct continuum many pairwise nonisomorphic countably infinite homogeneous n-hypertournaments whose freely ordered ages are Ramsey with the ordering property.",
+      "status": "proved",
+      "declarations": [
+        {
+          "name": "Hypertournaments.continuum_homogeneous_hypertournaments",
+          "module": "Hypertournaments.HomogeneousCorollary"
+        },
+        {
+          "name": "Hypertournaments.continuumHomogeneousFamily",
+          "module": "Hypertournaments.HomogeneousCorollary"
+        }
+      ],
+      "notes": "The finite antichain and countable limits are constructed. The chosen family additionally has no finitely bounded age."
+    },
+    {
+      "id": "main-potential-exactness",
+      "label": "lem:alternating-sums",
+      "kind": "lemma",
+      "title": "Potential existence and switching equivalence",
+      "scope": "Every finite even odd-arity hypertournament has an alternating potential, and any two potentials differ by a symmetric lower gauge coboundary.",
+      "status": "proved",
+      "declarations": [
+        {
+          "name": "Hypertournaments.Hyper.exists_potential",
+          "module": "Hypertournaments.EvenPotential"
+        },
+        {
+          "name": "Hypertournaments.Hyper.isEven_iff_exists_potential",
+          "module": "Hypertournaments.EvenPotential"
+        },
+        {
+          "name": "Hypertournaments.IsPotential.intrinsic_gauge",
+          "module": "Hypertournaments.EvenPotentialGauge"
+        }
+      ],
+      "notes": "The source upper arity is n = r+1 with Even r and r >= 2. Finite empty carriers are included in these interfaces."
+    },
+    {
+      "id": "main-potential-sap",
+      "label": "prop:potential-SAP",
+      "kind": "proposition",
+      "title": "Strong amalgamation of potential expansions and even reducts",
+      "scope": "For odd n >= 3, finite even n-hypertournaments, and their potential-and-order expansions, strongly amalgamate.",
+      "status": "proved",
+      "declarations": [
+        {
+          "name": "Hypertournaments.potential_strong_span",
+          "module": "Hypertournaments.PotentialAmalgamation"
+        },
+        {
+          "name": "Hypertournaments.potential_ordered_strong_span",
+          "module": "Hypertournaments.PotentialAmalgamation"
+        },
+        {
+          "name": "Hypertournaments.even_strong_span",
+          "module": "Hypertournaments.EvenAmalgamation"
+        },
+        {
+          "name": "Hypertournaments.even_ordered_strong_span",
+          "module": "Hypertournaments.EvenAmalgamation"
+        }
+      ],
+      "notes": "A relative gauge aligns potentials over the shared base; the final carrier has exactly the original overlap."
+    },
+    {
+      "id": "main-local-eppa-obstruction",
+      "label": "prop:higharity-eppa-obstruction",
+      "kind": "proposition",
+      "title": "The local obstruction to unrestricted finite EPPA witnesses",
+      "scope": "For n >= 4, two (n+1)-packets agree on an n-point base, have distinct extra vertices, and admit four equal normalized base facets.",
+      "status": "proved",
+      "declarations": [
+        {
+          "name": "Hypertournaments.local_eppa_obstruction",
+          "module": "Hypertournaments.LocalEPPAObstruction"
+        },
+        {
+          "name": "Hypertournaments.local_eppa_obstruction_no_witness",
+          "module": "Hypertournaments.LocalEPPAObstruction"
+        }
+      ],
+      "notes": "No orientation involving both extra vertices is prescribed. The obstruction excludes every finite target, including unrestricted hypertournaments on arbitrary finite carriers."
+    },
+    {
+      "id": "main-klein-generation",
+      "label": "lem:klein-centralizer-generation",
+      "kind": "lemma",
+      "title": "Generation by centralizers under a Klein-four action",
+      "scope": "A Klein four-group acts by automorphisms on a finite odd-order group; elements fixed by nonidentity acting elements generate the whole group.",
+      "status": "proved",
+      "declarations": [
+        {
+          "name": "Hypertournaments.GroupTheory.klein_nonidentity_fixed_elements_generate",
+          "module": "Hypertournaments.KleinCentralizerGeneration"
+        }
+      ],
+      "notes": "The group-theoretic generation assertion itself is proved, with arbitrary Klein-four groups rather than chosen generators."
+    },
+    {
+      "id": "main-general-eppa-obstruction",
+      "label": "thm:higharity-no-eppa",
+      "kind": "theorem",
+      "title": "Non-EPPA for general hereditary SAP classes and PC omission classes",
+      "scope": "For a hereditary strong-amalgamation class: when n >= 6, unboundedness implies failure of EPPA; when n >= 4, it suffices to contain a packet with local index d <= n-3. For n >= 4, every omission class of pair-cancelling structures fails EPPA.",
+      "status": "proved",
+      "declarations": [
+        {
+          "name": "Hypertournaments.unbounded_hereditary_SAP_not_EPPA",
+          "module": "Hypertournaments.EPPAConsequences"
+        },
+        {
+          "name": "Hypertournaments.hereditary_SAP_not_EPPA_of_localIndex",
+          "module": "Hypertournaments.EPPAConsequences"
+        },
+        {
+          "name": "Hypertournaments.exists_common_pair_cancelling_EPPA_obstruction",
+          "module": "Hypertournaments.EPPAConsequences"
+        },
+        {
+          "name": "Hypertournaments.pair_cancelling_not_EPPA",
+          "module": "Hypertournaments.EPPAConsequences"
+        }
+      ],
+      "notes": "The common PC-family obstruction has exactly n+2 vertices and has no finite EPPA witness even in the unrestricted class. The criterion includes d = q-1."
+    },
+    {
+      "id": "main-eppa-transfer",
+      "label": "prop:even-eppa-transfer",
+      "kind": "proposition",
+      "title": "EPPA descends one arity",
+      "scope": "For odd n >= 3, EPPA for the even n-ary class or the unrestricted n-ary class implies EPPA for all (n-1)-hypertournaments.",
+      "status": "proved",
+      "declarations": [
+        {
+          "name": "Hypertournaments.eppa_one_arity_down",
+          "module": "Hypertournaments.EPPATransfer"
+        }
+      ],
+      "notes": "The reduction constructs an even one-point cone and recovers the source as the link of the distinguished vertex."
+    },
+    {
+      "id": "main-even-no-eppa",
+      "label": "cor:even-no-eppa",
+      "kind": "corollary",
+      "title": "Even odd-arity classes from arity five have no EPPA",
+      "scope": "For odd n >= 5, the class of finite even n-hypertournaments fails ordinary EPPA.",
+      "status": "proved",
+      "declarations": [
+        {
+          "name": "Hypertournaments.even_not_hasEPPA",
+          "module": "Hypertournaments.EvenNoEPPA"
+        },
+        {
+          "name": "Hypertournaments.even_five_not_hasEPPA",
+          "module": "Hypertournaments.EvenNoEPPA"
+        }
+      ],
+      "notes": "The arity-five instance is also exported separately."
+    },
+    {
+      "id": "main-generalised-potential-definition",
+      "label": "def:generalised-potential",
+      "kind": "definition",
+      "title": "Generalised potential structures",
+      "scope": "Fix finite Q with an involution, finite abelian G, a surjective equivariant effective map, and offset a = 0 in even upper arity; effective labels are closed.",
+      "status": "definition",
+      "declarations": [
+        {
+          "name": "Hypertournaments.Affine.Data",
+          "module": "Hypertournaments.Affine.Data"
+        },
+        {
+          "name": "Hypertournaments.Affine.Closed",
+          "module": "Hypertournaments.Affine.Data"
+        },
+        {
+          "name": "Hypertournaments.Affine.IsPotential",
+          "module": "Hypertournaments.Affine.Data"
+        },
+        {
+          "name": "Hypertournaments.Affine.Expansion",
+          "module": "Hypertournaments.Affine.Data"
+        }
+      ],
+      "notes": "Raw labels, not only effective group values, are preserved. Lean uses potential arity r and upper arity r+1. The full companion crosswalk is on the generalised-potential page."
+    },
+    {
+      "id": "main-generalised-potential-theorem",
+      "label": "thm:affine-labelled",
+      "kind": "theorem",
+      "title": "SAP and precompact Ramsey expansions for generalised potentials",
+      "scope": "Under Definition 6.1, every finite closed raw structure has a potential, the reduct class has SAP, and naming a potential and free order gives a precompact Ramsey expansion with the expansion property.",
+      "status": "proved",
+      "declarations": [
+        {
+          "name": "Hypertournaments.Affine.closed_iff_exists_potential",
+          "module": "Hypertournaments.Affine.Potential"
+        },
+        {
+          "name": "Hypertournaments.Affine.closed_strong_span",
+          "module": "Hypertournaments.Affine.Amalgamation"
+        },
+        {
+          "name": "Hypertournaments.Affine.expansion_ordered_ramsey",
+          "module": "Hypertournaments.Affine.ExpansionRamsey"
+        },
+        {
+          "name": "Hypertournaments.Affine.expansion_property",
+          "module": "Hypertournaments.Affine.ExpansionProperty"
+        },
+        {
+          "name": "Hypertournaments.Affine.ordered_expansions_finite",
+          "module": "Hypertournaments.Affine.Precompactness"
+        }
+      ],
+      "notes": "Noninjective effective maps and involution-fixed raw labels are allowed. The expansion-property target is fixed before every later potential and order choice; fixed raw labels survive the decoding."
+    },
+    {
+      "id": "main-local-classification",
+      "label": "thm:constrained-classification",
+      "kind": "theorem",
+      "title": "Complete unbounded local classification and strong AP",
+      "scope": "For n >= 4, S contains the central type and contains only real local indices; AP holds exactly for the next-central or odd switching alternatives. The low arities n=2,3 also satisfy AP implies SAP for unbounded classes.",
+      "status": "proved",
+      "declarations": [
+        {
+          "name": "Hypertournaments.amalgamation_classification",
+          "module": "Hypertournaments.PositiveClassification"
+        },
+        {
+          "name": "Hypertournaments.unboundedAdmissible_iff_central",
+          "module": "Hypertournaments.CentralUnbounded"
+        },
+        {
+          "name": "Hypertournaments.unbounded_amalgamation_classification_all_arities",
+          "module": "Hypertournaments.SmallArityClassification"
+        },
+        {
+          "name": "Hypertournaments.unbounded_hasAP_iff_hasStrongAmalgamation",
+          "module": "Hypertournaments.SmallArityClassification"
+        }
+      ],
+      "notes": "Indices represent the source orbit types T_(n,d). The companion classification supplement gives the negative proof and the separate at-most-five ternary classification."
+    },
+    {
+      "id": "main-strict-hierarchy",
+      "label": "obs:strict-constrained-hierarchy",
+      "kind": "observation",
+      "title": "A strict hierarchy of local constraint levels",
+      "scope": "For every k > n >= 3, one actual k-vertex pair-cancelling obstruction defines an unbounded hereditary SAP class that is k-constrained and is not (k-1)-constrained.",
+      "status": "proved",
+      "declarations": [
+        {
+          "name": "Hypertournaments.strict_constrained_hierarchy",
+          "module": "Hypertournaments.StrictConstraint.Hierarchy"
+        },
+        {
+          "name": "Hypertournaments.exists_pairCancelling_every_size",
+          "module": "Hypertournaments.StrictConstraint.Hierarchy"
+        },
+        {
+          "name": "Hypertournaments.singleForbiddenClass_not_constrained",
+          "module": "Hypertournaments.StrictConstraint.Classes"
+        }
+      ],
+      "notes": "Every requested size is realized, including sizes below the cycle-antichain bound. The negation rules out every alternative forbidden-family presentation using smaller structures."
+    }
+  ]
+}

@@ -1,0 +1,404 @@
+{
+  "document": "potentials",
+  "entries": [
+    {
+      "id": "potentials-data",
+      "label": null,
+      "kind": "definition",
+      "title": "Fixed raw palette and effective group data",
+      "scope": "An involutive raw palette Q, an additive commutative group G, an offset a, and a surjective equivariant map Q → G.",
+      "status": "definition",
+      "declarations": [
+        {
+          "name": "Hypertournaments.Affine.Palette",
+          "module": "Hypertournaments.Affine.Basic"
+        },
+        {
+          "name": "Hypertournaments.Affine.Palette.affine",
+          "module": "Hypertournaments.Affine.Basic"
+        },
+        {
+          "name": "Hypertournaments.Affine.Data",
+          "module": "Hypertournaments.Affine.Data"
+        }
+      ],
+      "notes": "The paper assumes finite Q and G. The data structures themselves do not impose finiteness or exclude involution-fixed labels. For upper arity n the parity condition is a = 0 when n is even."
+    },
+    {
+      "id": "potentials-labels",
+      "label": null,
+      "kind": "definition",
+      "title": "Tuple labels and raw-label embeddings",
+      "scope": "Labels are assigned to injective ordered tuples; odd coordinate permutations apply the palette involution.",
+      "status": "definition",
+      "declarations": [
+        {
+          "name": "Hypertournaments.Affine.Labelled",
+          "module": "Hypertournaments.Affine.Basic"
+        },
+        {
+          "name": "Hypertournaments.Affine.Labelled.Preserves",
+          "module": "Hypertournaments.Affine.Basic"
+        },
+        {
+          "name": "Hypertournaments.Affine.Labelled.label_perm",
+          "module": "Hypertournaments.Affine.Basic"
+        }
+      ],
+      "notes": "An embedding preserves every original Q-label. Equality of effective group labels alone is not the embedding condition."
+    },
+    {
+      "id": "potentials-closed-potential",
+      "label": "def:potential-structures",
+      "kind": "definition",
+      "title": "Generalised potential structures and chosen potentials",
+      "scope": "For raw arity n = r+1, Closed means δ(η∘ω)=0, and IsPotential means δp=η∘ω for an affine alternating r-ary p.",
+      "status": "definition",
+      "declarations": [
+        {
+          "name": "Hypertournaments.Affine.Closed",
+          "module": "Hypertournaments.Affine.Data"
+        },
+        {
+          "name": "Hypertournaments.Affine.IsPotential",
+          "module": "Hypertournaments.Affine.Data"
+        },
+        {
+          "name": "Hypertournaments.Affine.AlternatingCochain",
+          "module": "Hypertournaments.Affine.SignedPermutation"
+        }
+      ],
+      "notes": "The paper's n is one more than the potential arity r used by Expansion. Ordinary signed gauges use offset zero; they are not affine gauges with offset a."
+    },
+    {
+      "id": "potentials-expanded-language",
+      "label": null,
+      "kind": "definition",
+      "title": "Actual potential-and-order expansions",
+      "scope": "An expansion names the raw Q-labels and one compatible potential; a free linear order is added in the native relational language.",
+      "status": "definition",
+      "declarations": [
+        {
+          "name": "Hypertournaments.Affine.Expansion",
+          "module": "Hypertournaments.Affine.Data"
+        },
+        {
+          "name": "Hypertournaments.Affine.Expansion.Preserves",
+          "module": "Hypertournaments.Affine.Data"
+        },
+        {
+          "name": "Hypertournaments.Affine.toOrderedExpansion",
+          "module": "Hypertournaments.Affine.ExpansionLanguage"
+        },
+        {
+          "name": "Hypertournaments.Affine.orderedExpansionClass",
+          "module": "Hypertournaments.Affine.ExpansionLanguage"
+        }
+      ],
+      "notes": "Expansion.Preserves retains both raw and potential labels. Native ordered embeddings additionally preserve the named order."
+    },
+    {
+      "id": "potentials-signed-coboundary",
+      "label": null,
+      "kind": "lemma",
+      "title": "The signed coboundary and its permutation law",
+      "scope": "Cochains take values in an arbitrary additive commutative group. Under the zero-offset condition in even upper arity, an affine coboundary has the required affine permutation law.",
+      "status": "proved",
+      "declarations": [
+        {
+          "name": "Hypertournaments.Affine.signedCoboundary",
+          "module": "Hypertournaments.Affine.SignedCoboundary"
+        },
+        {
+          "name": "Hypertournaments.Affine.signedCoboundary_signedCoboundary_zero",
+          "module": "Hypertournaments.Affine.SignedCoboundary"
+        },
+        {
+          "name": "Hypertournaments.Affine.signedCoboundary_label_perm",
+          "module": "Hypertournaments.Affine.SignedPermutation"
+        },
+        {
+          "name": "Hypertournaments.Affine.Labelled.coboundary",
+          "module": "Hypertournaments.Affine.SignedPermutation"
+        }
+      ],
+      "notes": "This covers equation (1), δ²=0, and the symmetry calculation preceding the cone lemma. The signs are integral ±1 coefficients; characteristic two is not assumed."
+    },
+    {
+      "id": "potentials-main",
+      "label": "thm:main",
+      "kind": "theorem",
+      "title": "Strong amalgamation and a precompact Ramsey expansion",
+      "scope": "Upper arity n≥3; fixed finite Q and finite abelian G; η is equivariant and surjective, with a=0 when n is even; all vertex carriers in the classes are finite.",
+      "status": "proved",
+      "declarations": [
+        {
+          "name": "Hypertournaments.Affine.closed_iff_exists_potential",
+          "module": "Hypertournaments.Affine.Potential"
+        },
+        {
+          "name": "Hypertournaments.Affine.closed_strong_span",
+          "module": "Hypertournaments.Affine.Amalgamation"
+        },
+        {
+          "name": "Hypertournaments.Affine.expanded_ordered_strong_span",
+          "module": "Hypertournaments.Affine.OrderedAmalgamation"
+        },
+        {
+          "name": "Hypertournaments.Affine.expansion_ordered_ramsey",
+          "module": "Hypertournaments.Affine.ExpansionRamsey"
+        },
+        {
+          "name": "Hypertournaments.Affine.ordered_expansions_finite",
+          "module": "Hypertournaments.Affine.Precompactness"
+        },
+        {
+          "name": "Hypertournaments.Affine.expansion_property",
+          "module": "Hypertournaments.Affine.ExpansionProperty"
+        }
+      ],
+      "notes": "The six declarations prove the theorem's components for actual raw structures and actual expansions. Set Lean r=n−1; the hypothesis Even (r+1) → d.offset=0 is exactly the paper's parity condition."
+    },
+    {
+      "id": "potentials-cone",
+      "label": "lem:cone",
+      "kind": "lemma",
+      "title": "Cone contraction and signed exactness",
+      "scope": "An ordinary alternating closed cochain in arity k≥2 over an additive commutative group is a signed coboundary.",
+      "status": "proved",
+      "declarations": [
+        {
+          "name": "Hypertournaments.Affine.exists_signed_potential",
+          "module": "Hypertournaments.Affine.SignedExactness"
+        },
+        {
+          "name": "Hypertournaments.Affine.signedCoboundary_contractAt_of_closed",
+          "module": "Hypertournaments.Affine.SignedExactness"
+        }
+      ],
+      "notes": "The existential theorem works in every positive degree, without a finite-carrier or carrier-order assumption. The second declaration identifies the explicit contraction when a root is chosen."
+    },
+    {
+      "id": "potentials-existence-switching",
+      "label": "lem:potentials",
+      "kind": "lemma",
+      "title": "Potential existence and switching by a signed gauge",
+      "scope": "Finite closed raw structures have affine potentials. Two potentials of the same structure differ by the signed coboundary of an ordinary alternating lower cochain.",
+      "status": "proved",
+      "declarations": [
+        {
+          "name": "Hypertournaments.Affine.closed_iff_exists_potential",
+          "module": "Hypertournaments.Affine.Potential"
+        },
+        {
+          "name": "Hypertournaments.Affine.IsPotential.exists_gauge",
+          "module": "Hypertournaments.Affine.Potential"
+        },
+        {
+          "name": "Hypertournaments.Affine.IsPotential.affineAddLinear_coboundary",
+          "module": "Hypertournaments.Affine.GaugeAlignment"
+        }
+      ],
+      "notes": "The first result is an iff. The gauge theorem and its converse retain the same raw structure, including noninjective effective maps and raw-label fibres."
+    },
+    {
+      "id": "potentials-amalgamation",
+      "label": "prop:sap",
+      "kind": "proposition",
+      "title": "Strong amalgamation of reducts and expansions",
+      "scope": "Fixed affine data and the arity parity condition; finite side carriers; raw arity at least three for the reduct theorem.",
+      "status": "proved",
+      "declarations": [
+        {
+          "name": "Hypertournaments.Affine.closed_strong_span",
+          "module": "Hypertournaments.Affine.Amalgamation"
+        },
+        {
+          "name": "Hypertournaments.Affine.expanded_strong_span",
+          "module": "Hypertournaments.Affine.Amalgamation"
+        },
+        {
+          "name": "Hypertournaments.Affine.expanded_ordered_strong_span",
+          "module": "Hypertournaments.Affine.OrderedAmalgamation"
+        }
+      ],
+      "notes": "The witnesses live on the explicit exact-overlap carrier. The ordered theorem retains both given side orders. These amalgamation results do not require finiteness of Q or G."
+    },
+    {
+      "id": "potentials-reasonableness",
+      "label": null,
+      "kind": "lemma",
+      "title": "Reasonableness of the expansion",
+      "scope": "A potential and order on a finite source extend along a prescribed raw embedding into a fixed larger finite closed raw structure.",
+      "status": "proved",
+      "declarations": [
+        {
+          "name": "Hypertournaments.Affine.expansion_reasonable",
+          "module": "Hypertournaments.Affine.Reasonableness"
+        },
+        {
+          "name": "Hypertournaments.Affine.IsPotential.exists_aligned",
+          "module": "Hypertournaments.Affine.GaugeAlignment"
+        }
+      ],
+      "notes": "This is the reasonableness paragraph after Proposition 3.1. The target raw structure and the original vertex injection stay fixed while its potential and order are chosen."
+    },
+    {
+      "id": "potentials-ramsey",
+      "label": "prop:ramsey",
+      "kind": "proposition",
+      "title": "Ramsey property in the original expanded language",
+      "scope": "Fixed affine data satisfying the arity parity condition; finite ordered inputs and any finite nonempty colour palette.",
+      "status": "proved",
+      "declarations": [
+        {
+          "name": "Hypertournaments.Affine.expansion_ordered_ramsey",
+          "module": "Hypertournaments.Affine.ExpansionRamsey"
+        },
+        {
+          "name": "Hypertournaments.Affine.exists_expansion_ordered_ramsey_witness",
+          "module": "Hypertournaments.Affine.ExpansionRamsey"
+        }
+      ],
+      "notes": "The Ramsey witness names the original raw labels, a compatible potential and a free order. The arrow itself works without finiteness of Q or G; those hypotheses are used elsewhere for precompactness and the full expansion-property argument."
+    },
+    {
+      "id": "potentials-ordering",
+      "label": "lem:ordering",
+      "kind": "lemma",
+      "title": "Ordering property for a fixed potential-expanded structure",
+      "scope": "Potential arity r≥2 and a finite actual expansion (raw,p).",
+      "status": "proved",
+      "declarations": [
+        {
+          "name": "Hypertournaments.Affine.expansion_ordering_property",
+          "module": "Hypertournaments.Affine.OrderingProperty"
+        }
+      ],
+      "notes": "The finite target raw/potential expansion is chosen before both the source order and target order. Thus every order of the fixed target contains every ordered expansion of the source."
+    },
+    {
+      "id": "potentials-expansion-property",
+      "label": "prop:expansion",
+      "kind": "proposition",
+      "title": "Full expansion property relative to the raw class",
+      "scope": "Potential arity r≥2, finite Q and G, fixed affine data, and a finite closed raw source.",
+      "status": "proved",
+      "declarations": [
+        {
+          "name": "Hypertournaments.Affine.expansion_property",
+          "module": "Hypertournaments.Affine.ExpansionProperty"
+        }
+      ],
+      "notes": "One finite closed raw target is fixed before both potentials and both orders are quantified. The embeddings preserve raw labels as well as the chosen potentials and orders."
+    },
+    {
+      "id": "potentials-precompactness",
+      "label": null,
+      "kind": "lemma",
+      "title": "Precompactness and the finite expansion signature",
+      "scope": "A finite effective group and finite vertex carrier give finitely many potential-and-order expansions of a fixed raw structure; finite Q also gives a finite signature.",
+      "status": "proved",
+      "declarations": [
+        {
+          "name": "Hypertournaments.Affine.FixedExpansion",
+          "module": "Hypertournaments.Affine.Precompactness"
+        },
+        {
+          "name": "Hypertournaments.Affine.finite_fixed_expansions",
+          "module": "Hypertournaments.Affine.Precompactness"
+        },
+        {
+          "name": "Hypertournaments.Affine.ordered_expansions_finite",
+          "module": "Hypertournaments.Affine.Precompactness"
+        },
+        {
+          "name": "Hypertournaments.Affine.expansion_language_rel_finite",
+          "module": "Hypertournaments.Affine.Precompactness"
+        },
+        {
+          "name": "Hypertournaments.Affine.expansion_language_func_empty",
+          "module": "Hypertournaments.Affine.Precompactness"
+        }
+      ],
+      "notes": "Finiteness is proved on the fixed carrier before quotienting by isomorphism. The expanded language introduces relations, not function symbols."
+    },
+    {
+      "id": "potentials-fixed-fibre-codes",
+      "label": null,
+      "kind": "lemma",
+      "title": "Decoding raw fibres with fixed upper codes",
+      "scope": "Arbitrary surjective effective maps, including fibres with several raw labels.",
+      "status": "proved",
+      "declarations": [
+        {
+          "name": "Hypertournaments.Affine.Data.decode_surjective_fiber",
+          "module": "Hypertournaments.Affine.FiberCoding"
+        },
+        {
+          "name": "Hypertournaments.Affine.Data.decode_encode",
+          "module": "Hypertournaments.Affine.FiberCoding"
+        },
+        {
+          "name": "Hypertournaments.Affine.Data.decode_fixed_code",
+          "module": "Hypertournaments.Affine.ExpansionCoding"
+        },
+        {
+          "name": "Hypertournaments.Affine.Expansion.decode_toCodePair",
+          "module": "Hypertournaments.Affine.ExpansionCoding"
+        }
+      ],
+      "notes": "This is the implementation bridge used in the Ramsey and expansion-property proofs. A fixed upper code still decodes to the same raw target after its compatible potential changes; unique codes are not assumed."
+    },
+    {
+      "id": "potentials-constant-drift",
+      "label": null,
+      "kind": "lemma",
+      "title": "The arity-dependent drift of a homogeneous gauge",
+      "scope": "Ordinary signed lower gauges over an additive commutative group, homogeneous on increasing tuples.",
+      "status": "proved",
+      "declarations": [
+        {
+          "name": "Hypertournaments.Affine.constantLinear_coboundary",
+          "module": "Hypertournaments.Affine.ConstantShift"
+        },
+        {
+          "name": "Hypertournaments.Affine.signedCoboundary_constantLinear_of_odd",
+          "module": "Hypertournaments.Affine.ConstantShift"
+        },
+        {
+          "name": "Hypertournaments.Affine.homogeneous_coboundary_pullback",
+          "module": "Hypertournaments.Affine.HomogeneousGauge"
+        }
+      ],
+      "notes": "These are the drift calculations in equations (5), (6) and (11). The drift vanishes in even potential arity and may be nonzero in odd potential arity, which is why even upper arity needs the additional correction."
+    },
+    {
+      "id": "potentials-even-special-case",
+      "label": null,
+      "kind": "lemma",
+      "title": "Recovery of even hypertournaments",
+      "scope": "Q=G=ZMod 2 with complementary raw labels, offset 1, identity effective map and odd upper arity.",
+      "status": "proved",
+      "declarations": [
+        {
+          "name": "Hypertournaments.Affine.evenData",
+          "module": "Hypertournaments.Affine.EvenSpecialization"
+        },
+        {
+          "name": "Hypertournaments.Affine.evenData_closed_iff_isEven",
+          "module": "Hypertournaments.Affine.EvenSpecialization"
+        },
+        {
+          "name": "Hypertournaments.Affine.evenData_isPotential_iff",
+          "module": "Hypertournaments.Affine.EvenSpecialization"
+        },
+        {
+          "name": "Hypertournaments.Hyper.isEven_iff_exists_potential_via_affine",
+          "module": "Hypertournaments.Affine.EvenSpecialization"
+        }
+      ],
+      "notes": "Signed and unsigned coboundaries coincide over ZMod 2. The bridge identifies the original evenness and potential equations, and preserves the original intrinsic embeddings."
+    }
+  ]
+}

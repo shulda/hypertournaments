@@ -1,0 +1,41 @@
+{
+  "source_digest_sha256": "ae194b3154e25d52e71523b0b8eae966acb6f5c851dc94e2aed9c52ef1ab3422",
+  "source_modules": 119,
+  "lean": "4.34.1",
+  "lean_commit": "5045d0056413266e57c625dcd7c365b10e377c52",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "lake_manifest_changed": false,
+  "build": {
+    "command": "lake build CCO.UnaryHN.IteratedTransfer CCO.UnaryHN.OrderedAmbient",
+    "result": "success",
+    "jobs": 1195
+  },
+  "independent_import_smoke_check": {
+    "imports": [
+      "CCO.UnaryHN.IteratedTransfer",
+      "CCO.UnaryHN.OrderedAmbient"
+    ],
+    "result": "success",
+    "selected_axiom_checks": {
+      "CCO.UnaryHN.Native.original_unary_locally_finite_ramsey": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "CCO.UnaryHN.Native.allOrderedModels_ramsey": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "additional_checked_api": "StructuralRamsey.Structure.exists_linearOrder_extension"
+  },
+  "snapshot_validation": {
+    "command": "python3 tools/project_sources.py --vendor-only",
+    "result": "success",
+    "mutation_rejection_checked": true,
+    "broad_mathlib_imports": 0,
+    "custom_axiom_or_placeholder_or_native_decision_occurrences": 0
+  },
+  "scope": "Replay of the unchanged pinned vendor closure and selected exported theorem checks; not an audit of the developing hypertournament adapter."
+}

@@ -1,0 +1,256 @@
+{
+  "source_revision": "be17a37d26230fb5473aae160575578c3f960780",
+  "method": "Theorem-environment counters read from the pinned source, including unlabelled environments and shared counters. Nested equation and item labels are excluded. Display numbers are revision-specific.",
+  "papers": {
+    "main": {
+      "thm:intro-link": {
+        "number": "1.1",
+        "kind": "Theorem"
+      },
+      "thm:potential": {
+        "number": "1.2",
+        "kind": "Theorem"
+      },
+      "thm:intro-eppa": {
+        "number": "1.3",
+        "kind": "Theorem"
+      },
+      "conj:all-homogeneous": {
+        "number": "1.4",
+        "kind": "Conjecture"
+      },
+      "lem:local-type-isomorphism": {
+        "number": "2.1",
+        "kind": "Lemma"
+      },
+      "def:locally-finite": {
+        "number": "2.2",
+        "kind": "Definition"
+      },
+      "thm:HN": {
+        "number": "2.3",
+        "kind": "Theorem"
+      },
+      "def:pair-cancelling": {
+        "number": "3.1",
+        "kind": "Definition"
+      },
+      "lem:local-types": {
+        "number": "3.2",
+        "kind": "Lemma"
+      },
+      "prop:link-completion": {
+        "number": "3.3",
+        "kind": "Proposition"
+      },
+      "prop:link-SAP": {
+        "number": "3.4",
+        "kind": "Proposition"
+      },
+      "cor:sullivan-ramsey": {
+        "number": "3.5",
+        "kind": "Corollary"
+      },
+      "rem:bicycles": {
+        "number": "3.6",
+        "kind": "Remark"
+      },
+      "lem:alternating-sums": {
+        "number": "4.1",
+        "kind": "Lemma"
+      },
+      "prop:potential-SAP": {
+        "number": "4.2",
+        "kind": "Proposition"
+      },
+      "prop:higharity-eppa-obstruction": {
+        "number": "5.1",
+        "kind": "Proposition"
+      },
+      "lem:klein-centralizer-generation": {
+        "number": "5.2",
+        "kind": "Lemma"
+      },
+      "thm:higharity-no-eppa": {
+        "number": "5.3",
+        "kind": "Theorem"
+      },
+      "prop:even-eppa-transfer": {
+        "number": "5.4",
+        "kind": "Proposition"
+      },
+      "cor:even-no-eppa": {
+        "number": "5.5",
+        "kind": "Corollary"
+      },
+      "conj:eppa": {
+        "number": "5.6",
+        "kind": "Conjecture"
+      },
+      "def:generalised-potential": {
+        "number": "6.1",
+        "kind": "Definition"
+      },
+      "thm:affine-labelled": {
+        "number": "6.2",
+        "kind": "Theorem"
+      },
+      "thm:constrained-classification": {
+        "number": "6.3",
+        "kind": "Theorem"
+      },
+      "obs:strict-constrained-hierarchy": {
+        "number": "6.4",
+        "kind": "Observation"
+      }
+    },
+    "potentials": {
+      "def:potential-structures": {
+        "number": "1.1",
+        "kind": "Definition"
+      },
+      "thm:main": {
+        "number": "1.2",
+        "kind": "Theorem"
+      },
+      "lem:cone": {
+        "number": "2.1",
+        "kind": "Lemma"
+      },
+      "lem:potentials": {
+        "number": "2.2",
+        "kind": "Lemma"
+      },
+      "prop:sap": {
+        "number": "3.1",
+        "kind": "Proposition"
+      },
+      "prop:ramsey": {
+        "number": "4.1",
+        "kind": "Proposition"
+      },
+      "lem:ordering": {
+        "number": "4.2",
+        "kind": "Lemma"
+      },
+      "prop:expansion": {
+        "number": "4.3",
+        "kind": "Proposition"
+      }
+    },
+    "classification": {
+      "lem:local-types": {
+        "number": "1.1",
+        "kind": "Lemma"
+      },
+      "lem:unbounded": {
+        "number": "1.3",
+        "kind": "Lemma"
+      },
+      "thm:main-classification": {
+        "number": "1.4",
+        "kind": "Theorem"
+      },
+      "thm:classification": {
+        "number": "1.5",
+        "kind": "Theorem"
+      },
+      "lem:local-pc": {
+        "number": "2.1",
+        "kind": "Lemma"
+      },
+      "prop:pc-sap": {
+        "number": "2.2",
+        "kind": "Proposition"
+      },
+      "lem:exactness": {
+        "number": "2.3",
+        "kind": "Lemma"
+      },
+      "prop:even-sap": {
+        "number": "2.4",
+        "kind": "Proposition"
+      },
+      "lem:4-central": {
+        "number": "3.1",
+        "kind": "Lemma"
+      },
+      "lem:4-forb": {
+        "number": "3.2",
+        "kind": "Lemma"
+      },
+      "lem:zero-two": {
+        "number": "4.1",
+        "kind": "Lemma"
+      },
+      "lem:5-two": {
+        "number": "4.2",
+        "kind": "Lemma"
+      },
+      "prop:cone": {
+        "number": "4.3",
+        "kind": "Proposition"
+      },
+      "lem:reflection": {
+        "number": "5.1",
+        "kind": "Lemma"
+      },
+      "lem:even-types": {
+        "number": "5.2",
+        "kind": "Lemma"
+      },
+      "prop:even-lift": {
+        "number": "5.3",
+        "kind": "Proposition"
+      },
+      "rem:core": {
+        "number": "5.4",
+        "kind": "Remark"
+      },
+      "lem:odd-root": {
+        "number": "5.5",
+        "kind": "Lemma"
+      },
+      "lem:odd-types": {
+        "number": "5.6",
+        "kind": "Lemma"
+      },
+      "thm:odd-lift": {
+        "number": "5.7",
+        "kind": "Theorem"
+      },
+      "thm:p3": {
+        "number": "6.1",
+        "kind": "Theorem"
+      },
+      "lem:p3-admissible": {
+        "number": "6.2",
+        "kind": "Lemma"
+      },
+      "lem:p3-polarity": {
+        "number": "6.3",
+        "kind": "Lemma"
+      },
+      "lem:p1-sides": {
+        "number": "6.4",
+        "kind": "Lemma"
+      },
+      "thm:p1": {
+        "number": "6.5",
+        "kind": "Theorem"
+      },
+      "lem:five-normalization": {
+        "number": "8.1",
+        "kind": "Lemma"
+      },
+      "thm:five-classification": {
+        "number": "8.2",
+        "kind": "Theorem"
+      },
+      "rem:five-only": {
+        "number": "8.3",
+        "kind": "Remark"
+      }
+    }
+  }
+}

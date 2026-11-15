@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "repository": "shulda/hypertournaments",
+  "source_ref": "main",
+  "source_revision": "be17a37d26230fb5473aae160575578c3f960780",
+  "papers": [
+    {
+      "id": "main",
+      "title": "On homogeneous hypertournaments",
+      "author": "Matěj Konečný",
+      "filename": "on_homogeneous_hypertournaments.tex",
+      "wiki_page": "Main-article",
+      "description": "Pair-cancelling omission classes, even orientations, Ramsey expansions, EPPA and the local constraint hierarchy.",
+      "planned_pdf": "papers/on_homogeneous_hypertournaments.pdf"
+    },
+    {
+      "id": "potentials",
+      "title": "Generalised potential structures",
+      "author": "Matěj Konečný",
+      "filename": "generalised_potential_structures_proof.tex",
+      "wiki_page": "Generalised-potential-structures",
+      "description": "A companion proof for finite involutive raw palettes and finite abelian effective groups.",
+      "planned_pdf": "papers/generalised_potential_structures_proof.pdf"
+    },
+    {
+      "id": "classification",
+      "title": "Classification of (n+1)-constrained n-hypertournaments",
+      "author": "Matěj Konečný",
+      "filename": "hypertournaments_classification_supplement.tex",
+      "wiki_page": "Classification",
+      "description": "The general local amalgamation classification and the five-constrained ternary classification.",
+      "planned_pdf": "papers/hypertournaments_classification_supplement.pdf"
+    }
+  ],
+  "publication_repositories": [
+    "shulda/hypertournaments-final"
+  ]
+}

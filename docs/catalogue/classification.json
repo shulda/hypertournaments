@@ -1,0 +1,459 @@
+{
+  "document": "classification",
+  "entries": [
+    {
+      "id": "classification-local-types",
+      "label": "lem:local-types",
+      "kind": "lemma",
+      "title": "Local types are classified by the minority index",
+      "scope": "For n ≥ 2, two n-hypertournaments on n+1 vertices are isomorphic exactly when their local indices agree; every d ≤ floor((n+1)/2) is realized.",
+      "status": "proved",
+      "declarations": [
+        {"name": "Hypertournaments.localIndex_eq_iff_exists_preserving_perm", "module": "Hypertournaments.LocalTypeIsomorphism"},
+        {"name": "Hypertournaments.exists_localIndex_eq", "module": "Hypertournaments.LocalTypeRealization"}
+      ],
+      "notes": "The isomorphism is an actual orientation-preserving permutation, not merely an equality of packet counts."
+    },
+    {
+      "id": "classification-unbounded",
+      "label": "lem:unbounded",
+      "kind": "lemma",
+      "title": "Unboundedness is equivalent to allowing the central type",
+      "scope": "For any arity n and local-index palette S, UnboundedAdmissible n S holds exactly when centralIndex n belongs to S.",
+      "status": "proved",
+      "declarations": [
+        {"name": "Hypertournaments.unboundedAdmissible_iff_central", "module": "Hypertournaments.CentralUnbounded"}
+      ],
+      "notes": "Unboundedness means existence of finite members of arbitrarily large cardinality."
+    },
+    {
+      "id": "classification-main",
+      "label": "thm:main-classification",
+      "kind": "theorem",
+      "title": "Complete unbounded local-palette amalgamation classification",
+      "scope": "For n ≥ 4 and a valid palette containing q=floor((n+1)/2), AP holds exactly when q−1 is allowed, or n is odd and S is the even/switching palette. Every positive case has SAP. For n=2,3 every central-containing palette has SAP.",
+      "status": "proved",
+      "declarations": [
+        {"name": "Hypertournaments.amalgamation_classification", "module": "Hypertournaments.PositiveClassification"},
+        {"name": "Hypertournaments.amalgamation_classification_all_arities", "module": "Hypertournaments.SmallArityClassification"},
+        {"name": "Hypertournaments.small_arity_unbounded_hasStrongAmalgamation", "module": "Hypertournaments.SmallArityClassification"},
+        {"name": "Hypertournaments.unbounded_hasAP_iff_hasStrongAmalgamation", "module": "Hypertournaments.SmallArityClassification"}
+      ],
+      "notes": "The all-arities interface assumes n ≥ 2 and records the small-arity alternative n ≤ 3 explicitly. ValidTypes restricts indices to actual local types. The AP-to-SAP corollary only assumes unboundedness, so irrelevant indices above q need not be removed first."
+    },
+    {
+      "id": "classification-negative",
+      "label": "thm:classification",
+      "kind": "theorem",
+      "title": "Every excluded palette has an ordinary one-point obstruction",
+      "scope": "For n ≥ 4, a valid central-containing palette omitting q−1 fails ordinary AP unless n is odd and it is the even/switching palette.",
+      "status": "proved",
+      "declarations": [
+        {"name": "Hypertournaments.not_hasAP_of_excluded_types", "module": "Hypertournaments.NegativeClassification"},
+        {"name": "Hypertournaments.negativeOnePointGoal_all_of_odd_toggle", "module": "Hypertournaments.NegativeModuloOddToggle"},
+        {"name": "Hypertournaments.oddToggleOnePointObstructions_of_p3", "module": "Hypertournaments.NegativeModuloP3"},
+        {"name": "Hypertournaments.p3OddOnePointObstructions", "module": "Hypertournaments.OddToggleP3AllBadOnePoint"}
+      ],
+      "notes": "The first declaration is the unconditional public non-AP theorem. The one-point formulation is assembled by applying the displayed induction reduction to oddToggleOnePointObstructions_of_p3 p3OddOnePointObstructions. The two reduction lemmas have explicit hypotheses; the final displayed p3 theorem discharges them. Ordinary AP allows identification of the new vertices and targets larger than the union of the two sides."
+    },
+    {
+      "id": "classification-pair-cancelling-local",
+      "label": "lem:local-pc",
+      "kind": "lemma",
+      "title": "Which local types are pair-cancelling",
+      "scope": "For n ≥ 3, a structure on n+1 vertices is pair-cancelling exactly when its local index is at most centralIndex n − 2.",
+      "status": "proved",
+      "declarations": [
+        {"name": "Hypertournaments.pairCancelling_iff_localIndex_le", "module": "Hypertournaments.LocalPairCancellationConverse"}
+      ],
+      "notes": "This identifies the first positive alternative with omission of pair-cancelling forbidden structures."
+    },
+    {
+      "id": "classification-pair-cancelling-sap",
+      "label": "prop:pc-sap",
+      "kind": "proposition",
+      "title": "Strong amalgamation by a constant mixed link",
+      "scope": "For n ≥ 3, omitting any family of pair-cancelling finite n-hypertournaments admits strong amalgamation along arbitrary finite spans.",
+      "status": "proved",
+      "declarations": [
+        {"name": "Hypertournaments.pair_cancelling_hasStrongAmalgamation", "module": "Hypertournaments.PairAmalgamation"},
+        {"name": "Hypertournaments.pair_cancelling_strong_span", "module": "Hypertournaments.PairAmalgamation"}
+      ],
+      "notes": "The concrete span theorem preserves the given injections and introduces no extra overlap."
+    },
+    {
+      "id": "classification-cochain-exactness",
+      "label": "lem:exactness",
+      "kind": "lemma",
+      "title": "Elementary exactness of Boolean cochains",
+      "scope": "A cochain closed in the next degree is the coboundary of its contraction at a chosen vertex; this provides the potentials used for odd-arity even hypertournaments.",
+      "status": "proved",
+      "declarations": [
+        {"name": "Hypertournaments.cocycle_exact_at_card", "module": "Hypertournaments.Cochain"},
+        {"name": "Hypertournaments.Hyper.isEven_iff_exists_potential", "module": "Hypertournaments.EvenPotential"}
+      ],
+      "notes": "The cochain theorem takes an actual root a : V. The finite hypertournament potential equivalence handles the carrier cases internally and does not require nonemptiness. No external cohomology theorem is needed."
+    },
+    {
+      "id": "classification-even-sap",
+      "label": "prop:even-sap",
+      "kind": "proposition",
+      "title": "Strong amalgamation of even hypertournaments",
+      "scope": "In odd arity n ≥ 3, even hypertournaments have strong amalgamation by gluing compatible potentials of arity n−1.",
+      "status": "proved",
+      "declarations": [
+        {"name": "Hypertournaments.even_strong_span", "module": "Hypertournaments.EvenAmalgamation"},
+        {"name": "Hypertournaments.even_ordered_strong_span", "module": "Hypertournaments.EvenAmalgamation"}
+      ],
+      "notes": "The ordered version also retains the prescribed orders on the two sides."
+    },
+    {
+      "id": "classification-four-central",
+      "label": "lem:4-central",
+      "kind": "lemma",
+      "title": "The central-only arity-four seed",
+      "scope": "The palette {2} in arity four has a finite bad ordinary one-point span, hence fails AP.",
+      "status": "proved",
+      "declarations": [
+        {"name": "Hypertournaments.centralOnlyFour_badOnePoint", "module": "Hypertournaments.SeedFourBadOnePoint"},
+        {"name": "Hypertournaments.centralOnlyFour_not_hasAP", "module": "Hypertournaments.SeedFourNoAmalgam"}
+      ],
+      "notes": "The explicit seed is checked in the intrinsic orientation language; distinct side orientations also exclude identifying the two new vertices."
+    },
+    {
+      "id": "classification-four-forbid-middle",
+      "label": "lem:4-forb",
+      "kind": "lemma",
+      "title": "The arity-four seed omitting the middle type",
+      "scope": "The palette {0,2} in arity four has a bad ordinary one-point span, hence fails AP.",
+      "status": "proved",
+      "declarations": [
+        {"name": "Hypertournaments.forbidOneFour_badOnePoint", "module": "Hypertournaments.SeedFourBadOnePoint"},
+        {"name": "Hypertournaments.forbidOneFour_not_hasAP", "module": "Hypertournaments.SeedFourForbidOneNoAmalgam"}
+      ],
+      "notes": "The checked finite contradiction supplies the same mathematical seed as the supplement's implication tables."
+    },
+    {
+      "id": "classification-zero-or-two",
+      "label": "lem:zero-two",
+      "kind": "lemma",
+      "title": "The zero-or-two principle",
+      "scope": "For n ≡ 1 mod 4 and n ≥ 5, in the even palette enlarged by the homogeneous type, each n+2 vertex set contains zero or exactly two homogeneous n+1 vertex subsets.",
+      "status": "proved",
+      "declarations": [
+        {"name": "Hypertournaments.Hyper.p1Toggle_actual_zero_or_two", "module": "Hypertournaments.OddToggleP1ActualZeroTwo"}
+      ],
+      "notes": "This is a statement about actual local packets of an intrinsic hypertournament, rather than an independently prescribed homogeneous-set indicator."
+    },
+    {
+      "id": "classification-five-zero-central",
+      "label": "lem:5-two",
+      "kind": "lemma",
+      "title": "The homogeneous-or-central arity-five seed",
+      "scope": "The arity-five palette {0,3} has a bad ordinary one-point span.",
+      "status": "proved",
+      "declarations": [
+        {"name": "Hypertournaments.seed5Two_badOnePoint", "module": "Hypertournaments.SeedFiveBadOnePoint"}
+      ],
+      "notes": "This finite seed is kept separate from both the central-only cone seed and the exceptional {0,1,3} seed."
+    },
+    {
+      "id": "classification-central-cone",
+      "label": "prop:cone",
+      "kind": "proposition",
+      "title": "Coning a central-only obstruction",
+      "scope": "The source transfers a central-only even-arity obstruction to the next odd arity; Lean uses the concrete arity-four to arity-five cone seed in the negative classification.",
+      "status": "proof-variant",
+      "declarations": [
+        {"name": "Hypertournaments.seed5Cone_badOnePoint", "module": "Hypertournaments.SeedFiveBadOnePoint"},
+        {"name": "Hypertournaments.not_hasAP_of_excluded_types", "module": "Hypertournaments.NegativeClassification"}
+      ],
+      "notes": "The generic one-arity cone constructor in the source is not separately exported. The checked concrete cone seed and two-step suspension induction establish all central-only non-AP cases needed for the final theorem. The public non-AP theorem is a classification consequence, not the generic cone construction itself."
+    },
+    {
+      "id": "classification-two-coordinate-reflection",
+      "label": "lem:reflection",
+      "kind": "lemma",
+      "title": "Two-coordinate reflection of an amalgam",
+      "scope": "Exact recovery of the two lower sides from every pair of pads, together with a sufficiently large pad set, turns any higher amalgam into a lower one; lower side disagreement excludes identification.",
+      "status": "proof-variant",
+      "declarations": [
+        {"name": "Hypertournaments.exists_lower_onePoint_joint_of_many_pads", "module": "Hypertournaments.TwoPadJointReflection"},
+        {"name": "Hypertournaments.no_higher_joint_of_many_pads_and_recovery", "module": "Hypertournaments.TwoPadJointReflection"},
+        {"name": "Hypertournaments.not_hasAP_of_twoPad_lift_with_lower_disagreement", "module": "Hypertournaments.TwoPadDisagreement"}
+      ],
+      "notes": "Lean records profiles over all ordered injective tuples and assumes |P| > 2^card(Fin(n+1) ↪ Fin(a+2)), where a is the lower base size. The source's sharper 2^(choose(a,n−1)) threshold is not the literal theorem exported here. Both bounds give the qualitative obstruction transfer. The no-joint helper is supplemented by the ordinary-AP theorem, which handles identification."
+    },
+    {
+      "id": "classification-even-packet-types",
+      "label": "lem:even-types",
+      "kind": "lemma",
+      "title": "Local types in the even suspension",
+      "scope": "For source arity 2k, a packet with two pads has old index plus one; all other pad occupancies have the new central index k+1.",
+      "status": "proved",
+      "declarations": [
+        {"name": "Hypertournaments.Hyper.evenSuspension_localIndex_increasing_twoPads", "module": "Hypertournaments.EvenSuspensionAllTwoPadPackets"},
+        {"name": "Hypertournaments.Hyper.evenSuspension_localIndex_increasing_threePads", "module": "Hypertournaments.EvenSuspensionIncreasingCentralThree"},
+        {"name": "Hypertournaments.Hyper.evenSuspension_localIndex_increasing_far", "module": "Hypertournaments.EvenSuspensionIncreasingCentralFar"},
+        {"name": "Hypertournaments.Hyper.evenSuspension_admissible", "module": "Hypertournaments.EvenSuspensionAdmissibility"}
+      ],
+      "notes": "Packet calculations use increasing tuples; the admissibility theorem transfers them to arbitrary enumerations through local-index invariance."
+    },
+    {
+      "id": "classification-even-lift",
+      "label": "prop:even-lift",
+      "kind": "proposition",
+      "title": "Raising an even-arity obstruction by two",
+      "scope": "A bad one-point span in source arity 2k transfers to arity 2k+2 if the old central index is allowed, the target admits all shifted old indices, and shifting the target back gives only allowed old indices.",
+      "status": "proved",
+      "declarations": [
+        {"name": "Hypertournaments.HasBadOnePoint.evenSuspension", "module": "Hypertournaments.EvenOnePointWitness"}
+      ],
+      "notes": "This includes both source targets S+ and S+ enlarged by index zero. The construction uses the larger formal reflection bound described above."
+    },
+    {
+      "id": "classification-core-bound",
+      "label": "rem:core",
+      "kind": "remark",
+      "title": "A contradiction core can reduce the pad count",
+      "scope": "The source observes that h relevant mixed sets suffice for a pad set of size 2^h+1.",
+      "status": "proof-variant",
+      "declarations": [
+        {"name": "Hypertournaments.exists_admissible_twoPadSlice_of_many_pads", "module": "Hypertournaments.TwoPadJointReflection"}
+      ],
+      "notes": "The formal proof uses the complete ordered-tuple profile, not a selected contradiction core. The optimized numerical bound 2^h+1 is not separately formalized; no classification result depends on this optimization."
+    },
+    {
+      "id": "classification-root-identity",
+      "label": "lem:odd-root",
+      "kind": "lemma",
+      "title": "The rooted potential identity",
+      "scope": "The source's signed root identity controls the three-pad packets of the odd suspension.",
+      "status": "proof-variant",
+      "declarations": [
+        {"name": "Hypertournaments.rootedOddPotentialSignTable", "module": "Hypertournaments.RootedOddSuspensionSigns"},
+        {"name": "Hypertournaments.rootedOddPotential_erase_root", "module": "Hypertournaments.RootedOddThreePadGeometry"},
+        {"name": "Hypertournaments.rootedOddPotential_erase_nonroot", "module": "Hypertournaments.RootedOddThreePadGeometry"},
+        {"name": "Hypertournaments.rootedOddPotential_erase_of_root_absent", "module": "Hypertournaments.RootedOddThreePadGeometry"},
+        {"name": "Hypertournaments.Hyper.rootedOddSuspension_localIndex_threePads_rootZero_absent", "module": "Hypertournaments.RootedOddThreePadAbsentLocalIndex"},
+        {"name": "Hypertournaments.Hyper.rootedOddSuspension_localIndex_threePads_rootZero_present", "module": "Hypertournaments.RootedOddThreePadRootZero"}
+      ],
+      "notes": "Lean splits the calculation into root erasure laws and exact packet/local-index identities. It does not export the source's signed integer boundary identity as a standalone equation. The root is chosen first in the old order; the final odd suspension theorem handles the root choice."
+    },
+    {
+      "id": "classification-odd-packet-types",
+      "label": "lem:odd-types",
+      "kind": "lemma",
+      "title": "Local types in the rooted odd suspension",
+      "scope": "Two-pad packets and root-absent three-pad packets shift an old local index by one; root-present three-pad packets, four-pad packets, and the remaining occupancies have the new central index.",
+      "status": "proved",
+      "declarations": [
+        {"name": "Hypertournaments.Hyper.rootedOddSuspension_localIndex_increasing_twoPads", "module": "Hypertournaments.RootedOddTwoPadShift"},
+        {"name": "Hypertournaments.Hyper.rootedOddSuspension_localIndex_threePads_rootZero_absent", "module": "Hypertournaments.RootedOddThreePadAbsentLocalIndex"},
+        {"name": "Hypertournaments.Hyper.rootedOddSuspension_localIndex_threePads_rootZero_present", "module": "Hypertournaments.RootedOddThreePadRootZero"},
+        {"name": "Hypertournaments.Hyper.rootedOddSuspension_localIndex_increasing_fourPads", "module": "Hypertournaments.RootedOddFourPadLocalIndex"},
+        {"name": "Hypertournaments.Hyper.rootedOddSuspension_localIndex_increasing_far", "module": "Hypertournaments.RootedOddFarCentral"},
+        {"name": "Hypertournaments.Hyper.rootedOddSuspension_admissible", "module": "Hypertournaments.RootedOddSuspensionAdmissibility"}
+      ],
+      "notes": "The root has value zero in the canonical old presentation. The final admissibility statement is intrinsic and quantifies over all injective tuples."
+    },
+    {
+      "id": "classification-odd-lift",
+      "label": "thm:odd-lift",
+      "kind": "theorem",
+      "title": "Raising an odd-arity obstruction by two",
+      "scope": "For source arity 2k+1 with k ≥ 1, a bad one-point span transfers to arity 2k+3 under the same central and shift conditions as the even lift, using the rooted suspension.",
+      "status": "proved",
+      "declarations": [
+        {"name": "Hypertournaments.HasBadOnePoint.oddRootedSuspension", "module": "Hypertournaments.RootedOddOnePointWitness"},
+        {"name": "Hypertournaments.HasBadOnePoint.oddRootedSuspension_of_span", "module": "Hypertournaments.RootedOddOnePointWitness"}
+      ],
+      "notes": "The explicit-span helper assumes a nonempty common base; the final HasBadOnePoint theorem derives the needed base nonemptiness from the obstruction. The reflected contradiction rules out ordinary amalgams."
+    },
+    {
+      "id": "classification-exceptional-three-mod-four",
+      "label": "thm:p3",
+      "kind": "theorem",
+      "title": "The exceptional family in arities congruent to three modulo four",
+      "scope": "For every k ≥ 1, arity 4k+3 with palette toggleZero(switchingAllowed(4k+3)) has a bad ordinary one-point span.",
+      "status": "proved",
+      "declarations": [
+        {"name": "Hypertournaments.p3BadOnePoint_all", "module": "Hypertournaments.OddToggleP3AllBadOnePoint"},
+        {"name": "Hypertournaments.p3OddOnePointObstructions", "module": "Hypertournaments.OddToggleP3AllBadOnePoint"}
+      ],
+      "notes": "This is the even/switching palette with the homogeneous type removed. The finite counting construction discharges the exceptional-family hypothesis of the induction; there is no remaining probabilistic assumption."
+    },
+    {
+      "id": "classification-exceptional-three-sides",
+      "label": "lem:p3-admissible",
+      "kind": "lemma",
+      "title": "Every assignment produces admissible exceptional sides",
+      "scope": "For k ≥ 1, positive block size, and arbitrary potential coefficients, both complementary-half one-point sides in the arity-4k+3 construction are admissible.",
+      "status": "proved",
+      "declarations": [
+        {"name": "Hypertournaments.p3CanonicalSide_lowerHalf_admissible", "module": "Hypertournaments.OddToggleP3CompleteCanonicalSideAge"},
+        {"name": "Hypertournaments.p3CanonicalSide_upperHalf_admissible", "module": "Hypertournaments.OddToggleP3CompleteCanonicalSideAge"},
+        {"name": "Hypertournaments.p3CanonicalComplementarySpan_admissible", "module": "Hypertournaments.OddToggleP3CompleteCanonicalSideAge"}
+      ],
+      "notes": "Admissibility includes nontransversal packets and arbitrary vertex enumerations. These are side-membership lemmas; the non-amalgamation conclusion is the separate theorem above."
+    },
+    {
+      "id": "classification-exceptional-three-polarity",
+      "label": "lem:p3-polarity",
+      "kind": "lemma",
+      "title": "A unique endpoint bit makes an alternating transversal bad",
+      "scope": "After fixing an alternating interior packet and its link bits, exactly one remaining common endpoint bit makes the full packet homogeneous.",
+      "status": "proved",
+      "declarations": [
+        {"name": "Hypertournaments.p3UniqueBaseBit_for_alternating_endpoints", "module": "Hypertournaments.OddToggleP3MixedPolarity"},
+        {"name": "Hypertournaments.p3TrialPolarity_exact_finite_frequency", "module": "Hypertournaments.OddToggleP3TrialPolarityCount"}
+      ],
+      "notes": "The probabilistic existence argument is implemented by exact finite counts and the later simultaneous gauge-counting argument, rather than by introducing an independence assumption for synthetic packets."
+    },
+    {
+      "id": "classification-exceptional-one-sides",
+      "label": "lem:p1-sides",
+      "kind": "lemma",
+      "title": "Admissibility of the exceptional one-modulo-four sides",
+      "scope": "For each arity 4k+5, the two explicitly constructed one-point sides belong to the even/switching palette enlarged by the homogeneous type.",
+      "status": "proved",
+      "declarations": [
+        {"name": "Hypertournaments.p1LeftSide_admissible", "module": "Hypertournaments.OddToggleP1SidesAdmissible"},
+        {"name": "Hypertournaments.p1RightSide_admissible", "module": "Hypertournaments.OddToggleP1SidesAdmissible"}
+      ],
+      "notes": "These certify the sides; the next theorem supplies the actual failure of ordinary amalgamation."
+    },
+    {
+      "id": "classification-exceptional-one-mod-four",
+      "label": "thm:p1",
+      "kind": "theorem",
+      "title": "The exceptional family in arities congruent to one modulo four",
+      "scope": "For every k ≥ 0, arity 4k+5 with palette toggleZero(switchingAllowed(4k+5)) has a bad ordinary one-point span and fails AP.",
+      "status": "proved",
+      "declarations": [
+        {"name": "Hypertournaments.p1BadOnePoint_all", "module": "Hypertournaments.OddToggleP1CompleteNoJoint"},
+        {"name": "Hypertournaments.p1NotHasAP_all", "module": "Hypertournaments.OddToggleP1CompleteNoJoint"}
+      ],
+      "notes": "Here toggling index zero adds the homogeneous type to the even/switching palette."
+    },
+    {
+      "id": "classification-five-presentation",
+      "label": null,
+      "kind": "definition",
+      "title": "Separate four- and five-vertex prescriptions",
+      "scope": "Constrained four five combines independent four-vertex local-index bits and five-vertex isomorphism-type bits; normalizedClass five uses exactly the four-types occurring in its allowed five-types.",
+      "status": "definition",
+      "declarations": [
+        {"name": "Hypertournaments.FiveConstrained.Constrained", "module": "Hypertournaments.FiveConstrained.Classes"},
+        {"name": "Hypertournaments.FiveConstrained.constrainedClass", "module": "Hypertournaments.FiveConstrained.Classes"},
+        {"name": "Hypertournaments.FiveConstrained.normalizedClass", "module": "Hypertournaments.FiveConstrained.Classes"},
+        {"name": "Hypertournaments.FiveConstrained.NormalizedFour", "module": "Hypertournaments.FiveConstrained.Classification"}
+      ],
+      "notes": "The five-type palette is a twelve-bit integer. A normalized presentation can impose a genuine condition on four vertices, even when described using its five-palette alone."
+    },
+    {
+      "id": "classification-five-normalization",
+      "label": "lem:five-normalization",
+      "kind": "lemma",
+      "title": "Unbounded amalgamation forces normalization",
+      "scope": "A consistent unbounded class with separate four/five prescriptions and ordinary AP admits precisely the four-types in the support of its five-palette.",
+      "status": "proved",
+      "declarations": [
+        {"name": "Hypertournaments.FiveConstrained.Consistent", "module": "Hypertournaments.FiveConstrained.Normalization"},
+        {"name": "Hypertournaments.FiveConstrained.normalization_of_hasAP", "module": "Hypertournaments.FiveConstrained.Normalization"},
+        {"name": "Hypertournaments.FiveConstrained.constrainedClass_iff_normalized_of_hasAP", "module": "Hypertournaments.FiveConstrained.Normalization"}
+      ],
+      "notes": "Consistency ensures the support is contained in the prescribed four-types. AP over the empty structure and actual unboundedness give the reverse inclusion."
+    },
+    {
+      "id": "classification-five-unbounded",
+      "label": null,
+      "kind": "lemma",
+      "title": "Unboundedness for the finite ternary census",
+      "scope": "A normalized five-palette is unbounded exactly when bit zero, the constant-orientation type P0, is admitted; the separate-prescription theorem additionally requires the constant-orientation four-type.",
+      "status": "proved",
+      "declarations": [
+        {"name": "Hypertournaments.FiveConstrained.normalizedClass_unbounded_iff", "module": "Hypertournaments.FiveConstrained.Unbounded"},
+        {"name": "Hypertournaments.FiveConstrained.constrainedClass_unbounded_iff", "module": "Hypertournaments.FiveConstrained.Unbounded"}
+      ],
+      "notes": "This reduces the valid normalized unbounded census to exactly 2048 palettes."
+    },
+    {
+      "id": "classification-five-main",
+      "label": "thm:five-classification",
+      "kind": "theorem",
+      "title": "The five normalized ternary amalgamation classes",
+      "scope": "For a valid twelve-bit normalized palette and an actually unbounded class, AP holds exactly for masks 1,119,257,3583,4095; AP and SAP agree. The consistent separate four/five formulation also requires normalization.",
+      "status": "proved",
+      "declarations": [
+        {"name": "Hypertournaments.FiveConstrained.normalized_unbounded_amalgamation_classification", "module": "Hypertournaments.FiveConstrained.Classification"},
+        {"name": "Hypertournaments.FiveConstrained.normalized_hasAP_iff_hasSAP", "module": "Hypertournaments.FiveConstrained.Classification"},
+        {"name": "Hypertournaments.FiveConstrained.constrained_amalgamation_classification", "module": "Hypertournaments.FiveConstrained.Classification"},
+        {"name": "Hypertournaments.FiveConstrained.constrained_hasAP_iff_hasSAP", "module": "Hypertournaments.FiveConstrained.Classification"}
+      ],
+      "notes": "The masks represent cyclic orders (1), H4-free (119), even (257), P9-free (3583), and unrestricted (4095). The numerical ordering in the theorem differs from the display order of the human table. These are normalized four/five classes, not literal five-only classes."
+    },
+    {
+      "id": "classification-five-only",
+      "label": "rem:five-only",
+      "kind": "remark",
+      "title": "Only two classes survive literal five-only constraints",
+      "scope": "When every four-vertex structure is admitted, a valid unbounded five-only class has AP exactly for masks 3583 and 4095, namely P9-free and unrestricted; both have SAP.",
+      "status": "proved",
+      "declarations": [
+        {"name": "Hypertournaments.FiveConstrained.fiveOnlyClass", "module": "Hypertournaments.FiveConstrained.Classification"},
+        {"name": "Hypertournaments.FiveConstrained.five_only_hasAP_iff", "module": "Hypertournaments.FiveConstrained.FiveOnlyClassification"},
+        {"name": "Hypertournaments.FiveConstrained.five_only_hasAP_iff_hasSAP", "module": "Hypertournaments.FiveConstrained.FiveOnlyClassification"},
+        {"name": "Hypertournaments.FiveConstrained.five_only_unbounded_amalgamation_iff", "module": "Hypertournaments.FiveConstrained.FiveOnlyClassification"}
+      ],
+      "notes": "Conditions on five vertices are vacuous on smaller carriers. Thus the first three normalized positive cases cannot be treated as positive literal five-only classes."
+    },
+    {
+      "id": "classification-five-catalogue-dictionary",
+      "label": null,
+      "kind": "lemma",
+      "title": "The twelve five-types and the positive-sign dictionary",
+      "scope": "The twelve representative masks classify actual five-vertex isomorphism types. Translating the source's positive-sign masks to literal Lean Boolean masks complements the ten bits and permutes type labels by (3 7)(10 11).",
+      "status": "proved",
+      "declarations": [
+        {"name": "Hypertournaments.FiveConstrained.representative_iso_iff_type5", "module": "Hypertournaments.FiveConstrained.CatalogueIsomorphism"},
+        {"name": "Hypertournaments.FiveConstrained.sourceTypeToLean", "module": "Hypertournaments.FiveConstrained.SupplementCatalogue"},
+        {"name": "Hypertournaments.FiveConstrained.type5_source_positive_mask", "module": "Hypertournaments.FiveConstrained.SupplementCatalogue"},
+        {"name": "Hypertournaments.FiveConstrained.sourcePositiveRepresentative_isomorphic", "module": "Hypertournaments.FiveConstrained.SupplementCatalogue"},
+        {"name": "Hypertournaments.FiveConstrained.sourceTypeToLean_support4", "module": "Hypertournaments.FiveConstrained.SupplementCatalogue"},
+        {"name": "Hypertournaments.FiveConstrained.sourceTypeToLean_positive_palette", "module": "Hypertournaments.FiveConstrained.SupplementCatalogue"}
+      ],
+      "notes": "This corresponds to the five-type table and the formalization appendix. The dictionary is witnessed by actual preserving vertex permutations. It fixes P9, all four-type supports, and each of the five positive palettes."
+    },
+    {
+      "id": "classification-five-certificates",
+      "label": null,
+      "kind": "theorem",
+      "title": "Complete checked coverage of the 2043 negative palettes",
+      "scope": "Among the 2048 normalized palettes containing P0, every nonpositive palette is blocked by one of 37 concrete checked one-point diagrams; each checked bounded diagram excludes actual ordinary AP.",
+      "status": "proved",
+      "declarations": [
+        {"name": "Hypertournaments.FiveConstrained.exists_certificate", "module": "Hypertournaments.FiveConstrained.CertificatesCoverage"},
+        {"name": "Hypertournaments.FiveConstrained.certificateCheck_not_hasAP_of_bounded", "module": "Hypertournaments.FiveConstrained.CertificateSoundness"},
+        {"name": "Hypertournaments.FiveConstrained.normalized_not_hasAP", "module": "Hypertournaments.FiveConstrained.Classification"}
+      ],
+      "notes": "Coverage and soundness are separate proofs. Soundness uses intrinsic embeddings, permits vertex identification, and rules out larger amalgam targets by restricting to the union of the two images. These claims do not rely on an external search program being trusted."
+    },
+    {
+      "id": "classification-p9-properties",
+      "label": null,
+      "kind": "theorem",
+      "title": "The P9-free class has SAP, Ramsey expansions, and the ordering property",
+      "scope": "The five-vertex structure P9 is pair-cancelling. Its omission class has strong amalgamation; freely ordered finite members form a Ramsey class and satisfy the ordering property.",
+      "status": "proved",
+      "declarations": [
+        {"name": "Hypertournaments.FiveConstrained.p9", "module": "Hypertournaments.FiveConstrained.P9"},
+        {"name": "Hypertournaments.FiveConstrained.p9_pairCancelling", "module": "Hypertournaments.FiveConstrained.P9"},
+        {"name": "Hypertournaments.FiveConstrained.p9_hasStrongAmalgamation", "module": "Hypertournaments.FiveConstrained.P9Consequences"},
+        {"name": "Hypertournaments.FiveConstrained.p9_ordered_ramsey", "module": "Hypertournaments.FiveConstrained.P9Consequences"},
+        {"name": "Hypertournaments.FiveConstrained.p9_ordering_property", "module": "Hypertournaments.FiveConstrained.P9Consequences"}
+      ],
+      "notes": "These are applications of the main article's general pair-cancelling completion theorems to the new positive example in the supplement. The ordering theorem quantifies over every subsequently chosen pair of free linear orders."
+    }
+  ]
+}

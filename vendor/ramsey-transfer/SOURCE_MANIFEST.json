@@ -1,0 +1,1521 @@
+{
+  "schema_version": 1,
+  "repository": "https://github.com/shulda/lean_cco",
+  "commit": "48a6f3d8bf02bb0dfeb30f69bec8e9d0afa764e6",
+  "entrypoints": [
+    "CCO.UnaryHN.IteratedTransfer",
+    "CCO.UnaryHN.OrderedAmbient"
+  ],
+  "module_count": 119,
+  "source_bytes": 854980,
+  "source_digest_sha256": "ae194b3154e25d52e71523b0b8eae966acb6f5c851dc94e2aed9c52ef1ab3422",
+  "digest_format": "SHA256 of sorted lines: SHA256(file) + two spaces + relative module path + newline",
+  "receiving_lean": "4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "library_options": {
+    "CCO": {
+      "autoImplicit": false,
+      "relaxedAutoImplicit": false
+    },
+    "PartiteConstruction": {
+      "autoImplicit": true,
+      "relaxedAutoImplicit": true
+    },
+    "SuccessorTree": {
+      "autoImplicit": true,
+      "relaxedAutoImplicit": true
+    }
+  },
+  "files": [
+    {
+      "module": "CCO.UnaryHN.AdmissibleClass",
+      "path": "CCO/UnaryHN/AdmissibleClass.lean",
+      "upstream_path": "CCO/UnaryHN/AdmissibleClass.lean",
+      "bytes": 1580,
+      "sha256": "46538ab48f0717f5a9b9abd0c1002655bffaffe50ca180684eb24b7274ff67d9",
+      "git_blob_sha1": "5384082c65419cadf82c2ae0194e35a7ae4366a6",
+      "imports": [
+        "CCO.UnaryHN.NativeTransferBasis",
+        "PartiteConstruction.Ramsey.AllThosePartialFiniteModels",
+        "PartiteConstruction.Functional.WeakOperations"
+      ]
+    },
+    {
+      "module": "CCO.UnaryHN.ClosedAmalgam",
+      "path": "CCO/UnaryHN/ClosedAmalgam.lean",
+      "upstream_path": "CCO/UnaryHN/ClosedAmalgam.lean",
+      "bytes": 7194,
+      "sha256": "ff934255d426492b1154af4c49ffb4dbbd2e64d43ce72ec8306759d1e0710a81",
+      "git_blob_sha1": "254fb69e87dc1b16b74174ed544bd7913ff9e72e",
+      "imports": [
+        "CCO.UnaryHN.UnaryFunctions",
+        "PartiteConstruction.Functional.WeakAttachment"
+      ]
+    },
+    {
+      "module": "CCO.UnaryHN.ClosedLocal",
+      "path": "CCO/UnaryHN/ClosedLocal.lean",
+      "upstream_path": "CCO/UnaryHN/ClosedLocal.lean",
+      "bytes": 3126,
+      "sha256": "f6c7e469ca013ca1eaf0226c3221faadb10772d5d761293f84c69786499a988c",
+      "git_blob_sha1": "dd30d8e3f415609538ecfd8f97614b3283c01aa5",
+      "imports": [
+        "CCO.UnaryHN.UnaryFunctions",
+        "PartiteConstruction.Functional.WeakOperations"
+      ]
+    },
+    {
+      "module": "CCO.UnaryHN.InitialCompletion",
+      "path": "CCO/UnaryHN/InitialCompletion.lean",
+      "upstream_path": "CCO/UnaryHN/InitialCompletion.lean",
+      "bytes": 4787,
+      "sha256": "f3cb762b257bfbcb380bcf18047653050f8c5807cb7161db3890d411df702af8",
+      "git_blob_sha1": "86d687712517942490ae856067074986be347fed",
+      "imports": [
+        "CCO.UnaryHN.ClosedAmalgam",
+        "CCO.UnaryHN.AdmissibleClass",
+        "PartiteConstruction.Functional.EHNInitial"
+      ]
+    },
+    {
+      "module": "CCO.UnaryHN.IteratedTransfer",
+      "path": "CCO/UnaryHN/IteratedTransfer.lean",
+      "upstream_path": "CCO/UnaryHN/IteratedTransfer.lean",
+      "bytes": 5221,
+      "sha256": "b0115b5b710b0d665e02d9d642ea3c0e44ef68fcd77a6ddaa234d24c751f1fc2",
+      "git_blob_sha1": "6ec27edd47e7ec4bcc22f49ff36484a877fe0ab2",
+      "imports": [
+        "CCO.UnaryHN.RankStep"
+      ]
+    },
+    {
+      "module": "CCO.UnaryHN.MarkedCompletion",
+      "path": "CCO/UnaryHN/MarkedCompletion.lean",
+      "upstream_path": "CCO/UnaryHN/MarkedCompletion.lean",
+      "bytes": 1413,
+      "sha256": "68260681ea347d7e4142f10f45fafcd34b855daf16efc6d0e5519f15d5230018",
+      "git_blob_sha1": "176ffba363e29958995c3fd1d41fd68c00d8d997",
+      "imports": [
+        "CCO.UnaryHN.NativeTransferBasis"
+      ]
+    },
+    {
+      "module": "CCO.UnaryHN.MixedCompletion",
+      "path": "CCO/UnaryHN/MixedCompletion.lean",
+      "upstream_path": "CCO/UnaryHN/MixedCompletion.lean",
+      "bytes": 6931,
+      "sha256": "696b3848af85a83c82d51470b6dd5f928c479536964d29847f0b6c898689f677",
+      "git_blob_sha1": "1425208bf46457078f43f1f4dfcb1cf20c4e70b6",
+      "imports": [
+        "CCO.UnaryHN.ClosedAmalgam",
+        "CCO.UnaryHN.ClosedLocal",
+        "CCO.UnaryHN.MarkedCompletion"
+      ]
+    },
+    {
+      "module": "CCO.UnaryHN.NativeTransferBasis",
+      "path": "CCO/UnaryHN/NativeTransferBasis.lean",
+      "upstream_path": "CCO/UnaryHN/NativeTransferBasis.lean",
+      "bytes": 5156,
+      "sha256": "31e0ec535849ac6f1ff26d9965e86adcf3540a4c076130ed483b92106b8f0e48",
+      "git_blob_sha1": "983195681b79642d0f8b78110b3f15311e47b2f8",
+      "imports": [
+        "PartiteConstruction.Functional.SingletonExpansion",
+        "PartiteConstruction.Functional.WeakInvariant",
+        "PartiteConstruction.Structure.FreeAmalgamationClass"
+      ]
+    },
+    {
+      "module": "CCO.UnaryHN.OrderedAmbient",
+      "path": "CCO/UnaryHN/OrderedAmbient.lean",
+      "upstream_path": "CCO/UnaryHN/OrderedAmbient.lean",
+      "bytes": 3037,
+      "sha256": "88e7a7d28eeae1822cedd018199e186d50844e3ac00ef766968c4d7f806a6ad1",
+      "git_blob_sha1": "5fbe6070d147fee42dd36ef90c3154ffd0146bee",
+      "imports": [
+        "CCO.UnaryHN.NativeTransferBasis",
+        "PartiteConstruction.Ramsey.AllThosePartialFiniteModels",
+        "PartiteConstruction.Structure.Order"
+      ]
+    },
+    {
+      "module": "CCO.UnaryHN.PictureInvariant",
+      "path": "CCO/UnaryHN/PictureInvariant.lean",
+      "upstream_path": "CCO/UnaryHN/PictureInvariant.lean",
+      "bytes": 5122,
+      "sha256": "b1a12cf24cc36d7fc388514354be7772a3dd064f6bc4a4b01afc62a54aa885da",
+      "git_blob_sha1": "aeba3856f3c9f4e4b8bdc675fc5724ed7c063702",
+      "imports": [
+        "CCO.UnaryHN.StageInvariant",
+        "PartiteConstruction.Functional.EHNPicture"
+      ]
+    },
+    {
+      "module": "CCO.UnaryHN.RamseyInvariant",
+      "path": "CCO/UnaryHN/RamseyInvariant.lean",
+      "upstream_path": "CCO/UnaryHN/RamseyInvariant.lean",
+      "bytes": 5629,
+      "sha256": "f20755eec2d425c8c523795d7f8a90b2b41235c914896062d261504c5cac2ec7",
+      "git_blob_sha1": "9581e9c26f7bc258de97da553780d928aea9f1f3",
+      "imports": [
+        "PartiteConstruction.Functional.EHNConstruction"
+      ]
+    },
+    {
+      "module": "CCO.UnaryHN.RankStep",
+      "path": "CCO/UnaryHN/RankStep.lean",
+      "upstream_path": "CCO/UnaryHN/RankStep.lean",
+      "bytes": 6140,
+      "sha256": "75f87e1cfa3d9415f1ae01478b955193876d5366706b164f5166f783f218de9f",
+      "git_blob_sha1": "aec2c5c870dd981878e79b1797eacf9c783224b7",
+      "imports": [
+        "CCO.UnaryHN.MixedCompletion",
+        "CCO.UnaryHN.InitialCompletion",
+        "CCO.UnaryHN.PictureInvariant",
+        "CCO.UnaryHN.RamseyInvariant"
+      ]
+    },
+    {
+      "module": "CCO.UnaryHN.StageInvariant",
+      "path": "CCO/UnaryHN/StageInvariant.lean",
+      "upstream_path": "CCO/UnaryHN/StageInvariant.lean",
+      "bytes": 3972,
+      "sha256": "409416ce2819572df68bca9a64e99f37a0637ce84d97723ad1273e4403b641fb",
+      "git_blob_sha1": "fcf16f51146ba82d794a3e4e516784c8bb2621e9",
+      "imports": [
+        "PartiteConstruction.Functional.EHNStage"
+      ]
+    },
+    {
+      "module": "CCO.UnaryHN.UnaryFunctions",
+      "path": "CCO/UnaryHN/UnaryFunctions.lean",
+      "upstream_path": "CCO/UnaryHN/UnaryFunctions.lean",
+      "bytes": 5247,
+      "sha256": "402f609960e9b7e08399ef7c651c7a72f9fc6ead5731eca9673b1b773f17b2ab",
+      "git_blob_sha1": "10c0e55576bb4692b019ac661847923d131357e3",
+      "imports": [
+        "CCO.UnaryHN.NativeTransferBasis",
+        "Lean.Elab.Tactic.Omega"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.Attachment",
+      "path": "PartiteConstruction/Functional/Attachment.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/Attachment.lean",
+      "bytes": 8882,
+      "sha256": "6c6437f0e9dfb8ecb323cd2394c6c18850be67a72e935d679d1073ca533013ac",
+      "git_blob_sha1": "ebe59d97fa88fd78bbaf19d51c011778cba9e338",
+      "imports": [
+        "PartiteConstruction.Functional.Operations",
+        "PartiteConstruction.Structure.Attachment"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.Basic",
+      "path": "PartiteConstruction/Functional/Basic.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/Basic.lean",
+      "bytes": 2805,
+      "sha256": "397dbff9cfa4e1e997ca8b779dce1374719ef2ee0b1d9dce174e80d9295bc7d5",
+      "git_blob_sha1": "98cf630ca942b3b30eccf7a0b97d0c05f33a3753",
+      "imports": [
+        "PartiteConstruction.Structure.Basic"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.Closed",
+      "path": "PartiteConstruction/Functional/Closed.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/Closed.lean",
+      "bytes": 17596,
+      "sha256": "72fdd3f560f09405776793371a2aa3b25623849ba3f84fc8cd6b30e6e8199883",
+      "git_blob_sha1": "f7f46f52d03347aac80b3c17edc91ec91aa1db5d",
+      "imports": [
+        "PartiteConstruction.Structure.Relationalize",
+        "PartiteConstruction.Partite.Basic"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.ClosedAttachment",
+      "path": "PartiteConstruction/Functional/ClosedAttachment.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/ClosedAttachment.lean",
+      "bytes": 15256,
+      "sha256": "b038b27ff259da543082d2beaecedc6646c04192716bedc2de46b00462b604af",
+      "git_blob_sha1": "c420dc0e3efd44baeb22db3276c7631eec5d86f7",
+      "imports": [
+        "PartiteConstruction.Functional.ClosedPartite",
+        "PartiteConstruction.Partite.Attachment"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.ClosedOperations",
+      "path": "PartiteConstruction/Functional/ClosedOperations.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/ClosedOperations.lean",
+      "bytes": 2315,
+      "sha256": "b3de0cd80faca1f6dcc6deb5f686c27b40cb9c50ffd623f998d2a7608210cf63",
+      "git_blob_sha1": "a4b149b562d7cd3a169512057cfb3cbce70ccb25",
+      "imports": [
+        "PartiteConstruction.Functional.Closed",
+        "PartiteConstruction.Partite.Operations",
+        "PartiteConstruction.Partite.Induced"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.ClosedPartite",
+      "path": "PartiteConstruction/Functional/ClosedPartite.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/ClosedPartite.lean",
+      "bytes": 12316,
+      "sha256": "96d2778990284b2d07b4badd7cbd60ff1f48c43974955bfcc243e9c648c29be9",
+      "git_blob_sha1": "7820d42278b5c51f8ac8cb68e5eb901e65466e48",
+      "imports": [
+        "PartiteConstruction.Functional.Closed",
+        "PartiteConstruction.Partite.Induced",
+        "PartiteConstruction.HalesJewett.Finite"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.ClosedPicture",
+      "path": "PartiteConstruction/Functional/ClosedPicture.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/ClosedPicture.lean",
+      "bytes": 13851,
+      "sha256": "6dd7d136cac428e54dd694117653421140eba47d294ebdd53fb0320d3b3ffe69",
+      "git_blob_sha1": "7fab6bf70a5c205bcfc8ec096d84aa904122022d",
+      "imports": [
+        "PartiteConstruction.Functional.ClosedPartite",
+        "PartiteConstruction.Functional.ClosedOperations",
+        "PartiteConstruction.Functional.ClosedAttachment",
+        "PartiteConstruction.Partite.InducedAttachment",
+        "PartiteConstruction.Partite.Picture"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.ClosedPictureRepair",
+      "path": "PartiteConstruction/Functional/ClosedPictureRepair.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/ClosedPictureRepair.lean",
+      "bytes": 16228,
+      "sha256": "709e4c4986d7763c77aed768eeaac56382164b4371924e920a6ff727d3c25899",
+      "git_blob_sha1": "0a6aceed7ecbd0ed0d687e3395af2ade9813bfaa",
+      "imports": [
+        "PartiteConstruction.Functional.ClosedPicture",
+        "PartiteConstruction.Partite.Picture"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.EHNConstruction",
+      "path": "PartiteConstruction/Functional/EHNConstruction.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/EHNConstruction.lean",
+      "bytes": 6931,
+      "sha256": "8a5641cf43f947e924b902776bb3b8aeb556f8dcc276810fdffea25584ed276a",
+      "git_blob_sha1": "78732b65dce30491b247e07cc5299611a1f45e68",
+      "imports": [
+        "PartiteConstruction.Functional.EHNInitial",
+        "PartiteConstruction.Functional.EHNPicture"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.EHNInitial",
+      "path": "PartiteConstruction/Functional/EHNInitial.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/EHNInitial.lean",
+      "bytes": 8754,
+      "sha256": "d9978e78b2d8b22415fd55a709bc337929eb8ff9c97c8ec15f8b3ca65db6d421",
+      "git_blob_sha1": "14ea23775e51bb4a1804e09fbc2bbf85e3fccab3",
+      "imports": [
+        "PartiteConstruction.Functional.EHNStage",
+        "PartiteConstruction.Functional.Closed",
+        "PartiteConstruction.Structure.NullaryRoot"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.EHNPicture",
+      "path": "PartiteConstruction/Functional/EHNPicture.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/EHNPicture.lean",
+      "bytes": 3381,
+      "sha256": "04f51e1d4cdbbf6466a6a70e08daa3f99983f2db8331216c13bb07af4fe7d7ec",
+      "git_blob_sha1": "c23003980599a78f150500cec93609dc21a61f97",
+      "imports": [
+        "PartiteConstruction.Functional.EHNStage"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.EHNStage",
+      "path": "PartiteConstruction/Functional/EHNStage.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/EHNStage.lean",
+      "bytes": 4297,
+      "sha256": "c41f03c43770f7235174f5ae5319f8c1332cd3985784504bdb965906d3454e57",
+      "git_blob_sha1": "5ad935b80d31eabcc75967831778cfdc7e34bf9a",
+      "imports": [
+        "Mathlib.Basic.Finite.Sum",
+        "PartiteConstruction.Functional.WeakAttachment"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.FunctionDomains",
+      "path": "PartiteConstruction/Functional/FunctionDomains.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/FunctionDomains.lean",
+      "bytes": 8701,
+      "sha256": "c439ee9b65a370d609d44c32cd1f353daa827311b1d2a60ebccfe24b5a5d718e",
+      "git_blob_sha1": "8955b98c339b2985d26854442006ea78c826cb93",
+      "imports": [
+        "PartiteConstruction.Functional.SingletonExpansion",
+        "PartiteConstruction.Functional.Closed"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.HalfClosedConstruction",
+      "path": "PartiteConstruction/Functional/HalfClosedConstruction.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/HalfClosedConstruction.lean",
+      "bytes": 13914,
+      "sha256": "ed4b01f0ff463c9190b6e739e818d4a7c08c776ffec6e6c79db226edf07f8e39",
+      "git_blob_sha1": "c401c57ce816a8e682bd7266f101ddcf7a32a1da",
+      "imports": [
+        "PartiteConstruction.Functional.HalfClosedInitial",
+        "PartiteConstruction.Functional.ClosedPicture"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.HalfClosedInitial",
+      "path": "PartiteConstruction/Functional/HalfClosedInitial.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/HalfClosedInitial.lean",
+      "bytes": 6197,
+      "sha256": "03a24d81a3cb7bed6506b91b53129ba96e67c5b691c0586f5640cf8167697844",
+      "git_blob_sha1": "cee72ccc8a4c285407b48cf075f926e1f3621f1f",
+      "imports": [
+        "PartiteConstruction.Functional.Closed",
+        "PartiteConstruction.Partite.Initial",
+        "PartiteConstruction.Partite.InducedInitial"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.HalfClosedPartite",
+      "path": "PartiteConstruction/Functional/HalfClosedPartite.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/HalfClosedPartite.lean",
+      "bytes": 5265,
+      "sha256": "dd6da347571ed5505a802e329171edd07a76be3695f83f401c14c7f3045c3b74",
+      "git_blob_sha1": "ec86418bb799cc3b22d1164c255c3bc65c2109c7",
+      "imports": [
+        "PartiteConstruction.Functional.PartPredicates"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.Induced",
+      "path": "PartiteConstruction/Functional/Induced.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/Induced.lean",
+      "bytes": 10258,
+      "sha256": "04dce62bd25031d066a1ff9c85b534f0394ea8a7ba0f88f1b1c3e46dacd76237",
+      "git_blob_sha1": "3a6d7f6cb34287047b2aef6ae1c73a93f44f4c1a",
+      "imports": [
+        "PartiteConstruction.Functional.Basic",
+        "PartiteConstruction.HalesJewett.Finite"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.NestedFlatten",
+      "path": "PartiteConstruction/Functional/NestedFlatten.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/NestedFlatten.lean",
+      "bytes": 6219,
+      "sha256": "26c3425802317527136e1921a54bfdc0ff82860b58a88476759575dc3bbf2004",
+      "git_blob_sha1": "c052e40a4f448a82edd2411601a74d8947734d32",
+      "imports": [
+        "PartiteConstruction.Functional.ClosedPictureRepair",
+        "PartiteConstruction.Partite.Induced"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.Operations",
+      "path": "PartiteConstruction/Functional/Operations.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/Operations.lean",
+      "bytes": 6877,
+      "sha256": "7f5cf04b65455e175d7aec22043b8988cc63e8c8598d2b8b8dfbeeb1725e5165",
+      "git_blob_sha1": "341b368df0f018de0c198ee607d6723215ad0263",
+      "imports": [
+        "PartiteConstruction.Functional.Basic"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.OrderedRecursive",
+      "path": "PartiteConstruction/Functional/OrderedRecursive.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/OrderedRecursive.lean",
+      "bytes": 8749,
+      "sha256": "2c0664b673fec44229d0a49e3ec359c36a12d7a498624f0f0e8cfc79f5b109e1",
+      "git_blob_sha1": "72ec6f78fca2511e1ac1539b41b2d5856a4ca56b",
+      "imports": [
+        "Mathlib.Data.Fin.VecNotation",
+        "PartiteConstruction.Structure.Order",
+        "PartiteConstruction.Functional.SemiClosedRecursiveConstruction",
+        "PartiteConstruction.Functional.SingletonReduction",
+        "PartiteConstruction.Ramsey.Ordered"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.PartPredicates",
+      "path": "PartiteConstruction/Functional/PartPredicates.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/PartPredicates.lean",
+      "bytes": 15519,
+      "sha256": "fdf178190e4ff9d1469bfbc5a04d875f524f4f0c05c531b36d1ee3ab2a37939d",
+      "git_blob_sha1": "09a7deb1a6ef78904ebfbe2dd02240fb5c58549f",
+      "imports": [
+        "PartiteConstruction.Functional.HalfClosedConstruction",
+        "PartiteConstruction.Functional.NestedFlatten"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.RecursiveConstruction",
+      "path": "PartiteConstruction/Functional/RecursiveConstruction.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/RecursiveConstruction.lean",
+      "bytes": 17248,
+      "sha256": "3a2c6fab63ff41c885f4bf340010337c33f7aacbce357081e854a41ec92fef00",
+      "git_blob_sha1": "aa2b42375efc4a2ec2a2094c4b0b54a18eb50be6",
+      "imports": [
+        "PartiteConstruction.Functional.HalfClosedPartite",
+        "PartiteConstruction.Functional.HalfClosedInitial",
+        "PartiteConstruction.Ramsey.Basic"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.RootPrune",
+      "path": "PartiteConstruction/Functional/RootPrune.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/RootPrune.lean",
+      "bytes": 4922,
+      "sha256": "d9e95540b9c7bcd04e640dc0000b1b2e35ffeb26f0943bd2865c817b156562f1",
+      "git_blob_sha1": "0996ca7adea963620bad8fa0788d8745c7fdbf15",
+      "imports": [
+        "PartiteConstruction.Functional.FunctionDomains",
+        "PartiteConstruction.Ramsey.Basic"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.SemiClosedAttachment",
+      "path": "PartiteConstruction/Functional/SemiClosedAttachment.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/SemiClosedAttachment.lean",
+      "bytes": 21983,
+      "sha256": "fbe34dc8bc11bccc785914a6a532e4966514eb88e06b7bee377b19684435d537",
+      "git_blob_sha1": "0c432fdb29a559b4338dfb004e2ca17be2133d40",
+      "imports": [
+        "PartiteConstruction.Functional.SemiClosedPartite",
+        "PartiteConstruction.Functional.ClosedAttachment"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.SemiClosedPartite",
+      "path": "PartiteConstruction/Functional/SemiClosedPartite.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/SemiClosedPartite.lean",
+      "bytes": 2903,
+      "sha256": "b2383a589fd48047ce240209f3c9435f094b5e4184bdfe430a6f19dbe243b557",
+      "git_blob_sha1": "d4abf47510108bea2483d5ff1d1e9b85a8074bd4",
+      "imports": [
+        "PartiteConstruction.Functional.FunctionDomains",
+        "PartiteConstruction.Functional.SingletonPartite"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.SemiClosedPicture",
+      "path": "PartiteConstruction/Functional/SemiClosedPicture.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/SemiClosedPicture.lean",
+      "bytes": 12796,
+      "sha256": "8da14624a17ed290b99ce2d5698818a9e4653ccee48b91603823a2699db7d919",
+      "git_blob_sha1": "2ceb9e9a25c1725f980496a627442780f04a4f12",
+      "imports": [
+        "PartiteConstruction.Functional.SemiClosedAttachment",
+        "PartiteConstruction.Functional.RecursiveConstruction"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.SemiClosedPictureCore",
+      "path": "PartiteConstruction/Functional/SemiClosedPictureCore.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/SemiClosedPictureCore.lean",
+      "bytes": 6474,
+      "sha256": "0346db4881f3ef5ade744a5351a19f43cf933ede4a897bdeb3fdf54389e13adc",
+      "git_blob_sha1": "133e5ccf84cf0cc4d7f43ade33510acf871ceb85",
+      "imports": [
+        "PartiteConstruction.Functional.SemiClosedPicture"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.SemiClosedPictureProperty",
+      "path": "PartiteConstruction/Functional/SemiClosedPictureProperty.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/SemiClosedPictureProperty.lean",
+      "bytes": 7415,
+      "sha256": "8e0342978ea2eb71888596148557232e42757938768afdde226c26b8c15f0814",
+      "git_blob_sha1": "a8927d7e09580de113800a660d177f567c6fa0b7",
+      "imports": [
+        "PartiteConstruction.Functional.SemiClosedPictureCore"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.SemiClosedRecursiveConstruction",
+      "path": "PartiteConstruction/Functional/SemiClosedRecursiveConstruction.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/SemiClosedRecursiveConstruction.lean",
+      "bytes": 11154,
+      "sha256": "20472cf19cd214e6e06e4264915c43ac7940e8308c28e8a460c283bf71af7d75",
+      "git_blob_sha1": "ecb9fb64197ef6480bc30867f6ad1d91d35baab4",
+      "imports": [
+        "PartiteConstruction.Functional.SemiClosedPictureProperty",
+        "PartiteConstruction.Functional.RootPrune",
+        "PartiteConstruction.Functional.SingletonHalfClosedPartite"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.SingletonClosedPicture",
+      "path": "PartiteConstruction/Functional/SingletonClosedPicture.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/SingletonClosedPicture.lean",
+      "bytes": 3525,
+      "sha256": "ddc73488f8c09716f7f567e295e90115c308999ce8d18537eb5d1bc1d62ff381",
+      "git_blob_sha1": "28cf646f139efda96cbf4f105c2808653ce843ec",
+      "imports": [
+        "PartiteConstruction.Functional.SingletonPartite",
+        "PartiteConstruction.Functional.ClosedPicture"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.SingletonExpansion",
+      "path": "PartiteConstruction/Functional/SingletonExpansion.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/SingletonExpansion.lean",
+      "bytes": 12068,
+      "sha256": "e502a0399e82db8331a01127301f395414f8ea998c021477d2047cd4e9658065",
+      "git_blob_sha1": "0f525cd70cde7a4d9e45deb15e2f8f1f62c3ebb4",
+      "imports": [
+        "PartiteConstruction.Structure.Basic",
+        "Mathlib.Data.Finset.Sort"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.SingletonHalfClosedConstruction",
+      "path": "PartiteConstruction/Functional/SingletonHalfClosedConstruction.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/SingletonHalfClosedConstruction.lean",
+      "bytes": 7974,
+      "sha256": "761d56e676facbba78bd0a818e5614481b099777f200f58af4ba6d4b2bd78c77",
+      "git_blob_sha1": "06c9e42a6b52612f30a4d86e2cee96ea72679b7e",
+      "imports": [
+        "PartiteConstruction.Functional.SingletonClosedPicture",
+        "PartiteConstruction.Functional.HalfClosedConstruction"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.SingletonHalfClosedPartite",
+      "path": "PartiteConstruction/Functional/SingletonHalfClosedPartite.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/SingletonHalfClosedPartite.lean",
+      "bytes": 4344,
+      "sha256": "93a113692de6c3b16960a9e27ef797e45b4472553b4bf222072cff0696ff0f2c",
+      "git_blob_sha1": "1466a576819c10b4e403ecf70e68b892a7fdcba8",
+      "imports": [
+        "PartiteConstruction.Functional.SingletonHalfClosedConstruction",
+        "PartiteConstruction.Functional.HalfClosedPartite"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.SingletonPartite",
+      "path": "PartiteConstruction/Functional/SingletonPartite.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/SingletonPartite.lean",
+      "bytes": 14687,
+      "sha256": "b96682ecff8ba1064a33e245e516cbb34bfd12999ab8c99d64568bed6b768b67",
+      "git_blob_sha1": "6e6a1a765da03f8299144a595b2d6f87773a32c4",
+      "imports": [
+        "PartiteConstruction.Functional.ClosedAttachment",
+        "PartiteConstruction.Functional.HalfClosedInitial",
+        "PartiteConstruction.Functional.NestedFlatten",
+        "PartiteConstruction.Functional.PartPredicates"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.SingletonReduction",
+      "path": "PartiteConstruction/Functional/SingletonReduction.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/SingletonReduction.lean",
+      "bytes": 6471,
+      "sha256": "360588456c07e5444d98f270cc0be9d868f26bfad00dbce7811fb80087edfb05",
+      "git_blob_sha1": "ae38a6a10ead2b77e82ede7bdc0b6cb6476c6ecd",
+      "imports": [
+        "PartiteConstruction.Functional.SingletonExpansion"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.WeakAttachment",
+      "path": "PartiteConstruction/Functional/WeakAttachment.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/WeakAttachment.lean",
+      "bytes": 5550,
+      "sha256": "7881dde0e1c49a8818c01eb78fa921caeaf69e05f289f306087531de04e4c715",
+      "git_blob_sha1": "61a8826890d8ac223abbeab9b1862814d8e0c789",
+      "imports": [
+        "PartiteConstruction.Functional.WeakOperations",
+        "PartiteConstruction.Functional.Attachment"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.WeakInduced",
+      "path": "PartiteConstruction/Functional/WeakInduced.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/WeakInduced.lean",
+      "bytes": 5772,
+      "sha256": "44c53a041b03fbb22907f20604768fd460c8e86460bba65ec3c7afba9d34cee6",
+      "git_blob_sha1": "5b2f0cf99de604b592725f6d282afe6a32e1cfc4",
+      "imports": [
+        "PartiteConstruction.Functional.Induced",
+        "PartiteConstruction.Structure.WeakHomomorphism"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.WeakInvariant",
+      "path": "PartiteConstruction/Functional/WeakInvariant.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/WeakInvariant.lean",
+      "bytes": 6934,
+      "sha256": "04617c1261df997784859347efd5bb8675b45aaaab9fc923020998139de3e752",
+      "git_blob_sha1": "c0170080f55f676073111844a1d1a6bdefb49d14",
+      "imports": [
+        "PartiteConstruction.Functional.WeakInduced",
+        "PartiteConstruction.Structure.GeneratedWeakHomImage"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Functional.WeakOperations",
+      "path": "PartiteConstruction/Functional/WeakOperations.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Functional/WeakOperations.lean",
+      "bytes": 6869,
+      "sha256": "cfda2a8a2c4671a95f776e0dfa2e8b57b5a7ecf86ccd87859489ce45e0e48c39",
+      "git_blob_sha1": "e7f8182f2c22537a501f744b1ccc4887a7392d0a",
+      "imports": [
+        "PartiteConstruction.Functional.WeakInvariant",
+        "PartiteConstruction.Functional.Operations"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.HalesJewett.Finite",
+      "path": "PartiteConstruction/HalesJewett/Finite.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/HalesJewett/Finite.lean",
+      "bytes": 2705,
+      "sha256": "5b83fc5dbc5fd376beb94a8feb075e42bda60af1d39f61cb5f48f4f2451181e5",
+      "git_blob_sha1": "c20ff158f5b5be508e2a5476891074eea13383e5",
+      "imports": [
+        "SuccessorTree.HalesJewett.AlphabetInduction"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Partite.Attachment",
+      "path": "PartiteConstruction/Partite/Attachment.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Partite/Attachment.lean",
+      "bytes": 2391,
+      "sha256": "46a37004daf25a6dfae1b3107cb8f9f6d8eb2eaf7ea6e4b120e0e55ea2ac8e5c",
+      "git_blob_sha1": "5369d7e3be98b9d249f335afca5f9d3d6c0e03df",
+      "imports": [
+        "PartiteConstruction.Relational.Attachment",
+        "PartiteConstruction.Partite.Operations"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Partite.Basic",
+      "path": "PartiteConstruction/Partite/Basic.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Partite/Basic.lean",
+      "bytes": 2336,
+      "sha256": "93b88bad97a822ee3ff4f878d7971dad9252ca60b08cbabab82eeacc492d6e4a",
+      "git_blob_sha1": "2f7327d7321cca06c51f974d69b690957fc010d0",
+      "imports": [
+        "PartiteConstruction.Ramsey.Basic"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Partite.Construction",
+      "path": "PartiteConstruction/Partite/Construction.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Partite/Construction.lean",
+      "bytes": 2569,
+      "sha256": "9501a88a34736ce9b8f2aea15fa5e8ce9c5accc40c436ca8b4b92553ed64d7bd",
+      "git_blob_sha1": "a0800e022c07c2234837c2087f30b1d81e246ec2",
+      "imports": [
+        "PartiteConstruction.Partite.Picture",
+        "PartiteConstruction.Partite.Fusion"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Partite.Fusion",
+      "path": "PartiteConstruction/Partite/Fusion.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Partite/Fusion.lean",
+      "bytes": 1821,
+      "sha256": "24cbecf33a6bb5fc3f498fba2260e21bbdf92c68029ad9a01dcf25d9dd5f35a0",
+      "git_blob_sha1": "5dcdc7c880f6925a4a46751feee91920a8c617c3",
+      "imports": [
+        "PartiteConstruction.Partite.Projection"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Partite.Induced",
+      "path": "PartiteConstruction/Partite/Induced.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Partite/Induced.lean",
+      "bytes": 12657,
+      "sha256": "d00f93ebe0adde75790d25368647898d22055927c6c0fd776d68cff523601f24",
+      "git_blob_sha1": "a0e4b78062e1aef15e8301291a27fc1412445fa9",
+      "imports": [
+        "PartiteConstruction.Relational.Homomorphism",
+        "PartiteConstruction.Partite.NonInduced",
+        "PartiteConstruction.Partite.Operations"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Partite.InducedAttachment",
+      "path": "PartiteConstruction/Partite/InducedAttachment.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Partite/InducedAttachment.lean",
+      "bytes": 6144,
+      "sha256": "f90c2bcec7b6d16510f3568d7c2359f8a4fb38fa9256bddbd91153abef786740",
+      "git_blob_sha1": "8f1ceaf1daae8f7f8b69c44716bfbde66377c7f1",
+      "imports": [
+        "PartiteConstruction.Partite.Induced",
+        "PartiteConstruction.Partite.Attachment"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Partite.InducedInitial",
+      "path": "PartiteConstruction/Partite/InducedInitial.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Partite/InducedInitial.lean",
+      "bytes": 3863,
+      "sha256": "365107f2747365330628a1dadd7f6a9c9baba318fd2d72baa7de9b57a69ae741",
+      "git_blob_sha1": "de2fa2f174a0785f5e976246066df7cb8c758363",
+      "imports": [
+        "PartiteConstruction.Partite.Induced",
+        "PartiteConstruction.Partite.Initial"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Partite.Initial",
+      "path": "PartiteConstruction/Partite/Initial.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Partite/Initial.lean",
+      "bytes": 1261,
+      "sha256": "5cd4146a6d2227ffc86af38bc4f5a4cddfce61e8913a3fa069cd72334116696f",
+      "git_blob_sha1": "0660469e5c559762f5760319f052acf2cb083c92",
+      "imports": [
+        "PartiteConstruction.Partite.Basic"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Partite.Invariants",
+      "path": "PartiteConstruction/Partite/Invariants.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Partite/Invariants.lean",
+      "bytes": 3544,
+      "sha256": "fd6ba3e5dd582c96f93b7575d08306052180cd9eefa7ed5a0ea061310bc46977",
+      "git_blob_sha1": "6b8c1f653a5b43747c1c8321593dadc8e8c76633",
+      "imports": [
+        "PartiteConstruction.Partite.Construction"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Partite.NonInduced",
+      "path": "PartiteConstruction/Partite/NonInduced.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Partite/NonInduced.lean",
+      "bytes": 7638,
+      "sha256": "5cf761e4611d25a71d6d3d8ed8df0548097a2bf2b7d835c784d5b2ea93de9a0b",
+      "git_blob_sha1": "15d9cef438cd962a200b25aabc0affa36ecbbacb",
+      "imports": [
+        "PartiteConstruction.Partite.Basic",
+        "PartiteConstruction.Partite.Predicates",
+        "PartiteConstruction.HalesJewett.Finite"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Partite.Operations",
+      "path": "PartiteConstruction/Partite/Operations.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Partite/Operations.lean",
+      "bytes": 1965,
+      "sha256": "f73c8e67a3914736768e1297b797a8a4d65670fb71c7328c1e5c586c3c6effcb",
+      "git_blob_sha1": "772236ef6282aef33df7ce20c12ab704d383353e",
+      "imports": [
+        "PartiteConstruction.Partite.Basic"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Partite.Picture",
+      "path": "PartiteConstruction/Partite/Picture.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Partite/Picture.lean",
+      "bytes": 3809,
+      "sha256": "35dd8a1178be5316f94523da8fce290da4023ea589d4575bab49408fe34f33e5",
+      "git_blob_sha1": "3b254a792caa7d57e839a066be3b48d2e13f787b",
+      "imports": [
+        "Mathlib.Basic.Finite.Sum",
+        "PartiteConstruction.Partite.Attachment",
+        "PartiteConstruction.Partite.NonInduced",
+        "PartiteConstruction.Partite.Projection"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Partite.Predicates",
+      "path": "PartiteConstruction/Partite/Predicates.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Partite/Predicates.lean",
+      "bytes": 2489,
+      "sha256": "83a46e840f6ddfb3feed0141532b71ae3b1f5a3adcec1ccc5bbb84678bf253ed",
+      "git_blob_sha1": "5e627966b1bfc880871b4ada8c64dd4bb131beb4",
+      "imports": [
+        "PartiteConstruction.Partite.Basic"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Partite.Projection",
+      "path": "PartiteConstruction/Partite/Projection.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Partite/Projection.lean",
+      "bytes": 1631,
+      "sha256": "1bbdb8c3bd3e392a8eb36c8c6559e8f20e8166c251e76dff60fa0b4d7dc103b9",
+      "git_blob_sha1": "2dcd0f20d7516d532176a8e15b51634f739cf3b2",
+      "imports": [
+        "PartiteConstruction.Partite.Basic"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Ramsey.AllThoseFiniteModels",
+      "path": "PartiteConstruction/Ramsey/AllThoseFiniteModels.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Ramsey/AllThoseFiniteModels.lean",
+      "bytes": 2142,
+      "sha256": "35a9a8ef889d0676a0c830b4d29e42859a8b259bbe379e928aaf81ef34a339bd",
+      "git_blob_sha1": "72d6cc24ca107cfe071b75b3957fddaea0b282c0",
+      "imports": [
+        "PartiteConstruction.Ramsey.ForbiddenFunctionsAllArity"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Ramsey.AllThosePartialFiniteModels",
+      "path": "PartiteConstruction/Ramsey/AllThosePartialFiniteModels.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Ramsey/AllThosePartialFiniteModels.lean",
+      "bytes": 5239,
+      "sha256": "5cc3feccd6628bd4203d25465ee9b02e9fab4ec2aabcf93c0886ae36221b06cb",
+      "git_blob_sha1": "f50d08fbe712389680fa3bbe162ab4f69396c4cb",
+      "imports": [
+        "PartiteConstruction.Ramsey.AllThoseFiniteModels",
+        "PartiteConstruction.Functional.SingletonExpansion",
+        "PartiteConstruction.Ramsey.FreeAmalgamationFunctionsAllArity"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Ramsey.Basic",
+      "path": "PartiteConstruction/Ramsey/Basic.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Ramsey/Basic.lean",
+      "bytes": 1298,
+      "sha256": "a41a6ad256d77bfee0cb3f0908e97916dd10d03ee754d31b870a84eec86ee88d",
+      "git_blob_sha1": "1d335811607a5bb66234c6d9d9787eaef3e66c21",
+      "imports": [
+        "PartiteConstruction.Relational.Basic"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Ramsey.Finite",
+      "path": "PartiteConstruction/Ramsey/Finite.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Ramsey/Finite.lean",
+      "bytes": 8752,
+      "sha256": "8d94aa78cc5e6997868f8bcb97013a6321dc30990ab4af16a43d33df1b33e69e",
+      "git_blob_sha1": "28eb605834d90685b7cfe80d43a1571438f3a7a9",
+      "imports": [
+        "Mathlib.Data.Finset.Card",
+        "Mathlib.Data.Finset.Sort",
+        "Mathlib.Data.Fin.Tuple.Basic",
+        "Mathlib.Data.Fintype.Pi",
+        "Mathlib.Combinatorics.Pigeonhole",
+        "Mathlib.Order.Monotone.Basic"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Ramsey.ForbiddenFunctions",
+      "path": "PartiteConstruction/Ramsey/ForbiddenFunctions.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Ramsey/ForbiddenFunctions.lean",
+      "bytes": 8710,
+      "sha256": "fcc509cfb925da13f8ead3174fdffcbe5648b59ed43d874279e3f9bf6c73de52",
+      "git_blob_sha1": "828feecda0eabff344472c3000e057096d4c7fa6",
+      "imports": [
+        "Mathlib.Data.Fin.VecNotation",
+        "Mathlib.Tactic.FinCases",
+        "PartiteConstruction.Ramsey.FreeAmalgamationFunctions"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Ramsey.ForbiddenFunctionsAllArity",
+      "path": "PartiteConstruction/Ramsey/ForbiddenFunctionsAllArity.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Ramsey/ForbiddenFunctionsAllArity.lean",
+      "bytes": 3350,
+      "sha256": "d6044e0dc361e6cf001112256c5907b37ff9da2e28376809774199e3b628b340",
+      "git_blob_sha1": "cc148d17c40e47a073d5e0784529c799d9e1a5fe",
+      "imports": [
+        "Mathlib.Data.Fin.VecNotation",
+        "Mathlib.Tactic.FinCases",
+        "PartiteConstruction.Ramsey.ForbiddenFunctions",
+        "PartiteConstruction.Ramsey.FreeAmalgamationFunctionsAllArity"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Ramsey.FreeAmalgamationFunctions",
+      "path": "PartiteConstruction/Ramsey/FreeAmalgamationFunctions.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Ramsey/FreeAmalgamationFunctions.lean",
+      "bytes": 6839,
+      "sha256": "140c084456f951f8e984881081df05095ad0d4e156e10a8f6f29107293b2ed72",
+      "git_blob_sha1": "529bfd2eea8accbec78e6bf1eadf4bdafc763113",
+      "imports": [
+        "Mathlib.Data.Fin.VecNotation",
+        "Mathlib.Tactic.FinCases",
+        "PartiteConstruction.Functional.EHNConstruction",
+        "PartiteConstruction.Functional.OrderedRecursive"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Ramsey.FreeAmalgamationFunctionsAllArity",
+      "path": "PartiteConstruction/Ramsey/FreeAmalgamationFunctionsAllArity.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Ramsey/FreeAmalgamationFunctionsAllArity.lean",
+      "bytes": 5411,
+      "sha256": "4e70e3325e4e4cc7456dfcc0b910f41d1c1f57f545c9e6ca49c52dfae1a8d531",
+      "git_blob_sha1": "fc9977b4226246751bc23d53cd33adbb754dab69",
+      "imports": [
+        "PartiteConstruction.Structure.RootedOrder",
+        "PartiteConstruction.Structure.RootedCanonical",
+        "PartiteConstruction.Structure.RootedClass",
+        "PartiteConstruction.Ramsey.FreeAmalgamationFunctions"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Ramsey.FromProjections",
+      "path": "PartiteConstruction/Ramsey/FromProjections.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Ramsey/FromProjections.lean",
+      "bytes": 3331,
+      "sha256": "69c64f4a06ce95aa4736d55e6e96ff436e325e11634c4708369a915f5de1f551",
+      "git_blob_sha1": "ab6b95e4e70cdf5e13c66a101b2e43b7c8810448",
+      "imports": [
+        "PartiteConstruction.Partite.Initial",
+        "PartiteConstruction.Partite.Invariants"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Ramsey.Ordered",
+      "path": "PartiteConstruction/Ramsey/Ordered.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Ramsey/Ordered.lean",
+      "bytes": 6429,
+      "sha256": "c1b011d4622ab8d76ee8707d9eecc6e35a0f109a27b93f4aeb378525ed52d8cd",
+      "git_blob_sha1": "9592868a8f58cc5380162611f86ae936b3bf043f",
+      "imports": [
+        "Mathlib.Data.Fin.VecNotation",
+        "PartiteConstruction.Ramsey.Finite",
+        "PartiteConstruction.Ramsey.FromProjections",
+        "PartiteConstruction.Relational.Order"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Relational.Attachment",
+      "path": "PartiteConstruction/Relational/Attachment.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Relational/Attachment.lean",
+      "bytes": 8064,
+      "sha256": "8df91c463b5e17838884ce4fb42ae861991349355425031d78a0088c03d110ca",
+      "git_blob_sha1": "ba37d2ec212ae4edd0d5319ac610f39cbebcc066",
+      "imports": [
+        "PartiteConstruction.Relational.Basic",
+        "PartiteConstruction.Relational.Homomorphism"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Relational.Basic",
+      "path": "PartiteConstruction/Relational/Basic.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Relational/Basic.lean",
+      "bytes": 2808,
+      "sha256": "b248e043e552af3e1f1523cad779c809090652b787df3cabd0d74a7caf26f93b",
+      "git_blob_sha1": "d4eb0ef90b428cb8722f1692ffea224efb7d4702",
+      "imports": [
+        "Mathlib.Data.Fintype.Basic",
+        "Mathlib.Basic.Finite.Prod",
+        "Mathlib.Tactic.Ext",
+        "Mathlib.Data.Fintype.Pi"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Relational.Homomorphism",
+      "path": "PartiteConstruction/Relational/Homomorphism.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Relational/Homomorphism.lean",
+      "bytes": 9371,
+      "sha256": "73bc798f36e72853085989cc31138014658ec9b1b6c843e65d8f8649cba3bb8c",
+      "git_blob_sha1": "79ff5c9557e8071d5976e195eadb5673ad9e8fee",
+      "imports": [
+        "PartiteConstruction.Relational.Basic"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Relational.Order",
+      "path": "PartiteConstruction/Relational/Order.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Relational/Order.lean",
+      "bytes": 3712,
+      "sha256": "2cdaf3d208b9da13e6ca9e3e286e3caaf44d6d92efd8d2f4d6215ccabdaa123f",
+      "git_blob_sha1": "5261bf387017f3f4c2c0d05b572c8f85204a94ee",
+      "imports": [
+        "Mathlib.Data.Fin.VecNotation",
+        "Mathlib.Tactic.FinCases",
+        "PartiteConstruction.Ramsey.Basic",
+        "Mathlib.Data.Prod.Lex"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Structure.Attachment",
+      "path": "PartiteConstruction/Structure/Attachment.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Structure/Attachment.lean",
+      "bytes": 9886,
+      "sha256": "eff66b9342d5149e02632374998ba0b281d5470a60c64582bcc0a474db4bf782",
+      "git_blob_sha1": "3f47f6323296e77f0d4646495a262e41f0b4191a",
+      "imports": [
+        "PartiteConstruction.Structure.FreeAmalgam"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Structure.Basic",
+      "path": "PartiteConstruction/Structure/Basic.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Structure/Basic.lean",
+      "bytes": 6349,
+      "sha256": "a3f1c4a62c3fa3f8ad38538eb26ddcf2a37d453727543a6626b28627fc2f14cd",
+      "git_blob_sha1": "d7714c8f84d10cb84cdbbe8c5835c4e760751127",
+      "imports": [
+        "Mathlib.Data.Fintype.Basic",
+        "Mathlib.Basic.Finite.Prod",
+        "Mathlib.Tactic.Ext",
+        "Mathlib.Data.Fintype.Pi"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Structure.FreeAmalgam",
+      "path": "PartiteConstruction/Structure/FreeAmalgam.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Structure/FreeAmalgam.lean",
+      "bytes": 5273,
+      "sha256": "747d17e67ad0cda069f423325513a1eee3fb522705c3eb8eda061c6c71fe6e1a",
+      "git_blob_sha1": "37690235046f7b763d3fede4b1472336204e7d27",
+      "imports": [
+        "PartiteConstruction.Structure.Basic"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Structure.FreeAmalgamationClass",
+      "path": "PartiteConstruction/Structure/FreeAmalgamationClass.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Structure/FreeAmalgamationClass.lean",
+      "bytes": 14356,
+      "sha256": "62a7591f8d3021ab71413ba9ba13ac365cae3f7fadc562367856df60d54f1058",
+      "git_blob_sha1": "9cdf6d711da7a78c52db9eb0868c27ab17f6ee90",
+      "imports": [
+        "Mathlib.SetTheory.Cardinal.Finite",
+        "PartiteConstruction.Structure.FreeAmalgam",
+        "Mathlib.Data.Fintype.Card"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Structure.GeneratedWeakHomImage",
+      "path": "PartiteConstruction/Structure/GeneratedWeakHomImage.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Structure/GeneratedWeakHomImage.lean",
+      "bytes": 10073,
+      "sha256": "11f783854439d1b1f7ab9fdf28a6b3f65f84ccfc334fdd29bdc6f5c6a9010286",
+      "git_blob_sha1": "67ae696f66f84d316bf24ba151466a6848d1de3e",
+      "imports": [
+        "PartiteConstruction.Structure.WeakHomomorphism"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Structure.IrreducibleHomImage",
+      "path": "PartiteConstruction/Structure/IrreducibleHomImage.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Structure/IrreducibleHomImage.lean",
+      "bytes": 9531,
+      "sha256": "f53b8bf97134e2812c0d9c18ddddba9e9f9d12fa8119f354315f6e10a15b906b",
+      "git_blob_sha1": "1ea78facce8bca43df98a27216b94534a2c7e54c",
+      "imports": [
+        "PartiteConstruction.Structure.FreeAmalgamationClass"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Structure.NullaryRoot",
+      "path": "PartiteConstruction/Structure/NullaryRoot.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Structure/NullaryRoot.lean",
+      "bytes": 3905,
+      "sha256": "0e9b9c6a56f4617f6ed38cd540b91132b34dacd74fe334bae6395ce1f2e6e1ef",
+      "git_blob_sha1": "46e6682b1e666011eddd20c221f3f81fb083c32b",
+      "imports": [
+        "PartiteConstruction.Structure.GeneratedWeakHomImage"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Structure.Order",
+      "path": "PartiteConstruction/Structure/Order.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Structure/Order.lean",
+      "bytes": 5318,
+      "sha256": "debd79081bdb4d2f66f08cb09202aabb953e580e093fbf545c25c3b2016b1a65",
+      "git_blob_sha1": "638eea51bd16153fa62ef5cfb2be7b1d39d6c9ac",
+      "imports": [
+        "Mathlib.Data.Fin.VecNotation",
+        "Mathlib.Tactic.FinCases",
+        "PartiteConstruction.Functional.FunctionDomains",
+        "PartiteConstruction.Relational.Order"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Structure.Relationalize",
+      "path": "PartiteConstruction/Structure/Relationalize.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Structure/Relationalize.lean",
+      "bytes": 8130,
+      "sha256": "b6b872e4f59085173af6886e973978eca6661d3ea45b3d80bdde4f3a356cf860",
+      "git_blob_sha1": "1f5bc5acd5a171382e37d6a3051756c4c1a2beed",
+      "imports": [
+        "PartiteConstruction.Structure.Basic",
+        "PartiteConstruction.Relational.Homomorphism",
+        "Mathlib.Data.Fin.Tuple.Basic"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Structure.RootedCanonical",
+      "path": "PartiteConstruction/Structure/RootedCanonical.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Structure/RootedCanonical.lean",
+      "bytes": 3158,
+      "sha256": "185b91369e7b2982d33580de75d01998552d06d6df32bd95f6f5a89910078d9d",
+      "git_blob_sha1": "133f190db15e75f9af6b349dfe4068bfa453d62a",
+      "imports": [
+        "PartiteConstruction.Structure.RootedEmbedding",
+        "PartiteConstruction.Ramsey.FreeAmalgamationFunctions",
+        "Mathlib.Order.Hom.Set"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Structure.RootedClass",
+      "path": "PartiteConstruction/Structure/RootedClass.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Structure/RootedClass.lean",
+      "bytes": 2153,
+      "sha256": "75bb89145c2ebef520b1934f260281ee4b8d061dba62243a7b025e4d30469224",
+      "git_blob_sha1": "4c84647968dcfb7a778fcf7177cf914f855b85a9",
+      "imports": [
+        "PartiteConstruction.Structure.RootedFreeAmalgam",
+        "PartiteConstruction.Functional.WeakOperations"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Structure.RootedCorrectness",
+      "path": "PartiteConstruction/Structure/RootedCorrectness.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Structure/RootedCorrectness.lean",
+      "bytes": 6917,
+      "sha256": "b6bd8d5686492fc714604721d8f229d801d170898f1a16b6c8c91f7d9385e4a8",
+      "git_blob_sha1": "517c039b14f81d9458817ecaf9310640bae4f722",
+      "imports": [
+        "PartiteConstruction.Structure.RootedSplit"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Structure.RootedEmbedding",
+      "path": "PartiteConstruction/Structure/RootedEmbedding.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Structure/RootedEmbedding.lean",
+      "bytes": 9344,
+      "sha256": "fa235d7a0fd9706362f9102fa3b7560d8d83d88d5914212fa25a20a896c73392",
+      "git_blob_sha1": "60ee427a20eb4b40da9d534e67fed382d40f9f9a",
+      "imports": [
+        "PartiteConstruction.Structure.RootedClass",
+        "PartiteConstruction.Ramsey.FreeAmalgamationFunctions"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Structure.RootedFreeAmalgam",
+      "path": "PartiteConstruction/Structure/RootedFreeAmalgam.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Structure/RootedFreeAmalgam.lean",
+      "bytes": 16602,
+      "sha256": "31a63f1050aa7740b8de32a43898785fff120ab569efc7cf0411e28b6cfe8493",
+      "git_blob_sha1": "82d36bad89cac3bb62a11c9e168a6c943cfa7291",
+      "imports": [
+        "PartiteConstruction.Structure.RootedCorrectness"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Structure.RootedFunctor",
+      "path": "PartiteConstruction/Structure/RootedFunctor.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Structure/RootedFunctor.lean",
+      "bytes": 6500,
+      "sha256": "a10fd920040cd76bfc9655834a28c48ef6cef33b0d67f046c142fb52a45872dd",
+      "git_blob_sha1": "949157a172a1da497009393e198e2cae7b287d0d",
+      "imports": [
+        "PartiteConstruction.Structure.RootedReduction"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Structure.RootedOrder",
+      "path": "PartiteConstruction/Structure/RootedOrder.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Structure/RootedOrder.lean",
+      "bytes": 14742,
+      "sha256": "afa5cb4b0a31dd2ec6879544f1d712c7a9e10de2c887c4a4bde6b8fd78ebeca6",
+      "git_blob_sha1": "2c6e88d93befd73a8a1e25626da71a9b4db138ea",
+      "imports": [
+        "Mathlib.Data.Fin.VecNotation",
+        "Mathlib.Tactic.FinCases",
+        "PartiteConstruction.Structure.RootedEmbedding",
+        "PartiteConstruction.Ramsey.FreeAmalgamationFunctions",
+        "Mathlib.Data.Fintype.Card",
+        "Mathlib.Data.Set.Finite.Basic",
+        "Mathlib.Data.Prod.Lex"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Structure.RootedReduction",
+      "path": "PartiteConstruction/Structure/RootedReduction.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Structure/RootedReduction.lean",
+      "bytes": 20806,
+      "sha256": "0e31e535c593c0cbd44a68916d00b3a6e5f4d1944023eb92abe32d8e2f390d3f",
+      "git_blob_sha1": "e0534e148152d8b7a1ce0bec51ded891e2187b51",
+      "imports": [
+        "PartiteConstruction.Structure.NullaryRoot",
+        "PartiteConstruction.Structure.Order",
+        "Mathlib.Data.Prod.Lex"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Structure.RootedSplit",
+      "path": "PartiteConstruction/Structure/RootedSplit.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Structure/RootedSplit.lean",
+      "bytes": 4798,
+      "sha256": "002968be32ddef2b59ad7f299ece3a979440b1d8e582df0ff84ff18cf9916710",
+      "git_blob_sha1": "c5c15025d5aa54d9888af0ccdb8086f3403e044e",
+      "imports": [
+        "PartiteConstruction.Structure.RootedFunctor"
+      ]
+    },
+    {
+      "module": "PartiteConstruction.Structure.WeakHomomorphism",
+      "path": "PartiteConstruction/Structure/WeakHomomorphism.lean",
+      "upstream_path": "vendor/ramsey/PartiteConstruction/Structure/WeakHomomorphism.lean",
+      "bytes": 4270,
+      "sha256": "6371fdeef3d577bd29f4d0ada9fae69b452592658fc9e2141ce4585cb983b6c7",
+      "git_blob_sha1": "125be64539589e585cd462e5e77a5d24a21eb9c9",
+      "imports": [
+        "PartiteConstruction.Structure.IrreducibleHomImage"
+      ]
+    },
+    {
+      "module": "SuccessorTree.HalesJewett.AlphabetEquiv",
+      "path": "SuccessorTree/HalesJewett/AlphabetEquiv.lean",
+      "upstream_path": "vendor/ramsey/SuccessorTree/HalesJewett/AlphabetEquiv.lean",
+      "bytes": 2663,
+      "sha256": "de00095d0ef23fee5a41d0f95be1e48fa2c1ba2ac5aa08f8d72126e780109e08",
+      "git_blob_sha1": "26c434d147212896c9b41d35124cfa1642fdabe3",
+      "imports": [
+        "SuccessorTree.Support",
+        "Mathlib.Data.Fintype.Option"
+      ]
+    },
+    {
+      "module": "SuccessorTree.HalesJewett.AlphabetInduction",
+      "path": "SuccessorTree/HalesJewett/AlphabetInduction.lean",
+      "upstream_path": "vendor/ramsey/SuccessorTree/HalesJewett/AlphabetInduction.lean",
+      "bytes": 16526,
+      "sha256": "ee0d8805f04eaa38746bb826b27df591801cf5268420a10ea043552056bfa684",
+      "git_blob_sha1": "17b968ab28dddeebaabb2937dbc915cd9e832273",
+      "imports": [
+        "SuccessorTree.HalesJewett.AlphabetLift",
+        "SuccessorTree.HalesJewett.AlphabetEquiv",
+        "SuccessorTree.HalesJewett.LineSchedule",
+        "SuccessorTree.HalesJewett.ForcingProposition",
+        "SuccessorTree.HalesJewett.ForcingLemmaTwo",
+        "Mathlib.Data.Fintype.Option",
+        "Mathlib.Data.Fintype.Pigeonhole",
+        "Mathlib.Data.Fintype.EquivFin"
+      ]
+    },
+    {
+      "module": "SuccessorTree.HalesJewett.AlphabetLift",
+      "path": "SuccessorTree/HalesJewett/AlphabetLift.lean",
+      "upstream_path": "vendor/ramsey/SuccessorTree/HalesJewett/AlphabetLift.lean",
+      "bytes": 6353,
+      "sha256": "150461c4deda87e95ded875d3f76e423e93cd891cad391fcd8efd96485dd1d8d",
+      "git_blob_sha1": "f8155b0e4c2dfccdfe369ed09575dafab341debc",
+      "imports": [
+        "SuccessorTree.HalesJewett.Composition"
+      ]
+    },
+    {
+      "module": "SuccessorTree.HalesJewett.Composition",
+      "path": "SuccessorTree/HalesJewett/Composition.lean",
+      "upstream_path": "vendor/ramsey/SuccessorTree/HalesJewett/Composition.lean",
+      "bytes": 8590,
+      "sha256": "f9484a3104b3d64cb4662f00285d1f1682b3b6b5bd3c01326df50ccf118f0e85",
+      "git_blob_sha1": "1cabc6ac074d09c8624708e25e6bfc6d522f42d1",
+      "imports": [
+        "SuccessorTree.HalesJewett.VariableWord",
+        "SuccessorTree.HalesJewett.Forcing"
+      ]
+    },
+    {
+      "module": "SuccessorTree.HalesJewett.FiniteVariableWord",
+      "path": "SuccessorTree/HalesJewett/FiniteVariableWord.lean",
+      "upstream_path": "vendor/ramsey/SuccessorTree/HalesJewett/FiniteVariableWord.lean",
+      "bytes": 15816,
+      "sha256": "3a429579129445530237a26cb5f964a0ea2ec87fbabd2c048ed9b59d5561bc62",
+      "git_blob_sha1": "24e544ff2e07fc164466f76710dae33e4ceb5dde",
+      "imports": [
+        "SuccessorTree.HalesJewett.VariableWord"
+      ]
+    },
+    {
+      "module": "SuccessorTree.HalesJewett.Forcing",
+      "path": "SuccessorTree/HalesJewett/Forcing.lean",
+      "upstream_path": "vendor/ramsey/SuccessorTree/HalesJewett/Forcing.lean",
+      "bytes": 6881,
+      "sha256": "80d63595aa13e36743c96521738a33a6bd393d9d6dc9f3905c012b948751427e",
+      "git_blob_sha1": "347eccfd00b8ac5cd46ebabe0e01f72c33b80872",
+      "imports": [
+        "Mathlib.Data.Set.Basic",
+        "Mathlib.Data.Fintype.Basic"
+      ]
+    },
+    {
+      "module": "SuccessorTree.HalesJewett.ForcingFusion",
+      "path": "SuccessorTree/HalesJewett/ForcingFusion.lean",
+      "upstream_path": "vendor/ramsey/SuccessorTree/HalesJewett/ForcingFusion.lean",
+      "bytes": 6122,
+      "sha256": "fabca2f29e9801448a417501841f69012b9433a452b5a70dabf44e281b378bb1",
+      "git_blob_sha1": "3458289483f96d4793145fb50727c27a5052eaea",
+      "imports": [
+        "SuccessorTree.HalesJewett.ForcingLemmaTwo"
+      ]
+    },
+    {
+      "module": "SuccessorTree.HalesJewett.ForcingFusionLimit",
+      "path": "SuccessorTree/HalesJewett/ForcingFusionLimit.lean",
+      "upstream_path": "vendor/ramsey/SuccessorTree/HalesJewett/ForcingFusionLimit.lean",
+      "bytes": 8909,
+      "sha256": "4311e29200cfe38042e970670aebc8e3e9653c39410ec0ac9a10462fd1562537",
+      "git_blob_sha1": "4bb8d013861837c78751c7dcfe88b521393e4e06",
+      "imports": [
+        "SuccessorTree.HalesJewett.ForcingFusion",
+        "SuccessorTree.HalesJewett.ForcingMaximal"
+      ]
+    },
+    {
+      "module": "SuccessorTree.HalesJewett.ForcingLemmaOne",
+      "path": "SuccessorTree/HalesJewett/ForcingLemmaOne.lean",
+      "upstream_path": "vendor/ramsey/SuccessorTree/HalesJewett/ForcingLemmaOne.lean",
+      "bytes": 5269,
+      "sha256": "225539eaf44eafc4fc31790577bc3144eebd25f015aa5b41c23a03fe7fdc31d1",
+      "git_blob_sha1": "f2480ee4e18abab60096efe2c5a75a48bda11df0",
+      "imports": [
+        "SuccessorTree.HalesJewett.FiniteVariableWord",
+        "SuccessorTree.Support",
+        "Mathlib.Data.Fintype.Pi",
+        "Mathlib.Data.List.OfFn"
+      ]
+    },
+    {
+      "module": "SuccessorTree.HalesJewett.ForcingLemmaTwo",
+      "path": "SuccessorTree/HalesJewett/ForcingLemmaTwo.lean",
+      "upstream_path": "vendor/ramsey/SuccessorTree/HalesJewett/ForcingLemmaTwo.lean",
+      "bytes": 6978,
+      "sha256": "fcb1f771fbeb53dd3e5e1b175612b0deb70837cc358313fe34eb6f4b4350dfe7",
+      "git_blob_sha1": "de325dcda8d0445c02c0f992ae5a8b702fe6e2e7",
+      "imports": [
+        "SuccessorTree.HalesJewett.Composition",
+        "SuccessorTree.HalesJewett.ForcingReduction"
+      ]
+    },
+    {
+      "module": "SuccessorTree.HalesJewett.ForcingMaximal",
+      "path": "SuccessorTree/HalesJewett/ForcingMaximal.lean",
+      "upstream_path": "vendor/ramsey/SuccessorTree/HalesJewett/ForcingMaximal.lean",
+      "bytes": 7001,
+      "sha256": "729997dbfc079886d67b550d50ed724cfd90a10b61298a58379aa4e1c153b6e0",
+      "git_blob_sha1": "b910eacc8d611225ef369a15f9e4732ab21ab8c8",
+      "imports": [
+        "SuccessorTree.HalesJewett.GreedyLimit",
+        "SuccessorTree.HalesJewett.ForcingLemmaOne",
+        "SuccessorTree.HalesJewett.ForcingReduction"
+      ]
+    },
+    {
+      "module": "SuccessorTree.HalesJewett.ForcingProposition",
+      "path": "SuccessorTree/HalesJewett/ForcingProposition.lean",
+      "upstream_path": "vendor/ramsey/SuccessorTree/HalesJewett/ForcingProposition.lean",
+      "bytes": 11848,
+      "sha256": "65d2bc9e1a9b92b3a7b4f7b0e0b6798d5150573b8beb86035b8c61ce89677e73",
+      "git_blob_sha1": "a0c9ae709feea2a64385538e472fb26302abcb37",
+      "imports": [
+        "SuccessorTree.HalesJewett.ForcingFusionLimit"
+      ]
+    },
+    {
+      "module": "SuccessorTree.HalesJewett.ForcingReduction",
+      "path": "SuccessorTree/HalesJewett/ForcingReduction.lean",
+      "upstream_path": "vendor/ramsey/SuccessorTree/HalesJewett/ForcingReduction.lean",
+      "bytes": 3493,
+      "sha256": "665340a542434d14a4450b29013a297000e512bf0a2eb3e24e231cd6a3608866",
+      "git_blob_sha1": "88a7e49f2cdaecc02755c4cf98abbf1c8de14dac",
+      "imports": [
+        "SuccessorTree.HalesJewett.Composition",
+        "SuccessorTree.Support"
+      ]
+    },
+    {
+      "module": "SuccessorTree.HalesJewett.GreedyLimit",
+      "path": "SuccessorTree/HalesJewett/GreedyLimit.lean",
+      "upstream_path": "vendor/ramsey/SuccessorTree/HalesJewett/GreedyLimit.lean",
+      "bytes": 7127,
+      "sha256": "dc8fadfa076280f6c9ac9ffd31bfdb70473ba80ceebd24d3d0b33bcf41d0ebc7",
+      "git_blob_sha1": "fefb3a4fb9f632d87b57acd588ede9210429ba10",
+      "imports": [
+        "SuccessorTree.HalesJewett.Composition",
+        "SuccessorTree.HalesJewett.FiniteVariableWord"
+      ]
+    },
+    {
+      "module": "SuccessorTree.HalesJewett.LineSchedule",
+      "path": "SuccessorTree/HalesJewett/LineSchedule.lean",
+      "upstream_path": "vendor/ramsey/SuccessorTree/HalesJewett/LineSchedule.lean",
+      "bytes": 11147,
+      "sha256": "91246d45e16039741434e650f61fd0ce6f33f25c53505c4d59bb9152910cac4d",
+      "git_blob_sha1": "6aae7021ebd5d29f61987a91a3e5d1b36a98a7b1",
+      "imports": [
+        "SuccessorTree.HalesJewett.ForcingFusion",
+        "Mathlib.Data.Fintype.Pi",
+        "Mathlib.Data.Fintype.Option",
+        "Mathlib.Data.List.OfFn",
+        "Mathlib.Data.List.GetD",
+        "Mathlib.Data.Nat.Find"
+      ]
+    },
+    {
+      "module": "SuccessorTree.HalesJewett.VariableWord",
+      "path": "SuccessorTree/HalesJewett/VariableWord.lean",
+      "upstream_path": "vendor/ramsey/SuccessorTree/HalesJewett/VariableWord.lean",
+      "bytes": 7824,
+      "sha256": "298e3d0bcb91616bd18856d772c9fb59d32fbfbdf1bcb69f09aacfc725fe3ea6",
+      "git_blob_sha1": "b8f4e520b4b14587092162be6a076a1d7a42664c",
+      "imports": [
+        "SuccessorTree.StarLine"
+      ]
+    },
+    {
+      "module": "SuccessorTree.StarLine",
+      "path": "SuccessorTree/StarLine.lean",
+      "upstream_path": "vendor/ramsey/SuccessorTree/StarLine.lean",
+      "bytes": 7028,
+      "sha256": "3b592e08af801c4d2ca99260819e00559eefd8cae84c54923279cc6d504dd94e",
+      "git_blob_sha1": "87e355f9a053c6fc73905194b1e8a211f737c84b",
+      "imports": [
+        "Mathlib.Data.Fintype.Basic",
+        "Mathlib.Data.List.Basic"
+      ]
+    },
+    {
+      "module": "SuccessorTree.Support",
+      "path": "SuccessorTree/Support.lean",
+      "upstream_path": "vendor/ramsey/SuccessorTree/Support.lean",
+      "bytes": 3060,
+      "sha256": "d8c60514d5fb675a6d585ad539180d62127af4fb0d4e3b1ad9f6bcf7f8b9abdc",
+      "git_blob_sha1": "6350fc7dd6caa55cd93a40589ade9576e04dcb35",
+      "imports": [
+        "SuccessorTree.StarLine",
+        "Mathlib.Data.Finset.Dedup"
+      ]
+    }
+  ],
+  "provenance_files": [
+    {
+      "path": "provenance/UPSTREAM.json",
+      "upstream_path": "vendor/ramsey/UPSTREAM.json",
+      "bytes": 91003,
+      "sha256": "1d658977870ed29704718778f980b1def5da44bac3d03382e90837dacb228076",
+      "git_blob_sha1": "759ffd4ea0fe378def390387b0cd14aee64e3318"
+    },
+    {
+      "path": "provenance/COMPATIBILITY.md",
+      "upstream_path": "vendor/ramsey/COMPATIBILITY.md",
+      "bytes": 1877,
+      "sha256": "93452d09d8d1e47321fe2eb583248e7619a36820321cb6050ccc14995b942fe6",
+      "git_blob_sha1": "6691a81f40995a73de6750ec07c48ff4d268b8a3"
+    },
+    {
+      "path": "provenance/COMPATIBILITY.patch",
+      "upstream_path": "vendor/ramsey/COMPATIBILITY.patch",
+      "bytes": 8549,
+      "sha256": "3c61516a30ae7a726c0c89440056650298ea65ddff35c62c23fe74f669ec0a08",
+      "git_blob_sha1": "9063360e5189beefdc996279d29890c26d41bbd2"
+    },
+    {
+      "path": "LICENSE.SuccessorTree",
+      "upstream_path": "vendor/ramsey/LICENSE.SuccessorTree",
+      "bytes": 7048,
+      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+      "git_blob_sha1": "0e259d42c996742e9e3cba14c677129b2c1b6311"
+    }
+  ]
+}
