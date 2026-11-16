@@ -1,0 +1,73 @@
+name: Publish synchronized hypertournament PDFs
+on:
+  push:
+    paths:
+      - '.github/workflows/publish-pdf-snapshots-once.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      TRANSFER_URL: 'https://sdmntprnortheu.oaiusercontent.com/files/00000000-8890-81f4-95d6-019d9458f436/raw?se=2026-11-16T09%3A51%3A10Z&sp=r&sv=2026-06-06&sr=b&scid=5a2a269c-be4a-5548-a9f5-d42fcbff2ceb&skoid=a4604a88-85e4-4562-b6ab-a5622268de80&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-11-16T08%3A52%3A37Z&ske=2026-11-17T08%3A52%3A37Z&sks=b&skv=2026-06-06&sig=aCsCUk2lDPurj1O/3vEgJjbdBU0lgzprdmTlWlK0EcM%3D'
+      TEX_SOURCE_REVISION: 'e8654cea1e6bc91ca2b3c36db2cfa054e4be4133'
+      LEAN_SOURCE_REF: '97ece7669d91ffeff83227cc2d2b8cd64f141bfd'
+      EXPECTED_MAIN: '1cfc38af6787881e12830a4b18e4438c1fd747057e284e8de113bbad5a0eb1ab'
+      EXPECTED_POTENTIALS: 'e13b681e8a8bde86b34ae5fa13f27adef86ebd4ed460fc5156562c2d920158e2'
+      EXPECTED_CLASSIFICATION: '23584930d4dad03262dcf336cfb82339493d4faac0b2b886ea32a37cdd2b5ade'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download verified PDF build and match exact hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --silent --show-error --retry 4 "$TRANSFER_URL" -o /tmp/hyper-publication.zip
+          for stem in on_homogeneous_hypertournaments generalised_potential_structures_proof hypertournaments_classification_supplement; do
+            unzip -p /tmp/hyper-publication.zip "$stem.pdf" > "papers/$stem.pdf"
+            test -s "papers/$stem.pdf"
+          done
+          printf '%s  %s\n' "$EXPECTED_MAIN" papers/on_homogeneous_hypertournaments.pdf "$EXPECTED_POTENTIALS" papers/generalised_potential_structures_proof.pdf "$EXPECTED_CLASSIFICATION" papers/hypertournaments_classification_supplement.pdf | sha256sum --check -
+          echo "Downloaded three PDF snapshots; SHA-256 matched their audited private-repository build."
+      - name: Synchronize manuscript revision, PDF digests and theorem maps
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          import hashlib
+          import os
+          from pathlib import Path
+          revision = os.environ["TEX_SOURCE_REVISION"]
+          lean_ref = os.environ["LEAN_SOURCE_REF"]
+          catalogue_path = Path("docs/catalogue/papers.json")
+          labels_path = Path("docs/catalogue/source-labels.json")
+          catalogue = json.loads(catalogue_path.read_text())
+          labels = json.loads(labels_path.read_text())
+          assert catalogue["source_ref"] == lean_ref, "Unexpected Lean source pin"
+          assert catalogue["source_revision"] != revision, "PDF provenance already claims this revision"
+          ids = {"main", "potentials", "classification"}
+          assert {p["id"] for p in catalogue["papers"]} == ids
+          catalogue["source_revision"] = revision
+          labels["source_revision"] = revision
+          for paper in catalogue["papers"]:
+              path = Path(paper["pdf"])
+              paper["pdf_sha256"] = hashlib.sha256(path.read_bytes()).hexdigest()
+          catalogue_path.write_text(json.dumps(catalogue, indent=2, ensure_ascii=False) + "\n")
+          labels_path.write_text(json.dumps(labels, indent=2, ensure_ascii=False) + "\n")
+          PY
+          python3 tools/wiki_docs.py render
+          python3 tools/wiki_docs.py check
+          git diff --check
+      - name: Commit all three PDFs and regenerated documentation atomically
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add papers docs
+          git diff --cached --quiet && { echo 'Nothing to update'; exit 1; }
+          git diff --cached --check
+          git commit -m "Refresh all three PDFs and align catalogue to arXiv submission sources"
+          git push origin HEAD:main
